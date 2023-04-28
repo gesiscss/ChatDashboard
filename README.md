@@ -1,4 +1,5 @@
 # ChatDashboard
+[![DOI](https://zenodo.org/badge/633864911.svg)](https://zenodo.org/badge/latestdoi/633864911)
 
 ## Overview
 ChatDashboard is an R-shiny webapp allowing researchers to collect donated WhatsApp chat logs form consenting research participants. The webapp can be self-hosted and uses the `WhatsR` package to allow participants to securely upload their exported chat logs, parse them
