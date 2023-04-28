@@ -12,23 +12,17 @@ You can find a hosted instance of ChatDashboard [here](https://shiny.molekulare-
 If you are using this webapp for your research, please cite it accordingly.
 
 ```R
-citation("WhatsR")
-```
- 
-```
-To cite package ‘WhatsR’ in publications use:
- 
-   Kohne J (2023). _WhatsR: An R-package for parsing, anonymizing and visualizing exported WhatsApp chat logs_. R package version 1.0.
- 
- A BibTeX entry for LaTeX users is
- 
-   @Manual{,
-     title = {WhatsR: An R-package for parsing, anonymizing and visualizing exported WhatsApp chat logs},
-     author = {Julian Kohne},
-     year = {2023},
-     note = {R package version 1.0},
-   }
-
+@software{julian_kohne_2023_7875860,
+  author       = {Julian Kohne},
+  title        = {{ChatDashboard: An R-shiny webapp for transparent 
+                   WhatsApp chat log donations}},
+  month        = apr,
+  year         = 2023,
+  publisher    = {Zenodo},
+  version      = {v1.0.0},
+  doi          = {10.5281/zenodo.7875860},
+  url          = {https://doi.org/10.5281/zenodo.7875860}
+}
 ```
 
 ## Setup
