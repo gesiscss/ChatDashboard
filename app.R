@@ -117,7 +117,7 @@ Colnames_exclude_pii <- c("Sender",
 
 # Switch for running local (FALSE) vs online (TRUE)
 running_online = FALSE
-if (running_online == TRUE) {.libPaths("/home/jkohne/sFTP/R/x86_64-pc-linux-gnu-library/4.3")}
+if (running_online == TRUE) {.libPaths("YOUR-LIB-PATH-HERE")}
 # TODO: Add library path of server here if running online
 
 # loading credentials from external file
