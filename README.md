@@ -205,7 +205,7 @@ of the web app as a valid username and the password set in `line 880` of `app.R`
 `www.example-website.com/ChatDashboard/`, you can now enter the website by putting `www.example-website.com/ChatDashboard/?id=TestParticipant` into your address bar, and `TestParticipant` will be a valid user name to log in, in combination with the password set in `app.R`. This way, you can automatically generate personalized links for participants in surveys and link anonymous survey responses to anonymous data donations. Donated datasets will contain the anonymous ID in the file name.
 
 ### 6) Testing ChatDashboard (online)
-If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](ADD LINK TO REPO HERE) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
+If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://github.com/gesiscss/DashboardTester) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
 
 **IMPORTANT:** Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants.
 
