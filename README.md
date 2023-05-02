@@ -6,7 +6,7 @@ ChatDashboard is an R-shiny webapp allowing researchers to collect donated Whats
 into an R-dataframe while extracting features of interest, select for themselves which parts of the data they want to donate, and gives them access to a dashboard with interactive visualizations after donating data. Participants can only donate anonymous or anonimized information and the webapp can be configured to automatically filter out chat participants that have not posted a consent message into the chat. All data is encrypted before being stored persistently on the server.
 
 ## Example
-You can find a hosted instance of ChatDashboard [here](https://shiny.molekulare-psychologie.de/jkohne/ChatDashboardShowcase/?id=ShowcaseUser). You can log in with the string coming after the `?id=` part in the url as a username and `password` as a password. You can either inspect your own chat logs that you exported yourself, or use one generated with `WhatsR::create_chatlog()`. This instance is configured so that no data is persistently stored on the server.
+You can find a hosted instance of ChatDashboard [here](https://l.linklyhq.com/l/1kUiI/?id=ShowCasePpt). You can log in by adding the string coming after the `/?id=` part in the url as a username and `password` as a password. You can either inspect your own chat logs that you exported yourself, or use one generated with `WhatsR::create_chatlog()`. This instance is configured so that **no data is persistently stored** on the server.
 
 ## Scientific Use
 If you are using this webapp for your research, please cite it accordingly.
@@ -83,7 +83,7 @@ system, if not, you will have to tweak some settings (see below).
 
 ### 3) Creating keys for encryption (local)
 ChatDashboard us using the `cyphr` package for encrypting donated data before it is persistently stored on the server. To do this, you need to create your own two sets of keys for encrypting and decrypting data. One set of keys will be stored in the server, while you should keep the other somewhere secure. Because we're using asynchronous encryption, the keyp air stored on the server
-cannot be used for decryption. This adds some security but also means that you will *not be able to access your collected data ever again* if you delete / lose your local key pair. In the below example UNIx file paths are used. If you are using Windows, you need to adapt the file paths.
+cannot be used for decryption. This adds some security but also means that you will *not be able to access your collected data ever again* if you delete / lose your local key pair. In the below example UNIX file paths are used. If you are using Windows, you need to adapt the file paths.
  
 ```
 # loading library
@@ -205,7 +205,7 @@ of the web app as a valid username and the password set in `line 880` of `app.R`
 `www.example-website.com/ChatDashboard/`, you can now enter the website by putting `www.example-website.com/ChatDashboard/?id=TestParticipant` into your address bar, and `TestParticipant` will be a valid user name to log in, in combination with the password set in `app.R`. This way, you can automatically generate personalized links for participants in surveys and link anonymous survey responses to anonymous data donations. Donated datasets will contain the anonymous ID in the file name.
 
 ### 6) Testing ChatDashboard (online)
-If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://github.com/gesiscss/DashboardTester) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
+If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://anonymous.4open.science/r/DashboardTester-Anonimized/README.md) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
 
 **IMPORTANT:** Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants.
 
