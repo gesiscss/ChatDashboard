@@ -71,20 +71,20 @@ save_to_server <- TRUE
 options(shiny.maxRequestSize = 50*1024^2)
 
 # Set column names to be displayed to participants. This needs to be exactly 19 strings
-# and does not determine whether these variables are displayed or not, but just how the are named
+# and does not determine whether these variables are displayed or not, but just how they are named
 # in the display to participants
 Colnames_ppt_display <- c("Timestamp",
                           "Sender",
-                          "Sender_anonimized",
+                          "Sender_anonymized",
                           "Message",
                           "Message_simplified",
                           "Message_words",
                           "Links",
-                          "Links_anonimized",
+                          "Links_anonymized",
                           "Media",
-                          "Media_anonimized",
+                          "Media_anonymized",
                           "Locations",
-                          "Locations_anonimized",
+                          "Locations_anonymized",
                           "Emoji",
                           "Emoji_description",
                           "Smilies",
@@ -906,7 +906,7 @@ server <- function(input, output, session) {
 
     # parsing upload
     rv$data <- parse_chat(path = input$file$datapath,
-                          anonimize = "add",
+                          anonymize = "add",
                           consent = consent_message)
 
     # saving old column names

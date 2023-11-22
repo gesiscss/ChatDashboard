@@ -2,10 +2,10 @@
 
 ## Overview
 ChatDashboard is an R-shiny webapp allowing researchers to collect donated WhatsApp chat logs form consenting research participants. The webapp can be self-hosted and uses the `WhatsR` package to allow participants to securely upload their exported chat logs, parse them
-into an R-dataframe while extracting features of interest, select for themselves which parts of the data they want to donate, and gives them access to a dashboard with interactive visualizations after donating data. Participants can only donate anonymous or anonimized information and the webapp can be configured to automatically filter out chat participants that have not posted a consent message into the chat. All data is encrypted before being stored persistently on the server.
+into an R-dataframe while extracting features of interest, select for themselves which parts of the data they want to donate, and gives them access to a dashboard with interactive visualizations after donating data. Participants can only donate anonymous or anonymized information and the webapp can be configured to automatically filter out chat participants that have not posted a consent message into the chat. All data is encrypted before being stored persistently on the server.
 
 ## Example
-You can find a hosted instance of ChatDashboard [here](https://l.linklyhq.com/l/1kUiI/?id=ShowCasePpt). You can log in by adding the string coming after the `/?id=` part in the url as a username and `password` as a password. You can either inspect your own chat logs that you exported yourself, or use one generated with `WhatsR::create_chatlog()`. This instance is configured so that **no data is persistently stored** on the server.
+You can find a hosted instance of ChatDashboard [here](https://shiny.molekulare-psychologie.de/jkohne/ChatDashboardShowcase/?id=ShowCaseUser). You can log in by adding the string coming after the `/?id=` part in the url as a username and `password` as a password. You can either inspect your own chat logs that you exported yourself, or use one generated with `WhatsR::create_chatlog()`. This instance is configured so that **no data is persistently stored** on the server.
 
 ## Scientific Use
 If you are using this webapp for your research, please cite it accordingly.
@@ -37,11 +37,14 @@ To setup ChatDashboard on your own server, you can follow the following steps:
  
 ### 1) Installing necessary libraries (local)
 First of all, you should install the `WhatsR` package, all necessary dependencies, and all required packages for the ChatDashboard webapp
-on your local machine. Depending on what is already installed, you might get warning messages that some libraries are not available. Should that be the case, you need to install those via the command line (not RStudio).
+on your local machine. Depending on what is already installed, you might get warning messages that some system libraries are not available. Should that be the case, you need to install those via the command line (not RStudio).
 
  
 ```
-# Installing WhatsR package
+# Installing from CRAN
+install.packages("WhatsR")
+
+# Installing WhatsR package from GitHub
 library(devtools)
 devtools::install_github("gesiscss/WhatsR")
 
@@ -81,8 +84,8 @@ system, if not, you will have to tweak some settings (see below).
 
 
 ### 3) Creating keys for encryption (local)
-ChatDashboard us using the `cyphr` package for encrypting donated data before it is persistently stored on the server. To do this, you need to create your own two sets of keys for encrypting and decrypting data. One set of keys will be stored in the server, while you should keep the other somewhere secure. Because we're using asynchronous encryption, the keyp air stored on the server
-cannot be used for decryption. This adds some security but also means that you will *not be able to access your collected data ever again* if you delete / lose your local key pair. In the below example UNIX file paths are used. If you are using Windows, you need to adapt the file paths.
+ChatDashboard us using the `cyphr` package for encrypting donated data before it is persistently stored on the server. To do this, you need to create your own two sets of keys for encrypting and decrypting data. One set of keys will be stored on the server while you should keep the other somewhere secure. Because we're using asynchronous encryption, the keypair stored on the server
+cannot be used for decryption. This adds some security but also means that you will *not be able to access your collected data ever again* if you delete or lose your local key pair. In the below example UNIX file paths are used. If you are using Windows, you need to adapt the file paths.
  
 ```
 # loading library
@@ -130,10 +133,10 @@ If everything went smoothly, you can now copy the contents of the `Server_Keypai
 You can now open the `app.R` script in the ChatDashboard directory and see the code for the webapp. At the beginning of the file, there are several variables that you can define for yourself to customize the webapp according to your needs. For a first test run, we suggest to keep the default settings for now. You can simply click on `run app` on the top right of your Rstudio code panel to execute the webapp locally. This will open a browser window where you can log into the webapp using the preset combination of username and password found in `credentials.rds` ('TestUser', 'password'). The webapp then walks you through the data donation process from the perspective of a participant. You can either test the correct functioning of the webapp using a private chat log that you exported yourself or by creating an artificial one using `WhatsR::create_chatlog()`. You should be able to upload a chat, manually select what you want to donate, and see interactive visualizations. After closing the webapp, there should be an encrypted R dataframe object in the `UserData` folder, which can be decrypted with the key pair from the `Researcher_Keypair` folder we created in step 3.
 
 ### 5) Deploying to Server (online)
-If everything is running smoothly and without issues offline, you can deploy the webapp to the server. To do so, you need to install the necessary libraries and packages on the server as well (see step 1). Then, you can adapt the settings in `app.R` according to your needs by simply editing the script and saving it. After that, the app can be uploaded to the server. Some setting that you might want to adapt are:
+If everything is running smoothly and without issues offline, you can deploy the webapp to the server. To do so, you need to install the necessary libraries and packages on the server as well (see step 1). Then, you can adapt the settings in `app.R` according to your needs by simply editing the script and saving it. After that, the app can be uploaded to the server. Some settings that you need or might want to adapt are:
 
 ```
-# These needs to be set to TRUE for running online and you need to indicate the correct library path from your server (where all the 
+# This needs to be set to TRUE for running online and you need to indicate the correct library path from your server (where all the 
 # dependencies are installed).
 running_online = FALSE
 if (running_online == TRUE) {.libPaths("SERVER_LIBRARY_PATH")}
@@ -153,7 +156,7 @@ use_forwarding <- FALSE
 save_to_server <- TRUE
 
 # Consent message passed down to WhatsR::parse_chat(). If this is a character string, the
-# parser will automatically remove all messages from users who did *not* post this exact message into the chat
+# parser will automatically remove all messages from users who did *not* post this **exact** message into the chat
 # Always double-check this to not end up with empty chat logs in your donations.
 consent_message <- NA
 
@@ -161,16 +164,16 @@ consent_message <- NA
 # if necessary
 Colnames_ppt_display <- c("Timestamp",
                           "Sender",
-                          "Sender_anonimized",
+                          "Sender_anonymized",
                           "Message",
                           "Message_simplified",
                           "Message_words",
                           "Links",
-                          "Links_anonimized",
+                          "Links_anonymized",
                           "Media",
-                          "Media_anonimized",
+                          "Media_anonymized",
                           "Locations",
-                          "Locations_anonimized",
+                          "Locations_anonymized",
                           "Emoji",
                           "Emoji_description",
                           "Smilies",
@@ -204,9 +207,9 @@ of the web app as a valid username and the password set in `line 880` of `app.R`
 `www.example-website.com/ChatDashboard/`, you can now enter the website by putting `www.example-website.com/ChatDashboard/?id=TestParticipant` into your address bar, and `TestParticipant` will be a valid user name to log in, in combination with the password set in `app.R`. This way, you can automatically generate personalized links for participants in surveys and link anonymous survey responses to anonymous data donations. Donated datasets will contain the anonymous ID in the file name.
 
 ### 6) Testing ChatDashboard (online)
-If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://anonymous.4open.science/r/DashboardTester-Anonimized/README.md) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
+If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://github.com/gesiscss/DashboardTester/) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
 
-**IMPORTANT:** Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants.
+**IMPORTANT:** Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants and collecting data. You should not only rely on chats created with `WhatsR::create_chatlog()` but also with chats that you recently exported yourself from your phone. This is because the chat log structure can change over time and the simulated chat logs might not reflect recent, unannounced changes that WhatsApp could implement. If you encounter any issues, please open an issue [here](https://github.com/gesiscss/WhatsR/issues).
 
 
 
