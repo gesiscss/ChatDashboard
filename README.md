@@ -41,6 +41,22 @@ on your local machine. Depending on what is already installed, you might get war
 
  
 ```
+# if installing on a unix-based OS (Linux, MacOS)
+# ensure that the following system dependencies are installed:
+#libxml2-dev
+#libpng
+#libsodium-dev
+#libcurl4-openssl-dev
+#libmagick++-dev
+#libharfbuzz-dev
+#libfribidi-dev
+#libjpeg-dev
+#default-jre
+#default-jdk
+#gfortran
+#libblas-dev
+#liblapack-dev
+
 # Installing from CRAN
 install.packages("WhatsR")
 
