@@ -8,19 +8,23 @@ into an R-dataframe while extracting features of interest, select for themselves
 You can find a hosted instance of ChatDashboard [here](https://shiny.molekulare-psychologie.de/jkohne/ChatDashboardShowcase/?id=ShowCaseUser). You can log in by adding the string coming after the `/?id=` part in the url as a username and `password` as a password. You can either inspect your own chat logs that you exported yourself, or use one generated with `WhatsR::create_chatlog()`. This instance is configured so that **no data is persistently stored** on the server.
 
 ## Scientific Use
-If you are using this webapp for your research, please cite it accordingly.
+If you are using this webapp for your research, please cite the corresponding paper accordingly.
 
 ```R
-@software{julian_kohne_2023_7875860,
-  author       = {Julian Kohne},
-  title        = {{ChatDashboard: An R-shiny webapp for transparent 
-                   WhatsApp chat log donations}},
-  month        = apr,
-  year         = 2023,
-  publisher    = {Zenodo},
-  version      = {v1.0.0},
-  doi          = {10.5281/zenodo.7875860},
-  url          = {https://doi.org/10.5281/zenodo.7875860}
+Kohne, J., Montag, C. ChatDashboard: A Framework to collect, link, and process donated WhatsApp Chat Log Data. Behav Res 56, 3658–3684 (2024). https://doi.org/10.3758/s13428-023-02276-1
+
+A BibTeX entry for LaTeX users is
+
+@article{kohne2024chatdashboard,
+  title={Chat{D}ashboard: {A} {F}ramework to collect, link, and process donated {W}hats{A}pp {C}hat {L}og {D}ata},
+  author={Kohne, Julian and Montag, Christian},
+  journal={Behavior Research Methods},
+  volume={56},
+  number = {4},
+  pages={3658--3684},
+  year={2024},
+  publisher={Springer},
+  doi={10.3758/s13428-023-02276-1}
 }
 ```
 
@@ -56,6 +60,7 @@ on your local machine. Depending on what is already installed, you might get war
 #gfortran
 #libblas-dev
 #liblapack-dev
+#libgdal-dev
 
 # Installing from CRAN
 install.packages("WhatsR")
