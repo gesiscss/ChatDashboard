@@ -1,9 +1,9 @@
-Script_position,German,English
-,Ihre Daten werden anonymisiert und vorverarbeitet. Dies kann bis zu 2 Minuten in Anspruch nehmen. Bitte schließen Sie dieses Browserfenster nicht.,Your data will be anonymized and pre-processed. This process may take up to 2 minutes. Please do not close this browser window.
-,Ihre persönliche Datenauswertung wird vorbereitet. Dies kann einige Minuten in Anspruch nehmen. Bitte schließen Sie dieses Browserfenster nicht.,Your personal data analysis is being prepared. This process may take several minutes. Please do not close this browser window.
-,Überblick,Overview
-,<h1 align='center'> Analysieren Sie ihre eigenen WhatsApp chat logs! </h1>,<h1 align='center'> Analyze Your Own WhatsApp Chat Logs! </h1>
-,"Liebe/r Teilnehmer/in, in diesem Teil der Studie haben Sie die Möglichkeit, Ihre eigenen WhatsApp-Chatlogs sicher zu analysieren
+,Script_position,German,English
+1,NA,Ihre Daten werden anonymisiert und vorverarbeitet. Dies kann bis zu 2 Minuten in Anspruch nehmen. Bitte schließen Sie dieses Browserfenster nicht.,Your data will be anonymized and pre-processed. This process may take up to 2 minutes. Please do not close this browser window.
+2,NA,Ihre persönliche Datenauswertung wird vorbereitet. Dies kann einige Minuten in Anspruch nehmen. Bitte schließen Sie dieses Browserfenster nicht.,Your personal data analysis is being prepared. This process may take several minutes. Please do not close this browser window.
+3,NA,Überblick,Overview
+4,NA,<h1 align='center'> Analysieren Sie ihre eigenen WhatsApp chat logs! </h1>,<h1 align='center'> Analyze Your Own WhatsApp Chat Logs! </h1>
+5,NA,"Liebe/r Teilnehmer/in, in diesem Teil der Studie haben Sie die Möglichkeit, Ihre eigenen WhatsApp-Chatlogs sicher zu analysieren
                                                   und uns im Gegenzug einige anonymisierte Kommunikationsdaten über Ihren Chat zu liefern. In den folgenden Schritten
                                                   werden wir Sie durch den Prozess des Exports und des sicheren Hochladens eines WhatsApp Chatlogs auf diese Website führen.
                                                   Sie werden die Möglichkeit haben, Ihre Nachrichten interaktiv zu untersuchen, um zu sehen, welche Art von Informationen
@@ -12,7 +12,7 @@ Script_position,German,English
 
 
 "
-,"Diese Informationen sind nur für Sie sichtbar und werden gelöscht, sobald Sie
+6,NA,"Diese Informationen sind nur für Sie sichtbar und werden gelöscht, sobald Sie
                                                   diese Website schließen. Sie können selbst entscheiden, ob und welche Teile der anonymisierten Informationen
                                                   Sie für unser Forschungsprojekt zur Verfügung stellen möchten. Wichtig ist, dass es nicht möglich ist, personenbezogene Informationen wie
                                                   z.B. Namen, den Inhalt von Nachrichten, Telefonnummern oder Inhalte gesendeter Mediendateien zu spenden. Es ist nur möglich, anonymisierte Kommunikationsdaten zu spenden
@@ -21,103 +21,103 @@ Script_position,German,English
 
 
 "
-,"Sollten Sie sich entscheiden
+7,NA,"Sollten Sie sich entscheiden
                                                   anonymisierte Kommunikationsdaten über Ihren Chat zu spenden, erhalten Sie Zugang zu einer interaktiven Analyseseite für Ihre eigenen Daten und können
                                                   sehen, wer die meisten Wörter sendet, wer welche Emojis und Smilies verwendet,
                                                   oder wer im Durchschnitt wie lange braucht, um auf Nachrichten zu antworten. Auch diese Informationen sind nur für Sie sichtbar und wir speichern nur die anonymisierten Kommunikationsdaten
                                                   die Sie ausdrücklich geprüft und über eine spezielle Schaltfläche freigegeben haben.","If you decide to donate anonymized communication data from your chat, you will gain access to an interactive analysis page for your own data and can see who sends the most words, who uses which emojis and smileys, or how long on average it takes to respond to messages. Again, these information are only visible to you, and we only store the anonymized communication data that you have explicitly reviewed and released through a specific button."
-,<h1 align='center'> Wie werden meine Daten gesichert? </h1>,<h1 align='center'> How are my data secured? </h1>
-,"Der gesamte Datenverkehr auf dieser Website ist durch das <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank'>TLS-Protokoll</a> gesichert und es werden keine Informationen dauerhaft gespeichert, es sei denn, sie werden von Ihnen ausdrücklich gespendet. Sie sehen Ihre Nachrichten, nachdem sie auf die Website hochgeladen wurden, aber nur Sie können diese für die Dauer Ihres Besuchs auf dieser Website einsehen. Nach dem Schließen des Browsers werden alle Informationen, die Sie nicht ausdrücklich gespendet haben, gelöscht. Wichtig ist, dass Sie nur anonymisierte Kommunikationsdaten spenden können. Das heißt, selbst wenn Sie es wollten, ist es nicht möglich, personenbezogene Daten wie z. B. Nachrichteninhalte, Namen, Telefonnummern, gesendete Dateien, Bilder oder Videos zu spenden. Alle Daten werden gemäß der Europäischen Datenschutzgrundverordnung (DSGVO) auf einem gesicherten Server der Universität Ulm, Deutschland, gesammelt und verarbeitet. Alle gespendeten Daten werden mit dem <a href='https://en.wikipedia.org/wiki/RSA_(cryptosystem)' target='_blank'>RSA</a>-Verschlüsselungsverfahren verschlüsselt. Diese Studie wurde von der Ethikkommission der Universität Ulm geprüft und genehmigt.","All traffic on this website is secured using the <a href=""https://en.wikipedia.org/wiki/Transport_Layer_Security"" target=""_blank"">TLS protocol</a>, and no information is stored permanently unless explicitly donated by you. You can view your messages after they are uploaded to the website, but only you can see them during your visit to this website. After closing the browser, all information that you have not explicitly donated will be deleted. It is important to note that you can only donate anonymized communication data. This means that even if you wanted to, it is not possible to donate personal data such as message contents, names, phone numbers, sent files, images, or videos. All data is collected and processed according to the European General Data Protection Regulation (GDPR) on a secure server at the University of Ulm, Germany. All donated data is encrypted using the <a href=""https://en.wikipedia.org/wiki/RSA_(cryptosystem)"" target=""_blank"">RSA</a> encryption method. This study has been reviewed and approved by the Ethics Committee of the University of Ulm.
+8,NA,<h1 align='center'> Wie werden meine Daten gesichert? </h1>,<h1 align='center'> How are my data secured? </h1>
+9,NA,"Der gesamte Datenverkehr auf dieser Website ist durch das <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank'>TLS-Protokoll</a> gesichert und es werden keine Informationen dauerhaft gespeichert, es sei denn, sie werden von Ihnen ausdrücklich gespendet. Sie sehen Ihre Nachrichten, nachdem sie auf die Website hochgeladen wurden, aber nur Sie können diese für die Dauer Ihres Besuchs auf dieser Website einsehen. Nach dem Schließen des Browsers werden alle Informationen, die Sie nicht ausdrücklich gespendet haben, gelöscht. Wichtig ist, dass Sie nur anonymisierte Kommunikationsdaten spenden können. Das heißt, selbst wenn Sie es wollten, ist es nicht möglich, personenbezogene Daten wie z. B. Nachrichteninhalte, Namen, Telefonnummern, gesendete Dateien, Bilder oder Videos zu spenden. Alle Daten werden gemäß der Europäischen Datenschutzgrundverordnung (DSGVO) auf einem gesicherten Server der Universität Ulm, Deutschland, gesammelt und verarbeitet. Alle gespendeten Daten werden mit dem <a href='https://en.wikipedia.org/wiki/RSA_(cryptosystem)' target='_blank'>RSA</a>-Verschlüsselungsverfahren verschlüsselt. Diese Studie wurde von der Ethikkommission der Universität Ulm geprüft und genehmigt.","All traffic on this website is secured using the <a href=""https://en.wikipedia.org/wiki/Transport_Layer_Security"" target=""_blank"">TLS protocol</a>, and no information is stored permanently unless explicitly donated by you. You can view your messages after they are uploaded to the website, but only you can see them during your visit to this website. After closing the browser, all information that you have not explicitly donated will be deleted. It is important to note that you can only donate anonymized communication data. This means that even if you wanted to, it is not possible to donate personal data such as message contents, names, phone numbers, sent files, images, or videos. All data is collected and processed according to the European General Data Protection Regulation (GDPR) on a secure server at the University of Ulm, Germany. All donated data is encrypted using the <a href=""https://en.wikipedia.org/wiki/RSA_(cryptosystem)"" target=""_blank"">RSA</a> encryption method. This study has been reviewed and approved by the Ethics Committee of the University of Ulm.
 "
-,<h1 align='center'>Wie werden gespendete Daten genutzt?</h1>,<h1 align='center'>What are the donated communication data used for?</h1>
-,"Die gespendeten anonymisierten Kommunikationsdaten werden ausschließlich zu Forschungszwecken verwendet. Das bedeutet, dass wir die anonymen Kommunikationsdaten in Kombination mit Ihren Umfrageantworten analysieren und die Ergebnisse für alle Teilnehmer aggregieren werden. Wir werden die aggregierten Ergebnisse in wissenschaftlichen Fachzeitschriften veröffentlichen und sie auf wissenschaftlichen Konferenzen anderen Forschern präsentieren. Das Hauptziel dieses Forschungsprojekts ist es herauszufinden, ob und unter welchen Bedingungen Teilnehmer bereit sind, Daten zu spenden. Die anonymisierten Kommunikationsdaten werden auf die <a href=""https://osf.io/"" target=""_blank"">Open Science Framework</a> hochgeladen, damit andere Forscher unsere Ergebnisse validieren können.","The donated anonymized communication data will only be used for research purposes. This means that we will analyze the anonymous communication data in combination with your survey responses and aggregate the results across all participants. We will publish the aggregated results in peer-reviewed journals and present them at scientific conferences to other researchers. The main goal of this research project is to determine if and under what conditions participants are willing to donate data. The anonymized communication data will be uploaded to the <a href=""https://osf.io/"" target=""_blank"">Open Science Framework</a> so that other researchers can validate our findings."
-,<h1 align='center'> Informierte Einwilligung </h1>,"<h1 align=""center"">Informed Consent</h1>"
-,"Ihre Einwilligung ist wichtig. Bitte vergewissern Sie sich, dass alle TeilnehmerInnen des Chats, dessen anonymisierte Kommunikationsdaten Sie spenden, über Ihre Spende an dieses Forschungsprojekt informiert und damit einverstanden sind.
+10,NA,<h1 align='center'>Wie werden gespendete Daten genutzt?</h1>,<h1 align='center'>What are the donated communication data used for?</h1>
+11,NA,"Die gespendeten anonymisierten Kommunikationsdaten werden ausschließlich zu Forschungszwecken verwendet. Das bedeutet, dass wir die anonymen Kommunikationsdaten in Kombination mit Ihren Umfrageantworten analysieren und die Ergebnisse für alle Teilnehmer aggregieren werden. Wir werden die aggregierten Ergebnisse in wissenschaftlichen Fachzeitschriften veröffentlichen und sie auf wissenschaftlichen Konferenzen anderen Forschern präsentieren. Das Hauptziel dieses Forschungsprojekts ist es herauszufinden, ob und unter welchen Bedingungen Teilnehmer bereit sind, Daten zu spenden. Die anonymisierten Kommunikationsdaten werden auf die <a href=""https://osf.io/"" target=""_blank"">Open Science Framework</a> hochgeladen, damit andere Forscher unsere Ergebnisse validieren können.","The donated anonymized communication data will only be used for research purposes. This means that we will analyze the anonymous communication data in combination with your survey responses and aggregate the results across all participants. We will publish the aggregated results in peer-reviewed journals and present them at scientific conferences to other researchers. The main goal of this research project is to determine if and under what conditions participants are willing to donate data. The anonymized communication data will be uploaded to the <a href=""https://osf.io/"" target=""_blank"">Open Science Framework</a> so that other researchers can validate our findings."
+12,NA,<h1 align='center'> Informierte Einwilligung </h1>,"<h1 align=""center"">Informed Consent</h1>"
+13,NA,"Ihre Einwilligung ist wichtig. Bitte vergewissern Sie sich, dass alle TeilnehmerInnen des Chats, dessen anonymisierte Kommunikationsdaten Sie spenden, über Ihre Spende an dieses Forschungsprojekt informiert und damit einverstanden sind.
                                                   Indem Sie auf die Schaltfläche unten klicken, bestätigen Sie, dass alle Chat-TeilnehmerInnen über die Datenspende informiert sind und dieser zustimmen.","Your consent is important. Please ensure that all participants of the chat, whose anonymized communication data you are donating, are informed about your donation to this research project and agree to it. By clicking the button below, you confirm that all chat participants are informed about the data donation and consent to it."
-,"Ich stimme zu, weiter zur Website","I agree, continue to the website."
-,Daten hochladen,Upload data
-,Datei auswählen,Select file
-,Hochladen des Chatverlaufs,Upload chat log
-,"Sie können Ihren exportierten WhatsApp-Chatverlauf auswählen, indem Sie unten auf die Schaltfläche 'Datei auswählen' klicken. Sobald Sie eine Datei ausgewählt haben, wird eine Schaltfläche zur Verarbeitung der Datei angezeigt.
+14,NA,"Ich stimme zu, weiter zur Website","I agree, continue to the website."
+15,NA,Daten hochladen,Upload data
+16,NA,Datei auswählen,Select file
+17,NA,Hochladen des Chatverlaufs,Upload chat log
+18,NA,"Sie können Ihren exportierten WhatsApp-Chatverlauf auswählen, indem Sie unten auf die Schaltfläche 'Datei auswählen' klicken. Sobald Sie eine Datei ausgewählt haben, wird eine Schaltfläche zur Verarbeitung der Datei angezeigt.
                                                   Durch klicken auf die Schaltfläche spenden Sie noch keine Daten.","You can select your exported WhatsApp chat history by clicking on the 'Select file' button below. Once you have selected a file, a button to process the file will appear. By clicking on the button, you are not yet donating any data."
-,"Sie werden im nächsten Schritt die Möglichkeit haben, Ihre Daten einzusehen und auszuwählen welche Informationen Sie zu spenden bereit sind.
+19,NA,"Sie werden im nächsten Schritt die Möglichkeit haben, Ihre Daten einzusehen und auszuwählen welche Informationen Sie zu spenden bereit sind.
                                                   Um alle Daten zu löschen, die Sie (noch) nicht ausdrücklich gespendet haben, können Sie diese Website jederzeit schließen.","In the next step, you will have the opportunity to review and select which information you are willing to donate. To delete all data that you have not explicitly donated, you can close this website at any time."
-,Datei auswählen,Select file
-,Datei verarbeiten,Process file
-,<h1 align='center'> Export des WhatsApp Chatverlaufs </h1>,<h1 align='center'>Export of WhatsApp Chat Log</h1>
-,"Auf dieser Seite können Sie eine exportierte WhatsApp-Chatverlauf-Datei hochladen. Nachdem Sie die Datei hochgeladen haben, können Sie auf der nächsten Seite noch einen Blick auf Ihre Daten werfen und entscheiden, ob und welche anonymisierten Kommunikationsdaten Sie spenden möchten. Um Ihre Chatverlauf-Datei hochzuladen, müssen Sie diese zunächst von Ihrem Handy exportieren. Befolgen Sie dazu bitte die Anweisungen <a href='https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history/?lang=de' target='_blank'>hier</a> oder folgen Sie den unten aufgeführten Schritten.","On this page, you can upload an exported WhatsApp chat history file. After uploading the file, you can review your data on the next page and decide if and which anonymized communication data you would like to donate. To upload your chat history file, you need to export it from your mobile phone first. Please follow the instructions <a href=""https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history/?lang=en"" target=""_blank"">here</a> or follow the steps listed below."
-,"Durch Befolgen der unten gelisteten Schritte können Sie jeden Chatverlauf direkt über WhatsApp an Ihre eigene E-Mail-Adresse schicken. Sobald sich die exportierten Daten in Ihrem E-Mail-Postfach befinden, können Sie diese auf Ihren PC herunterladen. Möglicherweise müssen Sie die Datei danach noch <a href=""https://support.microsoft.com/de-de/windows/zippen-und-entzippen-von-dateien-f6dde0a7-0fec-8294-e1d3-703ed85e7ebc"" target=""_blank"">entpacken</a>, falls diese Ihnen komprimiert in einem .zip Ordner zugesendet wurde. Sie erkennen den Chatverlauf am Namen ('WhatsApp Chat mit NAME') und der entsprechenden Dateiendung (.txt). Sobald sich diese Datei auf Ihrem PC befindet, können Sie diese auf dieser Seite hochladen, indem Sie im Reiter links auf 'Datei auswählen' klicken.
-","By following the steps listed below, you can directly send any chat log to your own email address via WhatsApp. Once the exported data is in your email inbox, you can download it to your PC. You may need to <a href=""https://support.microsoft.com/de-de/windows/zippen-und-entzippen-von-dateien-f6dde0a7-0fec-8294-e1d3-703ed85e7ebc"" target=""_blank"">unpack</a> it if it was sent to you in a compressed .zip folder. You can recognize the chat log by its name ('WhatsApp Chat with NAME') and the corresponding file extension (.txt). Once you have the file on your PC, you can upload it to this page by clicking on 'Select file' in the left tab.
+20,NA,Datei auswählen,Select file
+21,NA,Datei verarbeiten,Process file
+22,NA,<h1 align='center'> Export des WhatsApp Chatverlaufs </h1>,<h1 align='center'>Export of WhatsApp Chat Log</h1>
+23,NA,"Auf dieser Seite können Sie eine exportierte WhatsApp-Chatverlauf-Datei hochladen. Nachdem Sie die Datei hochgeladen haben, können Sie auf der nächsten Seite noch einen Blick auf Ihre Daten werfen und entscheiden, ob und welche anonymisierten Kommunikationsdaten Sie spenden möchten. Um Ihre Chatverlauf-Datei hochzuladen, müssen Sie diese zunächst von Ihrem Handy exportieren. Befolgen Sie dazu bitte die Anweisungen <a href='https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history/?lang=de' target='_blank'>hier</a> oder folgen Sie den unten aufgeführten Schritten.","On this page, you can upload an exported WhatsApp chat history file. After uploading the file, you can review your data on the next page and decide if and which anonymized communication data you would like to donate. To upload your chat history file, you need to export it from your mobile phone first. Please follow the instructions <a href=""https://faq.whatsapp.com/android/chats/how-to-save-your-chat-history/?lang=en"" target=""_blank"">here</a> or follow the steps listed below."
+24,NA,"Durch Befolgen der unten gelisteten Schritte können Sie jeden Chatverlauf direkt über WhatsApp an Ihre eigene E-Mail-Adresse schicken. Bitte nutzen sie ausschließlich verifizierte und vertrauenswürdige Email-provider mit Ende-zu-Ende Verschlüsselung um Ihre Daten zu exportieren. Sobald sich die exportierten Daten in Ihrem E-Mail-Postfach befinden, können Sie diese auf Ihren PC herunterladen. Möglicherweise müssen Sie die Datei danach noch <a href=""https://support.microsoft.com/de-de/windows/zippen-und-entzippen-von-dateien-f6dde0a7-0fec-8294-e1d3-703ed85e7ebc"" target=""_blank"">entpacken</a>, falls diese Ihnen komprimiert in einem .zip Ordner zugesendet wurde. Sie erkennen den Chatverlauf am Namen ('WhatsApp Chat mit NAME') und der entsprechenden Dateiendung (.txt). Sobald sich diese Datei auf Ihrem PC befindet, können Sie diese auf dieser Seite hochladen, indem Sie im Reiter links auf 'Datei auswählen' klicken.
+","By following the steps listed below, you can directly send any chat log to your own email address via WhatsApp. Please only use a verified and trusted email service with end-to-end encryption to export your data. Once the exported data is in your email inbox, you can download it to your PC. You may need to <a href=""https://support.microsoft.com/de-de/windows/zippen-und-entzippen-von-dateien-f6dde0a7-0fec-8294-e1d3-703ed85e7ebc"" target=""_blank"">unpack</a> it if it was sent to you in a compressed .zip folder. You can recognize the chat log by its name ('WhatsApp Chat with NAME') and the corresponding file extension (.txt). Once you have the file on your PC, you can upload it to this page by clicking on 'Select file' in the left tab.
 "
-,"Es werden lediglich anonymisierte Kommunikationsdaten gespeichert, welche Sie auf der nächsten Seite überprüft und danach explizit freigegeben haben.
+25,NA,"Es werden lediglich anonymisierte Kommunikationsdaten gespeichert, welche Sie auf der nächsten Seite überprüft und danach explizit freigegeben haben.
                                                           Alle andere Daten werden durch das Schließen dieser Website automatisch gelöscht. Wir empfehlen den Export von Chatverläufen mithilfe der Emailfunktion an ihre eigene Emailadresse (siehe unten).","Only anonymized communication data will be stored, which you can review on the next page and explicitly release afterwards. All other data will be automatically deleted by closing this website. We recommend exporting chat histories using the email function to your own email address (see below)."
-,<h2 align='center'> Export von WhatsApp Chatverläufen unter Android </h2>,<h2 align='center'> Exporting WhatsApp Chat History on Android </h2>
-,<h2 align='center'> Export von WhatsApp Chatverläufen unter iOS </h2>,<h2 align='center'> Exporting WhatsApp Chat History on iOS </h2>
-,Daten erkunden,Explore Data
-,Daten auswählen,Select Data
-,"In der Tabelle rechts sehen Sie die Daten, die Sie hochgeladen haben, in tabellarischer Form und welche Art von Informationen
+26,NA,<h2 align='center'> Export von WhatsApp Chatverläufen unter Android </h2>,<h2 align='center'> Exporting WhatsApp Chat History on Android </h2>
+27,NA,<h2 align='center'> Export von WhatsApp Chatverläufen unter iOS </h2>,<h2 align='center'> Exporting WhatsApp Chat History on iOS </h2>
+28,NA,Daten erkunden,Explore Data
+29,NA,Daten auswählen,Select Data
+30,NA,"In der Tabelle rechts sehen Sie die Daten, die Sie hochgeladen haben, in tabellarischer Form und welche Art von Informationen
                                              aus Ihrem Chatverlauf extrahiert werden können. Diese Informationen sind nur für Sie sichtbar und werden nicht gespeichert, es sei denn,
                                              Sie klicken auf die Schaltfläche 'Auswahl spenden' am unteren linken Rand dieser Seite. Wenn Sie auf diese Schaltfläche klicken, wird nur die angezeigte
                                              Auswahl an uns gesendet. Sie können also individuell auswählen, welche Teile der Daten Sie spenden möchten.","In the table on the right, you can see the data you have uploaded in tabular form and what type of information can be extracted from your chat history. This information is only visible to you and will not be saved unless you click on the 'Donate Selection' button at the bottom left corner of this page. If you click on this button, only the displayed selection will be sent to us. So you can choose individually which parts of the data you would like to donate."
-,"<b>Wichtig ist, dass die ausgegrauten Spalten 'Absender (Klarname)', 'Nachricht', 'Nachricht (bereinigt)', 'Wortliste' und 'Standort' nur für Sie sichtbar sind und nicht gespendet werden können. Diese werden automatisch von der Spende ausgeschlossen,
+31,NA,"<b>Wichtig ist, dass die ausgegrauten Spalten 'Absender (Klarname)', 'Nachricht', 'Nachricht (bereinigt)', 'Wortliste' und 'Standort' nur für Sie sichtbar sind und nicht gespendet werden können. Diese werden automatisch von der Spende ausgeschlossen,
                                              falls Sie dies nicht manuell tun.</b>","<b>Please note that the grayed-out columns 'Sender (Real Name)', 'Message', 'Message (cleaned)', 'Word List', and 'Location' are only visible to you and cannot be donated. These columns are automatically excluded from donation, unless you do so manually.</b>"
-,Spalten ausschließen,Exclude columns
-,"Sie können einfach ganze Spalten von der Spendenauswahl in der Tabelle rechts ausschließen, indem Sie auf das Menü unten
+32,NA,Spalten ausschließen,Exclude columns
+33,NA,"Sie können einfach ganze Spalten von der Spendenauswahl in der Tabelle rechts ausschließen, indem Sie auf das Menü unten
                                                klicken und die entsprechenden Spaltennamen auswählen oder abwählen.",You can simply exclude entire columns from the donation selection in the table on the right by clicking on the menu below and selecting or deselecting the corresponding column names.
-,Spalten auswählen:,Select columns:
-,"Klicken, um Spalten auszuwählen:",Click to select columns:
-,Zeilen ausschließen,Exclude rows
-,"Um Zeilen auszuschließen, markieren Sie zunächst
+34,NA,Spalten auswählen:,Select columns:
+35,NA,"Klicken, um Spalten auszuwählen:",Click to select columns:
+36,NA,Zeilen ausschließen,Exclude rows
+37,NA,"Um Zeilen auszuschließen, markieren Sie zunächst
                                                 alle Zeilen, die Sie ausschließen möchten durch anklicken und klicken dann auf die Schaltfläche 'Zeile(n) ausschließen'. Sie können alle zuvor ausgeschlossenen Zeilen wiederherstellen,
                                                indem Sie auf die Schaltfläche 'Zeilen wiederherstellen' klicken.","To exclude rows, first, select all the rows you want to exclude by clicking on them, then click on the 'Exclude Row(s)' button. You can restore all previously excluded rows by clicking on the 'Restore Rows' button."
-,Zeile(n) ausschließen,Exclude row(s)
-,Zeilen wiederherstellen,Restore rows
-,Daten spenden,Donate data
-,Durch Klicken auf die Schaltfläche 'Auswahl spenden' wird die aktuell angezeigte Auswahl an Daten gespendet und Sie erhalten Zugang zur Auswertung Ihrer Daten.,"By clicking on the 'Donate Selection' button, the currently displayed selection of data will be donated, and you will gain access to the evaluation of your data."
-,Auswahl spenden und zur Analyseseite gehen,Donate Selection and go to the analysis page.
-,Ihre Auswahl für die Datenspende,Your selection for data donation
-,Ausgewählte Daten herunterladen,Download selected data
-,Alle Daten herunterladen,Download all data
-,Ergebnisse,Results
-,Nachrichten,Messages
-,Darstellungseinstellungen,Display settings
-,"In diesem Bereich können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
+38,NA,Zeile(n) ausschließen,Exclude row(s)
+39,NA,Zeilen wiederherstellen,Restore rows
+40,NA,Daten spenden,Donate data
+41,NA,Durch Klicken auf die Schaltfläche 'Auswahl spenden' wird die aktuell angezeigte Auswahl an Daten gespendet und Sie erhalten Zugang zur Auswertung Ihrer Daten.,"By clicking on the 'Donate Selection' button, the currently displayed selection of data will be donated, and you will gain access to the evaluation of your data."
+42,NA,Auswahl spenden und zur Analyseseite gehen,Donate Selection and go to the analysis page.
+43,NA,Ihre Auswahl für die Datenspende,Your selection for data donation
+44,NA,Ausgewählte Daten herunterladen,Download selected data
+45,NA,Alle Daten herunterladen,Download all data
+46,NA,Ergebnisse,Results
+47,NA,Nachrichten,Messages
+48,NA,Darstellungseinstellungen,Display settings
+49,NA,"In diesem Bereich können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
                                                                              Sie können die Absender und den Zeitrahmen festlegen, der in die Analyse einbezogen werden soll.","In this section, you can customize the settings for the charts on the right-hand side.
 You can set the senders and the timeframe to be included in the analysis."
-,Absender auswählen,Select senders
-,"Sie können die Absender, für die die Ergebnisse angezeigt werden sollen, auswählen/abwählen, indem Sie sie unten anklicken. Die Ergebnisse werden dann neu berechnet.",You can select/deselect the senders for which the results should be displayed by clicking on them below. The results will be recalculated accordingly.
-,Chat hochladen um Senderliste zu sehen,Upload chat log to see List of senders
-,Zeitfenster auswählen,Select time frame
-,Sie können das Zeitfenster das analyisiert werden soll selbst auswählen.,You can manually select the time window to be analyzed.
-,Zeitfenster,Time window
-,bis,until
-,Anzahl der Nachrichten,Number of messages
-,<center><strong style='color: red’>Klarnamen der Absender sind nur für Sie sichtbar und sind nicht im gespendeten Datensatz enthalten. <br> Mit Schließen der Website werden die dargestellten Daten automatisch gelöscht.</strong></center><br>,<center><strong style='color: red'>Sender's real names are visible only to you and are not included in the donated dataset. <br> The displayed data will be automatically deleted upon closing the website.</strong></center><br>
-,Nachrichten im Zeitverlauf,Messages over time
-,Links,Links
-,"Auf der rechten Seite können Sie sehen, wie oft welche Links von wem und wann geteilt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
+50,NA,Absender auswählen,Select senders
+51,NA,"Sie können die Absender, für die die Ergebnisse angezeigt werden sollen, auswählen/abwählen, indem Sie sie unten anklicken. Die Ergebnisse werden dann neu berechnet.",You can select/deselect the senders for which the results should be displayed by clicking on them below. The results will be recalculated accordingly.
+52,NA,Chat hochladen um Senderliste zu sehen,Upload chat log to see List of senders
+53,NA,Zeitfenster auswählen,Select time frame
+54,NA,Sie können das Zeitfenster das analyisiert werden soll selbst auswählen.,You can manually select the time window to be analyzed.
+55,NA,Zeitfenster,Time window
+56,NA,bis,until
+57,NA,Anzahl der Nachrichten,Number of messages
+58,NA,<center><strong style='color: red'>Klarnamen der Absender sind nur für Sie sichtbar und sind nicht im gespendeten Datensatz enthalten. <br> Mit Schließen der Website werden die dargestellten Daten automatisch gelöscht.</strong></center><br>,<center><strong style='color: red'>Sender's real names are visible only to you and are not included in the donated dataset. <br> The displayed data will be automatically deleted upon closing the website.</strong></center><br>
+59,NA,Nachrichten im Zeitverlauf,Messages over time
+60,NA,Links,Links
+61,NA,"Auf der rechten Seite können Sie sehen, wie oft welche Links von wem und wann geteilt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
                                                                              Sie können die Absender, die Mindesthäufigkeit eines Links und den Zeitrahmen, der in die Analyse einbezogen werden soll, festlegen.","On the right side, you can see how often which links are shared by whom and when. In this panel, you can adjust the settings for the charts on the right side.
 You can select senders, set the minimum frequency of a link, and specify the timeframe to be included in the analysis."
-,"Chat log hochladen, um eine Liste der Absender anzuzeigen",Upload chat log to see List of Senders
-,Mindesthäufigkeit auswählen,Select minimum frequency
-,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Dömanen in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.","You can drag and drop the slider below to set the minimum count at which domains appear in the conversation on the right-hand side. If your charts look cluttered, try increasing or decreasing this number."
-,Dömanen gesendeter Links,Domains of sent links
-,Smilies,Smilies
-,"Auf der rechten Seite können Sie sehen, wie oft welche Smilies von wem und wann benutzt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
+62,NA,"Chat log hochladen, um eine Liste der Absender anzuzeigen",Upload chat log to see List of Senders
+63,NA,Mindesthäufigkeit auswählen,Select minimum frequency
+64,NA,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Dömanen in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.","You can drag and drop the slider below to set the minimum count at which domains appear in the conversation on the right-hand side. If your charts look cluttered, try increasing or decreasing this number."
+65,NA,Dömanen gesendeter Links,Domains of sent links
+66,NA,Smilies,Smilies
+67,NA,"Auf der rechten Seite können Sie sehen, wie oft welche Smilies von wem und wann benutzt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
                                                                              Sie können die Absender, die Mindesthäufigkeit eines Smilies und den Zeitrahmen für die Analyse festlegen.","On the right-hand side, you can see how often different smilies are used by whom and when. In this panel, you can adjust the settings for the charts on the right-hand side.
 You can set the senders, the minimum frequency of a smilie, and the timeframe for the analysis."
-,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Smilies in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.""","You can adjust the slider below to set the minimum frequency of smileys in the conversation for them to be included in the charts on the right-hand side. If your charts appear crowded, you can try increasing or decreasing this value"
-,Genutzte Smilies,Used Smileys
-,Emoji,Emoji
-,"Auf der rechten Seite können Sie sehen, wie oft welche Emoji von wem und wann benutzt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
+68,NA,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Smilies in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.""","You can adjust the slider below to set the minimum frequency of smileys in the conversation for them to be included in the charts on the right-hand side. If your charts appear crowded, you can try increasing or decreasing this value"
+69,NA,Genutzte Smilies,Used Smileys
+70,NA,Emoji,Emoji
+71,NA,"Auf der rechten Seite können Sie sehen, wie oft welche Emoji von wem und wann benutzt werden. In diesem Panel können Sie die Einstellungen für die Diagramme auf der rechten Seite anpassen.
                                                                              Sie können die Absender, die Mindesthäufigkeit eines Emoji und den Zeitrahmen für die Analyse festlegen.","On the right-hand side, you can see how often different emojis are used by whom and when. In this panel, you can adjust the settings for the charts on the right-hand side. You can specify the senders, the minimum frequency of an emoji, and the time frame for the analysis."
-,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Emoji in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.","You can drag and drop the slider below to set the minimum number of times emojis must appear in the conversation to be displayed in the charts on the right-hand side. If your charts look cluttered, you can try increasing or decreasing this number."
-,Genutzte Emoji,Used Emoji
-,Antwortzeiten,Reply times
-,"Auf der rechten Seite sehen Sie, wie lange es dauert, bis jeder Person in Ihrem Chat geantwortet wird oder wie lange es dauert, bis diese auf eine Nachricht antwortet. In diesem
+72,NA,"Sie können den Schieberegler unten ziehen und fallen lassen, um die Mindestanzahl einzustellen, die Emoji in der Konversation vorkommen müssen, damit sie in den Diagrammen auf der rechten Seite angezeigt werden. Wenn Ihre Diagramme unübersichtlich aussehen, versuchen Sie, diese Zahl zu erhöhen oder zu verringern.","You can drag and drop the slider below to set the minimum number of times emojis must appear in the conversation to be displayed in the charts on the right-hand side. If your charts look cluttered, you can try increasing or decreasing this number."
+73,NA,Genutzte Emoji,Used Emoji
+74,NA,Antwortzeiten,Reply times
+75,NA,"Auf der rechten Seite sehen Sie, wie lange es dauert, bis jeder Person in Ihrem Chat geantwortet wird oder wie lange es dauert, bis diese auf eine Nachricht antwortet. In diesem
                                                                              Panel können Sie die Einstellungen für die Grafik auf der rechten Seite anpassen.Sie können die Absender, die Mindestanzahl und den Zeitrahmen, der in die Analyse einbezogen werden soll, festlegen.","On the right-hand side, you can see how long it takes for each person in your chat to respond or how long it takes for them to reply to a message. You can set the senders and the timeframe for the analysis."
-,Impressum,Impressum
-,"Vorname Nachname, <br>
+76,NA,Impressum,Impressum
+77,NA,"Vorname Nachname, <br>
 Institution, <br>
 Adresszeile 1, <br>
 Adresszeile 2, <br>
@@ -126,12 +126,15 @@ Korrespondenz-E-Mail","Firstname Lastname, <br>
                                                             Adressline 1, <br>
                                                             Adressline 2, <br>
                                                             correspondence email"
-,Bitte wählen Sie mindestens 2 Spalten aus,Please select at least 2 columns
-,Für die tabellarische Ansicht müssen mindestens 2 Spalten ausgewählt sein. Ihre Spaltenauswahl wurde zurückgesetzt,"For the tabular view, at least 2 columns must be selected. Your column selection has been reset"
-,Zustimmen,Confirm
-,Möchten Sie die ausgewählten Daten spenden?,Do you want to donate the selected data?
-,Daten spenden und Analyse anzeigen,Donate data and show analysis
-,Zurück zur Datenauswahl,Back to data selection
-,Spalten automatisch entfernt,Columns removed automatically
-,Die ausgegrauten Spalten:,The greyed out columns:
-,wurden entfernt um Ihre Privatsphäre zu schützen,were removed to preserve your privacy
+78,NA,Bitte wählen Sie mindestens 2 Spalten aus,Please select at least 2 columns
+79,NA,Für die tabellarische Ansicht müssen mindestens 2 Spalten ausgewählt sein. Ihre Spaltenauswahl wurde zurückgesetzt,"For the tabular view, at least 2 columns must be selected. Your column selection has been reset"
+80,NA,Zustimmen,Confirm
+81,NA,Möchten Sie die ausgewählten Daten spenden?,Do you want to donate the selected data?
+82,NA,Daten spenden und Analyse anzeigen,Donate data and show analysis
+83,NA,Zurück zur Datenauswahl,Back to data selection
+84,NA,Spalten automatisch entfernt,Columns removed automatically
+85,NA,Die ausgegrauten Spalten:,The greyed out columns:
+86,NA,wurden entfernt um Ihre Privatsphäre zu schützen,were removed to preserve your privacy
+87,NA,Spender Auswahl,Donor Selection
+88,NA,spender_button,donor_button
+89,NA,Weiter,Next

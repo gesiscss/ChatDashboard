@@ -325,6 +325,58 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                           # End tab panel
                            ),
 
+##################################### PARTICIPANT - USER SELECTION PAGE ####
+                          tabPanel(display_text[87],
+                                   
+                                   # Sidebar
+                                   sidebarPanel(
+                                     
+                                     # Info text
+                                     h2(display_text[87], align = "center"),
+                                     HTML("To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat
+                                          filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."),
+                                     # TODO: Add text to file
+                                     
+                                     # spacer
+                                     HTML("<br><br>"),
+                                     
+                                    # input selector
+                                     selectInput("person_select",
+                                                 label = "Which anonymous person from the chat answered the survey?", # TODO: Add text to file
+                                                 choices = c(""),
+                                                 selected = "",
+                                                 multiple = FALSE),
+                                     
+                                     
+                                     # action button
+                                     actionButton("person_submit",
+                                                  "Weiter", # TODO: Add text to file
+                                                  style = "color: #040607; background-color: #25D366; border-color: #040607"),
+                                   ),
+                                   
+                                   # Main panel
+                                   mainPanel(
+                                     
+                                     # headline
+                                     h2(display_text[87], align = "center"),
+                                     
+                                     # information
+                                     HTML(display_text[58]),
+                                     
+                                     # table display here
+                                     DTOutput("selection_frame"),
+                                     
+                                     # Display the selected choice
+                                     textOutput("selected_choice"),
+                                     
+         
+                                     
+                                   )
+                                   
+
+                                  ),
+
+
 ##################################### DATA EXPLORATION PAGE ####
                            tabPanel(display_text[28],
                                     
@@ -336,10 +388,10 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                                       HTML(display_text[30]),
                                       HTML("<br><br>"),
                                       HTML(display_text[31]),
-                                      h3(display_text[32]),
-                                      helpText(display_text[33]),
 
                                       # column selection
+                                      h3(display_text[32]),
+                                      helpText(display_text[33]),
                                       pickerInput("show_vars",
                                                   display_text[34],
                                                   choices = c(""),
@@ -800,6 +852,7 @@ server <- function(input, output, session) {
   hideTab("ChatDashboard",display_text[28],session = session)
   hideTab("ChatDashboard",display_text[46],session = session)
   hideTab("ChatDashboard",display_text[15],session = session)
+  hideTab("ChatDashboard",display_text[87],session = session)
 
   # unhide tabs when the button on first page is clicked
   observeEvent(input$IntroCheck, {
@@ -811,19 +864,38 @@ server <- function(input, output, session) {
 
   })
   
-  # Submitting uploaded data
+  # hiding/unhiding person selection tab
   observeEvent(input$submit, {
     
     # rerouting to 'explore data' tab and hiding upload tab
-    showTab("ChatDashboard",display_text[28],session = session)
+    showTab("ChatDashboard",display_text[87],session = session)
     hideTab("ChatDashboard",display_text[15],session = session)
+    updateNavbarPage(session, "ChatDashboard",display_text[87])
+    
+  })
+  
+  # Submitting uploaded data
+  observeEvent(input$person_submit, {
+    
+    # rerouting to 'explore data' tab and hiding upload tab
+    showTab("ChatDashboard",display_text[28],session = session)
+    hideTab("ChatDashboard",display_text[87],session = session)
     updateNavbarPage(session, "ChatDashboard",display_text[28])
     
   })
   
   #### Hiding/unhiding buttons
   
-  # hiding the download buttons if no file has been uploaded
+  # hiding "next" buttons conditional on action
+  shinyjs::hide("person_submit")
+  observe({
+
+    req(input$person_select)
+    
+    if (nchar(input$person_select) > 7) {
+      shinyjs::show("person_submit")}
+  })
+  
   observe({
     shinyjs::hide("submit")
     
@@ -831,6 +903,7 @@ server <- function(input, output, session) {
       shinyjs::show("submit")
   })
   
+  # hiding the download buttons if no file has been uploaded
   observe({
     shinyjs::hide("downloadData")
     
@@ -845,6 +918,7 @@ server <- function(input, output, session) {
       shinyjs::show("downloadSelection")
   })
   
+  # hiding the row/column exclusion buttons if no file has been uploaded
   observe({
     shinyjs::hide("excludeRows")
     
@@ -946,6 +1020,27 @@ server <- function(input, output, session) {
   })
 
   ################################### RENDERING DATAFRAME
+  
+  # building user selection frame
+  output$selection_frame <- renderDT({
+    
+    # require necessary inputs
+    req(input$show_vars,rv$copy)
+    
+    # df
+    name_frame <- cbind.data.frame("Real Name" = unique(rv$copy[,2][rv$copy[,2] != "WhatsApp System Message"]),"Anonymized Name" = unique(rv$copy[,3][rv$copy[,3] != "WhatsApp System Message"]))
+    
+    # table
+    datatable(name_frame)
+    
+  })
+  
+  # Reactive expression to get unique anonymized names
+  anonymized_names <- reactive({
+    req(rv$copy)
+    unique(rv$copy[, 3][rv$copy[, 3] != "WhatsApp System Message"])
+  })
+  
   
   # rendering copy of the dataframe
   output$frame <- renderDT({
@@ -1138,6 +1233,12 @@ server <- function(input, output, session) {
 
       # resetting old column names so that plots can be generated correctly
       colnames(rv$data) <- rv$FunctionColnames
+      
+      # Add anonymized meta-information as attributes
+      attr(rv$copy2, "donor") <- input$person_select
+      attr(rv$copy2, "parsedAt") <- attributes(rv$copy)["parsedAt"]
+      attr(rv$copy2, "language")  <- attributes(rv$copy)["language"]
+      attr(rv$copy2, "detectedOS")  <- attributes(rv$copy)["detectedOS"]
 
       # hashing to get a unique filename to not overwrite a file if the same person decides to upload multiple chats
       LocalFilename <- sprintf("%s_%s_%s.rds",reactiveValuesToList(res_auth)$user,gsub(" ","_",Sys.time()), digest(rv$copy2,algo = "sha512"))
@@ -1231,6 +1332,12 @@ server <- function(input, output, session) {
                                                   "color:black;font-weight: bold;",
                                                   "color:black;font-weight: bold;",
                                                   "color:black;font-weight: bold;")))
+    
+    ### Updating selection of donor
+    updateSelectInput(session,
+                      "person_select",
+                      choices = c("",unique(as.character(rv$data[,3][rv$data[,3] != "WhatsApp System Message"]))),
+                      selected = "")
 
     ### Updating all Sender selections for all analyses
 
