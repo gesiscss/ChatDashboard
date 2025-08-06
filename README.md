@@ -230,7 +230,10 @@ of the web app as a valid username and the password set in `line 880` of `app.R`
 ### 6) Testing ChatDashboard (online)
 If everything is set up, you can now test the web app in online mode using different chat logs created by `WhatsR::create_chatlog()` and chats that you exported yourself with the consent of your chat partners. For automated testing with a wide range o different chat logs and participant behaviors, you can use the [DashboardTester](https://github.com/gesiscss/DashboardTester/) script, which essentially simulates participants on your web app with a predefined set of artificial or testing chat logs.
 
-**IMPORTANT:** Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants and collecting data. You should not only rely on chats created with `WhatsR::create_chatlog()` but also with chats that you recently exported yourself from your phone. This is because the chat log structure can change over time and the simulated chat logs might not reflect recent, unannounced changes that WhatsApp could implement. If you encounter any issues, please open an issue [here](https://github.com/gesiscss/WhatsR/issues).
+> [!IMPORTANT]
+>  Please test the webapp thoroughly with different types of chat logs, exporting phone settings and user behaviors before distributing links to participants and collecting data. You should not only rely on chats created with
+> `WhatsR::create_chatlog()` but also with chats that you recently exported yourself from your phone. This is because the chat log structure can change over time and the simulated chat logs might not reflect recent, unannounced changes that
+> WhatsApp could implement. If you encounter any issues, please open an issue [here](https://github.com/gesiscss/WhatsR/issues).
 
 
 
