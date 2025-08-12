@@ -1431,7 +1431,7 @@ server <- function(input, output, session) {
       plot_messages(rv$data,
                     names = input$Sender_input_msg,
                     starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00", sep = ""),
-                    endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 00:00", sep = ""))},
+                    endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59", sep = ""))},
       res = 100, height = 600)
 
 
@@ -1442,7 +1442,7 @@ server <- function(input, output, session) {
       plot_tokens(rv$data,
                   names = input$Sender_input_msg,
                   starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00"),
-                  endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 00:00"),
+                  endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59"),
                   plot = "cumsum")},
       res = 100, height = 600)
 
@@ -1454,7 +1454,7 @@ server <- function(input, output, session) {
       plot_tokens_over_time(rv$data,
                             names = input$Sender_input_msg,
                             starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00"),
-                            endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 00:00"),
+                            endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59"),
                             plot = "heatmap")},
       res = 100, height = 600)
 
@@ -1471,7 +1471,7 @@ server <- function(input, output, session) {
                  plot = "cumsum",
                  names = input$Sender_input_links,
                  starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 00:00"),
+                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
                  min_occur = input$LinkMinimum)},
       res = 100, height = 600)
 
@@ -1483,7 +1483,7 @@ server <- function(input, output, session) {
                  plot = "heatmap",
                  names = input$Sender_input_links,
                  starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 00:00"),
+                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
                  min_occur = input$LinkMinimum)},
       res = 100, height = 600)
 
@@ -1495,7 +1495,7 @@ server <- function(input, output, session) {
                  plot = "splitbar",
                  names = input$Sender_input_links,
                  starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 00:00"),
+                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
                  min_occur = input$LinkMinimum)},
       res = 100, height = 600)
 
@@ -1512,7 +1512,7 @@ server <- function(input, output, session) {
                    plot = "cumsum",
                    names = input$Sender_input_smilies,
                    starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 00:00"),
+                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
                    min_occur = input$SmilieMinimum)},
       res = 100, height = 600)
 
@@ -1524,7 +1524,7 @@ server <- function(input, output, session) {
                    plot = "heatmap",
                    names = input$Sender_input_smilies,
                    starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 00:00"),
+                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
                    min_occur = input$SmilieMinimum)},
       res = 100, height = 600)
 
@@ -1537,7 +1537,7 @@ server <- function(input, output, session) {
                    plot = "splitbar",
                    names = input$Sender_input_smilies,
                    starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 00:00"),
+                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
                    min_occur = input$SmilieMinimum)},
       res = 100, height = 600)
 
@@ -1554,7 +1554,7 @@ server <- function(input, output, session) {
                  plot = "cumsum",
                  names = input$Sender_input_emoji,
                  starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 00:00"),
+                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
                  min_occur = input$EmojiMinimum)},
       res = 100, height = 600)
 
@@ -1566,7 +1566,7 @@ server <- function(input, output, session) {
                   plot = "heatmap",
                   names = input$Sender_input_emoji,
                   starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                  endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 00:00"),
+                  endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
                   min_occur = input$EmojiMinimum)},
       res = 100, height = 600)
 
@@ -1578,7 +1578,7 @@ server <- function(input, output, session) {
                  plot = "splitbar",
                  names = input$Sender_input_emoji,
                  starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 00:00"),
+                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
                  min_occur = input$EmojiMinimum)},
       res = 100, height = 600)
 
@@ -1596,7 +1596,7 @@ server <- function(input, output, session) {
                       type = "replytime",
                       names = input$Sender_input_replies,
                       starttime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[1]," 00:00"),
-                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 00:00"))},
+                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 23:59"))},
       res = 100, height = 600)
 
     # Rendering replies plot 2
@@ -1606,7 +1606,7 @@ server <- function(input, output, session) {
                       type = "reactiontime",
                       names = input$Sender_input_replies,
                       starttime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[1]," 00:00"),
-                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 00:00"))},
+                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 23:59"))},
       res = 100, height = 600)
 
   })
