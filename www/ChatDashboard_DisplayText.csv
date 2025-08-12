@@ -138,3 +138,5 @@ Korrespondenz-E-Mail","Firstname Lastname, <br>
 87,NA,Spender Auswahl,Donor Selection
 88,NA,spender_button,donor_button
 89,NA,Weiter,Next
+90,,"Um Ihre Umfrageantworten mit Ihrem anonymen Chatverhalten zu verknüpfen, geben Sie bitte an, welche Person aus dem Chat die Umfrage ausgefüllt hat. Wir zeigen hier die echten Absendernamen an, damit Sie den richtigen anonymen Indikator auswählen können, aber die echten Namen werden nicht gespeichert.","To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."
+91,,Welche anonyme Person aus dem Chat hat die Umfrage beantwortet?,Which anonymous person from the chat answered the survey?

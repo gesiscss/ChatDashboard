@@ -333,16 +333,14 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                                      
                                      # Info text
                                      h2(display_text[87], align = "center"),
-                                     HTML("To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat
-                                          filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."),
-                                     # TODO: Add text to file
+                                     HTML(display_text[90]),
                                      
                                      # spacer
                                      HTML("<br><br>"),
                                      
                                     # input selector
                                      selectInput("person_select",
-                                                 label = "Which anonymous person from the chat answered the survey?", # TODO: Add text to file
+                                                 label = display_text[91],
                                                  choices = c(""),
                                                  selected = "",
                                                  multiple = FALSE),
@@ -350,7 +348,7 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                                      
                                      # action button
                                      actionButton("person_submit",
-                                                  "Weiter", # TODO: Add text to file
+                                                  display_text[89],
                                                   style = "color: #040607; background-color: #25D366; border-color: #040607"),
                                    ),
                                    
