@@ -59,7 +59,7 @@ consent_message <- NA
 # variable to control whether to use forwarding per url parameter or rely on pre-defined credentials for authentication
 # TODO: If you are using url parameter forwarding, you need to adapt line 879 to extract the participant ID from your referral link.
 # Default structure is: www.example-website.com/ChatDashboard?id=TestParticipant | Extracts: TestParticipant
-use_forwarding <- FALSE
+use_forwarding <- TRUE
 
 # Password to use for forwarding via url-parameter (only used if use_forwarding == TRUE)
 # TODO: Set this as a character string in line 880
@@ -181,6 +181,22 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                             border-color: purple    ;
                             }'
                 ),
+
+                # Setting up the exit intent modal    
+                tags$head(tags$script(HTML("
+                  window.modalOpen=false; let cooldown=false; window.stopExitIntent=false;
+                  document.addEventListener('mouseout', function(e){
+                    if (window.modalOpen || cooldown || window.stopExitIntent) return;
+                    if (!e.relatedTarget && e.clientY <= 0) {
+                      if (typeof Shiny !== 'undefined') {
+                        Shiny.setInputValue('exit_intent', Date.now(), {priority:'event'});
+                        window.modalOpen=true; cooldown=true; setTimeout(()=>cooldown=false, 3000);
+                      }
+                    }
+                  }, {passive:true});
+                "))),
+
+
 
 ##################################### MAIN UI ####
 
@@ -843,6 +859,71 @@ server <- function(input, output, session) {
 
   # creating empty reactive value for storing uploaded data
   rv <- reactiveValues(data = NULL)
+  
+  # Ask "reason to leave question"
+  # Exit-intent questionnaire (multi-select, random order; CSV named with ID+timestamp)
+  base_reasons <- c(display_text[92],display_text[93],display_text[94],display_text[95])
+  other_label  <- display_text[96]
+  
+  observeEvent(input$exit_intent, {
+    choices <- c(sample(base_reasons), other_label)
+    showModal(modalDialog(
+      title = display_text[97],
+      tags$p(display_text[98]),
+      tags$p(display_text[99]),
+      checkboxGroupInput("reasons", NULL, choices = choices, selected = character(0)),
+      conditionalPanel(
+        paste0("input.reasons && input.reasons.includes('", other_label, "')"),
+        textAreaInput("reason_free", NULL, placeholder = "Freitext", width = "100%", height = "120px")
+      ),
+      footer = tagList(
+        actionButton("reason_cancel", display_text[100]),
+        actionButton("reason_submit",display_text[101], class = "btn-primary")
+      ),
+      easyClose = FALSE
+    ))
+    shinyjs::disable("reason_submit")
+  })
+  
+  # enable submit only when valid
+  observe({
+    sel <- if (is.null(input$reasons)) character(0) else input$reasons
+    need_free <- other_label %in% sel
+    ok <- length(sel) > 0 && (!need_free || nzchar(if (is.null(input$reason_free)) "" else input$reason_free))
+    if (ok) shinyjs::enable("reason_submit") else shinyjs::disable("reason_submit")
+  })
+  
+  observeEvent(input$reason_cancel, {
+    removeModal()
+    shinyjs::runjs("window.modalOpen=false;") # allow re-fire later
+  })
+  
+  observeEvent(input$reason_submit, {
+    sel <- req(input$reasons)
+    
+    # Always use shinymanager username; make it OS-safe
+    id_raw <- tryCatch(reactiveValuesToList(res_auth)$user, error = function(e) "")
+    pid    <- if (nzchar(id_raw)) gsub("[^A-Za-z0-9_-]", "_", id_raw) else "UNKNOWN"
+    
+    ts     <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
+    outdir <- "./UserData/ClosingReasons"
+    dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
+    csv_fn <- file.path(outdir, sprintf("CLOSING_REASONS_%s_%s.csv", pid, ts))
+    
+    other_txt <- if (other_label %in% sel) gsub("[\r\n]+"," ", input$reason_free %||% "") else ""
+    
+    row <- data.frame(ID = pid, timestamp = ts, other_reason = other_txt, check.names = FALSE)
+    for (r in base_reasons) row[[r]] <- as.integer(r %in% sel)
+    row[[other_label]] <- as.integer(other_label %in% sel)
+    
+    write.csv(row, file = csv_fn, row.names = FALSE, fileEncoding = "UTF-8")
+    
+    removeModal()
+    shinyjs::runjs("window.stopExitIntent=true; window.modalOpen=false; window.armExit=false;") # never refire after one answer
+  })
+  
+  
+  
 
   ################################### STYLING, BUTTONS, HIDE/UNHIDE ELEMENTS ####
 
@@ -1011,7 +1092,10 @@ server <- function(input, output, session) {
     rv$copy[,13][rv$copy[,13] == "NA"] <- NA
     rv$copy[,14][rv$copy[,14] == "NA"] <- NA
     rv$copy[,15][rv$copy[,15] == "NA"] <- NA
-
+    
+    # disable leave question after successfull donation
+    shinyjs::runjs("window.stopExitIntent = true; window.modalOpen=false;")
+    
     # hide waiting animation
     waiter_hide()
 
@@ -1217,7 +1301,7 @@ server <- function(input, output, session) {
                    closeOnEsc = FALSE,
                    closeOnClickOutside = FALSE,
                    inputId = "autoremoveAlert")
-
+      
 
       } else {
 

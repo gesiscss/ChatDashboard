@@ -138,5 +138,15 @@ Korrespondenz-E-Mail","Firstname Lastname, <br>
 87,NA,Spender Auswahl,Donor Selection
 88,NA,spender_button,donor_button
 89,NA,Weiter,Next
-90,,"Um Ihre Umfrageantworten mit Ihrem anonymen Chatverhalten zu verknüpfen, geben Sie bitte an, welche Person aus dem Chat die Umfrage ausgefüllt hat. Wir zeigen hier die echten Absendernamen an, damit Sie den richtigen anonymen Indikator auswählen können, aber die echten Namen werden nicht gespeichert.","To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."
-91,,Welche anonyme Person aus dem Chat hat die Umfrage beantwortet?,Which anonymous person from the chat answered the survey?
+90,NA,"Um Ihre Umfrageantworten mit Ihrem anonymen Chatverhalten zu verknüpfen, geben Sie bitte an, welche Person aus dem Chat die Umfrage ausgefüllt hat. Wir zeigen hier die echten Absendernamen an, damit Sie den richtigen anonymen Indikator auswählen können, aber die echten Namen werden nicht gespeichert.","To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."
+91,NA,Welche anonyme Person aus dem Chat hat die Umfrage beantwortet?,Which anonymous person from the chat answered the survey?
+92,NA,Technische Probleme,Technical issues
+93,NA,Dauert zu lange,Takes too long
+94,NA,Datenschutzbedenken,Privacy concerns
+95,NA,Prozess zu kompliziert,Process too complicated
+96,NA,"Anderer Grund, nämlich:","Other reason, namely:"
+97,NA,Wollen sie die Teilnahme abbrechen?,Do you want to cancel your participation?
+98,NA,"Sie können die Teilnahme an der Datenspende jederzeit abbrechen. Es würde uns allerdings sehr helfen, wenn Sie eine Frage dazu beantworten würden warum Sie sich doch gegen eine Spende entschieden haben.","You can stop participating in the data donation at any time. However, it would really help us if you could answer one question about why you decided against donating."
+99,NA,Ich breche die Teilnahme aus folgenden Gründen ab:,I am ending my participation for the following reasons:
+100,NA,Teilnahme fortführen,Continue participation
+101,NA,Teilnahme abbrechen,Cancel participation
