@@ -1279,7 +1279,7 @@ server <- function(input, output, session) {
 
     }
 
-  }, once = TRUE # Prevents running the flow twice if people manage to doubleclick before the spinner loads # TODO: TEST THIS
+  } # , ignoreInit = TRUE, once = TRUE # Prevents running the flow twice if people manage to doubleclick before the spinner loads # TODO: TEST THIS
   )
 
 
