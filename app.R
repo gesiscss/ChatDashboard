@@ -269,7 +269,7 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                                         # File selection field
                                         fileInput(inputId = "file",
                                                   label = "",
-                                                  accept = ".txt",
+                                                  accept = c(".txt", ".zip"),
                                                   buttonLabel = display_text[20]
                                                   ),
 
