@@ -59,7 +59,7 @@ consent_message <- NA
 # variable to control whether to use forwarding per url parameter or rely on pre-defined credentials for authentication
 # TODO: If you are using url parameter forwarding, you need to adapt line 879 to extract the participant ID from your referral link.
 # Default structure is: www.example-website.com/ChatDashboard?id=TestParticipant | Extracts: TestParticipant
-use_forwarding <- TRUE
+use_forwarding <- FALSE
 
 # Password to use for forwarding via url-parameter (only used if use_forwarding == TRUE)
 # TODO: Set this as a character string in line 880
