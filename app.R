@@ -948,7 +948,7 @@ server <- function(input, output, session) {
                                                              # survey tool can be used as  valid usernames. This enables data linking.
                                                              # TODO: Might need to be adapted to the structure of the referral link.
                                                               c(parseQueryString(session$clientData$url_search)[["id"]],
-                                                                "password", # TODO: Set your forwarding password here!
+                                                                "password", # TODO: Set your forwarding password here
                                                                 "2019-04-15",
                                                                 NA,
                                                                 FALSE,
