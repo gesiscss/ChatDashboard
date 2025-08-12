@@ -1241,7 +1241,11 @@ server <- function(input, output, session) {
       attr(rv$copy2, "detectedOS")  <- attributes(rv$copy)["detectedOS"]
 
       # hashing to get a unique filename to not overwrite a file if the same person decides to upload multiple chats
-      LocalFilename <- sprintf("%s_%s_%s.rds",reactiveValuesToList(res_auth)$user,gsub(" ","_",Sys.time()), digest(rv$copy2,algo = "sha512"))
+      LocalFilename <- sprintf("%s_%s_%s.rds",
+                               reactiveValuesToList(res_auth)$user,
+                               format(Sys.time(), "%Y-%m-%d_%H-%M-%S"),   # safe for all OS
+                               digest(rv$copy2, algo = "sha512")
+      )
 
       # creating server keypair object from stored RSA keys
       key_pair_Server <- cyphr::keypair_openssl(pub = "./ServerFolder", key = "./ServerFolder", envelope = TRUE)
