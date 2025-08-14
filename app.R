@@ -1094,9 +1094,6 @@ server <- function(input, output, session) {
     rv$copy[,14][rv$copy[,14] == "NA"] <- NA
     rv$copy[,15][rv$copy[,15] == "NA"] <- NA
     
-    # disable leave question after successfull donation
-    shinyjs::runjs("window.stopExitIntent = true; window.modalOpen=false;")
-    
     # hide waiting animation
     waiter_hide()
 
@@ -1352,6 +1349,9 @@ server <- function(input, output, session) {
       rv$copy2 <- NULL
       rv$copy2_encrypted <- NULL
 
+      # disable leave question after successfull donation
+      shinyjs::runjs("window.stopExitIntent = true; window.modalOpen=false;")
+      
       # routing to results tab and hiding explore data tab
       showTab("ChatDashboard",display_text[46],session = session)
       hideTab("ChatDashboard",display_text[28],session = session)
