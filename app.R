@@ -160,7 +160,7 @@ waiting_screen2 <- tagList(
 ###################################################################################### SHINY SERVER UI #####
 
 # Define UI for ChatDashboard application
-ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
+ui <- fluidPage(theme  = shinytheme("flatly"),
 
 ##################################### UI SETUP ####
 
@@ -205,6 +205,7 @@ ui <- fluidPage(theme  = shinytheme("flatly"), window_title = "ChatDashboard",
                                             width = 35,
                                             src = "WhatsR_logo.png"),
                            id = "ChatDashboard",
+                           windowTitle = "ChatDashboard",
 
 ##################################### Overview Page ####
                            tabPanel(display_text[3],
