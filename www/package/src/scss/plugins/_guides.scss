@@ -1,0 +1,44 @@
+aside {
+    position: sticky;
+    top: 1.6rem;
+}
+.gs-abstract {
+    padding: 0 1.25rem;
+    margin: 1.6rem 0;
+    border-color: $gs-darkblue;
+    border-radius: var(--bs-border-radius-xl);
+    border-style: solid;
+    border-width: 2px;
+}
+
+.gs-interview-question {
+    color: $gs-darkblue;
+    
+    &-indent {
+        color: $gs-darkblue;
+    } 
+}
+.gs-interview-answer-name {
+    color: $gs-darkblue;
+  }
+
+
+.gs-heading-inline-color,
+.gs-sourcecode-zchn {
+    color: $gs-darkblue;
+}
+.gs-heading-inline-italic {
+    font-style: italic;
+    font-weight: bold;
+}
+.gs-heading-inline-bold {
+    font-weight: bold;
+}
+
+.sourcecode-zchn{
+    background-color: black;
+    color: white;
+    font-family: var(--bs-font-monospace);
+    padding: 0 0.3em;
+    font-size: 0.975em;
+}

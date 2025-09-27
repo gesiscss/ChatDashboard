@@ -1,0 +1,24 @@
+.dbd-guides {
+  
+  .question:first-of-type, .title-guide-cover {
+	font-size: gs-font-size(heading--h1);
+	font-family: $headline-font;
+	font-weight: 500;
+	color: gs-var(headline--color);
+  }
+
+  .question , .author-name-answer {
+	font-family: $headline-font;
+	font-weight: 500;
+	color: gs-var(headline--color);
+  }
+
+
+  .subtitle-interview-p1 {
+	font-weight: 500;
+	font-size: gs-font-size(heading--h3);
+
+  }
+
+
+}

@@ -1,0 +1,14 @@
+select[name="DataTables_Table_0_length"] {
+    width: 5rem;
+    display: inline;
+}
+
+#DataTables_Table_0_paginate > nav > ul {
+    text-align: left;
+}
+
+#DataTables_Table_0_filter > label > input[type=search] {
+    display: inline;
+    width: unset;
+
+}

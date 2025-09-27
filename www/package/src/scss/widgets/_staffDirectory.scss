@@ -1,0 +1,183 @@
+.gris-staff-directory {
+	.tabs {
+		[role="tablist"] {
+			margin-bottom: 0;
+			position: relative;
+			padding-bottom: 0.5rem;
+			position: relative;
+
+			.gris-staff-view {
+				position: absolute;
+				top: 50%;
+				right: 1.3rem;
+				transform: translateY(-50%);
+
+				a {
+					line-height: 1; //Added line-height: 1 here to prevent link from beeing taller then the icon
+
+					// Remove default link underline
+					box-shadow: none;
+
+					i {
+						color: #fff;
+						font-size: 2.5rem;
+					}
+
+					&[aria-pressed="true"],
+					&:hover {
+						i {
+							color: gs-color(gs-berry);
+						}
+					}
+
+					&:last-of-type {
+						margin-left: 1rem;
+					}
+				}
+			}
+		}
+
+		[role="tabpanel"] {
+			background-color: gs-color(gs-berry--14);
+			border-radius: 0;
+
+			&:not([hidden]) {
+				padding: $gs-font--sm $gs-font--2xl !important;
+				border-radius: 0;
+
+			}
+
+			nav {
+				ul.gs_pagebrowser {
+					display: block;
+					margin: 0;
+					
+
+					li {
+						display: inline-block;
+						padding: 0;
+						border-radius: 0;
+						background-color: transparent;
+
+						&:not(:last-of-type) {
+							margin-right: 0.5rem;
+							margin-bottom: 0;
+						}
+
+						a {
+							@include pagination-dot;
+							background-color: $gs-berry-100;
+							color: gs-color(gs-berry);
+
+							&[aria-current="page"],
+							&:hover {
+								background-color: gs-color(gs-berry);
+								color: #fff;
+							}
+						}
+					}
+				}
+			}
+
+			//Row with Buttons to select Department
+			>.row {
+				@include md {
+					gap: 1rem;
+				}
+			}
+		}
+	}
+	.gris-staff {
+		background-color: gs-color(gs-default-grey);
+		padding: $gs-font--2xl $gs-font--4xl;
+		border-bottom-left-radius: gs-var(default-border-radius);
+		border-bottom-right-radius: gs-var(default-border-radius);
+		margin-top: 0.2rem;
+
+		@include xl {
+			padding: 2rem 1.5rem;
+		}
+	}
+}
+
+// This wrapper is used to make the grid for the Contact Cards
+.gris-staff {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	// This calc is needed to match this grid gap to the one from Bootstrap
+	gap: $gs-font--2xl;
+
+	hr {
+		grid-column: 1 / -1;
+	}
+
+
+	@include lg {
+		grid-template-columns: 1fr;
+	}
+
+	&.without-image {
+		grid-template-columns: repeat(3, 1fr);
+
+		@include lg {
+			grid-template-columns: 1fr 1fr;
+		}
+
+		@include md {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+/**
+* Styling for persons detail page
+*
+* @author Julian Kohl
+*	
+*/
+
+.person-details-page {
+	.gesis-contact-card {
+		margin-bottom: 3.5rem;
+	}
+
+	section.person-details {
+		position: relative;
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+		margin-bottom: 2rem;
+		max-width: 70%;
+
+		&:first-of-type {
+			padding-top: 0;
+		}
+
+		.back-to-top-button {
+			bottom: 0;
+			left: 0;
+		}
+
+		&.publications {
+			padding: 0;
+		}
+	}
+
+	.resource-group {
+		padding-bottom: 3rem;
+		position: relative;
+
+		&:last-of-type {
+			padding-bottom: 0;
+		}
+
+		.resource {
+			padding-bottom: 1.5rem;
+			margin-bottom: 3.5rem;
+			position: relative;
+		}
+	}
+
+	hr {
+		margin: 4rem 0;
+	}
+}

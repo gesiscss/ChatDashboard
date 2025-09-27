@@ -1,0 +1,20 @@
+// TYPO3 Frame-Wrapper "unsichtbar" machen
+// [class*="frame-"] {
+//     // Frame-Wrapper für CSS Grid durchlässig machen
+//     display: contents !important;
+    
+//     // Alle Frame-Styles neutralisieren
+//     background: none !important;
+//     border: none !important;
+//     padding: 0 !important;
+//     margin: 0 !important;
+//     box-shadow: none !important;
+// }
+
+// Spezifisch für deine Container
+.gesis-big-newsbox {
+    .frame-type-news_pi1,
+    .frame-type-gesis-web-big-newsbox {
+        display: contents !important;
+    }
+}

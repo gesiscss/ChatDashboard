@@ -1,0 +1,12 @@
+@import "footer.scss";
+@import "header.scss";
+@import "microsite/microsite.scss";
+@import "gs-app-view/gs-app-view.scss";
+
+.gs-container{
+    @include max-width-content;
+
+    main, aside{
+        padding: 0;
+    }
+  }

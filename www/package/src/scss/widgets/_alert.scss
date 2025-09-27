@@ -1,0 +1,57 @@
+.alert {
+	font-weight: bold;
+	border: none;
+
+	@each $state in map-keys($theme-colors) {
+		&.alert-#{$state} {
+			background: gs-color(#{map-get($bootstrapMapping, $state)}--14);
+			color: gs-color(#{map-get($bootstrapMapping, $state)});
+		}
+	}
+
+	@each $state, $color in $gesis-colors {
+		// Dynamische Varianten-Klassen für jede GS-Farbe
+		// bsp.: .gs-inline-box--gs-berry
+		&.alert-#{$state} {
+		  @extend %gs-inline-box-base;
+
+		  @include gs-bg-color($color);
+
+		  background: gs-bg-color($color);
+		  color: gs-color(#{map-get($bootstrapMapping, $state)});
+		}
+	  }
+	  
+
+	button {
+		&[data-dismiss="alert"] {
+			background: none;
+			position: absolute;
+			right: 2rem;
+			color: inherit !important;
+			border-color: inherit !important;
+			border-radius: 9999px;
+			aspect-ratio: 1;
+			top: 50%;
+			transform: translateY(-50%);
+			padding: 0.5rem !important;
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
+	> .gesis-icon:first-of-type {
+		font-size: 1.5em;
+		vertical-align: middle;
+		margin-right: 1rem;
+	}
+
+	> a {
+		text-decoration: underline;
+
+		// Remove default link underline
+		box-shadow: none;
+	}
+}

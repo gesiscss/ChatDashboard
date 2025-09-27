@@ -1,0 +1,86 @@
+main {
+  // Zuerst die Ausnahmen definieren (höhere Spezifität)
+  :is(nav ul, nav ol, .dropdown-menu, .gesis-link-list--with-bg, .remove-default-list-style):not([role="menu"]) > li {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  // Standard Listen-Styling NUR für ul (nicht ol!)
+  ul:not(.list-unstyled):not(.list-inline):not(.gesis-link-list):not(.gesis-link-list--with-bg):not([role="menu"]):not(.slick-dots):not(.nav) {
+    list-style-type: square;
+    
+    li:not(.page-item):not(.nav-item) {
+      margin: 0.5em $gs-font--md;
+      padding-left: 0.375em;
+      
+      &::marker {
+        color: $gs-pink;
+      }
+    }
+
+    // 2. Ebene - verschachtelte ul
+    ul {
+      list-style-type: disc;
+      
+      li::marker {
+        color: $gs-lightblue;
+      }
+
+      // 3. Ebene - doppelt verschachtelte ul
+      ul {
+        list-style-type: circle;
+        
+        li::marker {
+          color: $gs-lightblue;
+        }
+      }
+    }
+  }
+
+  // ol behalten ihre Standard-Nummerierung, bekommen nur das li-Styling
+  ol:not(.list-unstyled) {
+    li {
+      margin: 0.5em $gs-font--md;
+      padding-left: 0.375em;
+      // Kein list-style-type override!
+      // Marker-Farbe könnte überschrieben werden, wenn gewünscht
+    }
+  }
+
+  // Spezielle Listen-Klassen
+  ul {
+    &.gesis-link-list--with-bg {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        background-color: #fff;
+        padding: 1.3rem 1.5rem;
+        border-bottom: 2px solid gs-color(gs-accent-grey);
+        margin: 0;
+      }
+    }
+
+    &.gesis-link-list {
+      list-style: none;
+      padding-left: 0;
+
+      li {
+        margin: 0;
+        padding-left: 0;
+        line-height: 1.4;
+
+        a {
+          &:hover {
+            color: gs-var(link-with-icon--hover-color);
+
+            &:before {
+              color: gs-var(link-with-icon--hover-color);
+            }
+          }
+        }
+      }
+    }
+  }
+}

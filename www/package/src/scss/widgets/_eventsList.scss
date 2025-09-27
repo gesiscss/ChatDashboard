@@ -1,0 +1,28 @@
+.gesis-event-list {
+	ul {
+		list-style: none;
+		padding-left: 0;
+
+		li {
+			padding: 1rem 0;
+			border-bottom: 1px solid gs-color(gs-darkblue);
+			
+			&:first-of-type {
+				padding-top: 0;
+			}
+			
+			&:last-of-type {
+				padding-bottom: 0;
+				border-bottom: none;
+			}
+
+			>div {
+				&:first-of-type {
+					font-weight: bold;
+					color: gs-color(gs-darkblue);
+					margin-bottom: .3rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,140 @@
+// Accordion
+
+// scss-docs-start accordion-variables
+$accordion-padding-y: 0.8rem;
+$accordion-padding-x: 1.6rem;
+// $accordion-color:                         var(--#{$prefix}body-color) !default;
+// $accordion-bg:                            var(--#{$prefix}body-bg) !default;
+// $accordion-border-width:                  var(--#{$prefix}border-width) !default;
+// $accordion-border-color:                  var(--#{$prefix}border-color) !default;
+$accordion-border-radius: 1.6rem;
+// $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
+
+// $accordion-body-padding-y:                $accordion-padding-y !default;
+$accordion-body-padding-x: 2.55rem;
+
+$accordion-button-padding-y:              $accordion-padding-y ;
+$accordion-button-padding-x:              $accordion-padding-x ;
+$accordion-button-color: $gs-darkblue;
+// $accordion-button-bg:                     var(--#{$prefix}accordion-bg) !default;
+// $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
+$accordion-button-active-bg: white;
+$accordion-button-active-color: $gs-pink;
+
+// // fusv-disable
+// $accordion-button-focus-border-color:     $input-focus-border-color !default; // Deprecated in v5.3.3
+// // fusv-enable
+$accordion-button-focus-box-shadow: none;
+
+$accordion-icon-width: $gs-font-size-base;
+$accordion-icon-color: $gs-pink;
+$accordion-icon-active-color: $gs-pink;
+// $accordion-icon-transition:               transform .2s ease-in-out !default;
+// $accordion-icon-transform:                rotate(-180deg) !default;
+
+// $accordion-button-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-color}' stroke-linecap='round' stroke-linejoin='round'><path d='m2 5 6 6 6-6'/></svg>") !default;
+// $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='#{$accordion-icon-active-color}' stroke-linecap='round' stroke-linejoin='round'><path d='m2 5 6 6 6-6'/></svg>") !default;
+// scss-docs-end accordion-variables
+
+.accordion-item {
+  transition: all 0.3s ease;
+  &:hover {
+    border: 1px solid $gs-pink !important;
+  }
+
+  &:has(.accordion-collapse.show) {
+    border: 1px solid $gs-darkblue-300;
+
+    .accordion-button:not(.collapsed) {
+      box-shadow: none;
+    }
+  }
+
+  .accordion-button {
+    &:hover {
+      background-color: $gs-pink-100;
+      color: $gs-pink;
+    }
+  }
+}
+
+.accordion-table-header {
+  .row {
+    --bs-gutter-x: 1.8rem;
+  }
+
+  padding-left: 1.8rem;
+  padding-right: 2.55rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  margin: 0.8rem 0;
+  background-color: $gs-gray-default;
+  color: $gs-darkblue !important;
+  border-radius: 1.6rem;
+}
+
+.accordion-table {
+  --accordion-gap: #{$spacer * 0.25};
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--accordion-gap);
+
+  .accordion-item {
+    &:not(:first-of-type) {
+      border-top: 1px solid var(--bs-border-color);
+    }
+
+    &:has(.accordion-collapse.show) {
+      transition: all 0.3s ease;
+      border: 1px solid $gs-darkblue-200;
+    }
+
+    border-radius: $accordion-border-radius !important;
+    overflow: hidden;
+  }
+
+  .accordion-button {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+    &:hover{
+      .badge {
+        background-color: white !important;
+      }
+    }
+
+  }
+}
+
+
+// Verschiedene Accordion-Stile für den Button
+
+  // Kein Icon
+  .accordion-plain::after {
+      background-image: none !important;
+    }
+
+  
+  // Anderes Icon
+  .accordion-plus-start {
+      &::before{
+        font-family: bootstrap-icons;
+        content: "\F64D";
+        padding-right: 0.4rem;
+      }
+
+      &::after{
+        background-image: none !important;
+      }
+  }
+
+    // Anderes Icon
+    .accordion-plus-end {
+      &::after{
+        font-family: bootstrap-icons;
+        content: "\F64D";
+        padding-left: 0.4rem;
+        background-image: none !important;
+      }
+  }

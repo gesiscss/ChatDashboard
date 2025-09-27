@@ -1,0 +1,167 @@
+.events-calendar-box {
+  .gesis-contentbox--content {
+    padding: $gs-font--lg 0;
+  }
+}
+
+.gesis-event-calendar {
+  margin-bottom: 1rem;
+
+  table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    border-collapse: separate;
+    border-spacing: 0.3rem 0.5rem;
+    table-layout: fixed;
+    width: 100%;
+    background-color: transparent;
+
+    /**
+		* Because border-spacing is adding space also to left and to the right of the table im adding negativ margin to align the table with other elements
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+    a {
+      text-decoration: none;
+    }
+    tbody {
+      padding: 0;
+    }
+
+    td,
+    th {
+      min-width: inherit;
+      max-width: inherit;
+    }
+
+    tr {
+      &.days {
+        th {
+          color: white;
+          padding: 0 1rem;
+        }
+      }
+
+      th {
+        border: none;
+        padding: 0;
+        text-align: center;
+        height: $gs-font--3xl;
+        vertical-align: middle;
+      }
+
+      td {
+        border: none;
+        border-top: 0.45rem solid;
+        background-color: #fff;
+        color: gs-color(gs-lightblue);
+        padding: 0;
+        text-align: center;
+        height: $gs-font--3xl;
+        min-width: $gs-font--3xl;
+        line-height: $gs-font--3xl; /* make nested a's clickable area full width */
+        vertical-align: middle;
+
+        &.hasevents {
+          border-top: 0.45rem solid gs-color(gs-pink);
+          background-color: white;
+        }
+        &.selected {
+          background-color: gs-color(gs-lightblue--14);
+        }
+        &.today {
+          * {
+            color: gs-color(gs-pink);
+            font-weight: bold;
+          }
+        }
+
+        span,
+        a {
+          color: gs-color(gs-darkblue);
+        }
+
+        /**
+				* Make bold Text not Bold. Done it via css because I wansnt sure if removeing the strong tags in Calendar Markup is an option. So this is a Fallback if strong tag cant be removed
+				*
+				* @author Julian Kohl
+				*
+				*/
+
+        strong {
+          font-weight: normal;
+        }
+
+        a {
+          display: block;
+          width: 100%;
+
+          // Remove default link undline
+          box-shadow: none;
+        }
+      }
+
+      .pager {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        //Prev and Next Links
+        > a {
+          line-height: 1;
+          i {
+            color: gs-color(gs-pink);
+          }
+
+          // Remove default link undline
+          box-shadow: none;
+        }
+
+        .btn-group {
+          gap: 10px;
+          width: 100%;
+
+          .dropdown {
+            width: 100%;
+            button {
+              border-radius: 0;
+              border: none;
+              background-color: gs-color(gs-lightblue) !important;
+              color: #fff;
+              padding-right: 2rem;
+              padding-top: 0.3rem;
+              padding-bottom: 0.3rem;
+
+              &:after {
+                color: #fff !important;
+                right: 0.5rem;
+                font-size: 0.8em;
+              }
+            }
+
+            ul.dropdown-menu {
+              min-width: unset;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.contenttable {
+  padding-bottom: $gs-font--3xl;
+  max-height: inherit;
+  td,
+  th {
+    min-width: inherit;
+    max-width: inherit;
+  }
+}

@@ -1,0 +1,20 @@
+/*! DataTables GESIS-Web Frontend Framework integration
+ adapted from
+ https://github.com/DataTables/Dist-DataTables-Bootstrap5/blob/1.13.4/js/dataTables.bootstrap5.mjs
+ with many (not all) WCAG ARIA accessibility improvements according to
+ https://www.w3.org/WAI/ARIA/apg/patterns/table/examples/sortable-table/
+ https://design-system.w3.org/components/pagination.html
+ 
+ TODOS:
+ * for sorting by column, instead of adding click event handler on the th elements,
+   it may be better to have dedicated buttons inside the th elements,
+   because th's default ARIA role "columnheader" clashes with aria-label
+   and an intended interactive element role.
+ * the table pagination nav element could provide a more expressive aria-label, e.g.
+   by leveraging a possibly existing table caption element, or falling back to a unique datatables table number.
+   this would improve landmark navigation when there are multiple tables.
+ * A different arrangement/order of
+   number-of-rows, search, the actual table, current shown filter info, and pagination
+   could possibly improve accessibility. Currently, the table is in-between the controlling widgets,
+   possibly complicating accessible interaction
+*/

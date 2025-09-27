@@ -1,0 +1,144 @@
+// TODO: Quickfixes für Update 11.24
+// integration der fecetview.css aus GWS in gesis-web.css notwendig
+
+#facetview {
+  // TODO: change zu eigenen Klasse: gs-microsite-gws
+
+  .content-section.has-bg-img,
+  .content-section.has-bg-color {
+    //TODO: HTML: entfernen der has-bg-color
+    padding-top: 0;
+    .content-section--inner {
+      padding: 0;
+    }
+  }
+
+  table {
+    overflow: inherit;
+  }
+
+  a {
+    &[href]:not(
+        [href^="/"],
+        [href*="gesis.org"],
+        [href="#"],
+        [href*="tel:"],
+        [href="#contact-section"]
+      ) {
+      &::after {
+        content: "";
+        margin: 0;
+      }
+    }
+  }
+
+  #result_list {
+    .abstract_preview,
+    .question_preview {
+      line-height: 1.6 !important;
+    }
+
+    .snippet_preview,
+    .snippet_full {
+      margin-top: $gs-font--xl;
+    }
+
+    .recommendation_hitlist {
+      display: flex;
+      flex-direction: column;
+      gap: $gs-font--3xl;
+      margin-bottom: $gs-font--3xl;
+      .gs_product {
+        font-size: $gs-font--md;
+        h3 {
+          font-size: $h3-font-size;
+        }
+      }
+    }
+
+    #gesis_bib_hitlist,
+    #dipf_scales_hitlist,
+    #zpid_scales_hitlist,
+    #study_group_hitlist,
+    #summary_hitlist {
+      padding: $gs-font--xl;
+      line-height: inherit;
+      width: auto;
+      margin-top: $gs-font--lg;
+    }
+
+    .row {
+      .main_resultlist {
+        padding: $gs-font--xl !important;
+        h3 {
+          @include font-size($h5-font-size);
+          a {
+            @include font-size($h4-font-size);
+            &:hover {
+              color: gs-color(gs-pink--hover);
+            }
+            &:active {
+              color: gs-color(gs-pink--hover);
+            }
+          }
+        }
+        .linked_resources_label {
+          @include font-size($gs-font--md);
+          line-height: 1.4;
+          padding-right: $gs-font--sm;
+        }
+      }
+      .row {
+        flex-wrap: nowrap;
+      }
+
+      .sidebar-nav {
+        --bs-gutter-x: 5.6rem;
+
+        a {
+          align-items: center;
+          width: 100%;
+        }
+      }
+      .sidebar_resultlist {
+        flex: auto;
+      }
+    }
+  }
+
+  #result_area {
+    a {
+      &.facetview_filterselected {
+        // TODO: HTLM anderer Button
+        padding: $gs-font--xs $gs-font--md !important;
+
+        &:after {
+          //TODO: GESIS Button ohne Icon Ausgabe
+          content: "";
+          margin: 0;
+          line-height: 0;
+          font-size: 0;
+        }
+      }
+    }
+    .gs_hitlist_facetview_results {
+      line-height: inherit !important;
+    }
+    a.facet_sort {
+      font-size: inherit;
+    }
+    .facetview_filteroptions_head {
+      .facetview_filteroptions_close {
+        color: white;
+      }
+    }
+  }
+}
+#tabspop {
+  button {
+    @include font-size($gs-font--lg);
+    padding-right: $gs-font--lg;
+    padding-left: $gs-font--lg;
+    margin: $gs-font--lg 0;
+  }
+}

@@ -1,0 +1,21 @@
+%gs-inline-box-base {
+  border-radius: var(--bs-border-radius-lg);
+  padding: 1.6rem;
+  margin: 1.6rem;
+}
+
+.gs-inline-box {
+  @extend %gs-inline-box-base;
+  @include gs-bg-color(map-get($gesis-colors, "gs-lightblue"));
+
+  @each $name, $color in $gesis-colors {
+    // Dynamische Varianten-Klassen für jede GS-Farbe
+    // bsp.: .gs-inline-box--gs-berry
+    &--#{$name} {
+      @extend %gs-inline-box-base;
+      @include gs-bg-color($color);
+      color : $color;
+      --gs--headline--color: $color;
+    }
+  }
+}

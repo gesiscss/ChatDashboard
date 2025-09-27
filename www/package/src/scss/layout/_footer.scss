@@ -1,0 +1,82 @@
+footer {
+  a {
+    box-shadow: none;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+  --gs--link-underline--color: #fff;
+  --gs--link-underline--hover-color: #{rgba(#fff, 0.5)};
+  &.page-footer {
+    background-color: gs-color(gs-darkblue);
+    border-top: 10px solid gs-color(gs-pink);
+    padding: 50px 0 100px;
+    color: #fff;
+    .page-footer--inner {
+      @include max-width-content;
+
+      display: flex;
+      flex-direction: column;
+
+      @media (min-width: 992px) {
+        display: grid;
+        grid-template-areas:
+          "contact-mannheim contact-koeln social-media"
+          "contact-mannheim contact-koeln leibniz-logo"
+          "contact-mannheim contact-koeln footer-nav";
+      }
+
+      .contact-info {
+        a {
+          text-decoration: none;
+          color: inherit;
+          @include underline-link;
+        }
+        // --- end comment --
+        &.standort-mannheim {
+          grid-area: contact-mannheim;
+        }
+        &.standort-koeln {
+          grid-area: contact-koeln;
+        }
+      }
+      .social-media-icons,
+      .leibniz-logo-wrapper,
+      nav.footer {
+        justify-self: end;
+      }
+      .social-media-icons {
+        grid-area: social-media;
+        margin-bottom: 20px;
+        @include font-size(4rem);
+        a {
+          color: inherit;
+          text-decoration: none;
+          &:hover {
+            color: gs-color(gs-pink);
+          }
+
+          &::after {
+            content: none;
+          }
+        }
+        i {
+          @include font-size($gs-font--xl);
+          margin-left: 0.2em;
+        }
+      }
+      .leibniz-logo-wrapper {
+        grid-area: leibniz-logo;
+        width: 150px;
+        max-width: 100%;
+        margin-bottom: 30px;
+        img {
+          width: 100%;
+        }
+      }
+      nav.footer {
+        grid-area: footer-nav;
+      }
+    }
+  }
+}

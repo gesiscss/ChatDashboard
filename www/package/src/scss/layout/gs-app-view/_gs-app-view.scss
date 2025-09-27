@@ -1,0 +1,85 @@
+.gs-app-view {
+  position: relative;
+  display: flex;
+  flex-direction:column;
+  min-height: 75vh;
+  @include font-size($gs-font--md);
+
+  @media (min-width: 992px) {
+    display: grid;
+    gap: $gs-font--2xl;
+  
+    // Nur main (keine Sidebars)
+    &:has(main:only-child) {
+      grid-template-areas: "main";
+      grid-template-columns: 1fr;
+    }
+  
+    // main + left-sidebar (keine right-sidebar)
+    &:has(.gs-left-sidebar):not(:has(.gs-right-sidebar)) {
+      grid-template-areas: "left-sidebar main";
+      grid-template-columns: 1.5fr 5fr;
+      @include media-breakpoint-up(2xl) { 
+        grid-template-columns: 1fr 5fr; 
+      }
+    }
+  
+    // main + right-sidebar (keine left-sidebar)
+    &:has(.gs-right-sidebar):not(:has(.gs-left-sidebar)) {
+      grid-template-areas: "main right-sidebar";
+      grid-template-columns: 5fr 1.5fr;
+      @include media-breakpoint-up(2xl) { 
+        grid-template-columns: 5fr 1fr;
+      }
+    }
+  
+    // main + beide Sidebars (Standard-Fall)
+    &:has(.gs-left-sidebar):has(.gs-right-sidebar) {
+      grid-template-areas: "left-sidebar main right-sidebar";
+      grid-template-columns: 1.5fr 5fr 1.5fr;
+      @include media-breakpoint-up(2xl) { 
+        grid-template-columns: 1fr 5fr 1fr;
+      }
+    }
+  }
+
+  /* border: 5px solid darkturquoise; */
+
+  /*TODO: Abstände und Größen evtl. über Parameter*/
+
+  // Typografische Grunddefinitionen für smaller Content
+  @extend .content-small;
+
+  @import "sidebar/sidebar.scss";
+  @import "sidebar/gs-left-sidebar.scss";
+  @import "sidebar/gs-right-sidebar.scss";
+
+  @import "main/main.scss";
+
+  /* Zusätzliche Stile für Scroll-Indikatoren */
+  .sidebar-left,
+  .sidebar-right,
+  .content {
+    scrollbar-width: thin; /* Dünne Scrollbar für Firefox */
+    scrollbar-color: #888 #f4f4f4; /* Farbe der Scrollbar */
+  }
+
+  .sidebar-left::-webkit-scrollbar,
+  .sidebar-right::-webkit-scrollbar,
+  .content::-webkit-scrollbar {
+    width: 8px; /* Breite der Scrollbars */
+  }
+
+  .sidebar-left::-webkit-scrollbar-thumb,
+  .sidebar-right::-webkit-scrollbar-thumb,
+  .content::-webkit-scrollbar-thumb {
+    background-color: #888; /* Farbe der Scroll-Indikatoren */
+    border-radius: 4px;
+  }
+
+  .sidebar-left::-webkit-scrollbar-track,
+  .sidebar-right::-webkit-scrollbar-track,
+  .content::-webkit-scrollbar-track {
+    background: #f4f4f4; /* Hintergrund der Scrollbars */
+  }
+}

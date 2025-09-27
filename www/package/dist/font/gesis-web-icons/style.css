@@ -1,0 +1,105 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('font/gesis-web-icons/fonts/icomoon.eot?as3x0i');
+  src:  url('font/gesis-web-icons/fonts/icomoon.eot?as3x0i#iefix') format('embedded-opentype'),
+    url('font/gesis-web-icons/fonts/icomoon.ttf?as3x0i') format('truetype'),
+    url('font/gesis-web-icons/fonts/icomoon.woff?as3x0i') format('woff'),
+    url('font/gesis-web-icons/fonts/icomoon.svg?as3x0i#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-gs-library:before {
+  content: "\e908";
+}
+.icon-gs-questions-variables:before {
+  content: "\e909";
+}
+.icon-gs-tools:before {
+  content: "\e90a";
+}
+.icon-gs-arrowdown:before {
+  content: "\e907";
+}
+.icon-gs-arrowup:before {
+  content: "\e90b";
+}
+.icon-gs-publication:before {
+  content: "\e90c";
+}
+.icon-gs-close:before {
+  content: "\e90d";
+}
+.icon-gs-filter:before {
+  content: "\e90e";
+}
+.icon-gs-globewire:before {
+  content: "\e90f";
+}
+.icon-gs-graphline:before {
+  content: "\e910";
+}
+.icon-gs-download:before {
+  content: "\e911";
+}
+.icon-gs-information:before {
+  content: "\e912";
+}
+.icon-gs-link:before {
+  content: "\e913";
+}
+.icon-gs-lockclosed:before {
+  content: "\e914";
+}
+.icon-gs-newwindow:before {
+  content: "\e915";
+}
+.icon-gs-pagemultiple:before {
+  content: "\e916";
+}
+.icon-gs-refresh:before {
+  content: "\e917";
+}
+.icon-gs-lockopen:before {
+  content: "\e918";
+}
+.icon-gs-cv:before {
+  content: "\e903";
+}
+.icon-gs-vcard:before {
+  content: "\e904";
+}
+.icon-gs-phone:before {
+  content: "\e905";
+}
+.icon-gs-rss:before {
+  content: "\e906";
+}
+.icon-gs-help:before {
+  content: "\e900";
+}
+.icon-gs-lang:before {
+  content: "\e901";
+}
+.icon-gs-contact:before {
+  content: "\e902";
+}
+.icon-gs-trash:before {
+  content: "\e919";
+}

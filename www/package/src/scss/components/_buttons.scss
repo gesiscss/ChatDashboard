@@ -1,0 +1,337 @@
+// -------------------------------
+// Setup
+// 0. Button Base Setup
+// 1. Outline-Buttons - Primary - Outline Buttons
+// 2. Ghost-Buttons - Secondary - without Outline and reduced Styling
+// 3. White-Buttons - Especially for backgrounds with colors or images
+// 4. LGBTQIA+ Edition
+// 5. Spezial Buttons
+// -------------------------------
+
+// -------------------------------
+// 1. Outline-Buttons - Primary - Outline Buttons
+// -------------------------------
+
+%btn-base {
+  @extend .btn;
+
+  border-radius: var(--bs-border-radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-weight: $btn-font-weight;
+  box-shadow: none !important;
+
+  i[class*="bi-"] {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  &.btn-sm {
+    @extend .btn-sm;
+  }
+
+  &.btn-lg {
+    @extend .btn-lg;
+  }
+}
+
+.btn-outline, a.btn-outline, button.btn-outline {
+  // Default Gray
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-gray-darker,
+    $background: $white,
+    $border: $gs-gray-darker,
+    $hover-color: $white,
+    $hover-background: $gs-gray-darker,
+    $hover-border: $gs-gray-darker,
+    $active-color: $white,
+    $active-background: $gs-gray-darker,
+    $active-border: $gs-gray-darker,
+    $disabled-color: $gs-gray-darker
+  );
+}
+
+.btn-outline-pink, a.btn-outline-pink, button.btn-outline-pink  {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-pink,
+    $background: transparent,
+    $border: $gs-pink,
+    $hover-color: $white,
+    $hover-background: $gs-pink-600,
+    $hover-border: $gs-pink-600,
+    $active-color: $white,
+    $active-background: $gs-pink,
+    $active-border: $gs-pink,
+    $disabled-color: $gs-pink
+  );
+}
+
+.btn-outline-lightblue, a.btn-outline-lightblue, button.btn-outline-lightblue {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-lightblue,
+    $background: transparent,
+    $border: $gs-lightblue,
+    $hover-color: $white,
+    $hover-background: $gs-lightblue-600,
+    $hover-border: $gs-lightblue-600,
+    $active-color: $white,
+    $active-background: $gs-lightblue,
+    $active-border: $gs-lightblue,
+    $disabled-color: $gs-lightblue
+  );
+}
+
+.btn-outline-berry, a.btn-outline-berry, button.btn-outline-berry {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-berry,
+    $background: transparent,
+    $border: $gs-berry,
+    $hover-color: $white,
+    $hover-background: $gs-berry-600,
+    $hover-border: $gs-berry-600,
+    $active-color: $white,
+    $active-background: $gs-berry,
+    $active-border: $gs-berry,
+    $disabled-color: $gs-berry
+  );
+}
+
+.btn-outline-darkblue, a.btn-outline-darkblue, button.btn-outline-darkblue {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-darkblue,
+    $background: transparent,
+    $border: $gs-darkblue,
+    $hover-color: $white,
+    $hover-background: $gs-darkblue-600,
+    $hover-border: $gs-darkblue-600,
+    $active-color: $white,
+    $active-background: $gs-darkblue,
+    $active-border: $gs-darkblue,
+    $disabled-color: $gs-darkblue
+  );
+}
+
+// -------------------------------
+// 2. Ghost-Buttons - Secondary - without Outline and reduced Styling
+// -------------------------------
+
+.btn-ghost, a.btn-ghost, button.btn-ghost {
+  // Default Gray
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-gray-darker,
+    $background: transparent,
+    $border: transparent,
+    $hover-color: $gs-gray-darker,
+    $hover-background: $gs-gray-accent,
+    $hover-border: $gs-gray-accent,
+    $active-color: $gs-gray-darker,
+    $active-background: $gs-gray-accent,
+    $active-border: $gs-gray-accent,
+    $disabled-color: $gs-gray-darker
+  );
+}
+
+.btn-ghost-pink, a.btn-ghost-pink, button.btn-ghost-pink {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-pink,
+    $background: transparent,
+    $border: transparent,
+    $hover-color: $gs-pink,
+    $hover-background: $gs-pink-100,
+    $hover-border: $gs-pink-100,
+    $active-color: $gs-pink,
+    $active-background: $gs-pink-100,
+    $active-border: $gs-pink-100,
+    $disabled-color: $gs-pink
+  );
+}
+
+.btn-ghost-lightblue, a.btn-ghost-lightblue, button.btn-ghost-lightblue {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-lightblue,
+    $background: transparent,
+    $border: transparent,
+    $hover-color: $gs-lightblue,
+    $hover-background: $gs-lightblue-100,
+    $hover-border: $gs-lightblue-100,
+    $active-color: $gs-lightblue,
+    $active-background: $gs-lightblue-100,
+    $active-border: $gs-lightblue-100,
+    $disabled-color: $gs-lightblue
+  );
+}
+
+.btn-ghost-darkblue, a.btn-ghost-darkblue, button.btn-ghost-darkblue {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-darkblue,
+    $background: transparent,
+    $border: transparent,
+    $hover-color: $gs-darkblue,
+    $hover-background: $gs-darkblue-100,
+    $hover-border: $gs-darkblue-100,
+    $active-color: $gs-darkblue,
+    $active-background: $gs-darkblue-100,
+    $active-border: $gs-darkblue-100,
+    $disabled-color: $gs-darkblue
+  );
+}
+
+.btn-ghost-berry, a.btn-ghost-berry, button.btn-ghost-berry {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-berry,
+    $background: transparent,
+    $border: transparent,
+    $hover-color: $gs-berry,
+    $hover-background: $gs-berry-100,
+    $hover-border: $gs-berry-100,
+    $active-color: $gs-berry,
+    $active-background: $gs-berry-100,
+    $active-border: $gs-berry-100,
+    $disabled-color: $gs-berry
+  );
+}
+
+// -------------------------------
+// 3. White-Buttons - Especially for backgrounds with colors or images
+// -------------------------------
+
+.btn-white, a.btn-white, button.btn-white {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $gs-pink,
+    $background: $white,
+    $border: $white,
+    $hover-color: $white,
+    $hover-background: $gs-pink,
+    $hover-border: $gs-pink,
+    $active-color: $gs-pink,
+    $active-background: $gs-pink,
+    $active-border: $gs-pink,
+    $disabled-color: $gs-pink
+  );
+}
+
+.btn-pink, a.btn-pink, button.btn-pink {
+  @extend %btn-base;
+  @include button-variant(
+    $color: $white,
+    $background: $gs-pink,
+    $border: $gs-pink,
+    $hover-color: $white,
+    $hover-background: $gs-pink-600,
+    $hover-border: $gs-pink-600,
+    $active-color:  $white,
+    $active-background: $gs-pink-400,
+    $active-border: $gs-pink-400,
+    $disabled-color: $gs-pink
+  );
+}
+
+
+// -------------------------------
+// 4. LGBTQIA+ Edition
+// -------------------------------
+
+.pride-rainbow {
+  background: linear-gradient(
+    304deg,                    /* Ecke: rechts-unten → links-oben */
+    #FAD205 0% 4%,             /* 4 % */
+    #642878 4% 5%,             /* 1 % */
+    #FAD205 5% 7%,             /* 2 % */
+    #FFFFFF 7% 9%,             /* 2 % */
+    #ED99C1 9% 11%,            /* 2 % */
+    #1E8CC8 11% 13%,           /* 2 % */
+    #AA4137 13% 15%,           /* 2 % */
+    #0F0015 15% 17%,           /* 2 % */
+    #642878 17% 19%,           /* 2 % */
+    #003C78 19% 21%,           /* 2 % */
+    #699E6E 21% 23%,           /* 2 % */
+    #FAD205 23% 25%,           /* 2 % */
+    #F08741 25% 27%,           /* 2 % */
+    #D20064 27% 100%           /* füllt den Rest bis 100 % */
+  );
+
+  animation: pride_reverse 0.5s ease forwards;
+  padding-left: 4.2rem !important;
+  padding-right: 4.2rem !important;
+  color: white !important;
+  border-color: white;
+}
+.pride-rainbow:hover {
+  animation: pride 0.4s ease forwards;
+  border-color: white;
+}
+
+.microsite-menu .pride-rainbow{
+  display: none !important;
+}
+
+@keyframes pride {
+  0% {
+    background-size: 371%;
+    background-position-x: -354px;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+@keyframes pride_reverse {
+  0% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 371%;
+    background-position-x: -354px;
+  }
+}
+
+// -------------------------------
+// 5. Spezial Buttons
+// -------------------------------
+
+.btn-on-dark{
+  --bs-btn-bg: white !important;
+}
+
+button.close-button {
+  @extend .btn-outline;
+  &:after {
+    font-family: bootstrap-icons;
+    content: "\F659";
+  }
+}
+
+
+.gs-app-view {
+  button {
+    font-size: $gs-font--md !important;
+    
+    &.btn-sm {
+      font-size: $gs-font--sm !important;
+    }
+    
+    &.btn-lg {
+      font-size: $gs-font--lg !important;
+    }
+  }
+  .accordion-button::after{
+    height: $gs-font--md;
+    width: $gs-font--md;
+    background-size: $gs-font--md;
+  }
+
+}

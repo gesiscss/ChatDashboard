@@ -1,0 +1,60 @@
+body > main:not(.appview) {
+
+  .tabs {
+    [role="tablist"] {
+      background-color: gs-color(gs-berry--14);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: start;
+      gap: $gs-font--lg $gs-font--md;
+      padding: $gs-font--md $gs-font--xl;
+      border-top-right-radius: gs-var(default-border-radius);
+      border-top-left-radius: gs-var(default-border-radius);
+      margin-bottom: 2px;
+
+      [role="tab"] {
+        @extend %btn-base;
+
+        @include button-variant(
+          $color: $gs-berry,
+          $background: $gs-berry-100,
+          $border: $gs-berry-100,
+          $hover-color: $white,
+          $hover-background: $gs-berry-400,
+          $hover-border: $gs-berry-400,
+          $active-color: $white,
+          $active-background: $gs-berry,
+          $active-border: $gs-berry,
+          $disabled-color: $gs-berry
+        );
+
+        &[aria-selected="true"] {
+          background-color: $gs-berry;
+          border-color: $gs-berry;
+          color: $white;
+          pointer-events: none;
+        }
+      }
+    }
+
+    [role="tabpanel"] {
+      background-color: gs-color(gs-default-grey);
+      border-bottom-right-radius: gs-var(default-border-radius);
+      border-bottom-left-radius: gs-var(default-border-radius);
+
+      &:not([hidden]) {
+        padding: $gs-font--xl $gs-font--4xl $gs-font--2xl $gs-font--4xl;
+      }
+
+      :first-of-type {
+        margin-top: 0;
+      }
+
+      :last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    
+  }
+}

@@ -1,0 +1,48 @@
+.dropdown-toggle {
+  &::after {
+    border: none;
+    font-family: bootstrap-icons;
+    content: "\F282";
+    vertical-align: 0;
+    font-size: calc(var(--bs-btn-font-size) * 0.8);
+    padding-left: 0.4rem;
+  }
+}
+
+.dropdown-item {
+  box-shadow: none !important;
+}
+
+.dropdown-menu {
+  @extend .shadow-lg;
+}
+
+select {
+  @extend .form-select;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="16" height="16" fill="%23d20064" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>')
+    no-repeat white !important;
+  background-size: 16px !important;
+  background-position: center right 1rem !important;
+
+  &:focus-visible {
+    border: 1px solid #d20064;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  option {
+    // Hintergrund beim Überfahren
+    &:hover {
+      background-color: var(--gs--color--gs-pink--14) !important;
+      color: $gs-pink !important;
+    }
+    // Optional: aktive Auswahl
+    &:checked {
+      background-color: $gs-pink;
+      color: white;
+    }
+  }
+}

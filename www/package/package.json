@@ -1,0 +1,76 @@
+{
+  "name": "@gesis-web/gesis-web-frontend",
+  "version": "1.1.0-20250908T063639Z",
+  "description": "",
+  "homepage": "https://www.gesis.org/styleguide/gesis-web-frontend-framework",
+  "main": "dist/lib/gesis-web-frontend.js",
+  "module": "dist/lib/gesis-web-frontend.js",
+  "style": "dist/gesis-web.css",
+  "sass": "src/scss/gesis-web.scss",
+  "repository": {
+    "type": "git",
+    "url": "git+https://git.gesis.org/gesis-web/gesis_web_ext.git",
+    "directory": "Resources/Public/webpack"
+  },
+  "publishConfig": {
+    "@gesis-web:registry": "https://git.gesis.org/api/v4/projects/2764/packages/npm/",
+    "access": "public",
+    "tag": "latest"
+  },
+  "scripts": {
+    "get-package-version": "node get-package-version.js",
+    "update-package-version-prerelease": "node update-package-version-prerelease.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "dev": "webpack --config webpack.config.dev.js",
+    "rollup": "rollup --config rollup.config.mjs",
+    "build": "npm run update-package-version-prerelease && webpack && npm run rollup"
+  },
+  "keywords": [],
+  "author": "GESIS",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.5",
+    "@popperjs/core": "^2.10.2",
+    "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.10.4",
+    "canvas-confetti": "^1.3.3",
+    "datatables.net": "^1.13.4",
+    "datatables.net-plugins": "^1.13.4",
+    "highlight.js": "^11.7.0",
+    "jquery": "^3.5.1",
+    "js-beautify": "^1.14.8",
+    "js-cookie": "^2.2.1",
+    "lightbox2": "^2.11.4",
+    "mathjax": "^3.2.2",
+    "micromodal": "^0.4.6",
+    "slick-carousel": "^1.8.1",
+    "tablesorter": "^2.31.3"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.15.6",
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^9.1.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.2.0",
+    "dayjs": "^1.11.7",
+    "expose-loader": "^3.0.0",
+    "html-webpack-plugin": "^5.3.2",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss-loader": "^6.1.1",
+    "rollup": "^3.21.5",
+    "sass": "1.77.6",
+    "sass-loader": "^12.1.0",
+    "semver": "^7.5.3",
+    "speed-measure-webpack-plugin": "^1.5.0",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.8.0"
+  },
+  "overrides": {
+    "semver": "^7.5.3"
+  }
+}

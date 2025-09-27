@@ -1,0 +1,117 @@
+.page-banner {
+	max-height: 66.5rem;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+
+	color: #fff;
+	--gs--headline--color: #fff;
+	--gs--link-underline--color: #fff;
+
+	
+		
+
+	.page-banner--inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: start;
+		align-items: start;
+		padding-top: $gs-font--2xl;
+		padding-bottom: $gs-font--2xl;
+		@include max-width-content;
+
+		span {
+			display: flex;
+			margin: 0;
+			color: #fff;
+			@include font-size($gs-font--3xl);
+			max-width: $gs-text-max-width;
+		}
+
+		.h1 a{
+			text-decoration: none;
+			color: white;
+			box-shadow: none;
+			&:hover{
+				color: $gs-pink;
+			}
+		}
+
+		
+	}
+	
+	&.interactive {
+		position: relative;
+		min-height: unset;
+		overflow: hidden;
+		display: flex;
+		background: rgb(0,142,212);
+		background: linear-gradient(90deg, rgba(0,142,212,1) 0%, rgba(73,98,150,1) 100%);
+		justify-content: flex-end;
+
+		
+		object{
+			margin: 0 auto;
+			max-width: 1960px;
+			min-height: 640px;
+
+			@include desktop-medium {
+				position: relative;
+				right: -14rem;
+			}
+
+			@include mobile {
+				min-height: 47vh;
+				right: -5rem;
+				padding-top: 13rem;
+			}
+		}
+
+		.page-banner--inner {
+			position: absolute;
+			padding-left: 0;
+			padding-right: 0;
+			top: 0;
+			left: calc((100% - (#{$max-content-width} - (#{gs-space(side-space)} * 2))) / 2);
+		
+			@include max-content {
+				left: gs-space(side-space);
+			}
+		}
+	}
+	&.microsite {
+	    min-height: 100px;
+    }
+}
+.microsite{
+
+	.page-banner--inner {
+		flex-direction: row;
+		justify-content: space-between;
+
+		figure {
+			//remove browser default margin
+			margin: 0;
+			
+
+		}
+
+		.microsite-logo {
+			display: flex;
+			height: 14rem;
+			width: 14rem;
+
+			img{
+				width: 100%;
+				margin: auto;
+				
+			}
+
+			@include mobile {
+				display: none;
+				
+			}
+		}
+	}
+
+}

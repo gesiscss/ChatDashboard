@@ -1,0 +1,286 @@
+.table-darkblue,
+.table-pink,
+.table-berry,
+.table-lightblue {
+  color: $gs-text !important;
+}
+
+table {
+  line-height: 1.2;
+
+  @extend .table;
+  @extend .table-striped;
+  color: $gs-text !important;
+  th {
+    padding-top: 1rem;
+    color: $gs-lightblue !important;
+    background-color: $gs-lightblue-100;
+  }
+  &.th-pink {
+    th {
+      color: $gs-pink !important;
+      background-color: $gs-pink-100;
+    }
+  }
+
+  &.th-lightblue {
+    th {
+      color: $gs-lightblue !important;
+      background-color: $gs-lightblue-100;
+    }
+  }
+
+  &.th-darkblue {
+    th {
+      color: $gs-darkblue !important;
+      background-color: $gs-darkblue-100;
+    }
+  }
+
+  &.th-berry {
+    th {
+      color: $gs-berry !important;
+      background-color: $gs-berry-100;
+    }
+  }
+
+  // position: relative;
+  // display: block;
+  // font-size: $gs-font--md;
+  // line-height: 1.2;
+  // margin-top: $gs-font--2xl;
+  // width: fit-content;
+  // max-width: 100%;
+  // max-height: 65vh;
+  // overflow: auto;
+
+  // &.full-size {
+  //   max-width: none;
+  //   max-height: none;
+  //   overflow: hidden;
+  // }
+
+  // td,
+  // th {
+  //   text-align: left;
+  //   min-width: 12.1rem;
+  //   word-wrap: break-word;
+
+  //   &:not(:first-of-type) {
+  //     border-collapse: separate;
+  //     border-left: 2px solid #fff;
+  //     margin-left: 2px;
+  //   }
+
+  //   a[href*="gesis.org"] {
+  //     &::after {
+  //       content: none;
+  //     }
+  //   }
+  // }
+
+  // caption {
+  //   position: sticky;
+  //   bottom: -0.1rem;
+  //   background-color: white;
+  //   z-index: 1;
+  //   padding-left: $gs-font--md;
+  // }
+
+  // thead {
+  //   background-color: gs-var(table--head-color);
+  //   color: #fff;
+  //   position: sticky;
+  //   top: 0;
+  //   z-index: 1;
+  //   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Schatten unter dem Header */
+
+  //   th {
+  //     vertical-align: bottom;
+  //     padding: 0.571em;
+  //   }
+  // }
+
+  // tbody {
+  //   position: relative;
+  //   padding-top: 3rem;
+
+  //   tr {
+  //     border-bottom: 1px solid gs-color(gs-accent-grey);
+  //   }
+  //   td {
+  //     border-collapse: separate;
+  //     border-left: 3px solid #fff;
+  //     margin-left: 3px;
+  //   }
+  //   td,
+  //   th {
+  //     padding: 0.571em;
+  //     background-color: #fff;
+  //     vertical-align: baseline;
+  //   }
+  // }
+
+  p {
+    margin: 0;
+  }
+
+  &.sortable {
+    .sortable-table-header {
+      .sortable-table-header--inner {
+        display: flex;
+        align-items: center;
+
+        &:after {
+          content: "";
+          margin-left: 0.5rem;
+          display: inline-block;
+          width: gs-var(table--sort-indicator-size);
+          height: gs-var(table--sort-indicator-size);
+          border-radius: calc(2 * gs-var(table--sort-indicator-size));
+          background-color: rgba(255, 255, 255, 0.37);
+          background-repeat: no-repeat;
+          background-size: calc(gs-var(table--sort-indicator-size) / 2.5);
+          background-position: center;
+        }
+      }
+
+      &[aria-sort="none"] {
+        .sortable-table-header--inner:after {
+          background-image: get-sort-icon($icon-type: "unsorted");
+        }
+      }
+      &[aria-sort="ascending"] {
+        .sortable-table-header--inner:after {
+          background-image: get-sort-icon($icon-type: "asc");
+        }
+      }
+      &[aria-sort="descending"] {
+        .sortable-table-header--inner:after {
+          background-image: get-sort-icon($icon-type: "desc");
+        }
+      }
+    }
+  }
+}
+
+.dataTables_wrapper.dt-gesisweb {
+  .dataTables_filter {
+    input {
+      margin-left: 0.5rem;
+    }
+  }
+
+  // adapted from
+  // https://github.com/DataTables/Dist-DataTables-Bootstrap5/blob/1.13.4/css/dataTables.bootstrap5.css
+  table.dataTable {
+    thead {
+      > tr {
+        > th,
+        > td {
+          &.sorting {
+            cursor: pointer;
+            position: relative;
+            padding-right: 26px; // extra space for sorting icons
+            line-height: 1;
+
+            &:focus-visible {
+              outline-color: $gs-berry;
+            }
+
+            // both sorting icons ascending/up and descending/down
+            &::before,
+            &::after {
+              position: absolute;
+              display: block;
+              right: 10px;
+              line-height: 9px;
+              @include font-size($gs-font--xs);
+              text-shadow: // white outline on sorting icons
+                white 0px 0px 1px, white 0px 0px 1px, white 0px 0px 1px,
+                white 0px 0px 1px, white 0px 0px 1px, white 0px 0px 1px;
+            }
+
+            // sorting icon ascending/up only
+            &::before {
+              bottom: 55%;
+              // content: "▲";
+              //content: "▲"/"";
+              font-family: bootstrap-icons;
+              content: "\f235"; // similar to '▲'
+            }
+
+            // sorting icon descending/down only
+            &::after {
+              top: 55%;
+              // content: "▼";
+              // content: "▼"/"";
+              font-family: bootstrap-icons;
+              content: "\f229"; // similar to '▼'
+            }
+          } // .sorting
+
+          // === OLD CLASS-BASED APPROACH (backwards compatible) ===
+          // if ascending/descending is active, color the corresponding active icon
+          &.sorting_asc::before,
+          &.sorting_desc::after {
+            color: $gs-berry;
+          }
+
+          &.sorting_asc_disabled,
+          &.sorting_desc_disabled {
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
+
+          // === NEW ARIA-BASED APPROACH ===
+
+          // Default/unsorted state
+          &[aria-sort="none"] {
+            &::before,
+            &::after {
+              color: rgba(0, 0, 0, 0.3); // subtle when inactive
+            }
+          }
+
+          // Ascending via ARIA (overrides old classes if both present)
+          &[aria-sort="ascending"] {
+            &::before {
+              color: $gs-berry; // active up arrow
+            }
+            &::after {
+              color: rgba(0, 0, 0, 0.2); // inactive down arrow
+            }
+          }
+
+          // Descending via ARIA (overrides old classes if both present)
+          &[aria-sort="descending"] {
+            &::before {
+              color: rgba(0, 0, 0, 0.2); // inactive up arrow
+            }
+            &::after {
+              color: $gs-berry; // active down arrow
+            }
+          }
+
+          // ARIA disabled states
+          &[aria-disabled="true"] {
+            cursor: not-allowed;
+            opacity: 0.6;
+
+            &::before,
+            &::after {
+              display: none;
+            }
+          }
+        } // > th, > td
+      } // > tr
+    } // thead
+  } // table.dataTable
+} // .dataTables_wrapper.dt-gesisweb
+
+.gs-app-view table {
+  margin-top: $gs-font--md;
+}

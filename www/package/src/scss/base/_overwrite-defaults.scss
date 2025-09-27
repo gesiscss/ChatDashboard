@@ -1,0 +1,189 @@
+html,
+body {
+  width: 100%;
+}
+
+html {
+  font-family: $default-font;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  hyphenate-limit-chars: auto 6;
+  hyphenate-limit-lines: 2;
+
+}
+
+body {
+  position: relative;
+  // padding: 0 !important; -- funktioniert nicht mit Backdrop
+  // overflow-x: hidden; --ACHTUNG nicht anwendbar -- verhindert dann sticky HEADER
+  > main{
+    overflow-x: hidden;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: $gs-font--sm;
+}
+
+video{
+  border-radius: $gs-font--xl;
+}
+
+.grid{
+  @include desktop-small {
+    
+  }
+}
+
+.row {
+  flex-wrap: wrap;
+}
+
+
+
+.desktop-only {
+  @include mobile {
+    display: none;
+  }
+}
+
+.mobile-only {
+  display: none !important;
+
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.ce-image .ce-gallery{
+	width: 100%;
+	margin-top: $gs-font--3xl;
+	margin-bottom: $gs-font--3xl;
+}
+
+.ce-intext.ce-left .ce-gallery {
+  margin-right: $gs-font--3xl;
+
+  @include mobile {
+    margin-right: inherit;
+  }
+}
+
+
+.ce-left .ce-gallery, .ce-column {
+  @include mobile {
+    float: none;
+  }
+}
+
+.ce-row{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: $gs-font--2xl;
+}
+
+.cbQuickGoogleMap{
+  z-index: 0;
+  position: relative;
+}
+
+.offcanvas-backdrop {
+  background-color: transparent ;
+  background-image: linear-gradient(
+    50deg,
+    rgba(102, 47, 116, 1) 0%,   /* 50 % Deckkraft */
+    rgba(0, 67, 136, 1) 100%
+  ) ;
+}
+
+.gs-app-view.blurred > *:not(#offcanvasSidebar) {
+  filter: blur(20px);
+  transition: filter .3s ease;
+}
+
+// Browser eigene ICONS Color anpassen
+
+// Basis Filter-System
+:root {
+  //  HEX-Werte in Filter Werte umwandeln
+  // Gehe zu: https://codepen.io/sosuke/pen/Pjoqqp
+  --icon-filter-pink: invert(17%) sepia(52%) saturate(5130%) hue-rotate(316deg) brightness(95%) contrast(118%);
+
+  --icon-filter-darkblue: invert(13%) sepia(62%) saturate(3616%) hue-rotate(198deg) brightness(95%) contrast(101%);
+
+  --icon-filter-lightblue: invert(43%) sepia(79%) saturate(521%) hue-rotate(157deg) brightness(94%) contrast(92%);
+
+  --icon-filter-berry: invert(21%) sepia(37%) saturate(2561%) hue-rotate(258deg) brightness(85%) contrast(96%);
+}
+
+// Anwendung - alle möglichen Fälle
+.form-control,
+.form-select,
+input, 
+select, 
+textarea,
+button[type="button"],
+button[type="submit"],
+button[type="reset"] {
+  
+  // Webkit Browser Icons
+  &::-webkit-calendar-picker-indicator,
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button,
+  &::-webkit-search-cancel-button,
+  &::-webkit-file-upload-button,
+  &::-webkit-search-decoration,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    filter: var(--icon-filter-pink);
+  }
+  
+  // Firefox Icons
+  &::-moz-calendar-picker-indicator,
+  &::-moz-range-thumb {
+    filter: var(--icon-filter-pink);
+  }
+  
+  // Edge/IE Icons
+  &::-ms-expand,
+  &::-ms-clear,
+  &::-ms-reveal {
+    filter: var(--icon-filter-pink);
+  }
+}
+
+// Range Input Slider
+input[type="range"] {
+  &::-webkit-slider-thumb,
+  &::-moz-range-thumb,
+  &::-ms-thumb {
+    filter: var(--icon-filter-pink);
+  }
+}
+
+// Color Input
+input[type="color"] {
+  &::-webkit-color-swatch-wrapper,
+  &::-webkit-color-swatch,
+  &::-moz-color-swatch {
+    filter: var(--icon-filter-pink);
+  }
+}
+
+// Progress und Meter
+progress, meter {
+  &::-webkit-progress-bar,
+  &::-webkit-progress-value,
+  &::-webkit-meter-bar,
+  &::-moz-progress-bar,
+  &::-moz-meter-bar {
+    filter: var(--icon-filter-pink);
+  }
+}

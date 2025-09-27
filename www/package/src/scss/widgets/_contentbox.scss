@@ -1,0 +1,167 @@
+.gesis-contentbox {
+	.gesis-contentbox--header {
+		background-color: gs-color(gs-berry--14);
+		border-top-left-radius: gs-var(default-border-radius);
+		border-top-right-radius: gs-var(default-border-radius);
+		padding: $gs-font--xs $gs-font--4xl;
+		border-bottom: 3px solid #fff;
+		min-height: $gs-font--5xl;
+		line-height: 1.1;
+
+		p,
+		h1,
+		h2,
+		h3,
+		h4 {
+			font-family: $headline-font;
+			color: gs-color(gs-berry);
+			font-weight: 300;
+			@include font-size($gs-font--2xl);
+
+		}
+	}
+
+	.gesis-contentbox--content {
+		border-bottom-left-radius: gs-var(default-border-radius);
+		border-bottom-right-radius: gs-var(default-border-radius);
+		background-color: gs-color(gs-default-grey);
+		padding: $gs-font--5xl $gs-font--4xl;
+		
+
+		/**
+		* Remove margin from last and first child to prevent unwanted spacings in boxcontent beginning and end
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+		> :last-child {
+			margin-bottom: 0;
+		}
+
+		> :first-child {
+			margin-top: 0;
+		}
+
+		@include mobile {
+			padding: $gs-font--2xl $gs-font--md;
+		}
+	}
+
+	&.has-icon {
+		.gesis-contentbox--header > * {
+			position: relative;
+			padding-right: 2rem;
+			// Added padding left to keep Box Headline centered - Julian Kohl
+			padding-left: 2rem;
+
+			&:after {
+				font-family: $gesis-icons-font;
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				transform: translateY(-50%);
+				color: gs-color(gs-berry);
+				font-size: 1.5rem;
+			}
+		}
+
+		/**
+		* So würde man auch für alle anderen Icons vorgehen die im Header auswählbar sein sollen.
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+		&.rss {
+			.gesis-contentbox--header > *:after {
+				content: "\e921";
+			}
+		}
+	}
+
+	&.has-rss-link {
+		.gesis-contentbox--header {
+			position: relative;
+
+			> p {
+				padding-right: 2rem;
+				// Added padding left to keep Box Headline centered - Julian Kohl
+				padding-left: 2rem;
+			}
+
+			> a {
+				display: block;
+				position: absolute;
+				right: 3rem;
+				top: 50%;
+				transform: translateY(-50%);
+				line-height: 1;
+
+				// Remove default link underline
+				box-shadow: none;
+
+				i {
+					color: gs-color(gs-berry);
+					font-size: 1.5rem;
+				}
+
+				&:hover {
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+
+	&.blue-header {
+		.gesis-contentbox--header {
+			background-color: gs-color(gs-lightblue--14);
+
+			> * {
+				color: gs-color(gs-darkblue);
+
+				// Change color of icon if it exists
+				&:after {
+					color: gs-color(gs-darkblue);
+				}
+			}
+		}
+	}
+
+	&.events-calendar-box {
+		.gesis-contentbox--header {
+			> a {
+				right: $gs-font--xl;
+
+				i {
+					color: gs-color(gs-pink);
+				}
+
+				&:hover{
+					i {
+						color: gs-color(gs-pink--hover);
+					}
+				}
+
+				&:active{
+					i {
+						color: gs-color(gs-pink--pressed);
+					}
+				}
+
+				
+			}
+		}
+		.gesis-contentbox--content {
+			padding-left: 1.5rem;
+			padding-right: 1.5rem;
+		}
+	}
+
+	@include mobile {
+		margin: $gs-font--3xl 0;
+	}
+
+
+}

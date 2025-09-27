@@ -1,0 +1,2676 @@
+/*^ =================================================================== */
+/*^ GESIS DESIGN (gesis-web-frontend-framework) updates for GWS         */
+/**                                                                     */
+/** CSS - Sections:                                                     */
+/*^ ------------------------------------------------------------------- */
+/** - Mobile Facets                                                     */
+/** - Defaults & HTML Elements                                          */
+/** - Landing (Entry) / no result page related                          */
+/** - Facets                                                            */
+/** - Filter                                                            */
+/** - Sorting                                                           */
+/** - Highlighting                                                      */
+/** - Hitlist (Aufklapper) + Resultlist                                 */
+/** - Buttons                                                           */
+/** - Sidebar related                                                   */
+/** - Detailed view                                                     */
+/** - Linked Resources                                                  */
+/** - Akkordeons                                                        */
+/** - Icons                                                             */
+/** - Pop-ups / UI dialog                                               */
+/** - Pagination                                                        */
+/** - Responsiveness                                                    */
+/** - Error Messages                                                    */
+/*^ ------------------------------------------------------------------- */
+/*  Updatet 2024 by Sascha Schüller - sascha.schueller@gesis.org        */
+
+/** Mobile Facets ----------------------------------------------------- */
+#facetview {
+  .result-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    gap: 8px;
+  }
+
+  .gws-button_alt {
+    color: #fff !important;
+    text-decoration: none;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    width: inherit;
+  }
+  .tabs_category_alt {
+    font-weight: 600;
+    font-size: medium;
+    font-family: "Cabin", sans-serif;
+    line-height: 1rem;
+    line-height: initial;
+  }
+
+  .tabs_numbers_alt {
+    font-size: small;
+    line-height: 1rem;
+  }
+
+  .tabchoice_alt_active > .tabs_numbers_alt {
+    text-decoration: underline;
+  }
+
+  .tabchoice_alt_active > .tabs_numbers_alt {
+    font-weight: 600;
+  }
+
+  .tab_project,
+  .tab_project:focus {
+    background-color: #e86f67;
+  }
+
+  .tab_institution,
+  .tab_institution:focus {
+    background-color: #3fa1e8;
+  }
+
+  .tab_project_alt {
+    background-color: #e86f67;
+  }
+
+  .tab_institution_alt {
+    background-color: #3fa1e8;
+  }
+  ´ .tab_project.tabchoice_active {
+    background-color: #e86f67;
+    color: #fff;
+  }
+
+  .tab_institution.tabchoice_active:after {
+    border-left: 10px solid #3fa1e8;
+  }
+
+  .tab_institution.tabchoice_active {
+    background-color: #3fa1e8;
+    color: #fff;
+  }
+
+  .tab_project:hover {
+    background-position: 2px 7px;
+  }
+
+  .tab_institution:hover {
+    background-position: 2px 7px;
+  }
+
+  /** Defaults & HTML Elements ------------------------------------------ */
+  p {
+    margin-bottom: 1rem;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--gs--headline--color);
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: var(--gs--font-size--heading--secondary);
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .source,
+  .view,
+  .abstract,
+  .topic,
+  .link_linked_resources,
+  .persons,
+  .abstract_preview,
+  .abstract_full,
+  .abstract_preview_detailed,
+  .abstract_full_detailed,
+  .linked_resources,
+  .link_to_portal,
+  .document_type,
+  .database,
+  .time_collection,
+  .countries_collection,
+  .method_collection,
+  .dataset_details,
+  .project_time,
+  .organisation,
+  .address,
+  .count_items,
+  .reliability,
+  .validity,
+  .construct,
+  .language_documentation,
+  .language_items,
+  .author_website,
+  .countries_collection,
+  .methodology_collection,
+  .data_type,
+  .coverage,
+  .rights,
+  .data_collector,
+  .universe,
+  .selection_method,
+  .persons_complete,
+  .institution,
+  .principal,
+  .financer,
+  .research_type,
+  .theoretical_approach,
+  .field_work,
+  .sub_title,
+  .website,
+  .subjects_selection,
+  .subjects_features,
+  .survey_mode,
+  .field_time,
+  .doi,
+  .person,
+  .institutions,
+  .number_units,
+  .number_variables,
+  .analysis_system,
+  .report,
+  .syntax_routines_format,
+  .data_reference,
+  .study_number,
+  .secure_data_center,
+  .variable_label,
+  .variable_lang,
+  .variable_name,
+  .question_name,
+  .question_lang,
+  .question_type1,
+  .question_type2,
+  .question_text,
+  .question_label,
+  .answer_categories,
+  .item_categories,
+  .variable_code_list,
+  .variables,
+  .category,
+  .interview_instruction,
+  .study_title,
+  .variables_table,
+  .question_country,
+  .question_questionnaire,
+  .reference_publication,
+  .primary_researchers_advisory_board_institution,
+  .remarks,
+  .publications,
+  .other_title,
+  .primary_researchers,
+  .contributor,
+  .funders,
+  .replication_server,
+  .countries_collection_region,
+  .time_method,
+  .publisher,
+  .publication_year,
+  .availability,
+  .analysis_unit,
+  .kind_data,
+  .collection_date,
+  .research_data_centre,
+  .alternative_ids,
+  .versions,
+  .errata_current_version,
+  .errata_to_previous_version,
+  .aboutness,
+  .external_links,
+  .subject_area,
+  .embargo_end,
+  .availability_later,
+  .pub_volume,
+  .pub_issue,
+  .name_journal,
+  .topics_STW,
+  .topics_TheSoz,
+  .notes,
+  .surveys,
+  .codebook_table,
+  .date,
+  .project,
+  .question_type,
+  .other_titles,
+  .summary_single_record,
+  .current_version {
+    padding: 0 !important;
+    margin-top: 5px;
+  }
+
+  .prestest .topic,
+  .pretest .date,
+  .pretest .project,
+  .pretest .construct,
+  .pretest .question_type,
+  .zis .publication_year,
+  .zis .count_items,
+  .zis .language_items,
+  .zis .topic,
+  .zis .construct,
+  .zis .surveys {
+    margin-top: 1px;
+  }
+
+  .content-section .content-section--inner {
+    padding-top: 1.8rem !important;
+  }
+
+  /** Defaults - Bootstrap extension and overrides */
+  .mt-xl-3 {
+    margin-top: unset !important;
+  }
+
+  /** HTML Elements - Links */
+  a h3:hover {
+    color: var(--gs--link-underline--color);
+  }
+
+  .menu_top_faq_link:hover {
+    box-shadow: inset 0 var(--gs--link-underline--hover-height) 0 0
+      var(--gs--link-underline--hover-color) !important;
+  }
+
+  a.hover_color:hover {
+    color: var(--gs--color--gs-pink) !important;
+  }
+
+  a.disabled {
+    color: var(--gs--color--gs-dark-grey);
+    cursor: default;
+    text-decoration: none;
+  }
+
+  a.disabled:hover {
+    /* color: var(--gs--color--gs-light); */
+    box-shadow: unset !important;
+  }
+
+  a.disabled_but_visible {
+    pointer-events: none;
+    cursor: default;
+  }
+
+  a.disabled_but_visible:before {
+    content: "" !important;
+    margin-right: 0px !important;
+  }
+
+  a.gesis-link--no_decoration {
+    text-decoration: none !important;
+  }
+
+  a.gesis-link--no_shadow {
+    box-shadow: none !important;
+  }
+
+  #category_help,
+  #link_to_gesis_search {
+    font-size: small;
+  }
+
+  /** HTML Elements - Table */
+  table tbody td {
+    padding: 1rem;
+  }
+
+  #dialog-watchlist > table > tbody > tr > td {
+    align-content: center;
+  }
+
+  table#facetview_topic_keyword,
+  table#facetview_person_keyword,
+  table#facetview_date_keyword,
+  table#facetview_thematic_collection_keyword,
+  table#facetview_aboutness_keyword,
+  table#facetview_time_collection_years_keyword,
+  table#facetview_principal_keyword,
+  table#facetview_survey_mode_keyword,
+  table#facetview_language_keyword,
+  table#facetview_multilingual_keyword,
+  table#facetview_data_source_keyword,
+  table#facetview_countries_collection_keyword,
+  table#facetview_study_title_keyword,
+  table#facetview_selection_method_ddi_keyword,
+  table#facetview_time_method_keyword,
+  table#facetview_analysis_unit_keyword,
+  table#facetview_kind_data_keyword,
+  table#facetview_status_instrument_keyword,
+  table#facetview_study_lang_keyword,
+  table#facetview_language_items_keyword,
+  table#facetview_programming_language_keyword,
+  table#facetview_media_type_keyword,
+  table#facetview_task_keyword {
+    min-width: 280px;
+    width: 265px;
+  }
+
+  table#facetview_study_group_keyword {
+    min-width: 280px;
+    width: unset;
+    max-width: 320px !important;
+  }
+
+  table#facetview_methodology_collection_ddi_keyword {
+    width: 450px;
+  }
+
+  table#facetview_language_documentation_keyword {
+    min-width: 280px;
+    width: unset;
+  }
+
+  table.variables_item_categories,
+  table.variables_answer_categories,
+  table.variables_code_list_table,
+  table.variables_table,
+  #codebook_table table {
+    width: auto;
+  }
+
+  #version_table,
+  #faq_filter_table,
+  #current_version_errata_table,
+  table[id^="errata_table_version_"],
+  #codebook_table {
+    width: 100%;
+  }
+
+  #version_table tr td,
+  #faq_filter_table tr td,
+  #current_version_errata_table tr td,
+  table[id^="errata_table_version_"] tr td,
+  #table_download_file_metadata tr td,
+  .table_help_button tr td,
+  #version_table tr th,
+  #current_version_errata_table tr th,
+  table[id^="errata_table_version_"] tr th,
+  #table_download_file_metadata tr th,
+  .table_help_button tr th {
+    border-bottom: 2px solid #ccc !important;
+  }
+
+  #codebook_table_wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /** Linked ressource button: like button_research_data */
+  a[class^="button_"] {
+    margin-right: 5px;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-bottom: 5px;
+  }
+
+  /** Landing (Entry) / no result page related ------------------------- */
+  #overview h1 {
+    color: var(--gs--headline--color);
+    font-weight: 500;
+    margin-bottom: 1rem !important;
+  }
+
+  #overview p {
+    margin-bottom: 1rem !important;
+  }
+
+  #overview ul {
+    padding-left: 2rem !important;
+  }
+
+  #overview li {
+    list-style-type: square;
+  }
+
+  #overview li li {
+    list-style: none;
+      &::marker{
+        content: "\f135";
+        color: $gs-pink;
+        font-size: $gs-font--lg;
+        font-family: bootstrap-icons;
+      }
+  }
+
+  #query_suggestion_label {
+    font-style: italic;
+  }
+
+  /** Facets ------------------------------------------------------------ */
+  .gws-button {
+    position: relative;
+    text-decoration: none;
+    list-style-type: none;
+    text-shadow: none;
+    line-height: 14px;
+    margin-bottom: 8px;
+    box-shadow: none;
+    height: 75px;
+  }
+
+  .gws-button-group .gws-button {
+    margin-left: 0;
+  }
+
+  .gws-button:first-child {
+    padding-left: 0;
+  }
+
+  .gws-button.tab_instruments_tools {
+    padding: 10px 15px 5px 45px;
+    line-height: 9px;
+  }
+
+  .gws-button-group .gws-button:first-child {
+    margin-left: 0;
+    border-radius: 0;
+    border: none;
+    padding-left: 20px;
+  }
+
+  .gws-button-group .gws-button:last-child,
+  .gws-button-group .dropdown-toggle {
+    border-radius: 0;
+  }
+
+  #tabs_menu {
+    display: grid;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 0;
+    float: left;
+    margin-right: 20px;
+    width: 165px;
+  }
+
+  .tab_empty {
+    border-color: var(--gs--color--gs-accent-grey) !important;
+    background-color: var(--bs-white) !important;
+    color: var(--gs--color--gs-accent-grey) !important;
+  }
+
+  #tabs_menu a.tab_empty {
+    border-color: var(--gs--color--gs-accent-grey) !important;
+  }
+
+  #tabs_menu a[class^="tab_"]:hover {
+    box-shadow: unset !important;
+  }
+
+  .tabs_category {
+    font-weight: 600;
+    font-size: medium;
+    font-family: "Cabin", sans-serif;
+    line-height: 1rem;
+    line-height: initial;
+    hyphens: none;
+  }
+
+  .tabs_empty_line {
+    line-height: 14px;
+  }
+
+  .tabs_numbers {
+    font-size: small;
+    line-height: 1rem;
+  }
+
+  /** Facets - Research */
+  .tab_research_data,
+  .tab_research_data:focus,
+  .tab_research_data_alt,
+  .tab_research_data_alt:focus {
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  .tab_research_data.tabchoice_active,
+  .tab_research_data_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-1);
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  .tab_research_data:hover,
+  .tab_research_data_alt:hover {
+    background-position: 2px 7px;
+    background: var(--gs--color--gs-facet-1-opacity-40);
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  .tab_research_data.tabchoice_active:hover,
+  .tab_research_data_alt.tabchoice_active:hover {
+    color: var(--bs-black);
+  }
+
+  /** Facets - Variables */
+  .tab_variables,
+  .tab_variables:focus,
+  .tab_variables_alt,
+  .tab_variables_alt:focus {
+    border-color: var(--gs--color--gs-facet-2) !important;
+  }
+
+  .tab_variables.tabchoice_active,
+  .tab_variables_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-2);
+    border-color: var(--gs--color--gs-facet-2) !important;
+  }
+
+  .tab_variables.tabchoice_active:hover,
+  .tab_variables_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_variables:hover,
+  .tab_variables_alt:hover {
+    background: var(--gs--color--gs-facet-2-opacity-40);
+    border-color: var(--gs--color--gs-facet-2) !important;
+  }
+
+  /** Facets - Questions */
+  .tab_questions,
+  .tab_questions:focus,
+  .tab_questions_alt,
+  .tab_questions_alt:focus {
+    border-color: var(--gs--color--gs-lightblue) !important;
+  }
+
+  .tab_questions.tabchoice_active,
+  .tab_questions_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-lightblue);
+    border-color: var(--gs--color--gs-lightblue) !important;
+  }
+
+  .tab_questions.tabchoice_active:hover,
+  .tab_questions_alt.tabchoice_active_alt:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_questions:hover,
+  .tab_questions_alt:hover {
+    background: var(--gs--color--gs-lightblue--14);
+    border-color: var(--gs--color--gs-lightblue) !important;
+  }
+
+  /** Facets - Instruments & tools */
+  .tab_instruments_tools,
+  .tab_instruments_tools:focus,
+  .tab_instruments_tools_alt,
+  .tab_instruments_tools_alt:focus {
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  .tab_instruments_tools.tabchoice_active,
+  .tab_instruments_tools_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-3);
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  .tab_instruments_tools.tabchoice_active:hover,
+  .tab_instruments_tools_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_instruments_tools:hover,
+  .tab_instruments_tools_alt:hover {
+    background: var(--gs--color--gs-facet-3-opacity-40);
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  /** Facets - Publication */
+  .tab_publication,
+  .tab_publication:focus,
+  .tab_publication_alt,
+  .tab_publication_alt:focus {
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  .tab_publication.tabchoice_active,
+  .tab_publication_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-4);
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  .tab_publication.tabchoice_active:hover,
+  .tab_publication_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_publication:hover,
+  .tab_publication_alt:hover {
+    background: var(--gs--color--gs-facet-4-opacity-40);
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  /** Facets - Bib */
+  .tab_gesis_bib,
+  .tab_gesis_bib:focus,
+  .tab_gesis_bib_alt,
+  .tab_gesis_bib_alt:focus {
+    border-color: var(--gs--color--gs-facet-5) !important;
+  }
+
+  .tab_gesis_bib.tabchoice_active,
+  .tab_gesis_bib_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-5);
+    border-color: var(--gs--color--gs-facet-5) !important;
+  }
+
+  .tab_gesis_bib.tabchoice_active:hover,
+  .tab_gesis_bib_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_gesis_bib:hover,
+  .tab_gesis_bib_alt:hover {
+    background: var(--gs--color--gs-facet-5-opacity-40);
+    border-color: var(--gs--color--gs-facet-5) !important;
+  }
+
+  /** Facets - Web */
+  .tab_gesis_web,
+  .tab_gesis_web:focus,
+  .tab_gesis_web_alt,
+  .tab_gesis_web_alt:focus {
+    border-color: var(--gs--color--gs-facet-6) !important;
+  }
+
+  .tab_gesis_web.tabchoice_active,
+  .tab_gesis_web_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-6);
+    border-color: var(--gs--color--gs-facet-6) !important;
+  }
+
+  .tab_gesis_web.tabchoice_active:hover,
+  .tab_gesis_web_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_gesis_web:hover,
+  .tab_gesis_web_alt:hover {
+    background: var(--gs--color--gs-facet-6-opacity-40);
+    border-color: var(--gs--color--gs-facet-6) !important;
+  }
+
+  /** Facets - Research Code */
+  .tab_research_code,
+  .tab_research_code:focus,
+  .tab_research_code_alt,
+  .tab_research_code_alt:focus {
+    border-color: var(--gs--color--gs-olive) !important;
+  }
+
+  .tab_research_code.tabchoice_active,
+  .tab_research_code_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-olive);
+    border-color: var(--gs--color--gs-olive) !important;
+  }
+
+  .tab_research_code.tabchoice_active:hover,
+  .tab_research_code.tabchoice_active_alt:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_research_code:hover,
+  .tab_research_code_alt:hover {
+    background: var(--gs--color--gs-turquoise--14);
+    border-color: var(--gs--color--gs-olive) !important;
+  }
+
+  /** Facets - ZIS - scales */
+  .tab_zis_scales,
+  .tab_zis_scales.tabchoice_active,
+  .tab_zis_scales_alt,
+  .tab_zis_scales.tabchoice_alt_active {
+    --gs--color--gs-facet-7: #58748f;
+    --gs--color--gs-facet-7-opacity-40: #58748f61;
+  }
+
+  .tab_zis_scales,
+  .tab_zis_scales:focus,
+  .tab_zis_scales_alt,
+  .tab_zis_scales_alt:focus {
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_zis_scales.tabchoice_active,
+  .tab_zis_scales_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-7);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_zis_scales.tabchoice_active:hover,
+  .tab_zis_scales_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_zis_scales:hover,
+  .tab_zis_scales_alt:hover {
+    background: var(--gs--color--gs-facet-7-opacity-40);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_zis_scales,
+  .tab_zis_scales_alt {
+    height: unset !important;
+  }
+
+  /** Facets - ZIS - DIPF - scales */
+  .tab_dipf_scales,
+  .tab_dipf_scales.tabchoice_active,
+  .tab_dipf_scales_alt,
+  .tab_dipf_scales_alt.tabchoice_alt_active {
+    --gs--color--gs-facet-8: #6c92b3;
+    --gs--color--gs-facet-8-opacity-40: #6c92b35d;
+  }
+
+  .tab_dipf_scales,
+  .tab_dipf_scales:focus,
+  .tab_dipf_scales_alt,
+  .tab_dipf_scales_alt:focus {
+    border-color: var(--gs--color--gs-facet-8) !important;
+  }
+
+  .tab_dipf_scales.tabchoice_active,
+  .tab_dipf_scales_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-8);
+    border-color: var(--gs--color--gs-facet-8) !important;
+  }
+
+  .tab_dipf_scales.tabchoice_active:hover,
+  .tab_dipf_scales_alt.tabchoice_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_dipf_scales:hover,
+  .tab_dipf_scales_alt:hover {
+    background: var(--gs--color--gs-facet-8-opacity-40);
+    border-color: var(--gs--color--gs-facet-8) !important;
+  }
+
+  .tab_dipf_scales,
+  .tab_dipf_scales_alt {
+    height: unset !important;
+  }
+
+  span#dipf_cooperation_hint {
+    font-weight: normal;
+    background-image: url("https://zis.gesis.org/content/css/icons/dipf_logo.jpg");
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: center 15px;
+    display: list-item;
+    height: 38px;
+    font-size: small;
+  }
+
+  span#dipf_cooperation_hint_alt {
+    font-weight: normal;
+    background-image: url("https://zis.gesis.org/content/css/icons/dipf_logo.jpg");
+    background-position: -7px center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: right;
+    font-size: small;
+  }
+
+  /** Facets - ZIS - ZPID - scales */
+  .tab_zpid_scales,
+  .tab_zpid_scales.tabchoice_active,
+  .tab_zpid_scales_alt,
+  .tab_zpid_scales_alt.tabchoice_alt_active {
+    --gs--color--gs-facet-9: #9baec1;
+    --gs--color--gs-facet-9-opacity-40: #9baec154;
+  }
+
+  .tab_zpid_scales,
+  .tab_zpid_scales:focus,
+  .tab_zpid_scales_alt,
+  .tab_zpid_scales_alt:focus {
+    border-color: var(--gs--color--gs-facet-9) !important;
+  }
+
+  .tab_zpid_scales.tabchoice_active,
+  .tab_zpid_scales_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-9);
+    border-color: var(--gs--color--gs-facet-9) !important;
+  }
+
+  .tab_zpid_scales.tabchoice_active:hover,
+  .tab_zpid_scales_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_zpid_scales:hover,
+  .tab_zpid_scales_alt:hover {
+    background: var(--gs--color--gs-facet-9-opacity-40);
+    border-color: var(--gs--color--gs-facet-9) !important;
+  }
+
+  .tab_zpid_scales,
+  .tab_zpid_scales_alt {
+    height: unset !important;
+  }
+
+  span#zpid_cooperation_hint {
+    font-weight: normal;
+    background-image: url("https://zis.gesis.org/content/css/icons/zpid_logo.jpg");
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: center 15px;
+    display: list-item;
+    height: 38px;
+    font-size: small;
+  }
+
+  span#zpid_cooperation_hint_alt {
+    font-weight: normal;
+    background-image: url("https://zis.gesis.org/content/css/icons/zpid_logo.jpg");
+    background-position: -7px center;
+    background-repeat: no-repeat;
+    background-size: 35%;
+    background-position: right;
+    font-size: small;
+  }
+
+  /** Facets - PreTest - projects */
+  .tab_pretest_projects,
+  .tab_pretest_projects.tabchoice_active,
+  .tab_pretest_projects_alt,
+  .tab_pretest_projects_alt.tabchoice_alt_active {
+    --gs--color--gs-facet-10: #00a89f;
+    --gs--color--gs-facet-10-opacity-40: #00a8a064;
+  }
+
+  .tab_pretest_projects,
+  .tab_pretest_projects:focus,
+  .tab_pretest_projects_alt,
+  .tab_pretest_projects_alt:focus {
+    border-color: var(--gs--color--gs-facet-10) !important;
+  }
+
+  .tab_pretest_projects.tabchoice_active,
+  .tab_pretest_projects_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-10);
+    border-color: var(--gs--color--gs-facet-10) !important;
+  }
+
+  .tab_pretest_projects.tabchoice_active:hover,
+  .tab_pretest_projects_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_pretest_projects:hover,
+  .tab_pretest_projects_alt:hover {
+    background: var(--gs--color--gs-facet-10-opacity-40);
+    border-color: var(--gs--color--gs-facet-10) !important;
+  }
+
+  .tab_pretest_projects,
+  .tab_pretest_projects_alt {
+    height: unset !important;
+  }
+
+  /** Facets - PreTest - items */
+  .tab_pretest_items,
+  .tab_pretest_items.tabchoice_active,
+  .tab_pretest_items_alt,
+  .tab_pretest_items_alt.tabchoice_alt_active {
+    --gs--color--gs-facet-11: #e86f67;
+    --gs--color--gs-facet-11-opacity-40: #e8706758;
+  }
+
+  .tab_pretest_items,
+  .tab_pretest_items:focus,
+  .tab_pretest_items_alt,
+  .tab_pretest_items_alt:focus {
+    border-color: var(--gs--color--gs-facet-11) !important;
+  }
+
+  .tab_pretest_items.tabchoice_active,
+  .tab_pretest_items_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-11);
+    border-color: var(--gs--color--gs-facet-11) !important;
+  }
+
+  .tab_pretest_items.tabchoice_active:hover,
+  .tab_pretest_items_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_pretest_items:hover,
+  .tab_pretest_items_alt:hover {
+    background: var(--gs--color--gs-facet-11-opacity-40);
+    border-color: var(--gs--color--gs-facet-11) !important;
+  }
+
+  .tab_pretest_items,
+  .tab_pretest_items_alt {
+    height: unset !important;
+  }
+
+  /** Facets - MethodsHub - tutorials */
+  .tab_dbd_tutorials,
+  .tab_dbd_tutorials.tabchoice_active,
+  .tab_dbd_tutorials_alt,
+  .tab_dbd_tutorials.tabchoice_alt_active {
+    --gs--color--gs-facet-7: #58748f;
+    --gs--color--gs-facet-7-opacity-40: #58748f61;
+  }
+
+  .tab_dbd_tutorials,
+  .tab_dbd_tutorials:focus,
+  .tab_dbd_tutorials_alt,
+  .tab_dbd_tutorials_alt:focus {
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_tutorials.tabchoice_active,
+  .tab_dbd_tutorials_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-7);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_tutorials.tabchoice_active:hover,
+  .tab_dbd_tutorials_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_dbd_tutorials:hover,
+  .tab_dbd_tutorials_alt:hover {
+    background: var(--gs--color--gs-facet-7-opacity-40);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_tutorials,
+  .tab_dbd_tutorials_alt {
+    height: unset !important;
+  }
+
+  /** Facets - MethodsHub - methods */
+  .tab_dbd_source_code,
+  .tab_dbd_source_code.tabchoice_active,
+  .tab_dbd_source_code_alt,
+  .tab_dbd_source_code.tabchoice_alt_active {
+    --gs--color--gs-facet-7: #58748f;
+    --gs--color--gs-facet-7-opacity-40: #58748f61;
+  }
+
+  .tab_dbd_source_code,
+  .tab_dbd_source_code:focus,
+  .tab_dbd_source_code_alt,
+  .tab_dbd_source_code_alt:focus {
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_source_code.tabchoice_active,
+  .tab_dbd_source_code_alt.tabchoice_alt_active {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-7);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_source_code.tabchoice_active:hover,
+  .tab_dbd_source_code_alt.tabchoice_alt_active:hover {
+    color: var(--bs-black);
+  }
+
+  .tab_dbd_source_code:hover,
+  .tab_dbd_source_code_alt:hover {
+    background: var(--gs--color--gs-facet-7-opacity-40);
+    border-color: var(--gs--color--gs-facet-7) !important;
+  }
+
+  .tab_dbd_source_code,
+  .tab_dbd_source_code_alt {
+    height: unset !important;
+  }
+
+  /** Filter ------------------------------------------------------------ */
+  #facets_left {
+    float: left;
+  }
+
+  #facets_label {
+    color: var(--gs--color--gs-dark-grey);
+    font-weight: bold;
+    margin-bottom: 10px;
+
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+
+    &::before{
+      content: "\F3E0";
+      color: $gs-darkblue;
+      font-size: $gs-font--md;
+      font-family: bootstrap-icons;
+    }
+
+  }
+
+  .filter_section {
+    display: block;
+    color: var(--gs--color--gs-dark-grey);
+    font-weight: bold;
+    padding-bottom: 3px;
+    padding-top: 15px;
+  }
+
+  #section_filter_fulltext {
+    display: none;
+    /* display: inline-block; */
+    padding: 5px;
+    margin-top: 5px;
+  }
+
+  #facetview_filters > span > table {
+    min-width: max-content !important;
+  }
+
+  #facetview_filters_box {
+    background: var(--gs--color--gs-light--14);
+    padding-top: 10px;
+    padding-bottom: 11px;
+    padding-left: 15px;
+  }
+
+  #facetview_filters {
+    > .facet_tr {
+      .facetview_filters {
+        top: 0;
+        left: 0;
+      }
+
+      &:nth-last-of-type(-n + 3) {
+        .facetview_filters {
+          left: inherit;
+          right: 0;
+        }
+      }
+    }
+  }
+
+  .facetview_filters a:hover {
+    text-decoration: none;
+  }
+
+  .facetview_filterchoice {
+    text-decoration: none;
+    color: #373737;
+  }
+
+  #facetview_filters_box a {
+    white-space: pre;
+  }
+
+  .facetview_filtershow {
+    color: var(--gs--headline--color);
+    text-decoration: none;
+    margin-right: 20px;
+  }
+
+  .facetview_filterchoice_linktext {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .facetview_filtervalue {
+    background-color: white;
+    color: var(--bs-secondary-text-emphasis);
+  }
+
+  .facetview_filtervalue td {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0rem !important;
+  }
+
+  .facetview_filtervalue {
+    padding-top: 0.6rem !important;
+    padding-left: 0.6rem !important;
+    padding-right: 0.6rem !important;
+  }
+
+  .facet_tr {
+    position: relative;
+    width: 100%;
+  }
+
+  /** Filter - Links und Buttons ohne unterstrich */
+  a[id^="filterbox_close_"],
+  a[class^="facet_sort"] {
+    box-shadow: unset !important;
+  }
+
+  a[id^="filterbox_close_"]:hover > span {
+    font-weight: 600;
+  }
+
+  a[class^="facetview_"] {
+    box-shadow: unset;
+  }
+
+  a[id^="filterbox_close_"],
+  a[class^="facet_sort"] {
+    box-shadow: unset !important;
+  }
+
+  a[id^="filterbox_close_"]:hover > span {
+    font-weight: 600;
+  }
+
+  /** Filter - Sort buttons */
+  .facet_sort {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: var(--gs--button--background-color);
+    margin-right: 3px;
+  }
+
+  a.facet_sort {
+    text-decoration: none;
+    color: var(--bs-black);
+    border-radius: var(--gs--default-border-radius);
+    box-shadow: none;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--gs--color--gs-berry-14);
+    color: var(--gs--color--gs-default);
+    display: inline-flex;
+    border: 3px solid var(--gs--color--gs-berry);
+    padding: 0.7rem 1.7rem 0.6rem;
+  }
+
+  a.facet_sort:hover {
+    background-color: var(--gs--color--gs-berry);
+    color: var(--gs--color--gs-white);
+  }
+
+  .facet_sort_active {
+    border: 3px solid var(--gs--color--gs-berry) !important;
+    background-color: var(--gs--color--gs-berry) !important;
+    color: var(--gs--color--gs-white) !important;
+  }
+
+  /** Filter - Suche-Ergebnis Links  */
+  a[class^="facetview_filterchoice"]:hover {
+    color: var(--gs--link-with-icon--hover-color) !important;
+    box-shadow: unset !important;
+  }
+
+  .facetview_highrangeval_date_keyword:last-child {
+    margin-right: 5px !important;
+  }
+
+  /** Filter - Button */
+  main a.gesis-button--default.facetview_filterselected {
+    padding-top: 0.15rem !important;
+    padding-right: 0.3rem !important;
+    padding-bottom: 0rem !important;
+    padding-left: 0.5rem !important;
+  }
+
+  /** Filter - Button close */
+  a[class^="facetview_filterselected gesis-button--default"]::after,
+  a[class^="facetview_filterselected facetview_facetrange gesis-button--default"]::after {
+    content: unset !important;
+    content: "\e91e" !important;
+    margin-right: 0.2em !important;
+    margin-left: 0px !important;
+    margin-top: -0.15rem !important;
+  }
+
+  /** Filter - Selected button */
+  .facetview_filterselected {
+    text-decoration: none;
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  #facetview_filters {
+    float: inherit !important;
+  }
+
+  #facetview_selectedfilters > div > a {
+    float: left;
+    height: unset !important;
+    margin-bottom: 4px !important;
+    white-space: break-spaces;
+  }
+
+  #facetview_selectedfilters .gws-button-group {
+    margin-bottom: 10px;
+    margin-left: 1px;
+  }
+
+  #facetview_selectedfilters .gws-button:hover {
+    background-color: var(--gesis-attention-color) !important;
+  }
+
+  .facetview_filterresults td span tr td div {
+    padding: 0 !important;
+  }
+
+  .tr_more_less_facets:hover {
+    background-color: var(--bs-white);
+  }
+
+  /** Filter - Text input */
+  .facetview_filtersearch input:focus {
+    border-color: var(--gs--color--gs-lightblue);
+    -webkit-box-shadow: inset 0 1px 1px var(--gs--color--gs-light--14),
+      0 0 8px var(--gs--color--gs-lightblue--14);
+    -moz-box-shadow: inset 0 1px 1px var(--gs--color--gs-light--14),
+      0 0 8px var(--gs--color--gs-lightblue--14);
+    outline: 0;
+    outline: thin dotted \9;
+  }
+
+  /** Filter - Kurvige ecken like corporate design */
+  table[id^="facetview_"] > tbody > tr.facetview_filtervalue:last-child td,
+  table[id^="facetview_"] > tbody > tr.facetview_filtervalue:last-child,
+  table[id^="facetview_"] > tbody > tr.facetview_filterrange:last-child {
+    border-bottom-left-radius: var(--gs--default-border-radius);
+    border-bottom-right-radius: var(--gs--default-border-radius);
+  }
+
+  .facetview_filterresults td,
+  .facetview_filterrange td {
+    padding: 0 15px 0 15px;
+    vertical-align: unset;
+    border-bottom-left-radius: var(--gs--default-border-radius);
+    border-bottom-right-radius: var(--gs--default-border-radius);
+  }
+
+  .facetview_filtersearch input {
+    border-radius: var(--gs--default-border-radius);
+  }
+
+  .facetview_filteroptions_head {
+    background: var(--gs--color--gs-berry);
+    border: 0;
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+    border-color: transparent !important;
+    border-top-left-radius: var(--gs--default-border-radius);
+    border-top-right-radius: var(--gs--default-border-radius);
+    color: var(--gs--color--gs-white);
+  }
+
+  /** Filter - Abstand der Tabelle Rahmen und auf höhere Ebene wenn hintergrund abgedunekelt wird*/
+  #facetview_filters table {
+    margin-right: 15px;
+    position: absolute;
+    z-index: 40;
+  }
+
+  table[id^="facetview_"] {
+    td {
+      border: 0;
+    }
+  }
+
+  /** Filter - Abstand zum unterem Tabellen-ende */
+  table[id^="facetview_"]
+    > tbody
+    > tr.facetview_filtervalue
+    > td.more_less_facets,
+  table[id^="facetview_"]
+    > tbody
+    > tr.facetview_filterresults
+    > td
+    > span
+    > tr.tr_more_less_facets
+    > td {
+    padding-bottom: 10px !important;
+  }
+
+  /** Filter - Abstand Zeileninhalt nach oben*/
+  table[id^="facetview_"]
+    > tbody
+    > tr.facetview_filterresults
+    > td
+    > span
+    > tr
+    > td {
+    padding-top: 10px !important;
+  }
+
+  /** Filter - Transparenter bereich zwischen Head und Tabelleninhalt */
+  .transparent_margin {
+    height: 0 !important;
+    padding: unset !important;
+    background-color: transparent !important;
+  }
+
+  /** Filter - Abstand von suchschlitz */
+  #filtersearch_input_td {
+    margin: var(--gs--space--third) !important;
+  }
+
+  /** Filter - Ungewollte bottom lines entfernen */
+  table[id^="facetview_"] > tbody > tr.facetview_filterrange,
+  table[id^="facetview_"] > tbody > tr.facetview_filteroptions,
+  table[id^="facetview_"] > tbody > tr.facetview_filteroptions_filterrange,
+  table[id^="facetview_"] > tbody > tr.facetview_filtersearch,
+  table[id^="facetview_"] > tbody > tr.tr_more_less_facets,
+  table[id^="facetview_"] > tbody > tr.facetview_filterresults,
+  table[id^="facetview_"]
+    > tbody
+    > tr.facetview_filterresults
+    > td
+    > span
+    > tr.tr_more_less_facets {
+    border-bottom: unset;
+  }
+
+  /** Filter - Ungewollter weißer hintergrund */
+  #facetview_filters > span > table[class^="facetview_"],
+  #facetview_filters
+    > div[id^="more_filters"]
+    > span
+    > table[class^="facetview_"] {
+    background-color: unset !important;
+  }
+
+  /** Filter - Range */
+  input[class^="facetview_lowrangeval_"],
+  input[class^="facetview_highrangeval_"] {
+    display: inline !important;
+    border: 1px solid #c5c5c5;
+    width: 60px;
+  }
+
+  input[class^="facetview_highrangeval_"] {
+    margin-left: 5px;
+  }
+
+  /** Filter - CodeInspector Semantic vs keyword search */
+  #code_inspector_chooser {
+    color: --gs--headline--color;
+    margin-top: 10px;
+  }
+
+  #code_inspector_chooser label {
+    margin-left: 5px;
+    margin-right: 17px;
+  }
+
+  /** Sorting ----------------------------------------------------------- */
+  #header_gesis_sort {
+    color: var(--gs--color--gs-dark-grey);
+    font-weight: bold;
+  }
+
+  .facetview_orderby {
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 45px;
+  }
+
+  /** Highlighting------------------------------------------------------- */
+  .highlight,
+  .highlight_orange {
+    --gs--color--highlight: #ffff88;
+    background-color: var(--gs--color--highlight);
+    line-height: inherit;
+  }
+  .highlight_item_td {
+    background-color: var(--gs--color--gs-light--14);
+  }
+
+  .highlight_item_text {
+    font-weight: bold;
+  }
+
+  /** Hitlist (Aufklapper) + Resultlist --------------------------------- */
+  #gs_hitlist{
+    background: white;
+  }
+
+
+  .gs_hitlist_facetview_results {
+    height: 100%;
+  }
+
+  .abstract_full {
+    line-height: 1rem;
+  }
+
+  .mb10 {
+    margin-bottom: 16px;
+  }
+
+  .main_resultlist > .title > h3 {
+    margin: 0;
+    font-size: larger;
+  }
+
+  .main_resultlist > .title > h3 > a {
+    box-shadow: unset;
+  }
+
+  .snippet_preview,
+  .snippet_full {
+    font-size: inherit;
+  }
+
+  #result_list .snippet_preview,
+  #result_list .snippet_full {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .gs_hitlist_facetview_results {
+    margin-bottom: 5px;
+  }
+
+  .gs_hitlist > div {
+    z-index: 86000;
+    background: var(--bs-white);
+    left: 0;
+  }
+
+  .gs_hitlist_facetview_resultst > div {
+    position: unset !important;
+    color: unset !important;
+  }
+
+  .main_resultlist {
+    padding: 15px !important;
+  }
+
+  div[id^="relatedSection_"] .main_resultlist {
+    padding-left: 30px !important;
+  }
+
+  .record {
+    height: 100%;
+  }
+
+  #gesis_bib_hitlist,
+  #dipf_scales_hitlist,
+  #zpid_scales_hitlist,
+  #study_group_hitlist,
+  #summary_hitlist {
+    background: var(--gs--color--gs-default-grey);
+    padding: 20px;
+    line-height: 1.4rem;
+    display: flow-root;
+    margin-top: 22px;
+  }
+  .summary_single_record {
+    font-size: 0.8rem;
+    background-color: var(--gs--color--gs-default-grey);
+    padding: 10px 15px !important;
+    border-radius: var(--gs--small-border-radius);
+    margin-top: 10px;
+  }
+
+  .ai_summary_label {
+    color: var(--gs--headline--color);
+    font-weight: bold;
+  }
+  .ai_summary_plus {
+    color: var(--gs--color--gs-pink);
+  }
+
+  /** Buttons ----------------------------------------------------------- */
+  .gws-button-small {
+    box-shadow: unset !important;
+    /* height: 30px; */
+    color: var(--gs--color--gs-dark) !important;
+    font-weight: 600;
+    float: unset !important;
+    font-size: medium;
+    font-family: "Cabin", sans-serif;
+    font-weight: 500 !important;
+  }
+
+  div[class^="linked_resources"] > a {
+    position: relative;
+    top: 7px;
+    padding: 0.4rem 0.5rem 0.4rem 0.5rem !important;
+  }
+
+  .button_publication,
+  .button_references,
+  .button_citations {
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  .button_publication:hover,
+  .button_references:hover,
+  .button_citations:hover {
+    background: var(--gs--color--gs-facet-4-opacity-40);
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  /** Buttons - Research, auto, manual */
+  .button_research_data,
+  .button_research_data_citation {
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  .button_research_data:hover,
+  .button_research_data_citation:hover {
+    background: var(--gs--color--gs-facet-1-opacity-40);
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  /** Buttons - Variables */
+  .button_variables {
+    border-color: var(--gs--color--gs-facet-2) !important;
+    box-shadow: unset !important;
+  }
+
+  .button_variables:hover {
+    background: var(--gs--color--gs-facet-2-opacity-40);
+    border-color: var(--gs--color--gs-facet-2) !important;
+  }
+
+  /** Buttons - Instruments & tools */
+  .button_instruments_tools {
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  .button_instruments_tools {
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  .button_instruments_tools:hover {
+    background: var(--gs--color--gs-facet-3-opacity-40);
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  /** Sidebar related --------------------------------------------------- */
+  #facetview_results > div:hover {
+    background: var(--gs--color--gs-default-grey);
+    border-radius: var(--gs--small-border-radius);
+  }
+
+  #facetview_results div .sidebar_resultlist {
+    border-left: solid var(--gs--space--third) var(--gs--color--gs-white);
+  }
+
+  #facetview_results div:hover .sidebar_resultlist {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: solid var(--gs--space--third) var(--gs--color--gs-white);
+  }
+
+  #facetview_results div:hover .sidebar_resultlist_details {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: solid var(--gs--space--third) var(--gs--color--gs-white);
+  }
+
+  nav.sidebar-nav ul li a {
+    padding: 0.1em 0.2em !important;
+    border-top: unset !important;
+  }
+
+  nav.sidebar-nav ul {
+    margin-top: 0px !important;
+  }
+
+  .gesis-link--arrow-before:hover {
+    background-color: transparent !important;
+  }
+
+  #sidebar > div > div > a,
+  #sidebar > div > div > p > a,
+  .sidebar_resultlist > div > a,
+  .sidebar_resultlist > div > p > a,
+  .sidebar_resultlist > div > div > a,
+  .sidebar_resultlist > div > div > p > a,
+  .sidebar_resultlist_details > div > div > a,
+  .sidebar_resultlist_details > div > div > p > a {
+    border-top: 1px solid var(--gs--color--gs-darkblue);
+    display: flex;
+    align-items: baseline;
+    display: inline-flex;
+    box-shadow: unset;
+  }
+
+  .sidebar_resultlist {
+    float: right;
+    background-color: var(--gs--color--gs-default-grey);
+    margin-left: 0px;
+    padding: 15px !important;
+    min-height: 100%;
+  }
+
+  .sidebar_resultlist_details {
+    float: right;
+    background-color: var(--gs--color--gs-default-grey);
+    margin-left: 12px;
+    padding: 15px !important;
+    width: 196px;
+    min-height: 100%;
+  }
+
+  .sidebar_title_actions {
+    font-weight: bold;
+    background-repeat: no-repeat;
+    color: var(--gs--headline--color);
+  }
+
+  .sidebar_title_materials {
+    font-weight: bold;
+    color: var(--gs--headline--color);
+  }
+
+  #sidebar {
+    background-color: var(--gs--color--gs-default-grey);
+    padding: 15px !important;
+    margin-bottom: 10px;
+  }
+
+  #sidebar > div > div {
+    display: grid;
+    align-content: baseline;
+  }
+
+  .detailed_record > #sidebar {
+    margin-left: 12px;
+    margin-right: 12px;
+    height: fit-content;
+  }
+
+  .sidebar_title {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+  .sidebar_resultlist.col-xl-12 > div > div > p {
+    margin: unset !important;
+  }
+
+  .sidebar_resultlist > div > div > p,
+  .sidebar_resultlist_details > div > div > p {
+    margin-bottom: 0rem !important;
+  }
+
+  #sidebar > div > div > p {
+    margin-bottom: 0 !important;
+  }
+
+  .label_aggreement_user_terms {
+    display: inline;
+    margin-left: 7px;
+  }
+
+  /** Detailed view ----------------------------------------------------- */
+  #result_area {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  #backtoresultlist {
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  #record_view {
+    background-color: var(--bs-white);
+    padding: 0;
+  }
+
+  #record_view h1 {
+    font-size: var(--gs--font-size--heading--tertiary);
+    margin-bottom: 1rem !important;
+  }
+
+  #record_view h2 {
+    font-size: var(--bs-body-font-size);
+    margin-top: 25px;
+    border-bottom: 1px solid #58748f;
+  }
+
+  .link_to_portal {
+    clear: both;
+  }
+
+  .study_group {
+    border-radius: var(--gs--small-border-radius);
+    background: var(--gs--color--gs-default-grey);
+    margin-top: 22px;
+    padding: 20px;
+  }
+
+  .study_group_image {
+    max-height: 35px;
+    margin-left: 10px;
+    float: right;
+  }
+
+  /** Detailed view - Facet icon */
+  .category_icon_frame {
+    display: inline-flex !important;
+    margin-bottom: 1rem !important;
+  }
+
+  #category_icon_name {
+    margin-left: 5px;
+  }
+
+  div[id^="category_icon_"] {
+    color: var(--bs-white);
+    font-weight: 600;
+    font-family: Cabin, sans-serif;
+  }
+
+  #category_icon_research_data {
+    background: var(--gs--color--gs-facet-1);
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  #category_icon_variables {
+    background: var(--gs--color--gs-facet-2);
+    border-color: var(--gs--color--gs-facet-2) !important;
+  }
+
+  #category_icon_questions {
+    background: var(--gs--color--gs-lightblue);
+    border-color: var(--gs--color--gs-lightblue) !important;
+  }
+
+  #category_icon_instruments_tools {
+    background: var(--gs--color--gs-facet-3);
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  #category_icon_publication {
+    background: var(--gs--color--gs-facet-4);
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  #category_icon_gesis_bib {
+    background: var(--gs--color--gs-facet-5);
+    border-color: var(--gs--color--gs-facet-5) !important;
+  }
+
+  #category_icon_research_code {
+    background: var(--gs--color--gs-olive);
+    border-color: var(---gs--color--gs-olive) !important;
+  }
+
+  /** Linked Resources -------------------------------------------------- */
+  .linked_resources,
+  .linked_resources_automatically {
+    margin-top: 12px;
+    margin-bottom: 10px;
+  }
+
+  .linked_resources_label {
+    color: var(--gs--headline--color);
+    font-weight: bold;
+    float: left;
+    line-height: 1rem;
+    padding: 0 10px 0 10px;
+  }
+
+  .linked_record {
+    margin-bottom: 25px;
+    height: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .linked_record:hover {
+    background: var(--gs--color--gs-default-grey);
+    border-radius: var(--gs--small-border-radius);
+  }
+
+  .linked_record.sidebar_resultlist,
+  div[id^="relatedSection_"] .sidebar_resultlist_details {
+    border-left: solid var(--gs--space--third) var(--gs--color--gs-white);
+  }
+
+  .linked_record:hover .sidebar_resultlist,
+  div[id^="relatedSection_"] :hover .sidebar_resultlist_details {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: solid var(--gs--space--third) var(--gs--color--gs-white);
+  }
+
+  div[id^="relatedSectionFilter_"] {
+    margin-bottom: 12px;
+  }
+
+  div[class^="relatedSection_"] {
+    background-color: var(--bs-white);
+  }
+
+  div[id^="relatedLink_"] {
+    margin-top: 1rem !important;
+  }
+
+  .relatedLinkDivOpener {
+    text-decoration: none;
+  }
+
+  div[class^="relatedSection_"] ol {
+    margin-left: 1em;
+  }
+
+  div[class^="relatedSection_"] ol li {
+    border: none;
+    list-style-type: decimal;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+  }
+
+  /** Linked Resources - search_input */
+  .linked_resources_search_input {
+    border: 1px solid #ccc;
+    margin-left: 5px;
+    position: relative;
+    background-image: url(icons/magnifier_glass.jpg);
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    width: 300px !important;
+    display: unset !important;
+  }
+
+  select[name="sort_linked"] {
+    margin-bottom: 12px;
+    margin-left: 5px;
+    width: 380px;
+    display: unset !important;
+  }
+
+  /** Linked Resources - sub division into topics of variables of a study, e.g. in https://searchtest.gesis.org/research_data/ZA5250 */
+
+  .topic_in_related {
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  #topic_jumper_select {
+    width: 380px;
+    padding-right: 50px;
+  }
+
+  /** Linked Resources - references from outcite project, e.g. in https://gws.localhost/publication/gesis-ssoar-83667 */
+
+  #relatedSection_references {
+    padding: 10px 20px;
+  }
+
+  #relatedSection_references li {
+    padding-left: 20px;
+    text-indent: -20px;
+  }
+
+  .references_pdf_link {
+    display: inline;
+    color: var(--gesis-color-blue);
+    margin-left: 5px;
+  }
+
+  /** Akkordeons -------------------------------------------------------- */
+  .relatedLinkDivOpener {
+    display: block;
+    text-decoration: none;
+  }
+
+  .relatedLinkDivOpener:hover {
+    box-shadow: unset !important;
+    text-decoration: none;
+  }
+
+  div[id^="relatedLink_"] .relatedLinkDivOpenerBox {
+    padding: 1rem 1.5rem;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: var(--gs--font-size--text--default);
+    align-items: baseline;
+    font-weight: bold;
+  }
+
+  div[id^="relatedSection_"] {
+    height: 100%;
+    min-height: 0px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  /** Akkordeons- Variables */
+  #relatedLink_variables .relatedLinkDivOpenerBox {
+    border-color: var(--gs--color--gs-facet-2) !important;
+    border-top-left-radius: var(--gs--default-border-radius) !important;
+    border-top-right-radius: var(--gs--default-border-radius) !important;
+  }
+
+  #relatedLink_variables .relatedDiv_open {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-2) !important;
+  }
+
+  #relatedLink_variables .relatedLinkDivOpenerBox:hover,
+  #relatedLink_variables .relatedDiv_open:hover {
+    color: var(--bs-black);
+    background: var(--gs--color--gs-facet-2-opacity-40) !important;
+  }
+
+  /** Akkordeons- Questions - Subquestions */
+  /** eventually needs changes to the new structure of accordions */
+  .subquestionDivOpener {
+    /* relatedLinkDivOpener */
+    margin-bottom: 5px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .studyGroupDivOpener {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .subquestionDivOpener:hover {
+    /* relatedLinkDivOpener:hover */
+    margin-bottom: 5px;
+    color: white;
+    text-decoration: none;
+  }
+
+  .studyGroupDivOpener:hover {
+    /* relatedLinkDivOpener:hover */
+    margin-bottom: 10px;
+    color: rgb(121, 0, 0);
+    text-decoration: none;
+  }
+
+  .subquestionDivOpenerBox {
+    /* relatedLink_publication .relatedLinkDivOpenerBox */
+    padding: 5px;
+    margin-bottom: -10px;
+    margin-top: 12px;
+    background-color: #d9d9d9;
+  }
+
+  .studyGroupDivOpenerBox {
+    color: var(--bs-black);
+    padding: 1rem 1.5rem;
+    margin-bottom: 15px;
+    font-family: inherit;
+    font-size: var(--gs--font-size--text--default);
+    align-items: baseline;
+    font-weight: bold;
+    border-color: var(--gs--color--gs-facet-2) !important;
+    border-top-left-radius: var(--gs--default-border-radius) !important;
+    border-top-right-radius: var(--gs--default-border-radius) !important;
+  }
+
+  .studyGroupDivOpenerBox:hover {
+    color: var(--bs-black);
+    background: var(--gs--color--gs-facet-2-opacity-40) !important;
+  }
+
+  .studyGroupDivOpener .relatedDiv_open {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-2) !important;
+  }
+
+  div[id^="studyGroup_variables"] {
+    min-height: 0px;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  div[id^="studyGroup_variables"] a {
+    color: #58748f;
+  }
+
+  /** Akkordeons - Instruments % tools */
+  #relatedLink_instruments_tools .relatedLinkDivOpenerBox {
+    border-top-left-radius: var(--gs--default-border-radius) !important;
+    border-top-right-radius: var(--gs--default-border-radius) !important;
+    border-color: var(--gs--color--gs-facet-3) !important;
+  }
+
+  #relatedLink_instruments_tools .relatedDiv_open {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-3) !important;
+  }
+
+  #relatedLink_instruments_tools .relatedLinkDivOpenerBox:hover,
+  #relatedLink_instruments_tools .relatedDiv_open:hover {
+    color: var(--bs-black);
+    background: var(--gs--color--gs-facet-3-opacity-40) !important;
+  }
+
+  /** Akkordeons - Publication, References, Citations */
+  #relatedLink_publication .relatedLinkDivOpenerBox,
+  #relatedLink_publication_method .relatedLinkDivOpenerBox,
+  #relatedLink_references .relatedLinkDivOpenerBox,
+  #relatedLink_citations .relatedLinkDivOpenerBox {
+    border-top-left-radius: var(--gs--default-border-radius) !important;
+    border-top-right-radius: var(--gs--default-border-radius) !important;
+    border-color: var(--gs--color--gs-facet-4) !important;
+  }
+
+  #relatedLink_publication .relatedDiv_open,
+  #relatedLink_publication_method .relatedDiv_open,
+  #relatedLink_references .relatedDiv_open,
+  #relatedLink_citations .relatedDiv_open {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-4) !important;
+  }
+
+  #relatedLink_publication .relatedLinkDivOpenerBox:hover,
+  #relatedLink_publication_method .relatedLinkDivOpenerBox:hover,
+  #relatedLink_references .relatedLinkDivOpenerBox:hover,
+  #relatedLink_citations .relatedLinkDivOpenerBox:hover,
+  #relatedLink_publication .relatedDiv_open:hover,
+  #relatedLink_publication_method .relatedDiv_open:hover,
+  #relatedLink_references .relatedDiv_open:hover,
+  #relatedLink_citations .relatedDiv_open:hover {
+    color: var(--bs-black);
+    background: var(--gs--color--gs-facet-4-opacity-40) !important;
+  }
+
+  /** Akkordeons - Research, auto, manual */
+  #relatedLink_mentioned_research_data .relatedLinkDivOpenerBox,
+  #relatedLink_research_data .relatedLinkDivOpenerBox,
+  #relatedLink_research_data_method .relatedLinkDivOpenerBox {
+    border-top-left-radius: var(--gs--default-border-radius) !important;
+    border-top-right-radius: var(--gs--default-border-radius) !important;
+    border-color: var(--gs--color--gs-facet-1) !important;
+  }
+
+  #relatedLink_mentioned_research_data .relatedDiv_open,
+  #relatedLink_research_data .relatedDiv_open,
+  #relatedLink_research_method .relatedDiv_open {
+    color: var(--bs-white);
+    background: var(--gs--color--gs-facet-1) !important;
+  }
+
+  #relatedLink_mentioned_research_data .relatedLinkDivOpenerBox:hover,
+  #relatedLink_research_data .relatedLinkDivOpenerBox:hover,
+  #relatedLink_mentioned_research_data .relatedDiv_open:hover,
+  #relatedLink_research_data .relatedDiv_open:hover,
+  #relatedLink_research_data_method .relatedDiv_open:hover {
+    color: var(--bs-black);
+    background: var(--gs--color--gs-facet-1-opacity-40) !important;
+  }
+
+  div[id^="relatedSectionLinkReason"] {
+    background-color: var(--gs--color--gs-default-grey);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+
+  #related_automatically_whole_box {
+    background-color: transparent;
+    padding: 0 !important;
+  }
+
+  /** Akkordeons - Still in use?  */
+  .label_dv_search_related {
+    background-color: #a5afe3;
+    padding: 2px;
+    color: var(--bs-white);
+  }
+
+  .relatedSectionPulldown_search {
+    background-color: var(--gs--color--gs-default-grey);
+    padding: 20px !important;
+  }
+
+  .button_project,
+  #relatedLink_project .relatedLinkDivOpenerBox {
+    background-color: #e86f67;
+  }
+
+  .button_institution,
+  #relatedLink_institution .relatedLinkDivOpenerBox {
+    background-color: #3fa1e8;
+  }
+
+  /** Icons ------------------------------------------------------------- */
+  .notify_loading {
+    background-image: url("icons/ajax-loader.gif");
+  }
+
+  .gesis-icon-gs-information:before {
+    color: var(--gs--color--gs-pink) !important;
+    cursor: pointer;
+  }
+
+  .gesis-icon-gs-information {
+    font-family: "gesis-icons" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    display: inline;
+  }
+
+  .tooltip-icon-size-normal {
+    font-size: var(--bs-body-font-size);
+  }
+
+  .tooltip-icon-size-small {
+    font-size: 0.8rem;
+  }
+
+  .gesis-icon-gs-link {
+    float: left;
+    font-size: x-large;
+    color: var(--gs--headline--color);
+    padding-left: 20px;
+    padding-top: 5px;
+  }
+
+  .person_more {
+    margin-left: 3px;
+    margin-right: 8px;
+    background-image: url("icons/plus.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    height: 15px;
+    display: inline-block;
+    width: 15px;
+    position: relative;
+    top: 3px;
+    box-shadow: unset !important;
+  }
+
+  .person_less {
+    margin-left: 3px;
+    margin-right: 8px;
+    background-image: url("icons/minus.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 0px;
+    height: 15px;
+    display: inline-block;
+    width: 15px;
+    position: relative;
+    top: 3px;
+    box-shadow: unset !important;
+  }
+
+  .icon-plus {
+    background-image: url("icons/gesis-icon-gs_down_blue.png");
+    background-position: -3px -2px;
+    background-size: 20px 20px;
+  }
+
+  .icon-minus {
+    background-image: url("icons/gesis-icon-gs_up_blue.png");
+    background-position: -3px -2px;
+    background-size: 20px 20px;
+  }
+
+  /** Icons - Close: Filter */
+  .facetview_filteroptions_close:after {
+    content: "\e91e";
+    display: grid;
+    place-content: center;
+    top: unset !important;
+    left: unset !important;
+    width: unset !important;
+    height: unset !important;
+    font-family: "gesis-icons";
+    text-indent: initial;
+    font-size: inherit;
+  }
+
+  .facetview_filteroptions_titlebar_close:hover {
+    font-weight: bold;
+  }
+
+  /** Icons - Close: (UI dialog) Merkliste, Download, ... */
+  .ui-dialog-titlebar-close:after,
+  .icon-gs-close:after {
+    content: "\e91e";
+    display: grid;
+    place-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "gesis-icons";
+    text-indent: initial;
+    font-size: inherit;
+  }
+
+  .icon-gs-close:hover:after {
+    color: #fff;
+  }
+
+  .icon-gs-close:focus-visible {
+    outline-offset: 0px !important;
+    outline-color: var(--gesis-attention-color) !important;
+  }
+
+  /** Icons - Mülltonne: Merkliste */
+  .delete-item {
+    display: flex;
+    align-items: center;
+    background-color: var(--gs--button--background-color);
+    border-radius: 999999px;
+    border: 3px solid var(--gs--button--color);
+    padding: 0.7rem 1.7rem 0.6rem;
+  }
+  .delete-item:hover {
+    /* font-size: 1.3rem; */
+    color: var(--bs-white);
+    background-color: var(--gs--color--gs-pink);
+  }
+
+  /** Icons - Linked Resources / Akkordeons */
+  #relatedLink_variables .relatedLinkDivOpenerBox::before,
+  #relatedLink_instruments_tools .relatedLinkDivOpenerBox::before,
+  #relatedLink_publication .relatedLinkDivOpenerBox::before,
+  #relatedLink_references .relatedLinkDivOpenerBox::before,
+  #relatedLink_citations .relatedLinkDivOpenerBox::before,
+  #relatedLink_research_data .relatedLinkDivOpenerBox::before,
+  #relatedLink_mentioned_research_data .relatedLinkDivOpenerBox::before,
+  #relatedLink_research_data_method .relatedLinkDivOpenerBox::before,
+  .studyGroupDivOpenerBox::before {
+    content: "\e91d";
+    margin-right: 0.7rem;
+    font-size: 1rem;
+    color: inherit;
+    font-family: gesis-icons;
+    font-style: normal;
+    text-transform: none;
+    line-height: 1rem;
+    font-weight: normal !important;
+    font-variant: normal;
+  }
+
+  #relatedLink_variables .relatedDiv_open::before,
+  #relatedLink_instruments_tools .relatedDiv_open::before,
+  #relatedLink_publication .relatedDiv_open::before,
+  #relatedLink_references .relatedDiv_open::before,
+  #relatedLink_citations .relatedDiv_open::before,
+  #relatedLink_research_data .relatedDiv_open::before,
+  #relatedLink_mentioned_research_data .relatedDiv_open::before,
+  #relatedLink_research_data_method .relatedDiv_open::before,
+  .studyGroupDivOpener .relatedDiv_open::before {
+    content: "\e91a";
+    margin-right: 0.7rem;
+    font-size: 1rem;
+    color: inherit;
+    font-family: gesis-icons;
+    font-style: normal;
+    text-transform: none;
+    line-height: 1rem;
+    font-weight: normal !important;
+    font-variant: normal;
+  }
+
+  /** Pop-ups / UI dialog ----------------------------------------------- */
+
+  .ui-dialog-titlebar {
+    --gs--button--color: var(--gs--color--gs-berry);
+    --gs--button--hover-color: var(--bs-white);
+    --gs--button--background-color: var(--gs--color--gs-berry--14);
+    --gs--button--hover-background-color: var(--gs--color--gs-berry);
+    background-color: var(--gs--color--gs-berry--14);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 1.5rem;
+    padding: 1.3rem;
+    border-top-right-radius: var(--gs--default-border-radius);
+    border-top-left-radius: var(--gs--default-border-radius);
+    margin-bottom: var(--gs--space--third);
+  }
+
+  .ui-dialog .ui-dialog-titlebar-close {
+    color: var(--bs-white);
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    background-color: transparent;
+    border: none;
+    right: 20px;
+    top: 13px;
+  }
+
+  .ui-dialog-titlebar-close:hover {
+    font-weight: bold;
+  }
+
+  .ui-dialog-title {
+    font-family: "Cabin", sans-serif;
+    color: var(--bs-white);
+    font-weight: 700;
+  }
+
+  .ui-dialog > .ui-dialog-content {
+    background: var(--bs-white) !important;
+    border-bottom-right-radius: var(--gs--default-border-radius);
+    border-bottom-left-radius: var(--gs--default-border-radius);
+    padding: 22px;
+    padding-top: 32px;
+  }
+
+  .ui-dialog > .ui-dialog-content > .tabs > div > button {
+    box-shadow: none;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: var(--gs--button--background-color);
+    color: var(--gs--button--color);
+    display: inline-flex;
+    border-radius: 999999px;
+    border: 3px solid var(--gs--button--color);
+    padding: 0.7rem 1.7rem 0.6rem;
+  }
+
+  .ui-dialog > .ui-dialog-content > .tabs > div > button:hover,
+  .ui-dialog > .ui-dialog-content > .tabs > div > button[aria-selected="true"] {
+    background-color: var(--gs--button--hover-background-color);
+    color: var(--gs--button--hover-color);
+  }
+
+  .ui-widget {
+    font-family: var(--bs-body-font-family);
+  }
+
+  .ui-widget-header {
+    background: var(--gs--color--gs-berry);
+    border-color: var(--gs--color--gs-berry);
+  }
+
+  .ui-widget.ui-widget-content {
+    border: unset;
+  }
+
+  div[id^="facetview_slider_"] {
+    border: 1px solid #c5c5c5 !important;
+  }
+
+  .ui-widget-content {
+    background: unset !important;
+  }
+
+  .ui-tooltip {
+    background: var(--bs-white) !important;
+  }
+
+  .ui-tooltip-no-background {
+    background: unset !important;
+  }
+
+  .tooltiptext_filter {
+    line-height: 1rem;
+  }
+
+  .ui-tooltip-content {
+    padding-bottom: 20px;
+  }
+
+  .tooltip-compact {
+    max-width: none !important;
+    width: auto;
+    height: auto;
+    overflow-y: auto !important;
+  }
+
+  /** UI dialog - Login/out */
+  div[role^="tooltip"].ui-tooltip {
+    /* background: unset !important;
+    width: unset !important; */
+  }
+
+  .tooltiptext_login {
+    padding: 22px;
+    padding-top: 32px;
+    width: 450px !important;
+    background-color: var(--bs-white) !important;
+    border-bottom-right-radius: var(--gs--default-border-radius);
+    border-bottom-left-radius: var(--gs--default-border-radius);
+  }
+
+  /** UI dialog - Download of large files, e.g. ZA9350 */
+
+  #progressbar {
+    margin-top: 20px;
+  }
+
+  .progress-label {
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #fff;
+  }
+
+  /** Cancel Button of Download Progressbar */
+  .ui-dialog .ui-dialog-buttonpane {
+    background-color: white !important;
+    border: 0;
+    margin: 0;
+  }
+
+  /** metadata table for download files of SODA, e.g./research_data/SDN-10.7802-1990 
+  .download_link_block .details {
+    display: none;
+  }
+  
+  /** Pagination -------------------------------------------------------- */
+  .pagination {
+    margin-bottom: 15px;
+  }
+
+  .pagination ul {
+    display: inline-block;
+    margin-left: 0;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgb(0 0 0 / 5%);
+  }
+
+  .pagination li {
+    display: inline;
+  }
+
+  .pagination a {
+    float: left;
+    padding: 0 14px;
+    line-height: 34px;
+    text-decoration: none;
+    border: 1px solid var(--gs--color--gs-accent-grey);
+  }
+
+  li.active > a {
+    box-shadow: unset !important;
+  }
+
+  .pagination .active a {
+    background-color: var(--gs--color--gs-default-grey);
+    color: var(--gs--color--gs-dark-grey);
+    cursor: default;
+  }
+
+  /** Responsiveness ---------------------------------------------------- */
+  /* TODO: name subsections & update behaviour */
+
+  @media screen and (max-width: 1200px) {
+    #detailed_view {
+      margin-left: 20px;
+    }
+
+    #facetview_filters {
+      display: none;
+    }
+
+    #facetview_filters_row {
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+
+    .dbk-pop-up-field-description {
+      max-width: 700px;
+      max-height: 350px;
+      width: auto;
+      height: auto;
+      overflow-y: auto;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #detailed_view {
+      margin-left: 60px;
+    }
+
+    #sidebar {
+      margin-left: 10px;
+    }
+
+    .dbk-pop-up-field-description {
+      max-width: 700px;
+      max-height: 350px;
+      width: auto;
+      height: auto;
+      overflow-y: auto;
+    }
+
+    #gesis_bib_hitlist,
+    #dipf_scales_hitlist,
+    #zpid_scales_hitlist,
+    #study_group_hitlist,
+    #summary_hitlist {
+      margin-left: -25px;
+    }
+  }
+
+  @media only screen and (min-width: 1200px) {
+    #detailed_view {
+      width: 90%;
+    }
+
+    #sidebar {
+      float: right;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    #detailed_view {
+      margin-right: 20px;
+      width: -webkit-fill-available;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .sidebar_resultlist_details > div > div > p {
+      margin: unset !important;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    #overview {
+      float: left;
+      width: 100%;
+      padding: 20px;
+      background-color: var(--gs--color--gs-light--14);
+      margin-top: 0px;
+      color: var(--gs--color--gs-dark);
+      display: flow-root;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    #overview {
+      float: left;
+      width: 78%;
+      padding: 20px;
+      background-color: var(--gs--color--gs-light--14);
+      margin-top: -8px !important;
+      color: var(--gs--color--gs-dark);
+      display: flow-root;
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    #overview {
+      float: left;
+      width: 82%;
+      padding: 20px;
+      background-color: var(--gs--color--gs-light--14);
+      margin-top: 0px;
+      color: var(--gs--color--gs-dark);
+      display: flow-root;
+    }
+  }
+
+  /** Error Messages */
+  #error_message {
+    width: 730px;
+    padding-top: 20px;
+    float: left;
+  }
+
+  #error_message_missing_record {
+    font-style: bold;
+    text-align: center;
+  }
+
+  #error_message_doi_forward {
+    background: #f3f3f3;
+    padding: 20px;
+    color: red;
+    line-height: 1.4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.ui-dialog-titlebar {
+  margin-bottom: 0;
+}
+
+.recommendation_hitlist a{
+  &::after {
+    content: "" !important;
+  }
+}

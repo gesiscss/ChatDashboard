@@ -1,0 +1,37 @@
+// Imported via _text.scss
+:is( h2, h3, h4, .h2, .h3, .h4){
+    margin-top: $gs-font--2xl;
+    margin-bottom: $gs-font--md;
+}
+
+.content-section--inner {
+  > *:first-child {
+    h2 {
+      margin-top: 0;
+    }
+  }
+}
+
+
+:is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
+  color: gs-var(headline--color);
+}
+
+.text-white {
+  :is(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
+    color: white;
+  }
+}
+
+.location-name, .contact-info {
+  @include font-size($gs-font--md);
+  line-height: 1.4;
+}
+
+.location-name b, .contact-info b{ // TBD: <b> im System rausnehmen
+  display: flex; 
+  @include font-size($gs-font--2xl);
+  font-weight: 300;
+  line-height: $gs-line-height-hedline;
+  margin-top: $gs-font--xl;
+}

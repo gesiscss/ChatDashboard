@@ -1,0 +1,48 @@
+.pagination {
+  text-align: center;
+  display: block;
+  padding-top: $gs-font--sm;
+  $size: $gs-font--xl;
+
+  .page-item {
+    display: inline-block;
+
+    a,
+    > span.has-more-pages {
+      @include pagination-dot;
+      background-color: $gray-200;
+      color: $gs-berry;
+
+      &[aria-current="page"] {
+        background-color: $gs-berry;
+        color: #fff;
+        pointer-events: none;
+      }
+
+      &:hover {
+        background-color: $gs-berry-400;
+        color: #fff;
+        box-shadow: none;
+      }
+
+      & > span {
+        vertical-align: middle;
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    &:not(:last-of-type) {
+      margin-right: 0.5rem;
+    }
+
+    &.active {
+      a {
+        background: gs-color(gs-berry);
+        color: white;
+      }
+    }
+  }
+}

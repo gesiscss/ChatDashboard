@@ -1,0 +1,31 @@
+form {
+  >.grid {
+
+
+
+    button {
+      background:gs-color(gs-lightblue-14);
+      border: 2px dashed gs-color(gs-darkblue);
+      border-radius: 2rem;
+      transition: all 0.25s ease;
+      color: gs-color(gs-pink);
+      margin: 2rem;
+
+      :hover {
+        background: gs-color(gs-lightblue);
+        border-style: solid;
+      }
+    }
+  }
+}
+
+#crm-datenvertrieb-139293-personen {
+  >legend {
+    display: none;
+  }
+}
+
+[id^="crm-datenvertrieb"][id$="-person"] {
+  display: none;
+}
+

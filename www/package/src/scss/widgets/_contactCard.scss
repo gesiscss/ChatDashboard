@@ -1,0 +1,148 @@
+.gesis-contact-card {
+
+	font
+	&:not(.with-person-image) {
+		.person-image {
+			display: none;
+		}
+	}
+
+	background-color: #fff;
+	border-radius: gs-var(small-border-radius);
+	padding: $gs-font--3xl;
+	box-shadow: gs-var(card-shadow);
+
+	a {
+		// Remove default link underline when not hovering
+		&:not(:hover) {
+			box-shadow: none;
+		}
+	}
+
+	.person-image {
+		figure {
+            margin: 0;
+            border-radius: 9999999px;
+            overflow: hidden;
+            aspect-ratio: 1;
+            background: linear-gradient(180deg, rgba(221,221,221,1) 0%, rgba(244,244,244,1) 100%);
+		}
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.person-name {
+		color: gs-var(headline--color);
+		hyphens: none;
+		@include font-size($gs-font--2xl);
+		font-weight: 300;
+		font-family: $headline-font;
+		display: block;
+		line-height: 1.1;
+
+		a{
+			color: gs-var(headline--color) 
+		}
+	}
+
+	.person-departments {
+		margin: 0.5rem 0 0.7rem;
+		hyphens: none;
+		color: gs-color(gs-darkblue);
+		display: inline-block;
+		@include font-size($gs-font--md);
+		line-height: 1.4;
+		p,b {
+			margin-bottom: 0;
+			
+		}
+	}
+
+	.person-contact-details {
+		margin-top: $gs-font--lg;
+		@include font-size($gs-font--md);
+		line-height: 1.4;
+		p {
+			margin-bottom: 0;
+		}
+
+		a {
+			&.round-icon-before-link {
+				margin-bottom: 0.5em;
+			}
+
+			&.icon-mail {
+				word-break: break-all;
+			}
+		}
+	}
+
+	&.with-person-image {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: $gs-font--3xl;
+	}
+
+	&.remove-background {
+		padding: 0;
+		border-radius: 0;
+		background-color: transparent;
+		box-shadow: none;
+	}
+}
+
+/**
+* Some or most of the responsive styling is done based on where the cards are used.
+* Eg. Cards in Staff Directory will be treated seperate from cards in contact section.
+* This is done with the following code
+*
+* @author Julian Kohl
+*
+*/
+
+// Cards in Gris Staff Directory
+.gris-staff {
+    .gesis-contact-card {
+        &.with-person-image {
+            @include desktop-small {
+                padding: $gs-font--2xl;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                align-items: start;
+
+                .person-image {
+                    width: 120px;
+                    max-width: 100%;
+                }
+            }
+
+            @include lg {
+                grid-template-columns: auto 2fr;
+                gap: 2rem;
+            }
+
+            @media (max-width: 700px) {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+    }
+}
+
+#contact-section {
+	.gesis-contact-card {
+		@include sm {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			align-items: start;
+
+			.person-image {
+				width: 120px;
+				max-width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,38 @@
+nav.developer {
+	position                   : fixed;
+	left                       : 0;
+	top                        : 50%;
+	transform: translateY(-50%);
+	background                 : rgba(255,255,255,0.8);
+	backdrop-filter: blur(4px);
+	padding                    : 1rem 1rem 1rem 0.5rem;
+	border-top-right-radius    : 1rem;
+	border-bottom-right-radius : 1rem;
+	max-height: 80%;
+	overflow-y: auto;
+	box-shadow: 0 0 12px rgba(0,0,0,0.6);
+	transition: all 0.3s ease-in-out;
+	z-index: 1000;
+
+	&:hover {
+		transform: translateY(-50%) scale(1.03);
+	}
+
+	> ul {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+
+		li {
+			a {
+				color: #333;
+				text-decoration: none;
+				font-size: 0.8rem;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

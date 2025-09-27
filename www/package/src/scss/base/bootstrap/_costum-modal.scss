@@ -1,0 +1,35 @@
+.modal-backdrop {
+  z-index: $zindex-modal-backdrop; // 1040
+}
+
+.offcanvas-backdrop {
+  z-index: $zindex-offcanvas-backdrop; // 1045
+}
+
+.modal-backdrop, .offcanvas-backdrop {
+  &.show {
+    opacity: 1 !important;
+    background: linear-gradient(
+      35deg,
+      rgba(100, 40, 120, 0.7) 0%,
+      rgba(0, 60, 120, 0.7) 54%,
+      rgba(30, 140, 200, 0.7) 100%
+    ) !important;
+
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+}
+
+.modal {
+
+  img {
+    max-width: none;
+    width: 100%;
+  }
+
+  .modal-header {
+    padding-bottom: 0;
+  }
+}
+

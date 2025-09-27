@@ -1,0 +1,24 @@
+.gs-layout-microsite_evs {
+  .gs_ms_header {
+    display: flex;
+    background-image: url('img/ms_banner/gs_ms_banner_evs.jpg');
+    min-height: var(--gesis-banner-height-2);
+    .h1 {
+      margin: 0;
+      padding: var(--gesis-padding-base) var(--gesis-padding-b2);
+      color: var(--gesis-color-black);
+      background-color: #ffffffcc;
+      width: 100%;
+      align-self: flex-end;
+    }
+  }
+}
+
+// max-width: 991.98px equals @include media-breakpoint-down(lg)
+@media (max-width: 991.98px) {
+  .gs-layout-microsite_evs {
+    .gs_ms_header {
+      min-height: var(--gesis-banner-height-1);
+    }
+  }
+}

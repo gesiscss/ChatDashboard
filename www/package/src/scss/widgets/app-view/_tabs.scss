@@ -1,0 +1,95 @@
+.content-small {
+  // 2. Navigation-Container: Erweitert den Container mit Bootstrap „nav“ und „nav-underline“
+
+  .tabs {
+    border-bottom: 1px solid $gs-darkblue-100;
+    margin: $gs-font--md 0 $gs-font--lg;
+
+    &.no-sticky {
+      [role="tablist"] {
+        position: relative !important;
+        top: 0 !important;
+        z-index: 0 !important;
+      }
+    }
+
+    table:first-child {
+      margin-top: 0;
+    }
+
+    details[open] {
+      > summary {
+        top: 10.4rem;
+      }
+    }
+
+    [role="tabpanel"] {
+      padding: 0 $gs-font--sm;
+    }
+
+    [role="tablist"] {
+      @extend .nav;
+      @extend .nav-underline;
+
+      position: sticky;
+      top: 5.55rem;
+      background-color: white;
+      border-bottom: 1px solid $gs-darkblue-100;
+      line-height: normal;
+    }
+
+    // 3. Tab-Buttons: Wendet Bootstrap „nav-link“ Styles an
+    button[role="tab"] {
+      @extend .nav-link;
+      border-radius: 0;
+    }
+
+    // 4. Aktiver Zustand: Nutzt den Bootstrap „active“ Stil, wenn der Tab selektiert ist
+    button[role="tab"][aria-selected="true"] {
+      @extend .active;
+    }
+
+    // // 5. Tab-Panel Styling (optional): Erweitert die Panels mit Bootstrap „tab-pane“
+    // [role="tabpanel"] {
+    //   @extend .tab-pane;
+    // }
+
+    // 6. Verstecke inaktive Panels: Standard Bootstrap-Verhalten
+    // [role="tabpanel"][hidden] {
+    //   display: none;
+    // }
+
+    &.link-style {
+      border-bottom: 0;
+
+      button[role="tab"] {
+        --bs-nav-link-padding-y: 0;
+        color: $gs-darkblue;
+
+        @include font-size($gs-font--md);
+        line-height: 1.4;
+
+        @include underline-link;
+
+        &:hover{
+          border-bottom-color: transparent;
+        }
+      }
+
+      [role="tablist"] {
+        border-bottom: 0;
+        gap: 0.4rem;
+      }
+
+      button[role="tab"][aria-selected="true"] {
+        background: $gs-pink;
+        font-weight: normal;
+        color: white;
+        padding: 0.2rem 1rem 0.2rem 1rem;
+        border-radius: 10rem;
+        pointer-events: none;
+        box-shadow: none !important;
+      }
+    }
+  }
+}

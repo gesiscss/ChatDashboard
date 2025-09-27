@@ -1,0 +1,42 @@
+// Imported in _mixins.scss
+@mixin max-content {
+	@media (max-width: #{$max-content-width}) {
+		@content;
+	}
+}
+
+@mixin desktop-medium {
+	@media (max-width: #{$desktop-medium}) {
+		@content;
+	}
+}
+
+@mixin desktop-small {
+	@media (max-width: #{$desktop-small}) {
+		@content;
+	}
+}
+
+@mixin xl {
+	@media (max-width: #{$xl}) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media (max-width: #{$lg}) {
+		@content;
+	}
+}
+
+@mixin md {
+	@media (max-width: #{$md}) {
+		@content;
+	}
+}
+
+@mixin sm {
+	@media (max-width: #{$sm}) {
+		@content;
+	}
+}

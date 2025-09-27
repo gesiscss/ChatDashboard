@@ -1,0 +1,308 @@
+// ----------
+// | header | // optional
+// ----------
+// |  nav   |
+// ----------
+// | footer | // optional
+// ----------
+
+@mixin sticky-level($level, $top, $z-index) {
+  nav #{$level} li:has(> ul) > summary {
+    top: $top;
+    z-index: $z-index;
+  }
+}
+
+aside {
+  display: flex;
+  flex-direction: column; /* Elemente untereinander anordnen */
+  height: 100vh; /* Container nimmt die volle Höhe des Viewports ein */
+  margin: 0;
+  overflow-x: hidden;
+  background-color: white;
+  opacity: 0;
+  padding: 3rem;
+
+  @media (min-width: 992px) {
+    opacity: 1;
+  }
+
+
+  a {
+    &::before,
+    &::after {
+      content: none !important;
+    }
+  }
+
+  .header,
+  .footer {
+    flex: 0 0 auto; /* Behalten ihre natürliche, dynamische Größe */
+    overflow: auto;
+  }
+
+  header {
+    background-color: white;
+    padding: 1rem 1.2rem;
+    z-index: 1;
+
+    figure {
+      margin-bottom: $gs-font--lg;
+      img {
+        max-height: $gs-font--4xl;
+      }
+    }
+
+    p {
+      @include font-size($gs-font--sm);
+    }
+  }
+
+  &.sidebar {
+    details {
+      color: #003c78;
+      text-decoration: none;
+      margin: 0;
+
+      summary {
+        @include font-size($gs-font--md);
+        color: #003c78 !important;
+        text-decoration: none !important;
+        padding: 0.6rem 3rem 0.6rem 1.2rem !important;
+        border: 0 !important; // 40 % Berry
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        @include padding($gs-font--md $gs-font--lg);
+
+        &::after {
+          right: $gs-font--xs;
+          top: 0.8rem;
+          color: gs-color(gs-darkblue);
+          @include font-size($gs-font--sm);
+          
+        }
+
+        &:hover {
+          background-color: gs-color(gs-darkblue--14) !important;
+          color: #d20064 !important;
+        }
+
+        /* level  sticky */
+
+        position: sticky;
+        top: -0.2rem;
+        background: white;
+        z-index: 7;
+      }
+
+      > div {
+        @include padding($gs-font--md $gs-font--2xl $gs-font--xl);
+      }
+    }
+
+    details[open] {
+      > summary {
+        background-color: white !important;
+
+        &::after {
+          rotate: 180deg;
+        }
+
+        &:hover {
+          background-color: gs-color(gs-darkblue--14) !important;
+        }
+      }
+    }
+
+
+    position: fixed;
+    height: 100vh;
+    padding: 2rem;
+
+
+    @media (min-width: 992px) {
+      position: -webkit-sticky;
+      position: sticky;
+      z-index: 0;
+      height: fit-content;
+      width: auto;
+      max-height: 98vh;
+      top: 5.4rem;
+      padding-right: 0;
+    }
+  
+
+
+    nav {
+      flex: 1 1 auto; /* Füllt den verbleibenden Platz */
+      overflow-y: auto; /* Falls Inhalt zu groß wird, scrollen */
+
+      position: relative;
+      overflow-y: auto;
+      height: fit-content;
+      max-height: 100%;
+
+      @media (min-width: 992px) {
+        max-height: 85vh;
+      }
+
+      ul {
+        padding: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        list-style: none;
+        font-weight: bold;
+
+        /* level  sticky 
+        /* TODO: TOP Höhe muss autoamitsch berechnet werden, abhängig von der Höhe davor */
+        ul summary {
+          top: 2.9rem;
+          z-index: 6;
+        }
+
+        ul ul summary {
+          top: 6.1rem;
+          z-index: 5;
+        }
+
+        ul ul ul summary {
+          top: 9.1rem;
+          z-index: 4;
+        }
+
+        ul ul ul ul summary {
+          top: 12.2rem;
+          z-index: 3;
+        }
+
+        ul ul ul ul ul summary {
+          top: 15.2rem;
+          z-index: 2;
+        }
+
+        /*
+        durch MIXIN umsetzen
+        ---
+
+
+        @include sticky-level(ul, -0.2rem, 7);
+        @include sticky-level(ul ul, 3.4rem, 6);
+        @include sticky-level(ul ul ul, 6.75rem, 5);
+        @include sticky-level(ul ul ul ul, 10.1rem, 4);
+        @include sticky-level(ul ul ul ul ul, 13.55rem, 3);
+        @include sticky-level(
+            ul ul ul ul ul ul,
+            16.9rem,
+            2
+        );*/
+      }
+
+      li {
+        position: relative;
+      }
+
+      a {
+        display: block;
+        color: $gs-darkblue;
+        text-decoration: none;
+        box-shadow: none;
+        padding: 0.6rem 3rem 0.6rem 1.2rem;
+
+        &:hover,
+        &.active {
+          color: $gs-pink !important;
+          background-color: #dbe3ec;
+        }
+
+        &.active {
+          color: $gs-pink-500;
+          background-color: $gs-pink-100 !important;
+          font-weight: bold;
+        }
+      }
+    }
+
+    nav li:has(> ul) > a::after {
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      content: "\f282";
+      font-family: bootstrap-icons;
+      position: absolute;
+      right: 1.6rem;
+      top: 0.8rem;
+      font-size: 0.8em;
+    }
+
+    nav ul ul,
+    nav details details summary {
+      padding-left: 0rem;
+      font-weight: normal !important;
+    }
+
+    nav ul ul ul {
+      margin-left: 1.6rem;
+      font-weight: normal;
+      border-left: 1px solid #dcdcdc !important;
+    }
+
+    nav ul ul a,
+    nav ul ul summary,
+    nav ul ul .form-check {
+      padding-left: 1.3rem !important;
+      margin-left: 1.6rem !important;
+      color: #003c78 !important;
+      border-left: 0.1rem solid transparent !important;
+      border-left-color: #dcdcdc !important;
+      width: auto;
+      padding-right: 3rem !important;
+    }
+
+    nav ul ul .form-check {
+      display: flex;
+    }
+
+    nav ul ul input {
+      margin-left: 0.8rem;
+    }
+
+    nav ul ul label {
+      padding-left: 0.8rem;
+      width: 100%;
+      &:hover,
+      &.active {
+        color: #d20064 !important;
+        background-color: #dbe3ec;
+      }
+    }
+
+    nav ul ul a.active {
+      color: gs-color(gs-pink) !important;
+      border-left-color: gs-color(gs-pink) !important;
+      pointer-events: none !important;
+    }
+
+    nav ul ul a:hover,
+    nav ul ul a.active,
+    nav ul ul summary:hover {
+      border-left-color: #d20064 !important;
+    }
+
+    nav ul ul summary {
+      &:hover {
+        border-left-color: #d20064 !important;
+      }
+
+      &::after {
+      }
+    }
+
+    nav ul ul a.active {
+      border-left: 2px solid gs-color(gs-pink) !important;
+      pointer-events: none !important;
+    }
+  }
+
+
+}

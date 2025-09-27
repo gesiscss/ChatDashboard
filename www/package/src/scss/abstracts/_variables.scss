@@ -1,0 +1,71 @@
+@use "sass:list";
+
+$fonts-path          : "font" !default;
+$default-font        : "Source Sans Pro",   sans-serif;
+$headline-font       : "Source Sans Pro",   sans-serif;
+$display-font        : "Cabin", sans-serif;
+$gesis-icons-font    : "gesis-icons";
+$icomoon-font-family : $gesis-icons-font;
+$icomoon-font-path   : "#{$fonts-path}/GesisIcons/fonts";
+
+$enable-dark-mode  : false;
+$max-content-width : 1600px;
+$mobile-width      : 960px;
+
+// Breakpoints
+$desktop-medium: 1600px;
+$desktop-small: 1400px;
+$xl : 1200px;
+$lg : 992px;
+$md : 768px;
+$sm : 576px;
+
+@import "colors";
+@import "spacings";
+@import "font-sizes";
+
+//Other general variables that (maybe) need to change dynamicly (eg. Breakpoints for smaller screens) and therefore need to be css vars
+$gs-vars: (
+	default-border-radius          	: 1.6rem,
+	small-border-radius            	: 1rem,
+	link-underline--color          	: gs-color(gs-pink),
+	link-underline--hover-color    	: transparent-color(gs-pink, 0.5),
+	link-underline--hover-height   	: -10px,
+	link-with-icon--color          	: gs-color(gs-pink),
+  	link-with-icon--hover-color    	: gs-color(gs-pink),
+	button--color                  	: gs-color(gs-pink),
+	button--hover-color            	: #fff,
+	button--background-color       	: #fff,
+	button--hover-background-color 	: gs-color(gs-pink),
+	logo-width                     	: 350px,
+	table--head-color				: gs-color(gs-lightblue),
+	table--sort-indicator-size		: 1.5rem,
+	headline--color					: gs-color(gs-lightblue),
+	card-shadow						: 0px 4px 8px rgba(0, 0, 0, 0.16),
+	news-card--thumbnail-height 	: $gs-font--9xl,
+	mobile-menu-submenu-trigger-size: 3rem
+);
+
+:root {
+	@each $variableName, $variableValue in $gs-vars {
+		--gs--#{$variableName}: #{$variableValue};
+	}
+
+	@media (max-width: 400px) {
+		--gs--logo-width: 220px;
+	}
+}
+
+@function gs-var($variableName) {
+	@return var(--gs--#{$variableName});
+}
+
+
+
+
+:root {
+	--gs-toc-my: 2.6rem ; 
+	--gs-toc-offset: 0px;
+	--gs-toc-width: auto;
+	--gs-toc-max-height: none;
+  }

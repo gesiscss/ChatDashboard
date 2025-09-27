@@ -1,0 +1,64 @@
+/**
+* Styling for Eurobarometer Plugin that outputs list baed on json data
+*
+* @author Julian Kohl <julian.kohl@propeller.de>
+*	
+*/
+
+.gesis-card.eurobarometer-box {
+	.gesis-card--content {
+
+		> ul {
+			> li {
+				// First Level Accordions
+				> details {
+					margin-bottom: 0.5rem;
+					> summary {
+						background-color: #fff;
+
+						&[aria-expanded="true"],
+						&:hover {
+							background-color: gs-color(gs-berry);
+						}
+					}
+					> div {
+						background-color: #fff;
+
+						// Shared Style for Accordions in Accordions
+						details {
+							margin-top: 0.5rem;
+
+							> summary {
+								border-radius: 0;
+								padding: 0.5rem 0.8rem;
+							}
+
+							> div {
+								padding: 1rem;
+								margin-top: 0;
+								border: 1px solid gs-color(gs-berry);
+							}
+						}
+
+						// Style of 3rd Level Accordions
+						> ul > li > details > div details {
+							> summary {
+								background-color: #fff;
+
+								&[aria-expanded="true"],
+								&:hover {
+									background-color: gs-color(gs-berry);
+								}
+							}
+
+							> div {
+								margin-top: 0;
+								border: 1px solid gs-color(gs-berry);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

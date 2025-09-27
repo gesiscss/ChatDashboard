@@ -1,0 +1,178 @@
+header {
+	a {
+		box-shadow: none;
+		&:hover {
+			box-shadow: none;
+		}
+	}
+	&.page-header,
+	&.microsite-header {
+		
+		z-index: 50;
+		background-color: #fff;
+    	box-shadow: 0rem 4px 1rem rgba(0, 0, 0, 0.175);
+
+		.logo-wrapper {
+			margin-right: 50px;
+
+			img {
+				height: 6rem;
+				border-radius: 0;
+			}
+
+			@include mobile {
+				margin-right: 0;
+				img {
+					height: 4rem;
+				}
+				
+			}
+
+		}
+
+		.logo-and-navigations--inner {
+			@include max-width-content;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			@include mobile {
+				padding-left: $gs-font--md; // Ausrichtung des Icons Außerhalb der Content Innenkante
+				padding-right: $gs-font--md;
+			}
+		}
+
+		
+	}
+
+	&.page-header {
+		position: sticky;
+		top: 0;
+		.logo-and-navigations {
+			position: relative;
+
+			.logo-and-navigations--inner {
+				height: $gs-font--7xl;
+
+				.navigations-wrapper {
+					display: flex;
+					flex-direction: column;
+					align-items: flex-end;
+					height: 100%;
+					justify-content: space-between;
+					padding-bottom: 1.5rem;
+					padding-top: 3.2rem;
+
+				}
+				@include mobile {
+					height: $gs-font--5xl;
+				}
+			}
+
+			
+		}
+	}
+
+	&.microsite-header {
+
+		.logo-wrapper {
+			
+			img {
+				height: 3.5rem !important;
+			}
+	
+			@include mobile {
+				margin-right: 0;
+				img {
+					height: 3rem;
+				}
+			}
+		}
+
+		.logo-and-navigations--inner {
+			height: $gs-font--5xl;
+			max-width: none;
+			padding: 0;
+			margin: 0 $gs-font--3xl;
+			
+			.desktop-only{
+				display: flex;
+				gap: $gs-font--md;
+				align-items: center;
+				
+				@include mobile {
+					display: none;
+				}
+			}
+		}
+
+		.microsite-logo-and-title {
+			background-image: url("/images/demo_images/dummy_header_bg_unterseiten.jpg");
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: left center;
+			.microsite-logo-and-title--inner {
+				--gs--headline--color: #fff;
+				@include max-width-content;
+				padding-top: 4rem;
+				padding-bottom: 4rem;
+				min-height: 20rem;
+
+				nav.gs_rootline ol {
+					padding: 0;
+				}
+			}
+		}
+
+		.main-nav-row {
+			position: sticky;
+			top: 0;
+			background-color: gs-color(gs-darkblue);
+			color: white;
+
+			.main-nav-row--inner {
+				@include max-width-content;
+				padding-top: 1.5rem;
+				padding-bottom: 1.5rem;
+			}
+		}
+	}
+}
+
+section.microsite-header{
+	
+	.microsite-logo-and-title {
+		background-image: url("/images/demo_images/dummy_header_bg_unterseiten.jpg");
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: left center;
+		
+		.microsite-logo-and-title--inner {
+			--gs--headline--color: #fff;
+			@include max-width-content;
+			padding-top: 4rem;
+			padding-bottom: 4rem;
+			min-height: 20rem;
+
+			nav.gs_rootline ol {
+				padding: 0;
+			}
+		}
+	}
+
+	.logo-and-navigations--inner {
+		//@include max-width-content;
+		max-width: $max-content-width;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 5.1rem; // Ausrichtung des Icons Außerhalb der Content Innenkante
+		padding-right: 9.3rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		@include mobile {
+			padding-left: $gs-font--md; // Ausrichtung des Icons Außerhalb der Content Innenkante
+			padding-right: $gs-font--md;
+		}
+	}
+
+}

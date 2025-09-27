@@ -1,0 +1,57 @@
+// Imported in _variables.scss
+$base-space: 1.6rem;
+
+$gs-spaces: (
+	side-space: 3.3rem,
+	section-space-top: 8rem,
+	section-space-top--bigger: 12.1rem,
+	section-space-bottom: 7.5rem,
+	section-space-bottom--bigger: 12.1rem,
+	base: $base-space,
+	third: calc(var(--gs--space--base) / 3),
+	half: calc(var(--gs--space--base) / 2),
+	one-and-half: calc(var(--gs--space--base) * 1.5),
+	double: calc(var(--gs--space--base) * 2),
+	tripple: calc(var(--gs--space--base) * 3),
+    grid-gutter-width: 12.1rem,
+	grid-gutter-height: 12.1rem,
+
+	// Abstände die man im Typo3 wählen kann
+	// TBD: Das sollte per CSS anders gelöst werden um auch Mobile zu funktionieren
+	// erster Ansatz siehe unten
+	none: 0,
+  	extra-small: $base-space,
+  	small: calc(var(--gs--space--base) * 2),
+  	medium: calc(var(--gs--space--base) * 3),
+  	large: calc(var(--gs--space--base) * 4),
+  	extra-large: calc(var(--gs--space--base) * 5),
+);
+
+:root {
+	@each $variableName, $variableValue in $gs-spaces {
+		--gs--space--#{$variableName}: #{$variableValue};
+	}
+
+	@media (max-width: #{$lg}) {
+		--gs--space--side-space: 1.5rem;
+	}
+
+	@media (max-width: #{$sm}) {
+		--gs--space--side-space: 1.2rem;
+	}
+}
+
+@function gs-space($variableName) {
+	@return var(--gs--space--#{$variableName});
+}
+
+@each $spaceName, $spaceValue in $gs-spaces {
+  .frame-space-before-#{$spaceName} {
+    margin-top: $spaceValue !important;
+  }
+  .frame-space-after-#{$spaceName} {
+    margin-bottom: $spaceValue !important;
+  }
+}
+
+

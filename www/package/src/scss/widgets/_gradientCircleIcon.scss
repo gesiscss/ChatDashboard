@@ -1,0 +1,64 @@
+$gradient-mapping: (
+	one: darkblue-to-berry,
+	two: berry-to-pink,
+	three: darkblue,
+	four: darkblue-to-lightblue,
+);
+.row-with-gradient-circle-icon{
+	p{ margin: 0;}
+}
+
+.gradient-circle-icon {
+	display: grid;
+	margin: 1.25rem 0;
+	//position: relative;
+
+	
+
+	&::before,
+	&:after {
+		/* position: absolute;
+		top: 0;
+		left: 0; */
+		width: 7rem;
+		height: 7rem;
+		display: block;
+		border-radius: calc(7rem * 2);
+		grid-column: 1 / 1;
+		grid-row: 1;
+	}
+
+	&:after {
+		content: "";
+	}
+
+	&:before {
+		position: relative;
+		font-size: 3.9rem;
+		color: #fff;
+		display: grid;
+		place-content: center;
+		z-index: 1;
+	}
+
+	@each $gradient-variant, $gradient-name in $gradient-mapping {
+		&.has-gradient-#{$gradient-variant} {
+			&:after {
+				background: gs-gradient($gradient-name);
+			}
+		}
+	}
+
+	@include xl {
+		&::before,
+		&:after {
+			width: 5rem;
+			height: 5rem;
+			border-radius: calc(5rem * 2);
+		}
+
+		&:before {
+			font-size: 2.6rem;
+		}
+	}
+}

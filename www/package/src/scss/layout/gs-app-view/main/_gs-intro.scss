@@ -1,0 +1,12 @@
+.gs-intro {
+  grid-area: intro;
+  // overflow-x: hidden;
+
+  &.sticky {
+    position: sticky;
+    top: 5.5rem;
+    background: white;
+    padding: 2rem 0 3rem 0;
+  }
+  
+}

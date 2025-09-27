@@ -1,0 +1,84 @@
+
+// Buttons + Forms
+//
+// Shared variables that are reassigned to `$input-` and `$btn-` specific variables.
+
+// scss-docs-start input-btn-variables
+// $input-btn-padding-y:         .375rem !default;
+// $input-btn-padding-x:         .75rem !default;
+// $input-btn-font-family:       null !default;
+// $input-btn-font-size:         $font-size-base !default;
+// $input-btn-line-height:       $line-height-base !default;
+
+// $input-btn-focus-width:         $focus-ring-width !default;
+// $input-btn-focus-color-opacity: $focus-ring-opacity !default;
+// $input-btn-focus-color:         $focus-ring-color !default;
+// $input-btn-focus-blur:          $focus-ring-blur !default;
+// $input-btn-focus-box-shadow:    $focus-ring-box-shadow !default;
+
+// $input-btn-padding-y-sm:      .25rem !default;
+// $input-btn-padding-x-sm:      .5rem !default;
+// $input-btn-font-size-sm:      $font-size-sm !default;
+
+// $input-btn-padding-y-lg:      .5rem !default;
+// $input-btn-padding-x-lg:      1rem !default;
+// $input-btn-font-size-lg:      $font-size-lg !default;
+
+// $input-btn-border-width:      var(--#{$prefix}border-width) !default;
+// scss-docs-end input-btn-variables
+
+// Buttons
+//
+// For each of Bootstrap's buttons, define text, background, and border color.
+
+// scss-docs-start btn-variables
+$btn-color:                   $primary;
+$btn-padding-y:               $gs-font--sm;
+$btn-padding-x:               $gs-font--lg;
+//$btn-font-family:             $input-btn-font-family !default;
+$btn-font-size:               $gs-font--lg;
+$btn-line-height:             1.05;
+//$btn-white-space:             null !default; // Set to `nowrap` to prevent text wrapping
+
+$btn-padding-y-sm:            $gs-font--xs;
+$btn-padding-x-sm:            $gs-font--sm;
+$btn-font-size-sm:            $gs-font--md;
+
+$btn-padding-y-lg:            $gs-font--sm;
+$btn-padding-x-lg:            $gs-font--xl;
+$btn-font-size-lg:            $gs-font--xl;
+
+$btn-border-width:            2px;
+
+$btn-font-weight:             600;
+// $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
+// $btn-focus-width:             $input-btn-focus-width !default;
+// $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
+$btn-disabled-opacity:        .4;
+// $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
+
+// $btn-link-color:              var(--#{$prefix}link-color) !default;
+// $btn-link-hover-color:        var(--#{$prefix}link-hover-color) !default;
+$btn-link-disabled-color:     inherit;
+// $btn-link-focus-shadow-rgb:   to-rgb(mix(color-contrast($link-color), $link-color, 15%)) !default;
+
+// // Allows for customizing button radius independently from global border radius
+// $btn-border-radius:           var(--#{$prefix}border-radius) !default;
+// $btn-border-radius-sm:        var(--#{$prefix}border-radius-sm) !default;
+// $btn-border-radius-lg:        var(--#{$prefix}border-radius-lg) !default;
+
+// $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+
+$btn-hover-bg-shade-amount:       20%;
+$btn-hover-bg-tint-amount:        20%;
+$btn-hover-border-shade-amount:   0%;
+$btn-hover-border-tint-amount:    0%;
+$btn-active-bg-shade-amount:      30%;
+$btn-active-bg-tint-amount:       30%;
+$btn-active-border-shade-amount:  0%;
+$btn-active-border-tint-amount:   0%;
+// scss-docs-end btn-variables
+
+.app-view{
+    --bs-btn-font-size: 1.6rem;
+}

@@ -1,0 +1,54 @@
+.btn-group {
+  // Styles nur anwenden, wenn >1 Kind-Element vorhanden
+  &:has(> :nth-child(2)) {
+    > :first-child {
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+      border-right: 0;
+    }
+
+    > :not(:first-child, :last-child) {
+      border-radius: 0;
+      border-right: 0;
+    }
+  }
+}
+
+.btn-group-vertical {
+  // Styles nur anwenden, wenn >1 Kind-Element vorhanden
+  &:has(> :nth-child(2)) {
+    margin: 0 0.8rem 0.8rem;
+    text-align: center;
+
+    > label,
+    > input[type="search"] {
+      // ToDo > Muss bei Forms in den Labels nochmal genau er definiert werden
+      padding: 0.6rem 2rem;
+      margin: auto;
+      border: 1px solid #ddd;
+      width: 100%;
+      border-top-right-radius: 0.6rem;
+      border-top-left-radius: 0.6rem;
+
+      &.small {
+        padding: 0.1rem 1rem;
+      }
+    }
+
+    > :first-child {
+      border-bottom-right-radius: 0 !important;
+      border-bottom-left-radius: 0 !important;
+    }
+
+    > :not(:first-child, :last-child) {
+      border-radius: 0;
+    }
+
+    > :last-child {
+      border-bottom-right-radius: 1.6rem !important;
+      border-bottom-left-radius: 1.6rem !important;
+      border-top-right-radius: 0 !important;
+      border-top-left-radius: 0 !important;
+    }
+  }
+}

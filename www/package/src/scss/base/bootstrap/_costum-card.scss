@@ -1,0 +1,130 @@
+// Cards
+
+// scss-docs-start card-variables
+// $card-spacer-y:                     $spacer !default;
+// $card-spacer-x:                     $spacer !default;
+// $card-title-spacer-y:               $spacer * .5 !default;
+$card-title-color: $gs-darkblue;
+$card-subtitle-color: $gs-lightblue;
+// $card-border-width:                 var(--#{$prefix}border-width) !default;
+// $card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
+// $card-border-radius:                var(--#{$prefix}border-radius) !default;
+// $card-box-shadow:                   null !default;
+// $card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+// $card-cap-padding-y:                $card-spacer-y * .5 !default;
+// $card-cap-padding-x:                $card-spacer-x !default;
+// $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), .03) !default;
+// $card-cap-color:                    null !default;
+// $card-height:                       null !default;
+// $card-color:                        null !default;
+// $card-bg:                           var(--#{$prefix}body-bg) !default;
+// $card-img-overlay-padding:          $spacer !default;
+// $card-group-margin:                 $grid-gutter-width * .5 !default;
+// scss-docs-end card-variables
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(36rem, 1fr));
+  gap: 1.5rem;
+  grid-auto-rows: min-content; /* Passt sich automatisch an Inhalt an */
+}
+
+.card-title {
+  color: $gs-darkblue !important;
+}
+
+.card-subtitle {
+  color: $gs-lightblue !important;
+}
+
+.card-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-button:active {
+  transform: translateY(0);
+}
+
+// Card as Link Element
+.card-button,
+a.card {
+  box-shadow: none !important;
+  transform: scale(1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-button:hover,
+a.card:hover {
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+  transform: scale(1.03);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  color: $gs-pink !important;
+  border-color: $gs-pink-200;
+  background-color: $gs-pink-100;
+  --gs--headline--color: $gs-pink;
+  z-index: 1;
+  .card-footer, .card-header{
+    --bs-card-cap-color: white;
+  }
+
+  .border-start {
+    --bs-border-color: white !important;
+  }
+
+  i {
+    color: white !important;
+  }
+
+  button:hover {
+    border-bottom-color: transparent !important;
+    border-top-color: transparent !important;
+    border-radius: 0.4rem;
+    background-color: transparent !important;
+
+    i {
+      color: $gs-pink !important;
+    }
+  }
+
+  .badge {
+    background-color: white !important;
+  }
+  .card-title,
+  .card-subtitle {
+    color: $gs-pink !important;
+  }
+}
+
+.card-button:focus,
+a.card:focus {
+  box-shadow: 0 4px 8px $gs-pink !important;
+}
+.card-body {
+  :first-child {
+    margin-top: 0;
+  }
+}
+
+.card-footer, .card-header{
+  --bs-card-cap-color: #575757;
+  i {
+    display: inline-flex;
+    font-size: $gs-font--sm !important;
+  }
+  overflow: hidden;
+  font-size: $gs-font--sm;
+
+  @include mobile {
+    padding: $gs-font--xs !important;
+  }
+  small, .small{
+    font-size: $gs-font--sm !important;
+  }
+}
+

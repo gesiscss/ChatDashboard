@@ -1,0 +1,52 @@
+.font-viewer {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	grid-gap: 50px 15px;
+	background-color: #fff;
+	color: #444;
+
+	.box {
+		display: flex;
+		flex-direction: column;
+
+		hr {
+			margin: 10px 0;
+		}
+
+		// Icon name under Icon and above copy btns
+		>span {
+			font-size: 14px;
+			text-align: center;
+		}
+
+		.icon-wrapper {
+			background-color: $gs-darkblue-100;
+			color: #fff;
+			border-radius: 5px;
+			padding: 30px 20px;
+			font-size: 26px;
+			text-align: center;
+			color: black;
+			margin-bottom: 10px;
+		}
+
+		.box-functions {
+			margin-top: auto;
+
+			span {
+				display: flex;
+				align-items: baseline;
+				gap: 5px;
+
+				&:hover {
+					color: gs-color(gs-pink);
+					cursor: pointer;
+
+					svg {
+						fill: gs-color(gs-pink);
+					}
+				}
+			}
+		}
+	}
+}

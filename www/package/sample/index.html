@@ -1,0 +1,268 @@
+
+<!-- xmlprologue -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+<meta charset="utf-8" />
+<!-- 
+	GESIS Web
+
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2020 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at https://typo3.org/
+-->
+
+<base href="." />
+<link rel="shortcut icon" href="../dist/img/favicon.ico" type="image/x-icon" />
+<title>GESIS: Home</title>
+<meta name="generator" content="TYPO3 CMS" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="GESIS Leibniz Institut für Sozialwissenschaften" />
+<meta name="keywords" content="Aggregatdaten, ALLBUS, amtliche, Mikrodaten, Beratung, Branchenklassifikation, CEWS, Comparative, Sampling, Daten, Datenzugang, Datenanalyse, Datenarchiv, Datenerhebung, Dauerbeobachtung, Demografie, digitale Bibliothek, Dokumentation, empirische Sozialforschung, Eurobarometer, European Value Study, Forschungsdatenbanken, Forschungsdatenzentrum, Dauerbeobachtung, Historische, Sozialforschung, Informationssystem, PIAAC, Sekundäranalyse, Servicezentrum, Skalen, SOFIS, SOWIPORT, Soziale Indikatoren, sozialer Wandel, Sozialstruktur, Sozialwissenschaften, SSOAR, Standardisierung, Telefonumfragen, Wahlforschung, ZACAT, Zeitreihen, ZIS, EHES, Fragebogen, Pretest, Pretesting, Kognitive Interviews, Eyetracking" />
+<meta name="twitter:card" content="summary" />
+<meta name="icbm" content="50.9426, 6.9524" />
+<meta name="fb:page_id" content="123549644340121" />
+<meta name="dc.title" content="GESIS - Leibniz-Institut für Sozialwissenschaften" />
+<meta name="geo.region" content="DE-NW" />
+<meta name="geo.placename" content="Köln" />
+<meta name="geo.position" content="50.9426;6.9524" />
+<meta name="google-site-verification" content="Aa0Dz-9UGErBimnxR-tewkYDQGmfVxaWDEBT-TA7B3Q" />
+<meta name="abstract" content="GESIS Leibniz Institut für Sozialwissenschaften" />
+
+
+<script src="../dist/gesis-web.js"></script>
+<link href="../dist/gesis-web.css" rel="stylesheet">
+
+<script type="text/javascript">
+/*<![CDATA[*/
+/*_scriptCode*/
+
+			/* decrypt helper function */
+		function decryptCharcode(n,start,end,offset) {
+			n = n + offset;
+			if (offset > 0 && n > end) {
+				n = start + (n - end - 1);
+			} else if (offset < 0 && n < start) {
+				n = end - (start - n - 1);
+			}
+			return String.fromCharCode(n);
+		}
+			/* decrypt string */
+		function decryptString(enc,offset) {
+			var dec = "";
+			var len = enc.length;
+			for(var i=0; i < len; i++) {
+				var n = enc.charCodeAt(i);
+				if (n >= 0x2B && n <= 0x3A) {
+					dec += decryptCharcode(n,0x2B,0x3A,offset);	/* 0-9 . , - + / : */
+				} else if (n >= 0x40 && n <= 0x5A) {
+					dec += decryptCharcode(n,0x40,0x5A,offset);	/* A-Z @ */
+				} else if (n >= 0x61 && n <= 0x7A) {
+					dec += decryptCharcode(n,0x61,0x7A,offset);	/* a-z */
+				} else {
+					dec += enc.charAt(i);
+				}
+			}
+			return dec;
+		}
+			/* decrypt spam-protected emails */
+		function linkTo_UnCryptMailto(s) {
+			location.href = decryptString(s,-2);
+		}
+		
+
+/*]]>*/
+</script>
+
+<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/home?type=9818 " />
+              
+<!-- Copyright (c) 2000-2020 etracker GmbH. All rights reserved. -->
+<!-- This material may not be reproduced, displayed, modified or distributed -->
+<!-- without the express prior written permission of the copyright holder. -->
+<!-- etracker tracklet 5.0 -->
+<script type="text/javascript">
+    /* scenario:
+     * http://localhost///////en////research//
+     * shall give
+     * decodeURIComponent(et_pagename) === "GESIS/Research:en/research"
+     * decodeURIComponent(et_areas)    === "GESIS/en/research"
+     */
+    
+    var matchingRecurringSlashes = /[\/]+/g;
+    var originalPath = window.location.pathname;
+    var originalPathWithoutRecurringSlashes = originalPath.replace(matchingRecurringSlashes, "/");
+    var originalPathWithoutRecurringSlashesWithoutPrefixSlash = originalPathWithoutRecurringSlashes.substring(1);
+    var originalPathWithoutRecurringSlashesWithoutPrefixSlashWithoutSuffixSlash = originalPathWithoutRecurringSlashesWithoutPrefixSlash.replace(/\/$/, "");
+    
+    var et_pagename = encodeURIComponent('GESIS/Home:' + originalPathWithoutRecurringSlashesWithoutPrefixSlashWithoutSuffixSlash);
+    var et_areas = encodeURIComponent('GESIS/' + originalPathWithoutRecurringSlashesWithoutPrefixSlashWithoutSuffixSlash);
+</script>
+<!-- etracker tracklet 5.0 end -->
+<link rel="alternate" hreflang="de-DE" href="https://www.gesis.org/home"/>
+<link rel="alternate" hreflang="en-US" href="https://www.gesis.org/en/home"/>
+<link rel="alternate" hreflang="x-default" href="https://www.gesis.org/home"/>
+
+<link rel="canonical" href="https://www.gesis.org/home"/>
+</head>
+<body id="pid-3165" class="ym-wrapper gs-layout-1">
+
+
+  <section class="skip-links" aria-label="Sprungziele">
+    
+    <ul>
+      <li>
+        <a href="https://www.gesis.org/home#gs_main">Zum Hauptinhalt springen</a>
+      </li>
+      <li>
+        <a href="https://www.gesis.org/home#gs_searchterm">Zur GESIS-Suche springen</a>
+      </li>
+      <li>
+        <a href="https://www.gesis.org/home#gs_megamenu" id="skip-link-megamenu">Zum Navigationsmenü springen</a>
+      </li>
+      <li>
+        <a href="https://www.gesis.org/home#gs_footer">Zur Fußzeile springen</a>
+      </li>
+      <li>
+        
+            
+                <a href="/en/home">This page in English</a>
+              
+          
+      </li>
+    </ul>
+  </section>
+  <header class="gs_header_main">
+    <div class="gs_row">
+    <div class="gs_header_logo">
+      
+          <a title="GESIS-Homepage besuchen" href="/"><img src="../dist/img/gs_home_logo_de.svg" width="200" height="37" alt="" /></a>
+        
+    </div>
+
+<nav class="gs_topnav">
+  <ul>
+    <li>
+      <!--<a href="/en/home" target="_self" class="gs_lang_switch">English</a>-->
+      
+  
+    
+  
+    
+      
+          <a class="gs_lang_switch" href="/en/home">English</a>
+        
+    
+  
+
+
+    </li>
+    <li>
+      <a id="gs_contact" href="/kontakt">Kontakt</a>
+    </li>
+    <li>
+      <a id="gs_help" href="/hilfe">Hilfe</a>
+    </li>
+  </ul>
+</nav>
+</div> <!-- .gs_row -->
+
+    <!-- Main navigation -->
+<div class="gs_navbar">
+  <div class="gs_search gs_row">
+    <button id="gs_mm_toggle_button" class="gs_mm_toggle_button" aria-haspopup="true" aria-controls="gs_megamenu" aria-label="Navigationsmenü"></button>
+    
+    
+    <div class="gs_center_search" role="search">
+      <!-- GWS -->
+              <div id="gs_gws_combobox" class="gs_combobox" role="combobox" aria-expanded="false" aria-owns="gs_hitlist" aria-haspopup="listbox">
+                <label for="gs_searchterm">Suche</label>
+                <input name="query" id="gs_searchterm" class="gs_searchterm" type="search" placeholder="GESIS durchsuchen…" />
+                <button id="gs_search_clear" class="gs_search_clear" type="button" tabindex="-1" title="Löschen" aria-label="Löschen">×</button>
+                <button id="gs_search_toggle" class="gs_search_toggle" type="button" tabindex="-1" title="Anzeigen oder verbergen" aria-label="Anzeigen oder verbergen"></button>
+                <div id="gs_hitlist" class="gs_hitlist" role="listbox"></div>
+              </div>
+      <!-- GWS end -->
+    </div>
+  </div>
+  <nav class="gs_navigation" aria-labelledby="gs_mm_toggle_button">
+    <!-- Megamenu -->
+    <ul id="gs_megamenu" class="gs_megamenu" role="menubar"><li class="gs_topmenu gs_sub" role="none"><a href="/angebot" target="_self" title="Angebot" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true" aria-expanded="false">Angebot</a><ul class="gs_menulayer_1" role="menu"><li role="none"><a href="/angebot/recherchieren" target="_self" title="Recherchieren" class="gs_menu_item" role="menuitem">Recherchieren</a></li><li class="gs_sub" role="none"><a href="/angebot/studien-planen" target="_self" title="Studien planen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Studien planen</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/gesis-survey-guidelines/home" target="_self" title="GESIS Survey Guidelines" class="gs_menu_item" role="menuitem">GESIS Survey Guidelines</a></li><li role="none"><a href="/angebot/studien-planen/projektberatung" target="_self" title="Projektberatung" class="gs_menu_item" role="menuitem">Projektberatung</a></li><li role="none"><a href="/angebot/studien-planen/stichproben" target="_self" title="Stichproben" class="gs_menu_item" role="menuitem">Stichproben</a></li><li role="none"><a href="/angebot/studien-planen/items-und-skalen" target="_self" title="Items und Skalen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Items und Skalen</a></li><li role="none"><a href="/angebot/studien-planen/kognitives-pretesting" target="_self" title="Kognitives Pretesting" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Kognitives Pretesting</a></li><li role="none"><a href="/angebot/studien-planen/sozialstrukturelle-merkmale" target="_self" title="Sozialstrukturelle Merkmale" class="gs_menu_item" role="menuitem">Sozialstrukturelle Merkmale</a></li><li role="none"><a href="/angebot/studien-planen/uebersetzung" target="_self" title="Übersetzung" class="gs_menu_item" role="menuitem">Übersetzung</a></li></ul></li><li class="gs_sub" role="none"><a href="/angebot/daten-erheben" target="_self" title="Daten erheben" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Daten erheben</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/gesis-survey-guidelines/home" target="_self" title="GESIS Survey Guidelines" class="gs_menu_item" role="menuitem">GESIS Survey Guidelines</a></li><li role="none"><a href="/angebot/studien-planen/projektberatung" target="_self" title="Projektberatung" class="gs_menu_item" role="menuitem">Projektberatung</a></li><li role="none"><a href="/angebot/daten-erheben/interviewertraining" target="_self" title="Interviewertraining" class="gs_menu_item" role="menuitem">Interviewertraining</a></li><li role="none"><a href="/angebot/daten-erheben/ziehung-telefonstichproben" target="_self" title="Ziehung Telefonstichproben" class="gs_menu_item" role="menuitem">Ziehung Telefonstichproben</a></li><li role="none"><a href="/gesis-panel/gesis-panel-home" target="_self" title="GESIS Panel" class="gs_menu_item" role="menuitem">GESIS Panel</a></li><li role="none"><a href="/angebot/daten-erheben/survey-operations" target="_self" title="Survey Operations" class="gs_menu_item" role="menuitem">Survey Operations</a></li><li role="none"><a href="/angebot/daten-erheben/erhebung-digitaler-verhaltensdaten" target="_self" title="Erhebung Digitaler Verhaltensdaten" class="gs_menu_item" role="menuitem">Erhebung Digitaler Verhaltensdaten</a></li></ul></li><li class="gs_sub" role="none"><a href="/angebot/daten-analysieren" target="_self" title="Daten analysieren" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Daten analysieren</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/allbus/allbus" target="_self" title="ALLBUS" class="gs_menu_item" role="menuitem">ALLBUS</a></li><li role="none"><a href="/gml/gml-home" target="_self" title="Amtliche Mikrodaten" class="gs_menu_item" role="menuitem">Amtliche Mikrodaten</a></li><li role="none"><a href="/angebot/daten-analysieren/internationale-umfragen" target="_self" title="Internationale Umfragen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Internationale Umfragen</a></li><li role="none"><a href="/piaac/piaac-home" target="_self" title="PIAAC" class="gs_menu_item" role="menuitem">PIAAC</a></li><li role="none"><a href="/wahlen/wahlen-home" target="_self" title="Wahlstudien" class="gs_menu_item" role="menuitem">Wahlstudien</a></li><li role="none"><a href="/angebot/daten-analysieren/weitere-sekundaerdaten" target="_self" title="Weitere Sekundärdaten" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Weitere Sekundärdaten</a></li><li role="none"><a href="/angebot/daten-analysieren/eurolab" target="_self" title="EUROLAB" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">EUROLAB</a></li><li role="none"><a href="/angebot/daten-analysieren/datenharmonisierung" target="_self" title="Datenharmonisierung" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Datenharmonisierung</a></li><li role="none"><a href="/angebot/daten-analysieren/analyse-digitaler-verhaltensdaten" target="_self" title="Analyse Digitaler Verhaltensdaten" class="gs_menu_item" role="menuitem">Analyse Digitaler Verhaltensdaten</a></li></ul></li><li class="gs_sub" role="none"><a href="/angebot/archivieren-und-registrieren" target="_self" title="Archivieren und registrieren" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Archivieren und registrieren</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/angebot/archivieren-und-registrieren/datenarchivierung" target="_self" title="Datenarchivierung" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Datenarchivierung</a></li><li role="none"><a href="/datenservices/home" target="_self" title="Datenservices" class="gs_menu_item" role="menuitem">Datenservices</a></li><li role="none"><a href="https://www.gesis.org/dara/" target="_self" title="Datenregistrierungsagentur da|ra" class="gs_menu_item" role="menuitem">Datenregistrierungsagentur da|ra</a></li><li role="none"><a href="https://data.gesis.org/sharing/#!Home" target="_self" title="Daten-Repositorium SowiDataNet|datorium" class="gs_menu_item" role="menuitem">Daten-Repositorium SowiDataNet|datorium</a></li><li role="none"><a href="https://www.ssoar.info" target="_self" title="Volltextserver SSOAR" class="gs_menu_item" role="menuitem">Volltextserver SSOAR</a></li></ul></li><li class="gs_sub" role="none"><a href="/angebot/publikationen" target="_self" title="Publikationen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Publikationen</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/angebot/publikationen/gesis-schriftenreihe" target="_self" title="GESIS-Schriftenreihe" class="gs_menu_item" role="menuitem">GESIS-Schriftenreihe</a></li><li role="none"><a href="/angebot/publikationen/gesis-papers" target="_self" title="GESIS Papers" class="gs_menu_item" role="menuitem">GESIS Papers</a></li><li role="none"><a href="/hsr/aktuelle-hefte" target="_self" title="Zeitschrift HSR" class="gs_menu_item" role="menuitem">Zeitschrift HSR</a></li><li role="none"><a href="https://mda.gesis.org" target="_self" title="Zeitschrift mda" class="gs_menu_item" role="menuitem">Zeitschrift mda</a></li><li role="none"><a href="/angebot/publikationen/isi" target="_self" title="ISI" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">ISI</a></li><li role="none"><a href="http://surveyinsights.org/" target="_self" title="Online Journal Survey Methods" class="gs_menu_item" role="menuitem">Online Journal Survey Methods</a></li><li role="none"><a href="https://measurementinstrumentssocialscience.biomedcentral.com/" target="_self" title="MISS" class="gs_menu_item" role="menuitem">MISS</a></li><li role="none"><a href="/angebot/publikationen/archiv" target="_self" title="Archiv" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Archiv</a></li></ul></li><li class="gs_sub" role="none"><a href="/angebot/veranstaltungen" target="_self" title="Veranstaltungen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Veranstaltungen</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/angebot/veranstaltungen/gesis-training" target="_self" title="GESIS Training" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">GESIS Training</a></li><li role="none"><a href="/angebot/veranstaltungen/tagungen-und-konferenzen" target="_self" title="Tagungen und Konferenzen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Tagungen und Konferenzen</a></li></ul></li></ul></li><li class="gs_topmenu gs_sub" role="none"><a href="/forschung" target="_self" title="Forschung" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true" aria-expanded="false">Forschung</a><ul class="gs_menulayer_1" role="menu"><li class="gs_sub" role="none"><a href="/forschung/umfragemethodik" target="_self" title="Umfragemethodik" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Umfragemethodik</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/forschung/umfragemethodik/survey-statistics" target="_self" title="Survey Statistics" class="gs_menu_item" role="menuitem">Survey Statistics</a></li><li role="none"><a href="/forschung/umfragemethodik/survey-instruments" target="_self" title="Survey Instruments" class="gs_menu_item" role="menuitem">Survey Instruments</a></li><li role="none"><a href="/forschung/umfragemethodik/survey-operations" target="_self" title="Survey Operations" class="gs_menu_item" role="menuitem">Survey Operations</a></li><li role="none"><a href="/forschung/umfragemethodik/comparative-surveys" target="_self" title="Comparative Surveys" class="gs_menu_item" role="menuitem">Comparative Surveys</a></li></ul></li><li class="gs_sub" role="none"><a href="/forschung/angewandte-informatik" target="_self" title="Angewandte Informatik" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Angewandte Informatik</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/forschung/angewandte-informatik/information-linking-and-retrieval" target="_self" title="Information Linking and Retrieval" class="gs_menu_item" role="menuitem">Information Linking and Retrieval</a></li><li role="none"><a href="/forschung/angewandte-informatik/text-and-data-mining" target="_self" title="Text and Data Mining" class="gs_menu_item" role="menuitem">Text and Data Mining</a></li><li role="none"><a href="/forschung/angewandte-informatik/network-science" target="_self" title="Network Science" class="gs_menu_item" role="menuitem">Network Science</a></li><li role="none"><a href="/forschung/angewandte-informatik/open-science" target="_self" title="Open Science" class="gs_menu_item" role="menuitem">Open Science</a></li><li role="none"><a href="/forschung/angewandte-informatik/knowledge-graph-infrastruktur" target="_self" title="Knowledge Graph Infrastruktur" class="gs_menu_item" role="menuitem">Knowledge Graph Infrastruktur</a></li></ul></li><li class="gs_sub" role="none"><a href="/forschung/forschungsdatenmanagement" target="_self" title="Forschungsdatenmanagement" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Forschungsdatenmanagement</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/forschung/forschungsdatenmanagement/teilen-von-daten" target="_self" title="Teilen von Daten" class="gs_menu_item" role="menuitem">Teilen von Daten</a></li><li role="none"><a href="/forschung/forschungsdatenmanagement/datenschutz-und-datensicherheit" target="_self" title="Datenschutz und Datensicherheit" class="gs_menu_item" role="menuitem">Datenschutz und Datensicherheit</a></li><li role="none"><a href="/forschung/forschungsdatenmanagement/metadaten" target="_self" title="Metadaten" class="gs_menu_item" role="menuitem">Metadaten</a></li><li role="none"><a href="/forschung/forschungsdatenmanagement/neue-datentypen" target="_self" title="Neue Datentypen" class="gs_menu_item" role="menuitem">Neue Datentypen</a></li><li role="none"><a href="/forschung/forschungsdatenmanagement/langzeitarchivierung" target="_self" title="Langzeitarchivierung" class="gs_menu_item" role="menuitem">Langzeitarchivierung</a></li></ul></li><li class="gs_sub" role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen" target="_self" title="Aktuelle gesellschaftliche Fragen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Aktuelle gesellschaftliche Fragen</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen/education-and-skills" target="_self" title="Education and Skills" class="gs_menu_item" role="menuitem">Education and Skills</a></li><li role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen/social-structure" target="_self" title="Social Structure" class="gs_menu_item" role="menuitem">Social Structure</a></li><li role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen/values-attitudes-and-behavior" target="_self" title="Values, Attitudes, and Behavior" class="gs_menu_item" role="menuitem">Values, Attitudes, and Behavior</a></li><li role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen/public-and-organizational-policies" target="_self" title="Public and Organizational Policies" class="gs_menu_item" role="menuitem">Public and Organizational Policies</a></li><li role="none"><a href="/forschung/aktuelle-gesellschaftliche-fragen/elections-politics-and-political-behavior" target="_self" title="Elections, Politics, and Political Behavior" class="gs_menu_item" role="menuitem">Elections, Politics, and Political Behavior</a></li><li role="none"><a href="/forschung/algorithmen-und-gesellschaft" target="_self" title="Algorithmen und Gesellschaft" class="gs_menu_item" role="menuitem">Algorithmen und Gesellschaft</a></li></ul></li><li class="gs_sub" role="none"><a href="/forschung/drittmittelprojekte" target="_self" title="Drittmittelprojekte" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Drittmittelprojekte</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/forschung/drittmittelprojekte/alphabetisch-sortiert" target="_self" title="Alphabetisch sortiert" class="gs_menu_item" role="menuitem">Alphabetisch sortiert</a></li><li role="none"><a href="/forschung/drittmittelprojekte/archiv" target="_self" title="Archiv" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Archiv</a></li></ul></li><li role="none"><a href="/angebot/daten-analysieren/eurolab" target="_self" title="Gastwissenschaftler/-Innen" class="gs_menu_item" role="menuitem">Gastwissenschaftler/-Innen</a></li><li role="none"><a href="/forschung/leibniz-forschungsverbuende" target="_self" title="Leibniz-Forschungsverbünde" class="gs_menu_item" role="menuitem">Leibniz-Forschungsverbünde</a></li></ul></li><li class="gs_topmenu gs_sub" role="none"><a href="/institut" target="_self" title="Institut" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true" aria-expanded="false">Institut</a><ul class="gs_menulayer_1" role="menu"><li role="none"><a href="/institut/mitarbeiterverzeichnis" target="_self" title="Mitarbeiterverzeichnis" class="gs_menu_item" role="menuitem">Mitarbeiterverzeichnis</a></li><li role="none"><a href="/institut/praesident" target="_self" title="Präsident" class="gs_menu_item" role="menuitem">Präsident</a></li><li class="gs_sub" role="none"><a href="/institut/abteilungen" target="_self" title="Abteilungen" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Abteilungen</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/abteilungen/computational-social-science" target="_self" title="Computational Social Science" class="gs_menu_item" role="menuitem">Computational Social Science</a></li><li role="none"><a href="/institut/abteilungen/datenarchiv-fuer-sozialwissenschaften" target="_self" title="Datenarchiv für Sozialwissenschaften" class="gs_menu_item" role="menuitem">Datenarchiv für Sozialwissenschaften</a></li><li role="none"><a href="/institut/abteilungen/dauerbeobachtung-der-gesellschaft" target="_self" title="Dauerbeobachtung der Gesellschaft" class="gs_menu_item" role="menuitem">Dauerbeobachtung der Gesellschaft</a></li><li role="none"><a href="/institut/abteilungen/survey-design-and-methodology" target="_self" title="Survey Design and Methodology" class="gs_menu_item" role="menuitem">Survey Design and Methodology</a></li><li role="none"><a href="/institut/abteilungen/wissenstechnologien-fuer-sozialwissenschaften" target="_self" title="Wissenstechnologien für Sozialwissenschaften" class="gs_menu_item" role="menuitem">Wissenstechnologien für Sozialwissenschaften</a></li><li role="none"><a href="/institut/abteilungen/it-infrastruktur-und-services" target="_self" title="IT-Infrastruktur und Services" class="gs_menu_item" role="menuitem">IT-Infrastruktur und Services</a></li><li role="none"><a href="/institut/abteilungen/verwaltung" target="_self" title="Verwaltung" class="gs_menu_item" role="menuitem">Verwaltung</a></li><li role="none"><a href="/institut/abteilungen/wissenstransfer" target="_self" title="Wissenstransfer" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Wissenstransfer</a></li></ul></li><li class="gs_sub" role="none"><a href="/institut/forschungsdatenzentren" target="_self" title="Forschungsdatenzentren" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Forschungsdatenzentren</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/forschungsdatenzentren/fdz-allbus" target="_self" title="FDZ ALLBUS" class="gs_menu_item" role="menuitem">FDZ ALLBUS</a></li><li role="none"><a href="/institut/forschungsdatenzentren/fdz-german-microdata-lab" target="_self" title="FDZ German Microdata Lab" class="gs_menu_item" role="menuitem">FDZ German Microdata Lab</a></li><li role="none"><a href="/institut/forschungsdatenzentren/fdz-internationale-umfrageprogramme" target="_self" title="FDZ Internationale Umfrageprogramme" class="gs_menu_item" role="menuitem">FDZ Internationale Umfrageprogramme</a></li><li role="none"><a href="/institut/forschungsdatenzentren/fdz-piaac" target="_self" title="FDZ PIAAC" class="gs_menu_item" role="menuitem">FDZ PIAAC</a></li><li role="none"><a href="/institut/forschungsdatenzentren/fdz-wahlen" target="_self" title="FDZ Wahlen" class="gs_menu_item" role="menuitem">FDZ Wahlen</a></li></ul></li><li role="none"><a href="/institut/integrierte-erhebungs-und-dateninfrastruktur" target="_self" title="Integrierte Erhebungs- und Dateninfrastruktur" class="gs_menu_item" role="menuitem">Integrierte Erhebungs- und Dateninfrastruktur</a></li><li class="gs_sub" role="none"><a href="/institut/gesis-in-erics" target="_self" title="GESIS in ERICs" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">GESIS in ERICs</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/gesis-in-erics/cessda" target="_self" title="CESSDA" class="gs_menu_item" role="menuitem">CESSDA</a></li><li role="none"><a href="/institut/gesis-in-erics/ess" target="_self" title="ESS" class="gs_menu_item" role="menuitem">ESS</a></li></ul></li><li class="gs_sub" role="none"><a href="/institut/der-verein" target="_self" title="Der Verein" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Der Verein</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/der-verein/satzung" target="_self" title="Satzung" class="gs_menu_item" role="menuitem">Satzung</a></li><li role="none"><a href="/institut/der-verein/kuratorium" target="_self" title="Kuratorium" class="gs_menu_item" role="menuitem">Kuratorium</a></li><li role="none"><a href="/institut/der-verein/mitgliederversammlung" target="_self" title="Mitgliederversammlung" class="gs_menu_item" role="menuitem">Mitgliederversammlung</a></li><li role="none"><a href="/institut/der-verein/wiss-beirat" target="_self" title="Wiss. Beirat" class="gs_menu_item" role="menuitem">Wiss. Beirat</a></li><li role="none"><a href="/institut/der-verein/nutzerbeirat" target="_self" title="Nutzerbeirat" class="gs_menu_item" role="menuitem">Nutzerbeirat</a></li><li role="none"><a href="/institut/der-verein" target="_self" title="Regeln guter wissenschaftlicher Praxis" class="gs_menu_item" role="menuitem">Regeln guter wissenschaftlicher Praxis</a></li></ul></li><li class="gs_sub" role="none"><a href="/institut/presse-und-medien" target="_self" title="Presse und Medien" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Presse und Medien</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/presse-und-medien/pressemitteilungen" target="_self" title="Pressemitteilungen" class="gs_menu_item" role="menuitem">Pressemitteilungen</a></li><li role="none"><a href="/institut/presse-und-medien/gesis-report" target="_self" title="gesis report" class="gs_menu_item" role="menuitem">gesis report</a></li></ul></li><li class="gs_sub" role="none"><a href="/institut/adresse-und-anreise" target="_self" title="Adresse und Anreise" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Adresse und Anreise</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/adresse-und-anreise/standort-mannheim" target="_self" title="Standort Mannheim" class="gs_menu_item" role="menuitem">Standort Mannheim</a></li><li role="none"><a href="/institut/adresse-und-anreise/standort-koeln" target="_self" title="Standort Köln" class="gs_menu_item" role="menuitem">Standort Köln</a></li></ul></li><li class="gs_sub" role="none"><a href="/institut/karriere" target="_self" title="Karriere" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Karriere</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/karriere/wissenschaftliche-karriere" target="_self" title="Wissenschaftliche Karriere" class="gs_menu_item" role="menuitem">Wissenschaftliche Karriere</a></li><li role="none"><a href="/institut/karriere/weitere-mitarbeiterinnen-und-mitarbeiter" target="_self" title="Weitere Mitarbeiterinnen und Mitarbeiter" class="gs_menu_item" role="menuitem">Weitere Mitarbeiterinnen und Mitarbeiter</a></li><li role="none"><a href="/institut/karriere/betriebliche-berufsausbildung" target="_self" title="Betriebliche Berufsausbildung" class="gs_menu_item" role="menuitem">Betriebliche Berufsausbildung</a></li><li role="none"><a href="/institut/karriere/studierende" target="_self" title="Studierende" class="gs_menu_item" role="menuitem">Studierende</a></li><li role="none"><a href="/institut/karriere/personalentwicklung" target="_self" title="Personalentwicklung" class="gs_menu_item" role="menuitem">Personalentwicklung</a></li><li role="none"><a href="/institut/karriere/gesis-doctoral-program" target="_self" title="GESIS Doctoral Program" class="gs_menu_item" role="menuitem">GESIS Doctoral Program</a></li><li role="none"><a href="/institut/karriere/gut-zu-wissen" target="_self" title="Gut zu wissen" class="gs_menu_item" role="menuitem">Gut zu wissen</a></li><li role="none"><a href="http://www.hidden-professionals.de/HPv3.Jobs/gesis/stellenangebote/de-DE" target="_blank" title="Stellenangebote" class="gs_menu_item" role="menuitem">Stellenangebote</a></li></ul></li><li role="none"><a href="/institut/vereinbarkeit-von-beruf-und-familie" target="_self" title="Vereinbarkeit von Beruf und Familie" class="gs_menu_item" role="menuitem">Vereinbarkeit von Beruf und Familie</a></li><li role="none"><a href="/institut/gleichstellung-von-frauen-und-maennern" target="_self" title="Gleichstellung von Frauen und Männern" class="gs_menu_item" role="menuitem">Gleichstellung von Frauen und Männern</a></li><li class="gs_sub" role="none"><a href="/institut/vergabe" target="_self" title="Vergabe" class="gs_menu_item gs_menu_item_with_subs" role="menuitem" aria-haspopup="true">Vergabe</a><ul class="gs_menulayer_2" role="menu"><li role="none"><a href="/institut/vergabe/vergebene-auftraege" target="_self" title="vergebene Aufträge" class="gs_menu_item" role="menuitem">vergebene Aufträge</a></li></ul></li><li role="none"><a href="/institut/datenschutz" target="_self" title="Datenschutz" class="gs_menu_item" role="menuitem">Datenschutz</a></li><li role="none"><a href="/institut/impressum" target="_self" title="Impressum" class="gs_menu_item" role="menuitem">Impressum</a></li></ul></li></ul>
+    <!-- Megamenu end -->
+  </nav>
+  <!-- rootline -->
+<nav class="gs_rootline" aria-labelledby="gs_rootline_label">
+  <span id="gs_rootline_label">Sie sind hier: </span><ol id="gs_breadcrumbs"><li aria-current="page" class="gs_dropdown_toggle">Home<ul class="gs_dropdown_content"><li><a href="/angebot" target="_self">Angebot</a></li><li><a href="/forschung" target="_self">Forschung</a></li><li><a href="/institut" target="_self">Institut</a></li><li><a href="/kontakt" target="_self">Kontakt</a></li><li><a href="/hilfe" target="_self">Hilfe</a></li></ul></li></ol>
+</nav>
+<!-- rootline end -->
+
+</div>
+<!-- Main navigation end -->
+
+  </header>
+
+
+  <main id="gs_main" class="gs_content ym-clearfix">
+    <div class="gs_fader"></div>
+    
+<div id="c53625" class="frame frame-default frame-type-gridelements_pi1  frame-layout-0 "><div class="gs_banner gs_banner_height_3" style="background-image:url(img/Home.jpg); background-position:right -6rem;"><div class="gs_trans_text"><div id="c53624" class="frame frame-default frame-type-list  frame-list-type-news_pi1 frame-layout-0 "><div class="news"><div class="ym-clearfix"><div class="gs_news_wrapper"><ul class="gs_news_compact_slider"><!-- Partials/List/BannerItem.html --><li itemscope itemtype="http://schema.org/NewsArticle"><h1 itemprop="headline">Call for Papers 7th EU-Microdata User Conference</h1><!-- main text --><div class="news-text-wrap" itemprop="articleBody"><p>CFP for the 7th EU-Microdata User Conference in Mannheim</p><p>March 25-26, 2021</p><p><a href="/angebot/veranstaltungen/tagungen-und-konferenzen/gesis-tagungen/eu-nutzerkonferenz-7" title="Opens internal link in current window" target="_self">Conference webpage &amp; submission form</a>&nbsp;</p></div></li><!-- Partials/List/BannerItem.html --><li itemscope itemtype="http://schema.org/NewsArticle"><h1 itemprop="headline">40th GESIS Methods Seminar – Register Now!</h1><!-- main text --><div class="news-text-wrap" itemprop="articleBody"><p>The 40th GESIS Methods Seminar will take place from 14 September – 02 October 2020. For the first time since it was established, it will take place online as a virtual methods school.</p><p><a href="https://training.gesis.org/?site=pDetails&amp;pID=0x387DA6358EF341928F67355388570B76&amp;lang=de_DE&amp;lang=en_US" target="_blank">More information on ECTS credits points and the full list of courses</a></p></div></li><!-- Partials/List/BannerItem.html --><li itemscope itemtype="http://schema.org/NewsArticle"><h1 itemprop="headline">#cfp Call for Papers &quot;Vignette Analysis: Methodology and Recent Developments&quot;: Special Issue of mda 3/2021</h1><!-- main text --><div class="news-text-wrap" itemprop="articleBody"><p>If you are interested in submitting a manuscript, please visit the <a href="https://mda.gesis.org/index.php/mda/announcement/view/6" target="_blank">mda homepage for further information</a>.<br /><strong>Deadline extended: October 31, 2020 </strong></p></div></li></ul></div></div></div></div></div></div></div>
+
+
+
+<div id="c68387" class="frame frame-default frame-type-gridelements_pi1  frame-layout-0 "><div class="gs_3_col ym-grid ym-equalize linearize-level-1"><div class="gs_col_1 ym-g33 ym-gl"><div id="c68910" class="frame frame-default frame-type-html  frame-layout-0 "><a href="/angebot" target="_self"><div class="gs_teaser"><h2>Angebot</h2><img src="img/gs_lifecycle_teaser.svg" alt="Forschungsdatenzyklus" /></div></a></div><div id="c68386" class="frame frame-default frame-type-textmedia  frame-layout-0 "><div class="ce-textpic ce-right ce-intext"><div class="ce-bodytext"><p>Hier finden Sie wissenschaftlich fundierte Dienstleistungen für alle Phasen Ihres Forschungsprojekts.&nbsp;</p></div></div></div></div><div class="gs_col_2 ym-g33 ym-gl"><div id="c68911" class="frame frame-default frame-type-html  frame-layout-0 "><a href="/forschung" target="_self"><div class="gs_teaser"><h2>Forschung</h2><img src="img/gs_research_teaser.svg" alt="Forschungsbereiche" /></div></a></div><div id="c68385" class="frame frame-default frame-type-textmedia  frame-layout-0 "><div class="ce-textpic ce-right ce-intext"><div class="ce-bodytext"><p>Wir forschen in den Bereichen Umfragemethodik, Aktuelle gesellschaftliche Fragen, Forschungsdatenmanagement und Angewandte Informatik.&nbsp;</p></div></div></div></div><div class="gs_col_3 ym-g33 ym-gr"><div id="c68912" class="frame frame-default frame-type-html  frame-layout-0 "><a href="/institut" target="_self"><div class="gs_teaser"><h2>Institut</h2><img src="img/gs_organigram_teaser.svg" alt="Organigramm" /></div></a></div><div id="c68384" class="frame frame-default frame-type-textmedia  frame-layout-0 "><div class="ce-textpic ce-right ce-intext"><div class="ce-bodytext"><p>Informationen zur Organisation von GESIS, unserem Leitbild und unserer Strategie sowie zu Karrieremöglichkeiten finden Sie hier.&nbsp;</p></div></div></div></div></div></div>
+
+
+
+<div id="c52200" class="frame frame-default frame-type-list  frame-list-type-news_pi1 frame-layout-0 "><div class="news"><div class="ym-clearfix"><div class="gs_news_wrapper"><section class="gs_box gs_news_horizontal"><div class="gs_headericons"><a class="gs_icon_rss" title="RSS-Feed" href="/home?type=9818"></a></div><h1>
+              GESIS News
+            </h1><div class="gs_box_content ym-grid"><div class="gs_slider_content"><ul class="gs_3col_slider"><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/der-neue-gesis-report-ist-erschienen-alle-neuigkeiten-rund-um-gesis"><div class="gs_news_image"><img src="img/News.jpg" width="257" height="128" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Der neue gesis report ist erschienen -Alle Neuigkeiten rund um GESIS
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/neuer-blog-beitrag-mueller-draeger-schreiben-ueber-den-zusammenhang-von-schulischem-bildungerfolg-und-elterlichem-vermoegen"><div class="gs_news_image"><img src="img/csm_FeaturedImage_Bildung_646f02f163.jpg" width="267" height="150" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Neuer Blog-Beitrag: Müller &amp; Dräger schreiben über den Zusammenhang von schulischem Bildungerfolg und elterlichem Vermögen
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/neue-publikation-erschienen-maehler-rammstedt-hg-large-scale-cognitive-assessment"><div class="gs_news_image"><img src="img/csm_Tipp_Large_Scale_Cov_4cbba455c7.jpg" width="300" height="114" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Neue Publikation erschienen: Maehler/Rammstedt (Hg.): Large-Scale Cognitive Assessment
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/gesis-goes-instagram"><div class="gs_news_image"><img src="img/csm_GESIS_goes_Instagram_ba4ef65448.jpg" width="300" height="146" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      GESIS goes Instagram
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/neuer-blog-beitrag-repke-doelken-fragen-sich-wofuer-sich-junge-leute-in-der-heutigen-zeit-engagieren"><div class="gs_news_image"><img src="img/csm_Youth_Day_a526a3dd28.jpeg" width="285" height="150" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Neuer Blog-Beitrag: Repke &amp; Dölken fragen sich, wofür sich junge Leute in der heutigen Zeit engagieren
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/methodologische-beratung-zur-harmonisierung-inhaltlicher-instrumente"><div class="gs_news_image"><img src="img/Harmonisierung.jpg" width="257" height="128" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Methodologische Beratung zur Harmonisierung inhaltlicher Instrumente
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/das-cewsjournal-nr-123-ist-erschienen"><div class="gs_news_image"><img src="img/CEWS_journal.jpg" width="257" height="128" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Das CEWSjournal Nr. 123 ist erschienen
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/neuer-blog-beitrag-repke-hansen-doelken-schreiben-ueber-die-bedeutung-von-freundschaft"><div class="gs_news_image"><img src="img/csm_Friendship_6497270cd5.jpeg" width="246" height="150" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Neuer Blog-Beitrag: Repke, Hansen &amp; Dölken schreiben über die Bedeutung von Freundschaft 
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/qualitaetsauszeichnung-tbs-dtk-transparenz-zertifikat-fuer-dokumentationen-von-messinstrumenten-in-zis"><div class="gs_news_image"><img src="img/csm_Zertifikat_0edfe05c76.jpg" width="257" height="123" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Qualitätsauszeichnung (TBS-DTK-Transparenz-Zertifikat) für Dokumentationen von Messinstrumenten in ZIS
+    </div></a></li><!-- Partials/List/SliderItem.html --><li itemscope itemtype="http://schema.org/Article"><a target="_self" href="/gesis-news/article/mannheim-monitor-tief-verbunden-und-doch-kritisch"><div class="gs_news_image"><img src="img/csm_Mannheimmonitor_78a1b873a1.jpg" width="300" height="101" alt="" /></div><div class="gs_box_content" itemprop="headline">
+      Mannheim-Monitor: Tief verbunden und doch kritisch
+    </div></a></li></ul></div></div></section></div></div></div></div>
+
+
+
+<div id="c64418" class="frame frame-default frame-type-gridelements_pi1  frame-layout-0 "><div class="ym-clearfix"><div class="gs_1_col ym-grid ym-equalize"><div id="c64317" class="frame frame-default frame-type-textmedia  frame-layout-0 "><div class="ce-textpic ce-center ce-above"><div class="ce-gallery" data-ce-columns="3" data-ce-images="3"><div class="ce-outer"><div class="ce-inner"><div class="ce-row"><div class="ce-column"><figure class="image"><a href="https://www.facebook.com/gesis.org/" title="GESIS bei Facebook" target="_blank"><img class="image-embed-item" title="GESIS bei Facebook" src="img/facebook_icon.svg" width="32" height="32" alt="" /></a></figure></div><div class="ce-column"><figure class="image"><a href="https://twitter.com/gesis_org" title="GESIS bei Twitter" target="_blank"><img class="image-embed-item" title="GESIS bei Twitter" src="img/twitter_icon.svg" width="32" height="32" alt="" /></a></figure></div><div class="ce-column"><figure class="image"><a href="https://www.instagram.com/gesis_lifs/?igshid=12x9jh7rglo97" title="GESIS bei Instagram" target="_blank"><img class="image-embed-item" title="GESIS bei Instagram" src="img/instagram.svg" width="32" height="32" alt="" /></a></figure></div></div></div></div></div></div></div></div></div></div>
+
+
+
+  </main>
+    <!-- Footer -->
+<footer id="gs_footer">
+  <ul class="gs_footerlinks">
+    <li>
+      
+          <img src="img/leibniz_logo_de_white.svg" width="78" height="54" alt="Leibniz-Logo"/>
+        
+    </li>
+    <li>
+      <a href="/institut/impressum">Impressum</a> | 
+      <a href="/institut/datenschutz">Datenschutz</a>
+    </li>
+    <li>© GESIS</li>
+  </ul>
+  <div id="socialshareprivacy" class="gs_social_media"></div>
+  
+  
+</footer>
+
+</body>
+</html>

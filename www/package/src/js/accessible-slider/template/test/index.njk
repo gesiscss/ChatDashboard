@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Screenshots</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, “Segoe UI”, Roboto, Helvetica, Arial, sans-serif;
+      text-align: center;
+    }
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    li {
+      list-style: none;
+    }
+    li span {
+      display: block;
+      margin: 20px 0 3px;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 0;
+    }
+    h2 {
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      background: hsla(0, 0%, 100%, 0.85);
+      text-transform: capitalize;
+    }
+    .tip {
+      font-size: 14px;
+      color: #666;
+      padding: 10px;
+      background: #f7f7f7;
+    }
+    .screenshot { overflow: hidden; }
+    .up {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      margin: 10px;
+      padding: 10px;
+      width: 50px;
+      height: 50px;
+      border: 0;
+      background: #000;
+      cursor: pointer;
+    }
+    .up:before,
+    .up:after {
+      content: '';
+      position: absolute;
+      left: 15px;
+      right: 15px;
+      top: 20px;
+      width: 20px;
+      height: 20px;
+      transform: rotate(45deg);
+      background: #fff;
+    }
+    .up:after {
+      transform: translateY(2px) rotate(45deg);
+      background: #000;
+    }
+    .loaded .browser { display: none; }
+    :target { display: block !important; }
+  </style>
+</head>
+<body>
+  <div class="tip">Press ←/→ key to switch between browsers</div>
+  {% for browser, version in {
+    'chrome': 14,
+    'firefox': 12,
+    'ie': 9,
+    'edge': 15,
+    'safari': 5.1,
+    'opera': 12.15
+  } %}
+  <div class="browser{{ loop.index0 }} browser" id="{{ browser }}">
+    <h2>{{ browser }} {{ version }}</h2>
+    <ul>
+    {% for test, row in {
+      'animation1': 2,
+      'animation2': 1,
+      'arrowKeys': 1,
+      'autoHeight': 3,
+      'autoplay': 4,
+      'base': 13,
+      'center-non-loop': 2,
+      'center-loop': 2,
+      'center-fixedWidth-non-loop': 2,
+      'center-fixedWidth-loop': 2,
+      'center-autoWidth-non-loop': 2,
+      'center-autoWidth-loop': 2,
+      'center-autoWidth-non-loop-edgePadding': 2,
+      'center-autoWidth-loop-edgePadding': 2,
+      'center-lazyload-non-loop': 2,
+      'center-lazyload-loop': 2,
+      'center-lazyload-fixedWidth-non-loop': 2,
+      'center-lazyload-fixedWidth-loop': 2,
+      'center-lazyload-autoWidth-non-loop': 2,
+      'center-lazyload-autoWidth-loop': 2,
+      'customize': 6,
+      'edgePadding-gutter': 1,
+      'edgePadding': 1,
+      'few-items': 1,
+      'fixedWidth-edgePadding-gutter': 1,
+      'fixedWidth-edgePadding': 1,
+      'fixedWidth-gutter': 1,
+      'fixedWidth': 2,
+      'frame1': 4,
+      'frame2': 3,
+      'frame3': 2,
+      'frame5': 2,
+      'frame6': 2,
+      'gutter': 1,
+      'lazyload': 2,
+      'nested': 5,
+      'non-loop': 2,
+      'rewind': 2,
+      'slide-by-page': 1,
+      'vertical-edgePadding-gutter': 1,
+      'vertical-edgePadding': 1,
+      'vertical-gutter': 1,
+      'vertical': 6,
+      'start-index': 4
+      } %}
+      {# 'mouse-drag': 1, #}
+      <li class="screenshot" style="height: {{ (row + 3 + 1)*1.6 }}em"><a href="{{ test }}.html" target="_blank"><span>{{ test }}</span><img src="screenshot/{{ browser }}/{{ test }}.png" alt="{{ test }}"></a></li>
+    {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+  <button class="up"></button>
+
+  <script>
+    var doc = document,
+        current = 0,
+        min = 0,
+        max = doc.querySelectorAll('.browser').length - 1,
+        browsers = doc.querySelectorAll('.browser'),
+        body = doc.body;
+  
+    body.className += 'loaded';
+    if (!location.hash) { location.hash = '#' + browsers[0].id; }
+
+    doc.addEventListener('keydown', function(e) {
+      switch(e.keyCode) {
+        case 37:
+          update(-1);
+          break;
+        case 39:
+          update(1);
+      }
+    });
+  
+    function update (num) {
+      current += num;
+      current = Math.max(min, Math.min(max, current));
+      // if (current > max) {
+      //   current = min;
+      // } else if (current < min) {
+      //   current = max;
+      // }
+  
+      location.hash = '#' + browsers[current].id;
+    }
+  
+    var scrollTo = (function () {
+      return function (to, duration) {
+        var body = document.body,
+            html = document.documentElement,
+            wh = (html || body.parentNode || body).clientHeight,
+            bh = Math.max( body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight ),
+            total = to + wh,
+            goal = bh - wh - 1;
+            
+        if (total > bh) { to = goal; }
+        to = Math.round(to);
+  
+        function runScroll(element, to, duration) {
+          if (duration < 0) { return; }
+          var difference = to - element.scrollTop,
+              perTick = difference / duration * 10,
+              running;
+  
+          var run = function () {
+            element.scrollTop += perTick;
+            if (element.scrollTop === to) { return; }
+            runScroll(element, to, duration - 10);
+  
+            running = false;
+          };
+  
+          if (!running) {
+            running = true;
+            if (window.requestAnimationFrame) {
+              window.requestAnimationFrame(run);
+            } else {
+              setTimeout(run, 10);
+            }
+          }
+        }
+  
+        runScroll(document.body, to, duration);
+        runScroll(document.documentElement, to, duration);
+      };
+    })();
+  
+    var up = doc.querySelector('.up');
+    up.addEventListener('click', function() {
+      scrollTo(0, 100);
+    });
+  </script>
+</body>
+</html>

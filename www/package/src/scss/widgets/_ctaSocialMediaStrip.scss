@@ -1,0 +1,71 @@
+
+.gesis-cta-social-media-strip {
+  background: gs-gradient(berry-darkblue-to-lightblue);
+  overflow: hidden;
+  .gesis-cta-social-media-strip--inner {
+    @include max-width-content;
+    color: #fff;
+    padding-top: 3.3rem;
+    padding-bottom: 6.8rem;
+    
+    .row {
+      @include mobile {
+        flex-direction: column;
+      }
+    }
+    h2,
+    .h2 {
+      color: #fff;
+      margin-top: $gs-font--2xl;
+      margin-bottom: $gs-font--md;
+    }
+    .strip-text {
+      > :last-child,
+      // Needed for implementation in typo3
+      .ce-bodytext:last-of-type, 
+      .ce-bodytext:last-of-type > :last-child {
+        margin-bottom: 0;
+      }
+    }
+    .strip-icons {
+      display: flex;
+      justify-content: start;
+      gap: $gs-font--2xl;
+      padding-top: $gs-font--2xl;
+      align-items:inherit ;
+
+      @include mobile {
+        width: inherit;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2rem 2rem;
+      }
+      a {
+        // Remove default link underline
+        color: white;
+        box-shadow: none;
+        svg {
+          max-height: 10rem;
+          @include mobile {
+            max-height: 6rem;
+            max-width: 6rem;
+          }
+        }
+        i {
+          font-size: 10rem;
+          @include mobile {
+            font-size: 6rem;
+          }
+        }
+        &:hover {
+          color: $gs-berry;
+        }
+
+        &::after {
+          content: none;
+        }
+      }
+    }
+  }
+}

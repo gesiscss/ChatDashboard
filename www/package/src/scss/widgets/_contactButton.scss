@@ -1,0 +1,56 @@
+.gesis-contact-button {
+	position: fixed;
+	right: 1.5rem;
+	bottom: 4rem;
+	line-height: 1;
+
+	// z-index set to prevent an unwanted element from overlapping the button
+	z-index: 51;
+
+	a {
+		position: fixed;
+		bottom: $gs-font--6xl;
+		right: $gs-font--3xl;
+		line-height: 1;
+
+		// Remove default link underline
+		box-shadow: none !important;
+
+		&:hover {
+			opacity: 0.8;
+		}
+
+		@include mobile{
+			bottom: $gs-font--md;
+			right: $gs-font--sm;
+		}
+	}
+	i {
+		@include font-size(6.8rem);
+		color: gs-color(gs-berry);
+		position: relative;
+
+		/**
+		* I have created a pseudo element here to give the icon a white background. 
+		* This is necessary because icons in an icon font can only have one color. Therefore the person in the icon is cut out.
+		* 
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 6.5rem;
+			height: 6.5rem;
+			background-color: #fff;
+			border-radius: calc(3.7rem * 2);
+			z-index: -1;
+		}
+	}
+}

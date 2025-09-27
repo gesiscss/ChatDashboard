@@ -1,0 +1,210 @@
+.slider {
+  position: relative;
+  margin: 0 !important;
+  max-height: 76.5rem;
+  overflow: hidden;
+
+  .slick-dots {
+    display: flex;
+    z-index: 1;
+    justify-self: anchor-center;
+    bottom: -2rem;
+    width: 1430px;
+    
+    li {
+      margin: 0 2px;
+
+      button {
+        position: relative;
+        z-index: 1;
+        background: rgba(255,255,255,0.1) !important;
+        border:1px solid rgba(255,255,255,0.25) !important;
+        border-radius: 1000px;
+        display: flex;
+        bottom: 22.5rem;
+        color: transparent !important;
+        padding: 0 !important;
+
+        width: $gs-font--md;
+        height: $gs-font--md;
+
+        &::after,
+        &::before {
+          display: none !important;
+        }
+
+        &:hover{
+          border:1px solid rgba(255,255,255,0.8) !important;
+        }
+      }
+
+
+      &.slick-active {
+        button {
+          background: rgba(255,255,255,1) !important;
+        }
+      }
+    }
+    @include desktop-medium{
+      margin-left: $gs-font--4xl;
+    }
+    @include mobile{
+      width: max-content;
+      bottom: -7rem;
+      margin: 0 auto;
+      margin-left: 3.3rem;
+    }
+  }
+
+  .slick-slide {
+    position: relative;
+
+    div {
+      max-width: 1456px;
+      margin: 0 auto;
+
+      @include mobile {
+        margin: $gs-font--lg;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      margin: 0 !important;
+      border-radius: 0;
+    }
+  }
+
+  .slide-content {
+    position: relative;
+    max-width: 84rem;
+    height: 45.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    //top: calc(50% - 18rem);
+    //left: calc(50% - 68rem);
+    //transform: translateY(-50%);
+    padding-right: 0;
+    padding-left: $gs-font--md;
+    font-family: $headline-font;
+    @include font-size($gs-font--3xl);
+    font-weight: 700;
+    // font-size: 3.1rem;
+    line-height: 1.15;
+    color: white;
+    text-shadow: 2px 2px 25px rgba(0, 60, 120, 0.7);
+
+    h3{
+      margin-bottom: $gs-font--xs;
+      font-size: $gs-font--2xl;
+      font-weight: 100;
+      color: $gs-lightblue-300;
+    }
+
+    p {
+      padding: 0;
+      margin-top: 0
+    }
+
+    @include mobile {
+      justify-content: flex-start;
+      height: 65rem;
+    }
+  }
+
+  &.testimonial {
+    background-color: red;
+    background: url("./img/icons/quote_bottom.svg") bottom 2rem left 2rem
+        no-repeat,
+      url("./img/icons/quote_top.svg") top 2rem right 2rem no-repeat,
+      gs-gradient(testimonial) no-repeat;
+    background-size: 512px, 512px, 200%;
+
+    img {
+      position: absolute;
+      bottom: 0;
+      right: 1rem;
+      max-width: 48%;
+      float: right;
+    }
+
+    .slick-slide {
+      aspect-ratio: 1.7;
+    }
+
+    .slide-content {
+      top: 50% !important;
+      @include font-size($gs-font--xl);
+    }
+
+    .testimonial-name {
+      @include font-size($gs-font--md);
+      font-weight: bold;
+      color: #ccc;
+    }
+  }
+
+  &.slider-frontpage {
+    .slick-slide {
+      min-height: 76.5rem;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      @include desktop-small {
+        min-height: 800px;
+      }
+
+      @include lg {
+        min-height: 700px;
+      }
+
+      @include md {
+        min-height: 600px;
+      }
+
+      @include sm {
+        min-height: 400px;
+      }
+    }
+  }
+}
+
+// this puts the news box on the frontpage partially up into the slider
+.frame-layout-200 + * {
+  margin-bottom: calc(
+    (31rem - 1px) * -1
+  ); //Without calc there is wierd behavoir in Chrome wich causes the Newsbox to slighly be in next section. Its just 1px or lesss but this should prevent the behavoir
+  & > *:first-child {
+    transform: translateY(-25rem);
+  }
+
+  @include mobile {
+    margin-bottom: -11rem;
+
+    & > *:first-child {
+      transform: translateY(-20rem);
+    }
+  }
+}
+
+.content-section {
+  .slick-slide {
+    div {
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+}

@@ -1,0 +1,200 @@
+// Imported in _variables.scss
+
+$gs-colors: (
+	//Primary colors
+	//Primary base
+	gs-lightblue--pressed	: #11527B,
+	gs-lightblue--hover		: #105F94,
+	gs-lightblue--text      : #1B7DB1,
+	gs-lightblue            : #1E8CC8,
+	gs-lightblue--65		: #6DB4DB,
+	gs-lightblue--40		: #A5D1E9,
+	gs-lightblue--25		: #C7E2F1,
+	gs-lightblue--14		: #dfeff7,
+	gs-lightblue--8			: #EDF6FB,
+
+	//Primary interaction
+	gs-pink--pressed	: #920948,
+	gs-pink--hover		: #B00453,
+	gs-pink            	: #d20064,
+	gs-pink--85			: #D9277C,
+	gs-pink--65			: #E25A9B,
+	gs-pink--40			: #ED99C1,
+	gs-pink--25			: #F4BFD8,
+	gs-pink--14			: #F9DBE9,
+
+
+	//Secondary colors
+	//Secondary base
+	gs-darkblue--pressed : #00264B,
+	gs-darkblue--hover	: #002F5E,
+	gs-darkblue			: #003C78,
+	gs-darkblue--65		: #5980A7,
+	gs-darkblue--40		: #99B1C9,
+	gs-darkblue--25		: #BFCEDD,
+	gs-darkblue--14		: #dbe3ec,
+	gs-darkblue-transparent : rgba(#003c78, 0.8),
+	//Secondary interaction
+	gs-berry: #642878,
+	gs-berry--65: #9A73A7,
+	gs-berry--40: #C1A9C9,
+	gs-berry--25: #E9E1EC, // 14%
+	gs-berry--14: #E9E1EC,
+
+
+	//Spot colors
+	gs-turquoise: #64afaf,
+	gs-orange: #f08741,
+	gs-yellow: #FAD205,
+	gs-petrol: #006a82,
+	gs-lightpink: #c873a0,
+	gs-olive: #699e6e,
+	gs-rust: #aa4137,
+	gs-light: #ccc,
+	gs-dark: black,
+
+	//Spot shades
+	gs-turquoise--8: #F3F9F9,
+	gs-turquoise--14: #e9f4f4,
+	gs-orange--14: #fdeee4,
+	gs-yellow--14: #fff9db,
+	gs-petrol--14: #dbeaed,
+	gs-lightpink--14: #f7ebf2,
+	gs-olive--14: #eaf1ea,
+	gs-rust--14: #f3e4e2,
+	gs-dark--14: lighten(#808080, 30%),
+	gs-light--14: #f4f4f4,
+
+	//Spot shades
+	gs-turquoise--25: #e9f4f4, // 14%
+	gs-orange--25: #fdeee4, // 14%
+	gs-yellow--25: #fff9db, // 14%
+	gs-petrol--25: #dbeaed, // 14%
+	gs-lightpink--25: #f7ebf2, // 14%
+	gs-olive--25: #eaf1ea, // 14%
+	gs-rust--25: #f3e4e2, // 14%
+	gs-blue--8: #EBEFF4, 
+
+	//Grey Shades
+	gs-default-grey: #f6f6f6,
+	gs-accent-grey: #cccccc,
+	gs-dark-grey: #808080,
+
+	// Added these Colors so white and black can be used in functions that return colored icons from svg (see _functions.scss)
+	gs-white: #ffffff,
+	gs-black: #000000,
+  
+    gs-facet-1: #006A82,
+    gs-facet-2: #F08741,
+    gs-facet-3: #64AFAF,
+    gs-facet-4: #FAD205,
+    gs-facet-5: #C873A0,
+    gs-facet-6: #AA4137,
+    
+    gs-facet-1-opacity-40: #006A8240,
+    gs-facet-2-opacity-40: #F0874140,
+    gs-facet-3-opacity-40: #64AFAF40,
+    gs-facet-4-opacity-40: #FAD20540,
+    gs-facet-5-opacity-40: #C873A040,
+    gs-facet-6-opacity-40: #AA413740,
+);
+
+
+
+$bootstrapMapping: (
+	primary: gs-turquoise,
+	secondary: gs-lightpink,
+	success: gs-olive,
+	danger: gs-rust,
+	warning: gs-yellow,
+	info: gs-orange,
+	dark: gs-dark,
+	light: gs-light,
+);
+
+:root {
+	@each $variableName, $variableValue in $gs-colors {
+		--gs--color--#{""+$variableName}: #{$variableValue};
+	}
+}
+
+@function gs-color($variableName) {
+	@return var(--gs--color--#{$variableName});
+}
+
+@function get-hex-of-color($colorName) {
+	@return map-get($gs-colors, $colorName);
+}
+
+@function transparent-color($colorName, $opacity: 0.8) {
+	$desiredColor: get-hex-of-color($colorName);
+	$transparentColor: rgba($desiredColor, $opacity);
+	@return $transparentColor;
+}
+
+/**
+* Hier in der scss map können Farbnamen eingetragen werden bei denen CSS
+* Vairablen so überschreiben werden müssen, dass z.B. der Button Negativ
+* gezeigt wird
+*
+* @author Julian Kohl
+*/
+$needsLightForeground: gs-darkblue, gs-orange, gs-berry, gs-lightblue;
+
+// Assign colors and variables based on class name
+
+@each $colorName, $color-value in $gs-colors {
+	.microsite-main{
+		--gs--headline--color: #{gs-color(gs-darkblue)};
+	}
+	.has-bg-color.#{$colorName} {
+		background-color: gs-color($colorName);
+
+		//Ajusted Variables where background color needs lighter foreground color
+		@if index($needsLightForeground, $colorName) {
+			color: #fff;
+			--gs--button--color: #fff;
+			--gs--button--hover-color: #{gs-color($colorName)};
+			--gs--button--background-color: #{gs-color($colorName)};
+			--gs--button--hover-background-color: #fff;
+			--gs--link-underline--color: #fff;
+			--gs--link-underline--hover-color: #{rgba(#fff, 0.5)};
+			--gs--headline--color: #fff;
+			--gs--link-with-icon--color: #fff;
+		}
+
+		// Set Link hover colors
+		@if $colorName == gs-darkblue {
+			--gs--link-with-icon--hover-color: #{gs-color(gs-lightblue)};
+		} @else if $colorName == gs-lightblue {
+			--gs--link-with-icon--hover-color: #{gs-color(gs-darkblue)};
+		}
+	}
+
+	// Set Text Color based on given class name
+	.has-text-color.#{$colorName} {
+		color: gs-color($colorName);
+	}
+}
+
+// Gradients
+$gs-gradients: (
+	berry-to-darkblue: linear-gradient(50deg, #{gs-color(gs-berry)} 0%, #{gs-color(gs-darkblue)} 100%),
+	berry-darkblue-to-lightblue: linear-gradient(50deg, rgba(102, 47, 116, 1) 0%, rgba(0, 67, 136, 1) 36%, rgba(0, 149, 219, 1) 75%, rgba(0, 149, 219, 1) 100%),
+	darkblue-to-berry: linear-gradient(90deg, rgb(69, 46, 120) 0%, 33.4783%, rgb(100, 40, 120) 66.9565%, 83.4783%, rgb(98, 40, 120) 100%),
+	berry-to-pink: linear-gradient(90deg, rgb(107, 37, 118) 0%, 36.5217%, rgb(160, 18, 109) 73.0435%, 86.5217%, rgb(171, 13, 106) 100%),
+	darkblue: linear-gradient(90deg, rgb(29, 54, 120) 0%, 14.0164%, rgb(50, 50, 120) 28.0329%, 64.0164%, rgb(41, 89, 155) 100%),
+	darkblue-to-lightblue: linear-gradient(90deg, rgb(0, 71, 140) 0%, 1.78204%, rgb(0, 75, 144) 3.56409%, 51.782%, rgb(0, 149, 219) 100%),
+    testimonial: linear-gradient(17.23deg, #0095DB 0%, #004388 52%, #662F74 100%)
+);
+
+:root {
+	@each $variableName, $variableValue in $gs-gradients {
+		--gs--gradient--#{""+$variableName}: #{$variableValue};
+	}
+}
+
+@function gs-gradient($variableName) {
+	@return var(--gs--gradient--#{$variableName});
+}
+

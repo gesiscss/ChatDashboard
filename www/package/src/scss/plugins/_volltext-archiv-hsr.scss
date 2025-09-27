@@ -1,0 +1,5 @@
+main.volltext-archiv >.frame {
+	padding-top: gs-space(section-space-top);
+	padding-bottom: gs-space(section-space-bottom);
+	@include max-width-content;
+}

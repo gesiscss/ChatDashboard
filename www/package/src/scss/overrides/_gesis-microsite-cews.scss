@@ -1,0 +1,179 @@
+.-microsite_cews,
+#pid-16898 {
+  overflow-x: hidden;
+
+  main {
+    padding: 0 !important;
+    .overview-table {
+      font-size: $gs-font--md !important;
+
+      div {
+        font-size: $gs-font--md !important;
+
+        li {
+          font-size: $gs-font--md !important;
+          list-style: square;
+        }
+      }
+    }
+
+    .search {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-column-gap: $gs-font--lg;
+      grid-row-gap: $gs-font--lg;
+      max-width: 100%;
+      grid-auto-rows: auto;
+
+      input[name="free"] {
+        grid-area: 1 / 1 / 2 / 2;
+        height: max-content;
+        max-width: 100% !important;
+        width: 100% !important;
+        height: fit-content;
+
+        &.searchfield {
+          grid-area: 1 / 1 / 2 / 3;
+          height: fit-content;
+        }
+      }
+
+      .footer_button {
+        grid-area: 1 / 3 / 2 / 4;
+        width: 100% !important;
+        display: flex !important;
+
+        @include mobile {
+          display: flex;
+          flex-direction: column;
+          margin: $gs-font--lg 0 0 0 !important;
+        }
+      }
+
+      select[name="classi"] {
+        grid-area: 1 / 2 / 2 / 3;
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        height: max-content;
+      }
+
+      select[name="geo"] {
+        grid-area: 1 / 3 / 2 / 4;
+        max-width: none !important;
+        width: 100% !important;
+        margin: 0 !important;
+        height: max-content;
+      }
+
+      .cewssubmit {
+        grid-area: 2 / 1 / 3 / 4;
+        padding: inherit;
+      }
+
+      .cewsreset {
+        grid-area: 2 / 3 / 3 / 4;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: inherit;
+      }
+
+      @include mobile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: $gs-font--3xl !important;
+      }
+    }
+
+    &.ym-grid {
+
+      .search {
+        grid-template-rows: repeat(1, 1fr) !important;
+      }
+    }
+
+  }
+
+  .profiles {
+    .profile {
+      padding: $gs-font--md $gs-font--3xl $gs-font--3xl $gs-font--3xl !important;
+      margin: $gs-font--3xl 0;
+      list-style: none;
+      border-radius: $gs-font--3xl;
+
+      .nameLabel {
+        font-size: $h3-font-size;
+        line-height: 1.2;
+        color: gs-color(gs-darkblue);
+      }
+      .fieldlabel {
+        color: gs-color(gs-darkblue);
+        font-weight: bold;
+        @include mobile {
+          text-align: left;
+        }
+      }
+
+      @include mobile {
+        padding: $gs-font--xs $gs-font--lg $gs-font--lg $gs-font--lg !important;
+      }
+    }
+  }
+
+  .discover-search-box {
+    margin-bottom: $gs-font--3xl;
+    max-width: none;
+  }
+
+  #rpp,
+  #sort {
+    min-width: $gs-font--5xl;
+    padding-left: $gs-font--xl;
+    padding-right: $gs-font--2xl;
+
+    @include mobile {
+      margin: 0.8rem 0;
+      width: 100%;
+      position: relative;
+      display: flex;
+      min-width: 85vw;
+    }
+  }
+
+
+  .artifact-description {
+    margin: $gs-font--6xl 0;
+  }
+
+  .artifact-info {
+    margin: $gs-font--sm 0;
+    .h4 {
+      color: gs-color(gs-darkblue);
+      @include font-size($font-size-base);
+    }
+  }
+
+  .search-controls {
+    font-size: inherit;
+  }
+
+  .filtercontainer {
+    .filterheading {
+      padding: $gs-font--md $gs-font--sm !important;
+      margin-top: 0 !important;
+    }
+
+    li {
+      @include font-size($gs-font--md);
+    }
+  }
+
+  .currentFilters {
+    button {
+      padding: $gs-font--xs $gs-font--md !important;
+    }
+  }
+
+}

@@ -1,0 +1,389 @@
+// Accordion
+// ----------------
+// - Basic
+// - Colorschemas
+// - Sticky korrekturen
+// - old Version
+// - hotfixes
+
+// Basic
+// ----------------
+$gs-acc-radius: $gs-font--md;
+$gs-acc-summary-py: $gs-font--4xl;
+$gs-acc-summary-px: $gs-font--lg;
+$gs-acc-content-bg: white;
+$gs-acc-content-py: $gs-font--7xl;
+$gs-acc-content-px: $gs-font--4xl;
+
+details {
+  --gs-acc-border-color: #{$gs-berry-100};
+  --gs-acc-border-color-bottom: #{$gs-berry};
+  --gs-acc-border-color-bottom-active: #{$gs-berry};
+  --gs-acc-border-color-active: #{$gs-berry-100};
+  --gs-acc-summary-color: #{$gs-berry};
+
+  --gs-acc-summary-bg: white;
+  --gs-acc-summary-bg-hover: #{$gs-berry-100};
+  --gs-acc-summary-bg-active: #{$gs-berry-100};
+  --gs-acc-summary-bg-active-hover: #{$gs-berry-200};
+
+  margin: $gs-font--md 0;
+
+  summary {
+    margin: 0 !important;
+    /* Reset browser defaults */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: unset;
+
+    text-align: left;
+    @include font-size($gs-btn-font-size);
+    /* Reset default button style */
+    border-radius: 0;
+
+    width: 100%;
+    background-color: var(--gs-acc-summary-bg) !important;
+    border: 1px solid var(--gs-acc-border-color) !important;
+    border-bottom: 1px solid var(--gs-acc-border-color-bottom) !important;
+    color: var(--gs-acc-summary-color) !important;
+    border-top-left-radius: $gs-acc-radius !important;
+    border-top-right-radius: $gs-acc-radius !important;
+
+    @include padding($gs-acc-summary-px $gs-acc-summary-py);
+
+    cursor: pointer;
+    position: relative;
+    font-weight: bold;
+    line-height: 1.2;
+
+    list-style: none;
+
+    &::-webkit-details-marker,
+    &::marker {
+      content: " ";
+      display: none;
+    }
+
+    &::after {
+      content: "\f282";
+      font-family: bootstrap-icons;
+      position: absolute;
+      right: $gs-font--xl;
+      align-self: center;
+      color: var(--gs-acc-summary-color);
+      @include font-size($gs-font--md);
+      font-weight: bold;
+      transition: rotate 0.2s;
+
+      @include mobile {
+        top: 2rem;
+      }
+    }
+
+    &:hover {
+      background-color: var(--gs-acc-summary-bg-hover) !important;
+    }
+  }
+
+  &.small {
+    > summary {
+      padding: $gs-font--2xl !important;
+    }
+  }
+
+  > div {
+    margin: 0 !important;
+    background-color: var(--gs-acc-summary-bg) !important;
+    border-left: 1px solid var(--gs-acc-border-color-active) !important;
+    border-right: 1px solid var(--gs-acc-border-color-active) !important;
+    border-bottom: 1px solid var(--gs-acc-border-color-bottom-active) !important;
+
+    @include padding($gs-acc-content-px $gs-acc-content-py);
+
+    @include mobile {
+      @include padding($gs-acc-content-px);
+    }
+
+    &[hidden] {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+details[open] {
+  > summary {
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+
+    background-color: var(--gs-acc-summary-bg-active) !important;
+    border-bottom: 0 !important;
+    border-color: var(--gs-acc-border-color-active) !important;
+
+    &::after {
+      rotate: 180deg;
+    }
+
+    &:hover {
+      background-color: var(--gs-acc-summary-bg-active-hover) !important;
+    }
+  }
+}
+
+// 1. details einer Sammlung direkt aufeinander folgender accordions
+details:has(+ details) {
+  margin-bottom: 0;
+
+  summary {
+    border-bottom: 0 !important;
+  }
+
+  &[open] > div {
+    border-bottom: 0 !important;
+  }
+}
+// 2. mittlerer Teil der Accordion Gruppe
+details + details {
+  margin: 0;
+
+  summary {
+    border-bottom: 0 !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+  &[open] > div {
+    border-bottom: 0 !important;
+  }
+}
+//3. letztes Elemnt einer Accordion Gruppe
+details:has(+ details) + details:not(:has(+ details)) {
+  margin-bottom: $gs-font--md;
+  border-bottom: 0 !important;
+
+  summary {
+    border-bottom: 1px solid var(--gs-acc-border-color) !important; // 40 % Berry
+    border-bottom-left-radius: $gs-acc-radius !important;
+    border-bottom-right-radius: $gs-acc-radius !important;
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+  }
+
+  &[open] {
+    > div {
+      border-bottom: 1px solid var(--gs-acc-border-color) !important; // 40 % Berry
+      border-bottom-left-radius: $gs-acc-radius !important;
+      border-bottom-right-radius: $gs-acc-radius !important;
+    }
+
+    summary {
+      border-bottom-left-radius: 0 !important;
+      border-bottom-right-radius: 0 !important;
+    }
+  }
+}
+
+// Colorschemas
+// ---------------
+// Modifier-Klassen für alternative Farbvarianten
+
+details.pink {
+  --gs-acc-border-color: #{$gs-pink-100};
+  --gs-acc-border-color-bottom: #{$gs-pink};
+  --gs-acc-border-color-bottom-active: #{$gs-pink};
+  --gs-acc-border-color-active: #{$gs-pink-100};
+  --gs-acc-summary-color: #{$gs-pink};
+  --gs-acc-summary-bg-hover: #{$gs-pink-100};
+  --gs-acc-summary-bg-active: #{$gs-pink-100};
+  --gs-acc-summary-bg-active-hover: #{$gs-pink-200};
+}
+
+details.lightblue {
+  --gs-acc-border-color: #{$gs-lightblue-100};
+  --gs-acc-border-color-bottom: #{$gs-lightblue};
+  --gs-acc-border-color-bottom-active: #{$gs-lightblue};
+  --gs-acc-border-color-active: #{$gs-lightblue-100};
+  --gs-acc-summary-color: #{$gs-lightblue};
+  --gs-acc-summary-bg-hover: #{$gs-lightblue-100};
+  --gs-acc-summary-bg-active: #{$gs-lightblue-100};
+  --gs-acc-summary-bg-active-hover: #{$gs-lightblue-200};
+}
+
+details.darkblue {
+  --gs-acc-border-color: #{$gs-darkblue-100};
+  --gs-acc-border-color-bottom: #{$gs-darkblue};
+  --gs-acc-border-color-bottom-active: #{$gs-darkblue};
+  --gs-acc-border-color-active: #{$gs-darkblue-100};
+  --gs-acc-summary-color: #{$gs-darkblue};
+  --gs-acc-summary-bg-hover: #{$gs-darkblue-100};
+  --gs-acc-summary-bg-active: #{$gs-darkblue-100};
+  --gs-acc-summary-bg-active-hover: #{$gs-darkblue-200};
+}
+
+details.neutral {
+  --gs-acc-border-color: #{$gs-gray-accent};
+  --gs-acc-border-color-bottom: #{$gs-gray-darker};
+  --gs-acc-border-color-bottom-active: #{$gs-gray-darker};
+  --gs-acc-border-color-active: #{$gs-gray-accent};
+  --gs-acc-summary-color: #{$gs-gray-darker};
+  --gs-acc-summary-bg-hover: #{$gs-gray-accent};
+  --gs-acc-summary-bg-active: #{$gs-gray-accent};
+  --gs-acc-summary-bg-active-hover: #{$gs-gray-middle};
+}
+
+details.ghost {
+  --gs-acc-border-color: white;
+  --gs-acc-border-color-bottom: white;
+  --gs-acc-border-color-bottom-active: white;
+  --gs-acc-border-color-active: white;
+  --gs-acc-summary-color: #{gs-var(headline--color)};
+  --gs-acc-summary-bg-hover: white;
+  --gs-acc-summary-bg-active: white;
+  --gs-acc-summary-bg-active-hover: white;
+
+  details {
+    margin: 0;
+  }
+
+  > button,
+  summary {
+    padding: 1rem 0 0.4rem !important;
+    margin: 0 !important;
+    &::after,
+    &::-webkit-details-marker,
+    &::marker {
+      content: "";
+      display: none;
+    }
+
+    &::before {
+      content: "\F285";
+      font-family: bootstrap-icons;
+      @include font-size(1.2rem);
+      display: inline-block;
+      transform: rotate(0);
+      transition: 0.25s transform ease;
+      margin-right: 0.8rem;
+    }
+
+    &:hover {
+      --gs-acc-summary-color: #{$gs-pink};
+    }
+  }
+
+  > div {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin-left: 0.65rem !important;
+  }
+
+  &[open] {
+    > summary {
+      --gs-acc-summary-color: #{$gs-pink};
+
+      &::before {
+        transform: rotate(90deg);
+      }
+
+      &:hover {
+        --gs-acc-summary-color: #{$gs-pink-600};
+      }
+    }
+
+    > div {
+      border-left: 1px solid $gs-darkblue-100 !important;
+      border-radius: 0 !important;
+    }
+  }
+}
+
+// Sticky korrekturen
+// ----------------
+// Aktuell nur für die oberste Ebene eingerichtet und nicht für weitere Nesting Accordions
+// alle weiteren Nesting Accordions müssten per javascript umgesetzt werden
+// Oder enerell nur per Javascript oder einer JS-Api wegen der unterschiedliche Top Werte die sich addieren
+
+// im Fall es gibt ein microsite-menu das auch sticky ist
+body:has(.microsite-menu) {
+  details[open] {
+    > summary {
+      top: 5.55rem;
+      z-index: 2;
+    }
+  }
+}
+
+body:has(.microsite-menu) {
+  details[open] {
+    &.ghost {
+      > summary {
+        top: 5.2rem;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+// im Fall es ist die Main-site und der Header auch sticky ist und höher
+.gs-main {
+  details[open] {
+    > summary {
+      top: 20.3rem;
+      z-index: 2;
+    }
+  }
+}
+
+.gs-main {
+  details[open] {
+    &.ghost {
+      > summary {
+        top: 20rem;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+// bei genesteten Accordions ist Sticky ausgeschaltet
+details {
+  details {
+    summary {
+      position: relative !important;
+      top: 0 !important;
+      z-index: 0 !important;
+    }
+  }
+}
+
+details {
+  summary {
+    &.no-sticky {
+      position: relative !important;
+      top: 0 !important;
+      z-index: 0 !important;
+    }
+  }
+}
+
+
+
+// hotfix CESW
+// -----------
+#sidebarbox,
+.filtercontainer {
+  .accordion,
+  details {
+    > button,
+    summary {
+      @include padding($gs-font--md $gs-font--lg);
+      &::after {
+        top: 2rem;
+      }
+    }
+    > div {
+      @include padding($gs-font--md $gs-font--lg);
+    }
+  }
+}

@@ -1,0 +1,237 @@
+main {
+  a:not(:has(img)) {
+    position: relative;
+
+    + a,
+    &:has(+ a) {
+      margin-right: 0.4rem;
+    }
+
+    &::after {
+      position: relative;
+      display: inline-block;
+      font-family: bootstrap-icons;
+      align-self: center;
+    }
+
+    &[href^="javascript:"] {
+      &::after {
+        content: ""; // Kein Inhalt
+        display: none; // Zusätzlich ausblenden, falls nötig
+      }
+    }
+
+    &[href^="/"]:not(.gesis-button--cta),
+    &[href="#"]:not(.gesis-button--cta) {
+      &::after {
+        content: none;
+      }
+    }
+
+    // 1. Interne Links (relative Pfade, z. B. "/kontakt")
+    //a[href^="/"] {
+    // Keine zusätzlichen Styles für Icons
+    //}
+
+    // 2. Links, die explizit "gesis.org" enthalten (also absolute Links zu gesis.org bzw. Subdomains)
+    &[href*="gesis.org"] {
+      &::after {
+        content: "\F1BE";
+        margin: 0 0.6rem;
+        top: 2px;
+      }
+    }
+
+    // 3. Externe Links: Absolute Links, die NICHT mit "gesis.org" arbeiten
+    &[href]:not(
+        [href^="/"],
+        [href*="gesis.org"],
+        [href="#"],
+        [href*="tel:"],
+        [href="#contact-section"]
+      ) {
+      &::after {
+        @include font-size($gs-font--md);
+        content: "\F1C5";
+        margin: 0 0.6rem 0 0.9rem;
+        top: 0;
+      }
+    }
+
+    // 4. Anker auf der Seite
+    &[href^="#"]:not([href="#"], [href="#contact-section"]) {
+      &::after {
+        content: "\F1BC";
+        @include font-size($gs-font--lg);
+        margin: 0 0.6rem;
+        top: 2px;
+      }
+    }
+
+    // Search Icon for all search links
+    &[href^="https://search.gesis.org"]
+    {
+      &::after {
+        @include font-size($gs-font--md);
+        margin: 0 0.6rem 0 0.9rem;
+        top: 0;
+        content: "\F52A";
+      }
+    }
+
+     // Mail Icon
+     &[href^="mailto:"]
+     {
+       &::after {
+         font-size: $gs-font--md;
+         margin: 0 0.6rem 0 0.9rem;
+         top: 0;
+         content: "\F32F";
+       }
+     }
+
+    &.gesis-button--default {
+      position: relative;
+
+      // for all btn
+      &::after {
+        margin-left: $gs-font--xs;
+        margin-right: 0;
+        top: 0;
+      }
+    }
+
+
+     // 1. Download-Attribut (sicherster Indikator)
+     &[download] {
+      &::after {
+        content: "\F30A"; // Einheitlich für alle Downloads
+        @include font-size($gs-font--md);
+        margin: 0 0.6rem 0 0.9rem;
+        top: 0;
+      }
+    }
+
+    // 2. Häufige Download-Dateierweiterungen
+    &[href$=".pdf"],
+    &[href$=".doc"],
+    &[href$=".docx"], 
+    &[href$=".xls"],
+    &[href$=".xlsx"],
+    &[href$=".ppt"],
+    &[href$=".pptx"],
+    &[href$=".zip"],
+    &[href$=".rar"],
+    &[href$=".csv"],
+    &[href$=".txt"],
+    &[href$=".rtf"] {
+      &::after {
+        content: "\F30A";
+        @include font-size($gs-font--md);
+        margin: 0 0.6rem 0 0.9rem;
+        top: 0;
+      }
+    }
+
+    // 3. Data-URLs (JS-generierte Downloads)
+    &[href^="data:"] {
+      &::after {
+        content: "\F30A";
+        @include font-size($gs-font--md);
+        margin: 0 0.6rem 0 0.9rem;
+        top: 0;
+      }
+    }
+
+
+
+
+    // Download-Icons haben Priorität über andere Icons
+    &[download]:not(.no-icons),
+    &.download-link:not(.no-icons),
+    &[href^="data:"]:not(.no-icons),
+    &[href$=".pdf"]:not(.no-icons),
+    &[href$=".doc"]:not(.no-icons),
+    &[href$=".docx"]:not(.no-icons), 
+    &[href$=".xls"]:not(.no-icons),
+    &[href$=".xlsx"]:not(.no-icons),
+    &[href$=".ppt"]:not(.no-icons),
+    &[href$=".pptx"]:not(.no-icons),
+    &[href$=".zip"]:not(.no-icons),
+    &[href$=".rar"]:not(.no-icons),
+    &[href$=".csv"]:not(.no-icons),
+    &[href$=".txt"]:not(.no-icons),
+    &[href$=".rtf"]:not(.no-icons) {
+      // Überschreibt externe/interne Icons
+      &[href*="gesis.org"]::after,
+      &[href]:not([href^="/"], [href*="gesis.org"])::after {
+        content: "\F30A"; // Ohne !important, damit .no-icons gewinnen kann
+      }
+    }
+
+    
+  }
+
+}
+
+      // Explizite Download-Klasse (für Edge Cases)
+.download-link {
+  &::after {
+    content: "\F30A" !important;
+    @include font-size($gs-font--md);
+    margin: 0 0.6rem 0 0.9rem;
+    top: 0;
+  }
+}
+
+.external-links-only a,
+a.external-links-only {
+  // Alle gesis.org Links ohne Icon
+  &[href*="gesis.org"] {
+    &::after {
+      content: none !important;
+      margin: 0 !important;
+    }
+  }
+  
+  // Relative Links ohne Icon  
+  &[href^="/"] {
+    &::after {
+      content: none !important;
+      margin: 0 !important;
+    }
+  }
+  
+  // Anker ohne Icon
+  &[href^="#"] {
+    &::after {
+      content: none !important;
+      margin: 0 !important;
+    }
+  }
+}
+
+.no-icons{
+	&::before{
+		content: "" !important;
+    margin: 0 !important;
+	}
+	&::after{
+		content: "" !important;
+    margin: 0 !important;
+	}
+}
+
+.no-icon-before{
+	&::before{
+		content: "" !important;
+    margin: 0 !important;
+	}
+}
+
+.no-icon-after{
+	&::after{
+		content: "" !important;
+    margin: 0 !important;
+	}
+}

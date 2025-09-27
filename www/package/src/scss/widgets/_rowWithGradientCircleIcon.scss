@@ -1,0 +1,12 @@
+.row-with-gradient-circle-icon {
+	display: flex;
+	gap: $gs-font--xl;
+	margin-top: $gs-font--xl;
+	margin-bottom: $gs-font--xl;
+	
+
+	@include sm {
+		flex-direction: column;
+		gap: $gs-font--3xl;
+	}
+}

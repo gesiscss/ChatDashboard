@@ -1,0 +1,57 @@
+.gs-quote-text-outline {
+    p {
+        border-color: $gs-darkblue;
+        border-radius: var(--bs-border-radius-xl);
+        border-width: 2px;
+        border-left-width: 8px;
+        border-style: solid;
+        padding: 2rem;
+        margin: 2.5rem 0;
+        font-size: 1.3rem;
+        font-style: italic;
+    }
+
+    &-big{
+        p {
+            border-color: $gs-darkblue;
+            border-radius: var(--bs-border-radius-xl);
+            border-style: solid;
+            border-width: 2px;
+            border-left-width: 8px;
+            padding: 2rem;
+            margin: 2.5rem 0;
+            font-size: 1rem;
+            font-weight: 200;
+            font-style: italic;
+        }
+    }
+}
+.gs-quote-text-filled {
+    overflow: hidden;
+    padding: 0;
+    margin: 2.5rem 0;
+    border: 1px solid $gs-darkblue;
+    background-color: $gs-darkblue;
+    border-radius: var(--bs-border-radius-xl);
+    p {
+        margin: 0;
+        border-left: 7px solid white;
+        border-radius: var(--bs-border-radius-xl);
+        color: white;
+        padding: 2rem;
+        font-size: 1.3rem;
+        font-style: italic;
+    }
+    &-big{
+        p {
+            margin: 0;
+            border-left: 8px solid white;
+            border-radius: var(--bs-border-radius-xl);
+            color:  white;
+            padding: 2rem;
+            font-size: 1rem;
+            font-weight: 200;
+            font-style: italic;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+.gs-figure{ 
+    &-33{
+        width: 100%;
+        >figure{ 
+            width: 33%;
+            height: auto;
+            >img{
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    }
+    &-50{
+        width: 100%;
+        >figure{ 
+            width: 50%;
+            height: auto;
+            >img{
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    }
+    &-100{
+        width: 100%;
+        >figure{ 
+            width: 100%;
+            height: auto;
+            >img{
+                width: 100% !important;
+                height: auto !important;
+            }
+        }
+    }
+}

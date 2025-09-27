@@ -1,0 +1,80 @@
+// Badges
+
+// scss-docs-start badge-variables
+// $badge-font-size:                   .75em !default;
+// $badge-font-weight:                 $font-weight-bold !default;
+// $badge-color:                       $white !default;
+// $badge-padding-y:                   .35em !default;
+// $badge-padding-x:                   .65em !default;
+$badge-border-radius:                   $gs-font--xs;
+// scss-docs-end badge-variables
+
+
+.badge {
+    padding-bottom: calc(var(--bs-badge-padding-y) - 0.15em);
+}
+
+.gs-badge--lightblue{
+    background-color: $gs-lightblue-100;
+    color: $gs-lightblue !important;
+} 
+
+.gs-badge--berry{
+    background-color: $gs-berry-100;
+    color: $gs-berry !important;
+} 
+
+.gs-badge--pink{
+    background-color: $gs-pink-100;
+    color: $gs-pink !important;
+} 
+
+.gs-badge--darkblue{
+    background-color: $gs-darkblue-100;
+    color: $gs-darkblue !important;
+}
+
+.gs-badge--turquoise{
+    background-color: $gs-turquoise-100;
+    color: $gs-turquoise !important;
+}
+
+.gs-badge--orange{
+    background-color: $gs-orange-100;
+    color: $gs-orange !important;
+}
+
+.gs-badge--yellow{
+    background-color: $gs-yellow-100;
+    color: $gs-yellow-600 !important;
+}
+
+.gs-badge--petrol{
+    background-color: $gs-petrol-100;
+    color: $gs-petrol !important;
+}
+
+.gs-badge--lightpink{
+    background-color: $gs-lightpink-100;
+    color: $gs-lightpink !important;
+}
+
+.gs-badge--olive{
+    background-color: $gs-olive-100;
+    color: $gs-olive !important;
+}
+
+.gs-badge--rust{
+    background-color: $gs-rust-100;
+    color: $gs-rust !important;
+}
+
+.gs-badge--neutral{
+    background-color: $gs-gray-default;
+    color: $gs-gray-middle !important;
+}
+
+.gs-badge--white{
+    background-color: white;
+    color: $gs-gray-middle !important;
+}

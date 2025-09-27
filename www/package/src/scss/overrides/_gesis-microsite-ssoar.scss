@@ -1,0 +1,13 @@
+.gs-layout-microsite_ssoar {
+  .gs_ms_header {
+    background-image: url('img/ms_banner/gs_ms_banner_ssoar.png');
+  }
+  header, .ce-bodytext {
+    h1 {
+      color: $gs_orange;
+    }
+  }
+  #gs_gws_combobox {
+    display: none; // hide GESIS search widget to not confuse visitors with SSOAR-specific search widget
+  }
+}

@@ -1,0 +1,223 @@
+.gesis-search-wrapper {
+	background: gs-gradient(berry-to-darkblue);
+	.gs_combobox {
+
+        &[aria-expanded="true"] .gs_hitlist {
+          display: block;
+        }
+        
+        &[aria-expanded="false"] .gs_hitlist {
+          display: none;
+        }
+
+		.gs-search-input-wrapper {
+			#gs_search_spinner {
+				display: none;
+				padding: 0.25em 0.2em 0 0.2em;
+				line-height: 1;
+				width: auto;
+			}
+			> div {
+				.spinner-border {
+					--bs-spinner-width: 40px;
+					--bs-spinner-height: 40px;
+				}
+			}
+			.gs_search_facet{
+				width: max-content;
+				select {
+					width: max-content;
+					padding: 0 $gs-font--2xl 0 $gs-font--xl;
+					border: none;
+					border-radius: 0;
+					border-right: 1px solid var(--gs--color--gs-accent-grey);
+					background-color: transparent !important;
+					height: 50px;
+				}
+			}
+			/* Clear button */
+			#clear-input-button {
+				position: absolute;
+				top: 0.1rem;
+				right: 3.3rem;
+			}
+
+			#gs_searchterm:focus + #clear-input-button {
+				color: $gs-pink;
+			}
+			#gs_searchterm + #clear-input-button {
+				color: white;
+			}
+
+			position: relative;
+			padding: 20px 0;
+			background: #fff;
+			padding: 0;
+			border-radius: 99999px;
+			border: none;
+
+			input#gs_searchterm {
+
+				&:-webkit-autofill,
+				&:-webkit-autofill:hover,
+				&:-webkit-autofill:focus,
+				&:-webkit-autofill:active {
+				  -webkit-text-fill-color: $gs-darkblue !important;
+				  // dieser Box-Shadow setzt den Hintergrund neu – 1000px = großer Inset-Füllbereich
+				  -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+				  // zwingt den Browser, nicht mehr auf seinen default Autofill-Hintergrund zurückzuspringen
+				  transition: background-color 5000s ease-in-out 0s !important;
+				}
+
+				
+				/**
+        * Remove browser generaded clear button
+        *
+        * see https://davidwalsh.name/remove-clear-search
+        */
+				&::-webkit-search-cancel-button,
+				&::-webkit-search-decoration {
+					-webkit-appearance: none;
+					appearance: none;
+				}
+				/* end remove clear button*/
+
+				grid-row: 1;
+				grid-column: 1 / -1;
+				border-radius: 99999px;
+				width: calc(100% - 50px);
+				width: 100%;
+				padding: $gs-font--xs;
+				border: none;
+				height: 50px;
+
+				&:focus {
+					outline: none;
+					border-radius: 0;
+					box-shadow: none;
+				}
+			}
+
+			button {
+				/* Reset browser defaults */
+                &:after {
+                    display: none;
+                }
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				border: unset;
+				/* Reset end */
+
+				grid-row: 1;
+				width: -webkit-max-content;
+				width: -moz-max-content;
+				width: max-content;
+				justify-self: end;
+				background-color: transparent;
+
+				&.gs_search_toggle {
+					color: gs-color(gs-berry);
+					grid-column: 3 / -1;
+					&:before {
+						content: "\e91f";
+						font-family: $gesis-icons-font;
+						display: block;
+						font-size: 40px;
+						line-height: 1;
+					}
+				}
+				&.gs_search_clear {
+					grid-column: 2 / 3;
+					@include close-button($button-size: 40px, $button-x-size: 20px);
+				}
+			}
+		}
+		.gs_hitlist {
+			/* Hitlist */
+			z-index: 31;
+
+            .result.focused{
+               outline: $gs-berry 2px dotted;
+               visibility: visible !important;
+            }
+
+			> div {
+				@include max-width-content;
+			}
+
+			.result-tiles {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1.5rem;
+
+				// Tiles
+				> div {
+					b {
+						-webkit-hyphens: auto;
+						-ms-hyphens: auto;
+						hyphens: auto;
+					}
+				}
+			}
+
+			.hitcount {
+				em {
+					font-weight: bold;
+					color: gs-color(gs-lightblue);
+				}
+			}
+
+			#gs_type_research_data {
+				border-color: gs-color(gs-facet-1) !important;
+			}
+			#gs_type_variables {
+				border-color: gs-color(gs-facet-2) !important;
+			}
+			#gs_type_instruments_tools {
+				border-color: gs-color(gs-facet-3) !important;
+			}
+			#gs_type_publication {
+				border-color: gs-color(gs-facet-4) !important;
+			}
+			#gs_type_library {
+				border-color: gs-color(gs-facet-5) !important;
+			}
+			#gs_type_website {
+				border-color: gs-color(gs-facet-6) !important;
+			}
+
+			#gs_type_research_data:hover {
+				background: gs-color(gs-facet-1-opacity-40);
+			}
+			#gs_type_variables:hover {
+				background: gs-color(gs-facet-2-opacity-40);
+			}
+			#gs_type_instruments_tools:hover {
+				background: gs-color(gs-facet-3-opacity-40);
+			}
+			#gs_type_publication:hover {
+				background: gs-color(gs-facet-4-opacity-40);
+			}
+			#gs_type_library:hover {
+				background: gs-color(gs-facet-5-opacity-40);
+			}
+			#gs_type_website:hover {
+				background: gs-color(gs-facet-6-opacity-40);
+			}
+		}
+/*
+		&.loading {
+			.gs-search-input-wrapper {
+				button.gs_search_toggle {
+					display: none;
+				}
+				> div {
+					display: grid;
+					place-content: center;
+				}
+			}
+		}
+        */
+	}
+}

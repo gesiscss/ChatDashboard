@@ -1,0 +1,821 @@
+.gs_mm_toggle_button {
+  display: none;
+  background: transparent;
+  border: none;
+  color: gs-color(gs-darkblue);
+  position: absolute;
+  top: 2.5rem;
+  right: gs-space(side-space);
+  transition: all 0.2s ease-in-out;
+  padding: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  line-height: 1;
+
+  transition: color 0.2s ease-in-out,
+  background 0.2s ease-in-out,
+  border-radius 0.4s ease-in-out;
+
+  &.active {
+    transform: rotate(-90deg);
+  }
+
+  @include mobile {
+    display: block;
+  }
+
+  &.microsite {
+    top: unset !important;
+    right: 2rem;
+  }
+
+  @include sm {
+    top: 3.3rem;
+  }
+
+  @media (max-width: 400px) {
+    top: 2.1rem;
+  }
+}
+
+nav.gs_megamenu_nav {
+  .overview-and-close-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 24rem;
+    a.gesis-button--default {
+      text-decoration: none;
+      @include gesis-button();
+    }
+
+    button.close-button {
+      position: absolute;
+      right: 3.3rem;
+      top: 3.3rem;
+      @include close-button();
+
+      @include mobile {
+        display: none;
+      }
+      padding: 0;
+    }
+  }
+
+  ul.gs_megamenu {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0;
+
+    // Menü erste ebene (Angebot, Forschung, Insitut)
+    > li {
+      > a {
+        @include font-size($gs-btn-font-size);
+        color: gs-color(gs-pink);
+        text-decoration: none;
+        position: relative;
+        font-family: $headline-font;
+        font-weight: 700;
+        display: block;
+        z-index: 0;
+        padding: $gs-font--xs $gs-font--xl;
+        border-radius: 999999px;
+        line-height: $gs-line-height-hedline;
+
+        transition: color 0.2s ease-in-out,
+        background 0.2s ease-in-out,
+        border-radius 0.4s ease-in-out;
+
+        &[aria-expanded="true"] + div.menu-box {
+          display: block;
+          z-index: 60;
+        }
+
+        @include mobile {
+          padding: 1.2rem 2.8rem;
+        }
+        // Pfeil für Dropdown-Menü hinzufügen
+        &.haschildren {
+          padding-right: 4.6rem;
+
+          &:after {
+            content: "\f282";
+            font-family: bootstrap-icons;
+
+            // Position und Stil des Icons
+            position: absolute;
+            right: 1.6rem;
+            top: 1rem;
+            font-size: 0.8em; // Größe des Icons
+
+            @include mobile {
+              right: 3.3rem;
+              top: 1.3rem;
+            }
+          }
+        }
+
+        &.active {
+          color: $gs-lightblue;
+          background-color: $gs-lightblue-100;
+        }
+      }
+
+      > a:hover {
+        color: $gs-lightblue-600;
+        background-color: $gs-lightblue-200;
+      }
+
+      > a[aria-expanded="true"] {
+        color: $gs-lightblue-600;
+
+        &.haschildren {
+          &:after {
+            content: "\f286";
+          }
+        }
+      }
+    }
+
+    // end erste ebene
+
+    // Zweite Menüebene + Menübox
+    > li {
+      .menu-box {
+        display: none;
+        width: 100%;
+        padding: 0 $gs-font--2xl;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        border-top: 1px solid gs-color(gs-accent-grey);
+        z-index: 1; // z-index 1 so prevent search from beeing on top of the open menu
+
+        .menu-box--inner {
+          position: relative;
+          max-width: $max-content-width;
+          max-height: 85vh;
+          overflow-y: auto; // Aktiviert horizontales Scrollen
+          overflow-x: hidden; // Verhindert vertikales Scrollen
+          padding: $gs-font--2xl 9rem $gs-font--2xl 5.2rem;
+          margin: 0 auto;
+          background: white;
+          border-bottom-left-radius: 3.3rem;
+          border-bottom-right-radius: 3.3rem;
+          box-shadow: 0rem 3rem 2rem rgba(0, 0, 0, 0.1);
+          display: flex;
+          flex-direction: row;
+          align-content: flex-start;
+          align-items: flex-start;
+          gap: $gs-font--4xl;
+
+          // Styling für Webkit-basierte Browser
+          &::-webkit-scrollbar {
+            height: 3px; // Höhe der horizontalen Scrollbar
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: gs-color(gs-pink); // Farbe des Scrollbalkens
+            border-radius: 3px; // Abgerundete Ecken
+          }
+
+          &::-webkit-scrollbar-track {
+            background: #f1f1f1; // Hintergrund des Scrollbereichs
+          }
+
+          > ul {
+            // Liste 2. Menüebene
+            column-count: 3;
+            column-gap: 3.3rem;
+            list-style: none;
+            padding: $gs-font--xl 0 $gs-font--4xl;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1200px;
+
+            > li {
+              position: relative;
+              break-inside: avoid;
+              margin-bottom: $gs-font--3xl;
+
+              > h3 {
+                color: gs-color(gs-darkblue);
+                @include font-size($gs-font--lg);
+                margin-top: 0;
+                margin-bottom: 0;
+
+                @include mobile {
+                  padding-right: 5rem;
+                }
+              }
+              > a {
+                color: gs-color(gs-lightblue--text);
+                @include font-size($gs-font--md);
+                line-height: 1;
+
+                border-bottom: 1px solid gs-color(gs-darkblue);
+                padding: 0.3rem;
+                text-decoration: none;
+                line-height: $gs-font--lg;
+
+                transition: color 0.2s ease-in-out,
+                background 0.2s ease-in-out,
+                border-radius 0.4s ease-in-out;
+
+                @include arrow-right-before(
+                  $arrow-font-size: $gs-font--xl,
+                  $arrow-color: gs-color(gs-pink)
+                );
+
+                &:hover {
+                  background-color: gs-color(gs-lightblue--14);
+                  color: gs-color(gs-pink--hover);
+                }
+
+                &:active,
+                &.active {
+                  background-color: gs-color(gs-lightblue--25);
+                  color: gs-color(gs-pink--pressed);
+                }
+
+                &:before {
+                  color: gs-color(gs-lightblue--text);
+                }
+
+                &.gs-link--anker {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1bc";
+                    font-size: 2.1rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1rem 0 1rem;
+                  }
+                }
+
+                &.gs-link--hyper {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1c5";
+                    font-size: 1.75rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1rem 0 1.1rem;
+                  }
+                }
+
+                &.gs-link--micro {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1be";
+                    font-size: 2.1rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1.2rem 0 0.5rem;
+                  }
+                }
+
+                @include mobile {
+                  &.gs-link--micro,
+                  &.gs-link--hyper {
+                    padding: 0.5rem 1rem;
+                    &:before {
+                      font-size: 2.2rem;
+                      line-height: 1.4;
+                      margin-right: 1.2rem;
+                      margin-left: 1rem;
+                    }
+                    &.gs-link--hyper {
+                      &:before {
+                        font-size: 1.9rem;
+                        margin-right: 1.1rem;
+                        margin-left: 1.5rem;
+                      }
+                    }
+                  }
+                  // background: gs-color(gs-blue--8);
+                  // padding: $gs-font--lg;
+                  display: flex;
+                  // 1rem because the trigger has 1rem right and 1 more to have space between link an trigger
+                }
+              }
+
+              /* Falls innerhalb eines li ein Untermenü mit einem a.active existiert,
+                wird das übergeordnete a.active zurückgesetzt – so gibt es nur ein aktives Styling: */
+              &:has(ul a.active) > a.active {
+                background-color: transparent;
+                color: gs-color(gs-lightblue--text);
+
+                &:hover {
+                  background-color: gs-color(gs-lightblue--14);
+                  color: gs-color(gs-pink--hover);
+                }
+              }
+
+              @include mobile {
+                padding: 0;
+                margin: $gs-font--xl 0;
+                &:not(:last-child) {
+                  // border-bottom: solid 1px gs-color(gs-darkblue);
+                }
+              }
+              @include mobile {
+                &:first-of-type {
+                  a {
+                    // border-top-left-radius: 3.3rem;
+                    // border-top-right-radius: 3.3rem;
+                  }
+                }
+
+                &:last-of-type {
+                  a {
+                    // border-bottom-left-radius: 3.3rem;
+                    // border-bottom-right-radius: 3.3rem;
+                  }
+                }
+              }
+            }
+
+            @include mobile {
+              flex-direction: column;
+              column-count: 1;
+              column-gap: 0;
+              gap: 0;
+              padding: 0;
+            }
+          }
+
+          @include mobile {
+            gap: 0;
+            padding: 0 $gs-font--md;
+            flex-direction: column-reverse;
+            box-shadow: none;
+            gap: 0;
+          }
+        }
+
+        @include mobile {
+          position: static;
+          border: none;
+          padding: $gs-font--md;
+        }
+      }
+    }
+
+    // Dritte Menüebene
+
+    > li {
+      .menu-box ul {
+        > li {
+          > ul {
+            list-style: none;
+            padding-left: 0;
+
+            > li {
+              a {
+                border-bottom: 1px solid gs-color(gs-darkblue);
+                padding: 0.3em 0.2em;
+                text-decoration: none;
+                color: #000;
+                line-height: $gs-font--lg;
+
+                transition: color 0.2s ease-in-out,
+                background 0.2s ease-in-out,
+                border-radius 0.4s ease-in-out;
+
+
+                @include arrow-right-before(
+                  $arrow-font-size: $gs-font--xl,
+                  $arrow-color: gs-color(gs-pink)
+                );
+
+                &:hover {
+                  background-color: gs-color(gs-lightblue--14);
+                  color: gs-color(gs-pink--hover);
+                }
+
+                &:active {
+                  background-color: gs-color(gs-lightblue--25);
+                  color: gs-color(gs-pink--pressed);
+                }
+
+                &.active {
+                  background-color: gs-color(gs-lightblue--14);
+                  color: gs-color(gs-darkblue);
+                  //pointer-events: none;
+
+                  &:before {
+                    color: gs-color(gs-lightblue--14);
+                  }
+
+                  &:hover {
+                    background-color: gs-color(gs-lightblue--14);
+                    color: gs-color(gs-pink--hover);
+                  }
+
+                  &:active {
+                    background-color: gs-color(gs-lightblue--25);
+                    color: gs-color(gs-pink--pressed);
+                  }
+                }
+
+                &.gs-link--anker {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1bc";
+                    font-size: 2.1rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1rem 0 1rem;
+                  }
+                }
+
+                &.gs-link--hyper {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1c5";
+                    font-size: 1.75rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1rem 0 1.1rem;
+                  }
+                }
+
+                &.gs-link--micro {
+                  padding-left: 0;
+
+                  &:before {
+                    font-family: bootstrap-icons;
+                    content: "\f1be";
+                    font-size: 2.1rem;
+                    line-height: 1.4;
+                    align-self: center;
+                    margin: 0 1.2rem 0 0.5rem;
+                  }
+                }
+
+                @include mobile {
+                  &.gs-link--micro,
+                  &.gs-link--hyper {
+                    padding: 0.5rem 1rem;
+                    &:before {
+                      font-size: 2.2rem;
+                      line-height: 1.4;
+                      margin-right: 1.2rem;
+                      margin-left: 1rem;
+                    }
+                    &.gs-link--hyper {
+                      &:before {
+                        font-size: 1.9rem;
+                        margin-right: 1.1rem;
+                        margin-left: 1.5rem;
+                      }
+                    }
+                  }
+                  padding: 0.5rem 1rem;
+                  padding-left: 2rem;
+                }
+              }
+            }
+
+            @include mobile {
+              background: white;
+              margin: 0;
+              display: none;
+
+              &.active {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include mobile {
+      background: white;
+      padding: 0;
+      margin: 0;
+      display: block;
+      max-height: 80vh;
+      overflow-x: scroll;
+    }
+
+    &.microsite {
+      margin-top: 2rem;
+    }
+  }
+
+  @include mobile {
+    position: absolute;
+    //top: 140px;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: gs-color(gs-darkblue-transparent);
+    z-index: 1000;
+    padding: 0;
+    margin-bottom: 0;
+    display: none;
+
+    &.active {
+      display: block;
+      top: $gs-font--5xl;
+    }
+  }
+
+  .gs_topnav {
+    background: gs-color(gs-default-grey);
+    padding: 1.2rem 2.8rem;
+
+    a {
+      color: gs-color(gs-darkblue) !important;
+    }
+  }
+
+  .mobile-only {
+    padding: 0 !important;
+  }
+}
+
+.microsite-header {
+  nav.gs_megamenu_nav {
+    ul.gs_megamenu {
+      flex-wrap: wrap;
+      gap: 1em 3em;
+    }
+  }
+}
+
+.microsite-menu {
+  @include mobile {
+    min-height: $gs-font--4xl;
+
+    .gs_megamenu_nav {
+      margin-top: 0rem;
+    }
+  }
+}
+
+.menu-trigger {
+  border: solid 1px gs-color(gs-darkblue);
+  background: white;
+  border-radius: 100px;
+  width: $gs-font--2xl;
+  height: $gs-font--2xl;
+  text-align: center;
+  position: absolute;
+  top: 1.6rem;
+  right: 0;
+  justify-content: center;
+  transform: translateY(-50%);
+  transition: all 0.2s ease-in-out;
+
+  @include mobile {
+    display: flex !important;
+  }
+
+  @include arrow-right-down-after(inherit, gs-color(gs-pink), 0);
+
+  &.active {
+    transform: translateY(-50%) rotate(180deg);
+  }
+}
+
+nav.gs_megamenu_nav_vert {
+  list-style: none;
+  width: 100%;
+  //font-size: 16px;
+
+  > ul {
+    list-style: none;
+    padding-left: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+
+    > li {
+      position: relative;
+      padding: 0;
+
+      &:not(:last-child) {
+        border-bottom: solid 1px gs-color(gs-darkblue);
+      }
+
+      > a {
+        text-decoration: none;
+        font-weight: bold;
+        color: gs-color(gs-darkblue);
+        @include arrow-right-before(
+          $arrow-font-size: $gs-font--md,
+          $arrow-color: gs-color(gs-pink)
+        );
+        background: gs-color(gs-blue--8);
+        padding: 1.2rem 1rem;
+        // 1rem because the trigger has 1rem right and 1 more to have space between link an trigger
+        padding-right: calc(2rem + #{gs-var(mobile-menu-submenu-trigger-size)});
+        box-shadow: none;
+      }
+
+      > ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 15px;
+        background: white;
+        margin: 0;
+        display: none;
+
+        &.active {
+          display: block;
+        }
+
+        > li {
+          position: relative;
+          padding: 0;
+
+          > a {
+            border-top: 1px solid gs-color(gs-darkblue);
+            text-decoration: none;
+            color: #000;
+            @include arrow-right-before(
+              $arrow-font-size: $gs-font--md,
+              $arrow-color: gs-color(gs-pink)
+            );
+            //background: gs-color(gs-petrol--14);
+            //&:hover {
+            //background-color: gs-color(gs-default-grey);
+            //}
+            padding: 1.2rem 1rem;
+            padding-left: 2rem;
+            padding-right: calc(
+              2rem + #{gs-var(mobile-menu-submenu-trigger-size)}
+            );
+            box-shadow: none;
+
+            &:hover {
+              background-color: gs-color(gs-default-grey);
+            }
+          }
+
+          > ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            background: white;
+            margin: 0;
+            display: none;
+
+            &.active {
+              display: block;
+            }
+
+            > li {
+              > a {
+                border-top: 1px solid gs-color(gs-darkblue);
+                text-decoration: none;
+                color: #000;
+                @include arrow-right-before(
+                  $arrow-font-size: $gs-font--md,
+                  $arrow-color: gs-color(gs-pink)
+                );
+
+                //background: gs-color(gs-default-grey);
+                &:hover {
+                  background-color: gs-color(gs-default-grey);
+                }
+
+                padding: 1.2rem 1rem;
+                padding-left: 3rem;
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+nav.microsite-menu {
+  position: sticky;
+  top: 0;
+  z-index: 950;
+  background-color: gs-color(gs-darkblue);
+  color: white;
+  box-shadow: 0rem 4px 1rem rgba(0, 0, 0, 0.175);
+
+  @include mobile {
+    position: relative;
+    height: 100%;
+  }
+  > nav {
+    @include max-width-content;
+    padding-top: $gs-font--xs;
+    padding-bottom: $gs-font--xs;
+  }
+
+  .gesis-icon-list-view:before {
+    @include mobile {
+      color: white;
+    }
+  }
+
+  .gs_mm_toggle_button {
+    top: 2.3rem !important;
+    z-index: 9999;
+  }
+
+  .gs_megamenu_nav {
+    ul.gs_megamenu {
+      @include mobile {
+        background: gs-color(gs-darkblue);
+        max-height: none;
+        overflow-x: scroll;
+      }
+
+      > li {
+        .menu-box .menu-box--inner {
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+
+          @include mobile {
+            border-top-left-radius: 3.3rem;
+            border-top-right-radius: 3.3rem;
+          }
+        }
+      }
+    }
+
+    @include mobile {
+      position: relative !important;
+
+      &.active {
+        top: 0 !important;
+      }
+    }
+  }
+
+  ul.gs_megamenu {
+    // Menü erste Ebene (Angebot, Forschung, Institut)
+    > li {
+      > a {
+        color: white;
+
+        &.active {
+          background-color: rgba(255, 255, 255, 0.7);
+          color: $gs-darkblue;
+
+          &:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: $gs-darkblue;
+          }
+        }
+
+        &:hover {
+          background-color: $gs-darkblue-400;
+          color: white;
+        }
+      }
+
+      > a[aria-expanded="true"] {
+        background-color: $gs-darkblue-300;
+        color: $gs-darkblue;
+      }
+
+      /* Falls innerhalb eines li ein Untermenü mit einem a.active existiert,
+                wird das übergeordnete a.active zurückgesetzt – so gibt es nur ein aktives Styling: */
+      > li {
+        &:has(ul a.active) > a.active {
+          background-color: transparent;
+          color: white;
+
+          &:hover {
+            background-color: $gs-darkblue-400;
+            color: white;
+          }
+        }
+      }
+
+      @include mobile {
+        margin: 0 1.6rem;
+      }
+    }
+  }
+
+  .menu-box {
+    border-top: 0 !important;
+  }
+}

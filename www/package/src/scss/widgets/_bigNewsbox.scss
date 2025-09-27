@@ -1,0 +1,165 @@
+.gesis-big-newsbox {
+  margin: 0 auto;
+  max-width: calc(#{$max-content-width} - (#{gs-space(side-space)} * 2));
+  @include padding($gs-font--4xl);
+  margin-bottom: 16rem;
+
+  @include desktop-medium {
+    padding: $gs-font--2xl;
+  }
+
+  @include mobile {
+    @include padding($gs-font--lg);
+    margin-bottom: 0;
+  }
+
+  .gs-featured-news {
+    display: flex;
+    gap: $gs-font--4xl;
+
+    img {
+      width: 48rem;
+      height: 100%;
+      margin-top: $gs-font--6xl;
+
+      @include desktop-medium {
+        width: 30%;
+        height: 30%;
+      }
+
+      @include mobile {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    @include mobile {
+      flex-direction: column-reverse;
+      gap: $gs-font--lg;
+
+      img {
+        margin-top: 0;
+      }
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        h2 {
+          font-size: 5.4rem;
+        }
+      }
+
+      h3 {
+        font-weight: 400;
+        @include font-size($gs-font--3xl);
+        margin-top: 0;
+      }
+    }
+  }
+
+  .permanent-headline h2 {
+    font-weight: 100 !important;
+    @include font-size($gs-font--4xl);
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  @include desktop-medium {
+    padding-top: $gs-font--6xl;
+    margin-left: $gs-font--md;
+    margin-right: $gs-font--md;
+  }
+
+  .gesis-big-newsbox--inner {
+    .upper-newsbox-section {
+      .news {
+        display: grid;
+
+        // gleich breite Spalten
+        grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+        grid-column-gap: 5.6rem;
+        line-height: 1.6;
+
+        @include lg {
+          gap: 3rem 1.5rem;
+        }
+
+        @include md {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}
+
+.gesis-big-newsbox--tile {
+  .news-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    // Remove margin from last child (wich is an p with the readmore button inside or the Button itself)
+    > :last-child {
+      margin-top: auto;
+      margin-bottom: 0;
+    }
+
+    .news-date {
+      background-color: gs-color(gs-default-grey);
+      color: gs-color(gs-darkblue);
+      padding: 0.4rem 1rem;
+      margin-bottom: 0.3rem;
+
+      time {
+        font-weight: bold;
+        margin-right: 0.8rem;
+      }
+    }
+  }
+
+  &.top-news {
+    display: grid;
+    grid-template-columns: minmax(0, 36rem) 2fr;
+    gap: 5.6rem;
+
+    .news-thumbnail {
+      a {
+        //remove default underline
+        box-shadow: none;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .news-date {
+      background-color: transparent;
+      padding: 0;
+    }
+
+    @include md {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+
+// Wrapper für Slider und Newsbox styling
+// ID der Wrapper die unter Home erstellt wurden, hier nachtragen
+#c141930, #c141931, #c154083, #c154084, #c155443, #c155444{
+  background: #003C78;
+  background: linear-gradient(35deg,rgba(100, 40, 120, 1) 0%, rgba(0, 60, 120, 1) 54%, rgba(30, 140, 200, 1) 100%);
+
+}

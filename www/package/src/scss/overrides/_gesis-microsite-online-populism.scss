@@ -1,0 +1,14 @@
+.gs-layout-microsite_online_populism {
+  .gs_ms_header {
+    background-image: url('img/ms_banner/online-populism-header.jpg');
+    background-position-y: bottom;
+     > .row {
+      min-height: 10rem;
+    }
+    h1 {
+      background-color: $gs_grey_80;
+      color: white;
+      padding: $gs_pd_base;
+    }
+  }
+}

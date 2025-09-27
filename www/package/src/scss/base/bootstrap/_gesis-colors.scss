@@ -1,0 +1,168 @@
+
+// ===================================================================
+// Basisdefinition: Initiale GS-Farben (an einem zentralen Punkt)
+// ===================================================================
+$gs-lightblue:  #1E8CC8;
+$gs-pink:       #d20064;
+$gs-darkblue:   #003C78;
+$gs-berry:      #642878;
+$gs-turquoise:  #64afaf;
+$gs-orange:     #f08741;
+$gs-yellow:     #FAD205;
+$gs-petrol:     #006a82;
+$gs-lightpink:  #c873a0;
+$gs-olive:      #699e6e;
+$gs-rust:       #aa4137;
+
+$gs-text:         #292929;
+$gs-text-sec:     #575757;
+$gs-gray-darker:  #757575;
+$gs-gray-dark:    #989898; 
+$gs-gray-middle:  #BDBDBD; 
+$gs-gray-accent:  #DCDCDC; 
+$gs-gray-default: #EFEFEF; 
+
+
+// ===================================================================
+// Erzeugen der Farbvarianten (Tints und Shades) für jede Farbe
+// ===================================================================
+
+// GS Lightblue Varianten
+$gs-lightblue-100: tint-color($gs-lightblue, 80%) !default;
+$gs-lightblue-200: tint-color($gs-lightblue, 60%) !default;
+$gs-lightblue-300: tint-color($gs-lightblue, 40%) !default;
+$gs-lightblue-400: tint-color($gs-lightblue, 20%) !default;
+$gs-lightblue-500: $gs-lightblue !default;
+$gs-lightblue-600: shade-color($gs-lightblue, 20%) !default;
+$gs-lightblue-700: shade-color($gs-lightblue, 40%) !default;
+$gs-lightblue-800: shade-color($gs-lightblue, 60%) !default;
+$gs-lightblue-900: shade-color($gs-lightblue, 80%) !default;
+
+// GS Pink Varianten
+$gs-pink-100: tint-color($gs-pink, 80%) !default;
+$gs-pink-200: tint-color($gs-pink, 60%) !default;
+$gs-pink-300: tint-color($gs-pink, 40%) !default;
+$gs-pink-400: tint-color($gs-pink, 20%) !default;
+$gs-pink-500: $gs-pink !default;
+$gs-pink-600: shade-color($gs-pink, 20%) !default;
+$gs-pink-700: shade-color($gs-pink, 40%) !default;
+$gs-pink-800: shade-color($gs-pink, 60%) !default;
+$gs-pink-900: shade-color($gs-pink, 80%) !default;
+
+// GS Darkblue Varianten
+$gs-darkblue-100: tint-color($gs-darkblue, 80%) !default;
+$gs-darkblue-200: tint-color($gs-darkblue, 60%) !default;
+$gs-darkblue-300: tint-color($gs-darkblue, 40%) !default;
+$gs-darkblue-400: tint-color($gs-darkblue, 20%) !default;
+$gs-darkblue-500: $gs-darkblue !default;
+$gs-darkblue-600: shade-color($gs-darkblue, 20%) !default;
+$gs-darkblue-700: shade-color($gs-darkblue, 40%) !default;
+$gs-darkblue-800: shade-color($gs-darkblue, 60%) !default;
+$gs-darkblue-900: shade-color($gs-darkblue, 80%) !default;
+
+// GS Berry Varianten
+$gs-berry-100: tint-color($gs-berry, 80%) !default;
+$gs-berry-200: tint-color($gs-berry, 60%) !default;
+$gs-berry-300: tint-color($gs-berry, 40%) !default;
+$gs-berry-400: tint-color($gs-berry, 20%) !default;
+$gs-berry-500: $gs-berry !default;
+$gs-berry-600: shade-color($gs-berry, 20%) !default;
+$gs-berry-700: shade-color($gs-berry, 40%) !default;
+$gs-berry-800: shade-color($gs-berry, 60%) !default;
+$gs-berry-900: shade-color($gs-berry, 80%) !default;
+
+// GS Turquoise Varianten
+$gs-turquoise-100: tint-color($gs-turquoise, 80%) !default;
+$gs-turquoise-200: tint-color($gs-turquoise, 60%) !default;
+$gs-turquoise-300: tint-color($gs-turquoise, 40%) !default;
+$gs-turquoise-400: tint-color($gs-turquoise, 20%) !default;
+$gs-turquoise-500: $gs-turquoise !default;
+$gs-turquoise-600: shade-color($gs-turquoise, 20%) !default;
+$gs-turquoise-700: shade-color($gs-turquoise, 40%) !default;
+$gs-turquoise-800: shade-color($gs-turquoise, 60%) !default;
+$gs-turquoise-900: shade-color($gs-turquoise, 80%) !default;
+
+// GS Orange Varianten
+$gs-orange-100: tint-color($gs-orange, 80%) !default;
+$gs-orange-200: tint-color($gs-orange, 60%) !default;
+$gs-orange-300: tint-color($gs-orange, 40%) !default;
+$gs-orange-400: tint-color($gs-orange, 20%) !default;
+$gs-orange-500: $gs-orange !default;
+$gs-orange-600: shade-color($gs-orange, 20%) !default;
+$gs-orange-700: shade-color($gs-orange, 40%) !default;
+$gs-orange-800: shade-color($gs-orange, 60%) !default;
+$gs-orange-900: shade-color($gs-orange, 80%) !default;
+
+// GS Yellow Varianten
+$gs-yellow-100: tint-color($gs-yellow, 80%) !default;
+$gs-yellow-200: tint-color($gs-yellow, 60%) !default;
+$gs-yellow-300: tint-color($gs-yellow, 40%) !default;
+$gs-yellow-400: tint-color($gs-yellow, 20%) !default;
+$gs-yellow-500: $gs-yellow !default;
+$gs-yellow-600: shade-color($gs-yellow, 20%) !default;
+$gs-yellow-700: shade-color($gs-yellow, 40%) !default;
+$gs-yellow-800: shade-color($gs-yellow, 60%) !default;
+$gs-yellow-900: shade-color($gs-yellow, 80%) !default;
+
+// GS Petrol Varianten
+$gs-petrol-100: tint-color($gs-petrol, 80%) !default;
+$gs-petrol-200: tint-color($gs-petrol, 60%) !default;
+$gs-petrol-300: tint-color($gs-petrol, 40%) !default;
+$gs-petrol-400: tint-color($gs-petrol, 20%) !default;
+$gs-petrol-500: $gs-petrol !default;
+$gs-petrol-600: shade-color($gs-petrol, 20%) !default;
+$gs-petrol-700: shade-color($gs-petrol, 40%) !default;
+$gs-petrol-800: shade-color($gs-petrol, 60%) !default;
+$gs-petrol-900: shade-color($gs-petrol, 80%) !default;
+
+// GS Lightpink Varianten
+$gs-lightpink-100: tint-color($gs-lightpink, 80%) !default;
+$gs-lightpink-200: tint-color($gs-lightpink, 60%) !default;
+$gs-lightpink-300: tint-color($gs-lightpink, 40%) !default;
+$gs-lightpink-400: tint-color($gs-lightpink, 20%) !default;
+$gs-lightpink-500: $gs-lightpink !default;
+$gs-lightpink-600: shade-color($gs-lightpink, 20%) !default;
+$gs-lightpink-700: shade-color($gs-lightpink, 40%) !default;
+$gs-lightpink-800: shade-color($gs-lightpink, 60%) !default;
+$gs-lightpink-900: shade-color($gs-lightpink, 80%) !default;
+
+// GS Olive Varianten
+$gs-olive-100: tint-color($gs-olive, 80%) !default;
+$gs-olive-200: tint-color($gs-olive, 60%) !default;
+$gs-olive-300: tint-color($gs-olive, 40%) !default;
+$gs-olive-400: tint-color($gs-olive, 20%) !default;
+$gs-olive-500: $gs-olive !default;
+$gs-olive-600: shade-color($gs-olive, 20%) !default;
+$gs-olive-700: shade-color($gs-olive, 40%) !default;
+$gs-olive-800: shade-color($gs-olive, 60%) !default;
+$gs-olive-900: shade-color($gs-olive, 80%) !default;
+
+// GS Rust Varianten
+$gs-rust-100: tint-color($gs-rust, 80%) !default;
+$gs-rust-200: tint-color($gs-rust, 60%) !default;
+$gs-rust-300: tint-color($gs-rust, 40%) !default;
+$gs-rust-400: tint-color($gs-rust, 20%) !default;
+$gs-rust-500: $gs-rust !default;
+$gs-rust-600: shade-color($gs-rust, 20%) !default;
+$gs-rust-700: shade-color($gs-rust, 40%) !default;
+$gs-rust-800: shade-color($gs-rust, 60%) !default;
+$gs-rust-900: shade-color($gs-rust, 80%) !default;
+
+// ===================================================================
+// Überschreiben des Standard-Themes mit dem eigenen gs-Farbset
+// Die Standardfarben (blue, indigo, purple, pink, red, orange, yellow, green, teal, cyan)
+// werden entfernt und nur die Basiswerte der gs-Farben (der "-500" Wert) integriert.
+$gesis-colors: (
+  "gs-lightblue": $gs-lightblue,
+  "gs-pink":      $gs-pink,
+  "gs-darkblue":  $gs-darkblue,
+  "gs-berry":     $gs-berry,
+  "gs-turquoise": $gs-turquoise,
+  "gs-orange":    $gs-orange,
+  "gs-yellow":    $gs-yellow,
+  "gs-petrol":    $gs-petrol,
+  "gs-lightpink": $gs-lightpink,
+  "gs-olive":     $gs-olive,
+  "gs-rust":      $gs-rust,
+  "gs-neutral":   $gs-gray-middle 
+) !default;

@@ -1,0 +1,377 @@
+  // Basis Placeholder Styling
+  input,
+  textarea,
+  text,
+  select {
+    &::placeholder {
+      color: $gs-darkblue;
+      opacity: 0.6;
+      font-style: italic; // Optional: kursiv für bessere Unterscheidung
+    }
+
+    // Fokus-Zustand
+    &:focus::placeholder {
+      color: rgba($gs-darkblue, 0.4);
+      transition: color 0.2s ease;
+    }
+  }
+
+  // Bootstrap Form Controls
+  .form-control,
+  .form-floating > .form-control,
+  .form-floating > .form-select {
+    &::placeholder {
+      color: $gs-darkblue-200;
+    }
+
+    &:focus::placeholder {
+      color: $gs-pink-100;
+    }
+  }
+
+  // Spezielle Varianten
+  .form-control-pink::placeholder {
+    color: $gs-pink-200;
+  }
+
+  .form-control-berry::placeholder {
+    color: $gs-berry-200;
+  }
+
+   // Date/Time Input Styling
+   input[type="date"],
+   input[type="time"],
+   input[type="datetime-local"],
+   input[type="month"],
+   input[type="week"] {
+     @extend .form-control;
+ 
+     // Basis Styling
+     color: $gs-darkblue;
+ 
+     // Wenn leer, Text-Farbe ändern (Pseudo-Placeholder)
+     &:invalid {
+       color: $gs-darkblue-200;
+     }
+ 
+     // Webkit Browser (Chrome, Safari, Edge)
+     &::-webkit-datetime-edit-text {
+       color: $gs-darkblue-200;
+     }
+ 
+     &::-webkit-datetime-edit-month-field,
+     &::-webkit-datetime-edit-day-field,
+     &::-webkit-datetime-edit-year-field,
+     &::-webkit-datetime-edit-hour-field,
+     &::-webkit-datetime-edit-minute-field {
+       color: $gs-darkblue-200;
+ 
+       &:focus {
+         color: $gs-darkblue;
+       }
+     }
+ 
+     // Kalender/Uhr Icons
+     &::-webkit-calendar-picker-indicator,
+     &::-webkit-inner-spin-button {
+       color: $gs-pink;
+       cursor: pointer;
+     }
+ 
+     // Firefox
+     &::-moz-placeholder {
+       color: $gs-darkblue-200;
+       opacity: 1;
+     }
+   }
+
+  // Alle Input-Typen automatisch Bootstrap-konform machen
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not(
+      [type="button"]
+    ) {
+    @extend .form-control;
+  }
+
+  input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]):not(
+      [type="button"]
+    ):not([class*="form-"]) {
+    @extend .form-control;
+  }
+
+  select{
+    &:focus {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  
+  select:not([multiple]) {
+    @extend .form-select;
+  }
+
+  select:not([class*="form-"]) {
+    @extend .form-select;
+  }
+
+  textarea {
+    @extend .form-control;
+  }
+
+  // Labels Bootstrap-konform
+  label:not(.form-check-label) {
+    @extend .form-label;
+  }
+
+  // bestehenden Custom Styles zu Bootstrap-kompatibel machen
+  .checkbox,
+  .radio {
+    @extend .form-check;
+
+    input {
+      @extend .form-check-input;
+    }
+
+    label {
+      @extend .form-check-label;
+    }
+  }
+
+
+main {
+
+
+  // The use of the CSS class gs-input should be limited to complex widgets
+
+  form {
+    max-width: $gs-font--11xl;
+    @include font-size($gs-font--md);
+  }
+
+  .form-label {
+    display: block;
+  }
+
+  label {
+    margin-bottom: 0.3rem;
+
+    a {
+      color: gs-color(gs-pink) !important;
+
+      &:hover {
+        text-decoration: underline;
+      }
+      // Remove default link undline
+      box-shadow: none !important;
+    }
+  }
+
+  .tx-powermail {
+    .container-fluid {
+      padding-right: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+
+  form {
+    max-width: $gs-font--11xl;
+    @include font-size($gs-font--md);
+
+    label {
+      font-weight: bold;
+      margin-top: $gs-font--lg;
+      margin-bottom: 0.3rem;
+      color: gs-color(gs-darkblue);
+    }
+
+    legend {
+      max-width: $gs-font--11xl;
+      @include font-size($gs-font--2xl);
+      font-weight: 300;
+      margin-top: $gs-font--xl;
+      margin-bottom: 0;
+      color: gs-color(gs-lightblue--text);
+      line-height: $gs-line-height-hedline;
+    }
+
+    fieldset {
+      position: relative;
+
+      &.grid {
+        max-width: $gs-font--11xl;
+        position: relative;
+        padding-top: $gs-font--5xl;
+        gap: $gs-font--2xl;
+
+        legend {
+          position: absolute;
+        }
+
+        button {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          background: transparent;
+          border: 1px dashed $gs-darkblue-300;
+          color: $gs-darkblue;
+          @include font-size($gs-font--md);
+          margin: 0;
+          min-height: 40rem;
+
+          &:hover {
+            background-color: #dbe3ec; // HOTFIX mit dem alten COLOR Setting - hier dann lightblue für Text einsetzen
+            color: $gs-pink;
+            border: transparent;
+          }
+
+          &:active {
+            background-color: #dbe3ec !important ;
+            color: $gs-darkblue-400 !important;
+            border: 1px solid transparent !important;
+          }
+
+          &:after {
+            content: "";
+          }
+
+          &:before {
+            content: "\f64d";
+            margin-left: 0.4rem;
+            @include font-size($gs-font--lg);
+            color: var(--gs--button--color);
+            font-family: bootstrap-icons;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            vertical-align: middle;
+            line-height: initial;
+          }
+        }
+
+        fieldset {
+          display: flex;
+          flex-direction: column;
+
+          legend {
+            position: relative;
+          }
+
+          button.btn {
+            flex-direction: row;
+            gap: $gs-font--xs;
+            justify-content: center;
+            height: auto;
+            width: 100%;
+            margin-left: 0;
+            margin-top: $gs-font--2xl;
+            background: transparent;
+            min-height: auto;
+
+            &:before {
+              content: "\f62a";
+            }
+
+            &:hover {
+              background-color: #dbe3ec;
+              color: $gs-pink;
+              border: 1px solid transparent;
+            }
+
+            &:active {
+              background-color: #dbe3ec !important ;
+              color: $gs-darkblue-400 !important;
+              border: 1px solid transparent !important;
+            }
+          }
+        }
+      }
+
+      fieldset {
+        legend {
+          position: relative;
+          @include font-size($gs-font--lg);
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .actions {
+    margin-top: $gs-font--2xl;
+    padding-top: $gs-font--2xl;
+    border-top: solid 1px $gs-darkblue-100;
+  }
+
+  input[type="file"] {
+    // 1) default-Styles entfernen
+    -webkit-appearance: none;
+    appearance: none;
+    background: none;
+    padding: $gs-font--xxs $gs-font--lg;
+    font: inherit;
+    width: max-content;
+    color: $gs-pink;
+    cursor: pointer;
+
+    // 2) moderner Standard-Button (Firefox, neuer Webkit)
+    &::file-selector-button {
+      display: none;
+      font: inherit;
+      background-color: transparent;
+      color: inherit;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+
+    // 3) Legacy WebKit (Chrome, Safari)
+    &::-webkit-file-upload-button {
+      display: none;
+      -webkit-appearance: button; // nötig, damit eigene Styles greifen
+      font: inherit;
+      background-color: transparent;
+      color: inherit;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+
+    // 4) Legacy IE/Edge
+    &::-ms-browse {
+      display: none;
+      font: inherit;
+      background-color: transparent;
+      color: inherit;
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+    }
+  }
+
+  [type="file"] {
+    @extend .btn-outline-lightblue;
+  }
+
+  .help-block {
+    padding: $input-btn-padding-y $input-btn-padding-x;
+
+    background-color: $gs-turquoise-100;
+    color: $gs-turquoise-700;
+    display: block;
+    margin-top: $input-btn-padding-y;
+    margin-bottom: $input-btn-padding-y;
+    border-radius: $input-btn-padding-x;
+  }
+
+ 
+}

@@ -1,0 +1,10 @@
+// .badge {
+// 	border-radius: 999px;
+// 	padding: 0.5rem 1rem;
+
+// 	@each $state in map-keys($theme-colors) {
+// 		&.bg-#{$state} {
+// 			background: gs-color(#{map-get($bootstrapMapping, $state)}) !important;
+// 		}
+// 	}
+// }

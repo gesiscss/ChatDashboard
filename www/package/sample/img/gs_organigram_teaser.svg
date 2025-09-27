@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="gs_svg_styles_organigram.css" ?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="200px" viewBox="0 0 300 200" enable-background="new 0 0 300 200" xml:space="preserve">
+<g id="Research" display="none">
+	<g display="inline">
+		<path fill="#F06400" d="M133.354,79.034c4.57-3.633,10.353-5.809,16.646-5.809s12.075,2.176,16.646,5.811l45.76-45.76
+			C196.076,17.995,174.131,8.634,150,8.634s-46.073,9.36-62.405,24.641L133.354,79.034z"/>
+		<path fill="#497593" d="M216.725,37.594l-45.76,45.76c3.633,4.571,5.811,10.353,5.811,16.646c0,6.291-2.178,12.074-5.811,16.646
+			l45.76,45.76c15.282-16.333,24.643-38.275,24.643-62.405C241.366,75.87,232.007,53.926,216.725,37.594z"/>
+		<path fill="#497593" d="M166.646,120.965c-4.57,3.633-10.353,5.813-16.646,5.813c-6.293,0-12.075-2.18-16.646-5.813l-45.76,45.76
+			c16.332,15.278,38.274,24.642,62.405,24.642s46.073-9.362,62.405-24.644L166.646,120.965z"/>
+		<path fill="#497593" d="M129.035,116.646c-3.634-4.57-5.81-10.354-5.81-16.646c0-6.293,2.176-12.076,5.811-16.647l-45.76-45.76
+			C67.995,53.926,58.634,75.868,58.634,100c0,24.13,9.36,46.072,24.642,62.404L129.035,116.646z"/>
+	</g>
+</g>
+<g id="Organigram">
+	<g>
+		
+			<line fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" x1="108.119" y1="80.844" x2="190.795" y2="80.844"/>
+		<polyline fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" points="190.96,71.36 182.399,71.36 
+			182.399,90.489 191.888,90.489 		"/>
+		
+			<line fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" x1="150.081" y1="73.319" x2="150.081" y2="107.125"/>
+		<polyline fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" points="227.168,108.197 227.17,99.638 
+			72.832,99.638 72.832,109.128 		"/>
+		
+			<line fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" x1="111.077" y1="99.639" x2="111.077" y2="113.342"/>
+		
+			<line fill="none" stroke="#999999" stroke-width="1.5" stroke-miterlimit="10" x1="188.585" y1="99.639" x2="188.585" y2="113.342"/>
+		<rect x="54.88" y="104.206" fill="#497593" width="35.901" height="21.271"/>
+		<rect x="132.05" y="104.206" fill="#497593" width="35.9" height="21.271"/>
+		<rect x="209.218" y="104.206" fill="#497593" width="35.901" height="21.271"/>
+		<rect x="170.634" y="104.206" fill="#497593" width="35.9" height="21.271"/>
+		<rect x="132.681" y="38.696" fill="#D9D9D9" width="34.544" height="21.271"/>
+		<rect x="171.558" y="38.696" fill="#D9D9D9" width="34.546" height="21.271"/>
+		<rect x="120.771" y="67.116" fill="#F06400" width="58.507" height="27.454"/>
+		<rect x="186.613" y="67.116" fill="#497593" width="58.506" height="8.162"/>
+		<rect x="54.88" y="135.114" fill="#BDCDD8" width="190.239" height="15.369"/>
+		<rect x="93.466" y="104.206" fill="#497593" width="35.901" height="21.271"/>
+		<rect x="93.804" y="38.696" fill="#D9D9D9" width="34.545" height="21.271"/>
+		<rect x="54.927" y="67.116" fill="#BDCDD8" width="58.507" height="27.455"/>
+		<rect x="186.613" y="76.762" fill="#497593" width="58.506" height="8.162"/>
+		<rect x="186.613" y="86.409" fill="#497593" width="58.506" height="8.162"/>
+		<g>
+			
+				<rect x="93.804" y="11.485" onclick="location.href = &quot;http://www.geis.org/institut&quot;;" fill="#D9D9D9" width="112.393" height="21.271"/>
+		</g>
+	</g>
+</g>
+<g id="Service" display="none">
+	<g display="inline">
+		<g>
+			<g>
+				<path fill="none" stroke="#D9D9D9" stroke-width="16" stroke-miterlimit="10" d="M160.303,26.815
+					c41.189,5.255,70.32,42.907,65.065,84.097c-5.255,41.189-42.905,70.32-84.096,65.066c-41.191-5.256-70.322-42.906-65.067-84.097
+					C77.733,79.906,82,68.949,88.296,59.561"/>
+				<g>
+					<polygon fill="#D9D9D9" points="97.227,73.163 102.946,43.396 74.305,53.321 					"/>
+				</g>
+			</g>
+		</g>
+		<g>
+			<rect x="194.414" y="81.694" fill="#497593" width="63.118" height="31.56"/>
+		</g>
+		<g>
+			<rect x="71.201" y="146.811" fill="#497593" width="63.119" height="31.56"/>
+		</g>
+		<g>
+			<rect x="44.042" y="81.694" fill="#497593" width="63.119" height="31.56"/>
+		</g>
+		<g>
+			<rect x="168.736" y="146.811" fill="#497593" width="63.119" height="31.56"/>
+		</g>
+		<g>
+			<rect x="119.228" y="12.56" fill="#F06400" width="63.118" height="31.559"/>
+		</g>
+	</g>
+</g>
+</svg>

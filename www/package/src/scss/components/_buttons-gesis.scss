@@ -1,0 +1,99 @@
+button:not(
+    .gs_search_toggle,
+    .close-button,
+    .btn-close,
+    .gs_mm_toggle_button,
+    .accordion-button,
+    [role="tab"]
+  ) {
+  @extend .btn-outline;
+}
+
+a.gesis-button--default:not([role="tab"]),
+button.gesis-button--default:not([role="tab"]),
+button.gesis-button--cta:not([role="tab"]),
+a.gesis-button--cta:not([role="tab"]) {
+  @extend .btn-outline-pink;
+}
+
+fieldset input {
+  &[type="submit"],
+  &[type="button"] {
+    @extend .my-4;
+  }
+}
+
+[type="submit"],
+input[type="button"] {
+  @extend .btn-pink;
+}
+
+[type="reset"] {
+  @extend .btn-ghost;
+}
+
+.has-bg-color .gs-orange,
+.has-bg-img {
+  button.gesis-button--default,
+  button.gesis-button--cta,
+  a.gesis-button--default,
+  a.gesis-button--cta {
+    @extend .btn-white;
+  }
+}
+
+.gesis-button--cta {
+  @extend .btn-outline-pink;
+
+  &:after {
+    @extend .ms-2;
+    display: inline-block;
+    font-family: bootstrap-icons;
+    content: "\F138";
+    align-self: center;
+  }
+
+  &:has(i) {
+    &::before,
+    &::after {
+      content: none !important;
+    }
+  }
+}
+
+.--gs--color--gs-lightblue {
+  @extend .btn-outline-gs-lightblue;
+}
+
+a.gesis-button--default[href]:not([href^="/"]):not([href*="gesis.org"]):not(
+    [href="#"]
+  ) {
+  &::after {
+    top: -2px;
+  }
+}
+
+a {
+  &[role="button"] {
+    &.active {
+      background: $gs-pink;
+      color: white;
+      padding: 0.2rem 1rem 0.2rem 1rem;
+      border-radius: 10rem;
+      pointer-events: none;
+      box-shadow: none !important;
+    }
+    &.active--lightblue {
+      @extend .active;
+      background: $gs-lightblue;
+    }
+    &.active--darkblue {
+      @extend .active;
+      background: $gs-darkblue;
+    }
+    &.active--berry {
+      @extend .active;
+      background: $gs-berry;
+    }
+  }
+}

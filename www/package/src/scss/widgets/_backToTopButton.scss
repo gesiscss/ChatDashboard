@@ -1,0 +1,34 @@
+.back-to-top-button {
+	a {
+		background-color: #fff;
+		width: 50px;
+		height: 50px;
+		border: 3px solid gs-color(gs-accent-grey);
+		border-radius: calc(50px * 2);
+		display: none;
+		place-content: center;
+		line-height: 1;
+
+		// Remove default link underline
+		box-shadow: none;
+
+		&:hover {
+			background-color: gs-color(gs-accent-grey);
+		    box-shadow: none;
+		}
+	}
+
+	i {
+		color: gs-color(gs-pink);
+		font-size: 25px;
+	}
+}
+
+.content-section {
+	.back-to-top-button {
+		position: absolute;
+		left: gs-space(side-space);
+		bottom: 0.7rem;
+		display: none;
+	}
+}

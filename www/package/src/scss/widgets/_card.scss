@@ -1,0 +1,334 @@
+
+
+.gesis-card {
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	border-radius: gs-var(small-border-radius);
+	box-shadow: gs-var(card-shadow);
+
+	&.has-bg-color {
+		box-shadow: none;
+	}
+
+	.gesis-card--content {
+		padding: $gs-font--4xl $gs-font--3xl;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		/**
+		* Remove margin from last and first child to prevent unwanted spacings in card beginning and end
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+		:last-child {
+			margin-bottom: 0;
+		}
+		:first-child {
+			margin-top: 0;
+		}
+
+		// Set button to always be on bottom of card
+		> p:last-of-type {
+			margin-top: auto;
+		}
+
+	}
+
+	.gesis-card--header {
+		border-bottom: 2px solid #fff;
+		padding: $gs-font--xl $gs-font--3xl;
+
+		> * {
+			margin: 0;
+		}
+	}
+
+	&.is-newscard {
+		display: grid;
+		grid-template-rows: auto 1fr;
+
+		.gesis-card--header {
+			padding: 0;
+			border-bottom: 0;
+			overflow: hidden;
+			height: gs-var(news-card--thumbnail-height);
+			position: relative;
+			border-top-left-radius: gs-var(small-border-radius);
+			border-top-right-radius: gs-var(small-border-radius);
+
+			img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				max-width: none;
+				max-height: none;
+				-o-object-fit: cover;
+				object-fit: cover;
+				-o-object-position: center;
+				object-position: center;
+			}
+		}
+
+		.gesis-card--content {
+			// margin: $gs-font--xl;
+
+			> h3 {
+				margin-bottom: $gs-font--2xl;
+			}
+
+			a {
+				align-items: baseline;
+				font-weight: bold;
+				-webkit-hyphens: auto;
+				-ms-hyphens: auto;
+				hyphens: auto;
+				margin-top: auto;
+				color: gs-color(gs-pink);
+
+				// Remove default link underline
+				box-shadow: none;
+				align-self: flex-end;
+				&:hover {
+					color: gs-color(gs-pink--hover);
+				}
+				&:active {
+					color: gs-color(gs-pink--pressed);
+				}
+			}
+		}
+
+	}
+
+	&.has-icon-in-header {
+		// display: inline-block;
+
+		.gesis-card--header {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			border-bottom: 0;
+			padding-bottom: 0;
+			h3, .h3 {
+				@include font-size($gs-font--xl);
+				color: gs-color(gs-darkblue);
+			}
+			
+
+			&:before {
+				font-family: $gesis-icons-font;
+				color: gs-color(gs-darkblue);
+				@include font-size($gs-font--5xl);
+				line-height: 1;
+
+				@include desktop-small {
+					@include font-size(3.3rem);
+				}
+			}
+
+			
+		}
+
+		.gesis-card--content {
+			//height: auto;
+		}
+
+		/**
+		* The icons that can/should be used are assigned here
+		*
+		* @author Julian Kohl
+		*
+		*/
+
+		&.eye-circle .gesis-card--header::before {
+			content: $gesis-icon-eye-circle;
+		}
+
+		&.clipboard-check-circle .gesis-card--header::before {
+			content: $gesis-icon-clipboard-check-circle;
+		}
+
+		&.people-circle .gesis-card--header::before {
+			content: $gesis-icon-people-circle;
+		}
+
+		&.question-catalog-circle .gesis-card--header::before {
+			content: $gesis-icon-question-catalog-circle;
+		}
+
+		&.question-sheet-circle .gesis-card--header::before {
+			content: $gesis-icon-question-sheet-circle;
+		}
+
+		&.faq-circle .gesis-card--header::before {
+			content: $gesis-icon-faq-circle;
+		}
+
+		&.question-circle .gesis-card--header::before {
+			content: $gesis-icon-question-circle;
+		}
+
+		&.target-circle .gesis-card--header::before {
+			content: $gesis-icon-target-circle;
+		}
+
+		&.pin-circle .gesis-card--header::before {
+			content: $gesis-icon-pin-circle;
+		}
+
+		&.no-costs-circle .gesis-card--header::before {
+			content: $gesis-icon-no-costs-circle;
+		}
+
+		&.clipboard-check-circle .gesis-card--header::before {
+			content: $gesis-icon-clipboard-check-circle;
+		}
+
+		&.faq-circle .gesis-card--header::before {
+			content: $gesis-icon-faq-circle;
+		}
+
+		&.vcard-circle .gesis-card--header::before {
+			content: $gesis-icon-vcard-circle;
+		}
+
+		&.person-circle .gesis-card--header::before {
+			content: $gesis-icon-person-circle;
+		}
+
+		&.euro-circle .gesis-card--header::before {
+			content: $gesis-icon-euro-circle;
+		}
+
+		&.mail-circle .gesis-card--header::before {
+			content: $gesis-icon-mail-circle;
+		}
+
+		&.fax-circle .gesis-card--header::before {
+			content: $gesis-icon-fax-circle;
+		}
+
+		&.phone-circle .gesis-card--header::before {
+			content: $gesis-icon-phone-circle;
+		}
+
+		&.location-circle .gesis-card--header::before {
+			content: $gesis-icon-location-circle;
+		}
+	}
+
+	
+}
+
+.location-card {
+	.gesis-card--header {
+		margin-bottom: 1.5rem;
+	}
+
+	.gesis-card--content {
+		@include font-size($gs-font--md);
+		line-height: 1.4;
+		p {
+			margin-bottom: 0;
+		}
+
+		a {
+			// remove default underline
+			box-shadow: none;
+
+			&:hover {
+				color: gs-color(gs-darkblue);
+			}
+		}
+
+		.location-name {
+			margin-bottom: 0.5em;
+		}
+
+		.postal-address {
+			@include round-icon-before($icon: $gesis-icon-location-circle);
+			align-items: flex-start;
+
+			&:before {
+				margin-top: 0.1em;
+			}
+		}
+
+		.phone {
+			@include round-icon-before($icon: $gesis-icon-phone-circle);
+		}
+
+		.fax {
+			@include round-icon-before($icon: $gesis-icon-fax-circle);
+		}
+
+		.postal-address,
+		.phone,
+		.fax {
+			display: flex;
+			margin-bottom: 0.2em;
+		}
+	}
+}
+
+/**
+* Responsive style for cards based on usecase
+*
+* @author Julian Kohl
+*
+*/
+
+
+
+.frame-type-gesis-web-3col-cards {
+	.gesis-card {
+		&.has-icon-in-header {
+			@include xl {
+				.gesis-card--header {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+
+			@include lg {
+				.gesis-card--header {
+					flex-direction: row;
+					align-items: center;
+				}
+			}
+		}
+	}
+
+	.grid {
+		@include lg {
+			--bs-columns: 2 !important;
+		}
+		@include md {
+			--bs-columns: 1 !important;
+		}
+	}
+}
+
+.frame-type-gesis-web-2col-cards {
+	.grid {
+		@include md {
+			--bs-columns: 1 !important;
+		}
+	}
+}
+
+
+.is-newsbox{
+	.col{
+		@include mobile {
+			margin-bottom: $gs-font--4xl;
+		}
+	}
+}

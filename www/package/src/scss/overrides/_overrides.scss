@@ -1,0 +1,67 @@
+@import "gesis-microsite-cews";
+@import "gesis-microsite-gws";
+@import "gesis-microsite-gws-facetview";
+
+.news-img-wrap {
+  margin-bottom: 30px;
+}
+
+.has-backdrop {
+  position: relative;
+  z-index: 10;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50vw;
+    width: 150vw;
+    height: 100%;
+    background-color: gs-color(gs-darkblue);
+    opacity: 0.7;
+    z-index: 30;
+
+  
+          @include mobile {
+              display: none;
+          };
+
+  }
+}
+
+.microsite-main.has-backdrop {
+  &:before {
+    @include mobile {
+      display: none;
+    }
+  }
+}
+
+/* Stylings for this implementation only (For dummy purpose) */
+
+.newsbox-demo-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: gs-color(gs-default-grey);
+
+  img,
+  .gesis-big-newsbox {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .gesis-big-newsbox {
+    margin-top: 27%;
+    height: max-content;
+    z-index: 1;
+  }
+}
+
+// Newsletter Tabellen keine Stripped Darstellung
+
+body.-newsletter{
+  td {
+    --bs-table-bg-type: white !important;
+    border-bottom-width: 0 !important;
+  }
+}

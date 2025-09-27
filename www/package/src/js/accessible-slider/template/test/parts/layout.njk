@@ -1,0 +1,215 @@
+{% if not static %}
+  {% set type = 'test' %}
+{% endif %}
+
+<!doctype html>
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie10 lt-ie9" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js lt-ie10" lang="en"><![endif]-->
+<!--[if gt IE 9]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tiny slider</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  
+  <link rel="stylesheet" href="../dist/tiny-slider.css">
+  <link rel="stylesheet" href="css/test.css">
+  <!--[if (IE 8)&!(IEMobile)]><script src="../dist/tiny-slider.helper.ie8.js"></script><![endif]-->
+  <script src="../dist/tiny-slider.js"></script>
+</head>
+<body {{ 'data-responsive=' + responsive | safe if responsive }}>
+{% set titles = [
+  "Lorem ipsum dolor sit amet, consectetur adipisicing.", 
+  "Sunt dignissimos distinctio, veniam, tenetur aspernatur nulla!", 
+  "Corrupti, libero minima nihil expedita officiis? Quo.", 
+  "Alias rem, ab impedit recusandae repellat tempore.", "
+  Nisi inventore quo delectus perspiciatis voluptatibus, quae.", 
+  "Nisi harum earum consectetur laudantium iusto, laboriosam.", 
+  "Dolores blanditiis neque, quis vitae? Reprehenderit, aliquam.", 
+  "Omnis dolorum eum blanditiis, ratione voluptates quod.", 
+  "Animi quis iste ex ullam, similique laboriosam.", "D
+  eserunt, ipsam! Placeat ullam, nam incidunt odit!"
+] %}
+
+{% set imgPlaceholder = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3C/svg%3E" %}
+
+{% set collectionId = ["", "", "", "", "", "", "", "", "", "", "", ""] if mobile else ["993239", "1673600", "1513994", "502925", "1891993", "1103088", "548245", "539469", "end"] %}
+{% set baseurl = 'https://via.placeholder.com' if mobile else 'https://source.unsplash.com/collection/' %}
+
+{% block main %}
+  {# test results #}
+  {% if type === 'test' %}
+  <div class="test-results">
+    {# <div class="title">Test 1</div>
+    <div class="item">Test 1</div>
+    <div class="item-success">Test 1</div>
+    <div class="item-fail">Test 1</div>
+    <div class="item">Test 1</div>
+    <div class="title">Test 1</div>
+    <div class="item">Test 1</div> #}
+  </div>
+  {% endif %}
+
+  {% if page %}
+    {# sliders #}
+    <div id="{{ page }}_wrapper">
+      <h2>{{ page | title }}</h2>
+    
+      {# go to #}
+      {% if page === 'base' %}
+        <div class="goto-controls">
+          Go to slide: <input type="text" value="3">
+          <button class="button">Go</button>
+        </div>
+      {% endif %}
+    
+      {# slider body #}
+      <div class="{{ page }}" id="{{ page }}">
+    
+        {% set count = 2 if fewItems else 7 %}
+        {% set w = [600, 500, 200, 400, 640, 360, 460] if autoWidth else [600, 600, 600, 600, 600, 600, 600] %}
+    
+        {% if autoWidth %}
+          {% set h = [320, 300, 310, 330, 300, 240, 280] %}
+        {% elif autoHeight %}
+          {% set h = [500, 700, 600, 800, 500, 600, 800] %}
+        {% else %}
+          {% set h = [600, 600, 600, 600, 600, 600, 600] %}
+        {% endif %}
+    
+        {% if page === 'nested' %}
+          {% for i in range(0, count) %}
+          <div class="item">
+            {% if i === 1 %}
+              <div class="{{ page }}_inner_wrapper" id="{{ page }}_inner_wrapper">
+                <div class="{{ page }}_inner" id="{{ page }}_inner">
+                  {% for i in range(1, 8) %}
+                  <div class="item">
+                    <div class="img img-{{ i }}"><a href="">{{ i - 1 }}</a></div>
+                    <p>{{ titles[i] }}</p>
+                  </div>
+                  {% endfor %}
+                </div>
+              </div>
+            {% else %}
+              <div class="img img-{{ i }}"><a href="">{{ i - 1 }}</a></div>
+              <p>{{ titles[i] }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+          
+        {# start-index #}
+        {% elif page === 'start-index' %}
+          {% for item in ['carousel-loop', 'carousel-non-loop', 'gallery-loop', 'gallery-non-loop'] %}
+          <div id="start-index-{{ item }}">
+            {% for i in range(0, count) %}
+            <div class="item">
+              <div class="img img-{{ i + 1 }}"><a href="">{{ i }}</a></div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endfor %}
+    
+        {# others #}
+        {% else %}
+          {% for i in range(0, count) %}
+            <div class="item">
+
+              {% if hasimg %}
+                {% set src = baseurl + collectionId[i] + '/' + w[i] + 'x' + h[i] %}
+                <div><a href=""><img {{ 'class="tns-lazy-img"' | safe if lazyload }} src="{{ imgPlaceholder if lazyload else src }}" data-src="{{ src }}" alt="" width="{{ w[i] }}" height="{{ h[i] }}"></a></div>
+              {% else %}
+                <div class="img img-{{ i }}" style="{{ 'height:' + h[i] + 'px' | safe if autoHeight }}"><a href="">{{ i }}</a></div>
+              {% endif %}
+    
+              {# <p>{{ titles[i] }}</p> #}
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      
+      {# customize tools #}
+      {% if page === 'customize' %}
+        <div class="customize-tools">
+          <ul class="thumbnails" id="customize-thumbnails">
+            {% for i in range(0, count) %}
+              <li><img src="{{ baseurl }}{{ collectionId[i] }}/600x400" alt="" width="600" height="400"></li>
+            {% endfor %}
+          </ul>
+          <ul class="controls" id="customize-controls">
+            <li class="prev"><img src="images/angle-left.png" alt=""></li>
+            <li class="next"><img src="images/angle-right.png" alt=""></li>
+          </ul>
+          <div class="playbutton-wrapper"><button id="customize-toggle">Pause</button></div>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}
+
+<script>
+  var mobile = {{ 'true' if mobile else 'false' }},
+      prefix = "{{ '-mobile' if mobile else '' }}",
+      isTestPage = true,
+      isDemoPage = false,
+      classIn = 'tns-fadeIn',
+      classOut = 'tns-fadeOut',
+      speed = 0,
+      doc = document,
+      win = window,
+      ww = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
+      fw = getFW(ww),
+      initFns = {},
+      sliders = new Object(),
+      edgepadding = 50,
+      gutter = 10;
+
+  function getFW (width) {
+    var sm = 400, md = 900, lg = 1400;
+    return width < sm ? 150 : width >= sm && width < md ? 200 : width >= md && width < lg ? 300 : 400;
+  }
+  window.addEventListener('resize', function() { fw = getFW(ww); });
+</script>
+<script src="js/options.js"></script>
+
+{% if type === 'test' %}
+{# Node.textContent polyfill for IE8 #}
+<!--[if (IE 8)&!(IEMobile)]>
+<script>
+  if (Object.defineProperty 
+    && Object.getOwnPropertyDescriptor 
+    && Object.getOwnPropertyDescriptor(Element.prototype, "textContent") 
+    && !Object.getOwnPropertyDescriptor(Element.prototype, "textContent").get) {
+    (function() {
+      var innerText = Object.getOwnPropertyDescriptor(Element.prototype, "innerText");
+      Object.defineProperty(Element.prototype, "textContent",
+       {
+         get: function() {
+           return innerText.get.call(this);
+         },
+         set: function(s) {
+           return innerText.set.call(this, s);
+         }
+       }
+     );
+    })();
+  }
+</script>
+<![endif]-->
+
+<script src="js/es6-promise.auto.min.js"></script>
+<script src="js/helpers.js"></script>
+<script src="js/babel-polyfill/dist/polyfill.min.js"></script>
+<script src="js/tests-async-es5.js"></script>
+{% endif %}
+
+<script src="js/run.js"></script>
+{# <script type="module" src="js/run.js"></script> #}
+</body>
+</html>

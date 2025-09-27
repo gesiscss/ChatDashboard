@@ -1,0 +1,171 @@
+// p {
+// 	margin: $gs-font--lg 0;
+
+// 	:where(h3 + *){
+// 		margin-top: 0;
+// 	}
+
+// 	&.text-no-space-bottom {
+// 		margin-bottom: 0;
+// 	}
+
+// 	@include xl {
+// 		margin-bottom: 1.5rem;
+// 	}
+
+// 	@include md {
+// 		margin-bottom: 1.2rem;
+// 	}
+// }
+
+.light {
+  font-weight: 300 !important;
+}
+.normal {
+  font-weight: 500 !important;
+}
+.semibold {
+  font-weight: 600 !important;
+}
+
+.content-small {
+  @include font-size($gs-font--md);
+  line-height: 1.2;
+  p,
+  ul,
+  ol,
+  a,
+  table,
+  i,
+  .accordion-button {
+    @include font-size($gs-font--md);
+    line-height: 1.2;
+    &:after {
+    }
+  }
+
+  li {
+    line-height: 1.6;
+  }
+
+  h1 {
+    @include font-size($gs-font--2xl);
+    margin-top: 0;
+    margin-bottom: 0;
+
+    & a {
+      font-size: inherit;
+    }
+  }
+
+  h2 {
+    @include font-size($gs-font--xl);
+    margin-top: 0;
+    margin-bottom: 0;
+
+    & a {
+      font-size: inherit;
+    }
+  }
+
+  h3 {
+    @include font-size($gs-font--lg);
+    margin-top: 1.4rem;
+    margin-bottom: 0;
+
+    & a {
+      font-size: inherit;
+    }
+  }
+
+  :is(h4, h5, h6) {
+    @include font-size($gs-font--md);
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+
+    & a {
+      font-size: inherit;
+    }
+  }
+
+  p {
+    margin: 0;
+    margin-top: $gs-font--xs;
+  }
+
+  .small {
+    @include font-size($gs-font--sm);
+  }
+
+  hr {
+    margin: 0.8rem 0;
+  }
+
+  a:not(:has(img)) {
+    // 3. Externe Links: Absolute Links, die NICHT mit "gesis.org" arbeiten
+    &[href]:not(
+        [href^="/"],
+        [href*="gesis.org"],
+        [href="#"],
+        [href*="tel:"],
+        [href="#contact-section"]
+      ) {
+      &::after {
+        @include font-size($gs-font--sm);
+        margin: 0 0.3rem 0 0.2rem;
+      }
+    }
+  }
+
+  .nav,
+  .tabs [role="tablist"] {
+    --bs-nav-link-font-size: 1.6rem;
+  }
+
+  section,
+  .news {
+    margin: 2.6rem 0;
+  }
+
+  section {
+    .content-section--inner {
+      padding: 0;
+    }
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  details {
+    summary {
+      @include padding($gs-font--md $gs-font--lg);
+    }
+
+    > div {
+      @include padding($gs-font--md);
+    }
+  }
+
+  .accordion{
+    --bs-accordion-btn-icon-width: 1.6rem;
+    --bs-accordion-btn-icon-width: 1.6rem;
+  }
+
+  .gs_rootline a{
+	color: $gs-darkblue !important;
+  }
+  .gs_rootline a,
+  .gs_rootline li {
+    font-size: $gs-font--sm;
+  }
+
+  .gs_rootline ol li:not(:last-of-type)::after {
+    font-size: 1.6rem;
+    top: -0.3rem;
+  }
+}

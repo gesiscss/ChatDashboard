@@ -1,0 +1,43 @@
+main {
+  overflow-x: hidden;
+  grid-area: main;
+  position: relative;
+  padding: $gs-font--sm;
+  display: flex;
+  flex-direction: column;
+  gap: $gs-font--2xl;
+
+  > *:first-child:not(.gs-toc) {
+    margin-top: $gs-font--xl;
+  }
+
+
+  @media (min-width: 922px) {
+    display: grid;
+    gap: inherit;
+    column-gap: 4.2rem;
+    width: auto;
+    padding: $gs-font--2xl;
+
+    // Standardlayout (mit TOC)
+    grid-template-areas: "intro" "toc" "content";
+    grid-template-rows: auto auto 1fr;
+
+    @media (min-width: 992px) {
+      grid-template-areas: "intro   toc" "content toc";
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 4fr 1fr;
+    }
+
+    // Fallback: wenn kein TOC vorhanden ist
+    &:not(:has(.gs-toc)) {
+      display: flex;
+      flex-direction: column;
+      gap: $gs-font--lg;
+    }
+  }
+}
+
+@import "gs-intro.scss";
+@import "gs-toc.scss";
+@import "gs-content.scss";

@@ -1,0 +1,180 @@
+/**
+* Ich habe die Link und Button regeln mal auf <main> "gescoped" damit nur dort auch die links entsprechend aussehen. 
+* Ich habe das gemacht damit im Menü, Footer o.ä. nicht auch diese Styles bekommen und man die dann nochmal überschreiben muss
+*
+* @author Julian Kohl
+*
+*/
+
+.main-nav-row {
+  button:after{
+    content:none;
+  }
+  button:hover{
+      background: none;
+      color: $gs-darkblue;
+  }
+}
+
+
+main, .page-banner {
+	a:not(.gesis-button--default,.gesis-button--cta, .page-link) {
+		
+		@include underline-link;
+
+		&.gesis-link--arrow-before {
+			@include arrow-right-before($arrow-font-size: $gs-font--xl, $arrow-color: gs-var(link-with-icon--color));
+			// Remove default underline
+			box-shadow: none;
+			line-height: 1.2;
+
+			&:hover {
+				color: gs-color(gs-pink);
+
+				&:before {
+					color: gs-color(gs-pink);
+				}
+			}
+
+			&.gs-link--anker{
+				padding-left: 0;
+
+				&:before {
+					font-family: bootstrap-icons;
+					content: "\f1bc";
+					font-size: 2.1rem;
+					align-self: center;
+					margin: 0 1rem 0 1rem;
+					line-height: 1.4;
+				}
+			  }
+
+			  &.gs-link--hyper{
+				padding-left: 0;
+
+				&:before {
+					font-family: bootstrap-icons;
+					content: "\f1c5";
+					font-size: 1.65rem;
+					align-self: center;
+					margin: 0 1rem 0 1.2rem;
+				}
+			  }
+
+			  &.gs-link--micro{
+				padding-left: 0;
+
+				&:before {
+					font-family: bootstrap-icons;
+					content: "\f1be";
+					font-size: 2.1rem;
+                    align-self: center;
+                    margin: 0 1.2rem 0 0.5rem;
+				}
+			  }
+
+		}
+
+		&.download-calendar-file {
+			display: inline-flex;
+			align-items: baseline;
+			padding: $gs-font--xl;
+
+			&:before {
+				content: $gesis-icon-calendar-arr-down;
+				font-family: $gesis-icons-font;
+				color: gs-color(gs-pink);
+				margin-right: 0.5em;
+				line-height: 1;
+				font-size: 2.6rem;
+			}
+
+			// Remove default link undline when not hovering
+			box-shadow: none;
+
+			&:hover {
+				color: gs-var(link-with-icon--hover-color);
+
+				&:before {
+					color: gs-var(link-with-icon--hover-color);
+				}
+			}
+		}
+
+		&.round-icon-before-link {
+			display: inline-flex;
+			align-items: center;
+
+			&:before {
+				font-family: $gesis-icons-font;
+				color: gs-color(gs-darkblue);
+				margin-right: $gs-font--xs;
+				line-height: 1;
+				font-size: $gs-font--xl;
+			}
+
+			// Remove default link undline when not hovering
+			box-shadow: none;
+
+			&:hover {
+				color: gs-color(gs-pink);
+				
+				&:before {
+					color: gs-color(gs-pink);
+				}
+
+			}
+
+			&.icon-tel:before {
+				content: $gesis-icon-phone-circle;
+			}
+			&.icon-mail:before {
+				content: $gesis-icon-mail-circle;
+			}
+			&.icon-vcard:before {
+				content: $gesis-icon-vcard-circle;
+			}
+			&.icon-fax:before {
+				content: $gesis-icon-fax-circle;
+			}
+			&.icon-location:before {
+				content: $gesis-icon-location-circle;
+			}
+		}
+
+		&.gesis-button--functional {
+			// Remove default link undline
+			box-shadow: none;
+
+			@include gesis-button($button-text-size: gs-font-size(text--functional-button));
+			color: #fff;
+			background-color: gs-color(gs-lightblue);
+			border-color: gs-color(gs-lightblue); // Set Border color here tio retain button dimensions
+			display: inline-flex;
+
+
+			&:after {
+				color: #fff;
+			}
+
+			&:hover {
+				//background-color: gs-color(gs-lightblue--14);
+				background-color: #fff;
+				color: gs-color(gs-lightblue);
+
+				&:after {
+					color: gs-color(gs-lightblue);
+				}
+			}
+		}
+
+		
+	}
+
+	.captcha__reload{
+		box-shadow: none !important;
+	}
+	
+	
+}
+

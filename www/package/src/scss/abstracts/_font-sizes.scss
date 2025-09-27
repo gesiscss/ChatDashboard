@@ -1,0 +1,31 @@
+// Imported in _variables.scss
+$gs-root-font-size : 62.5%;  /* sets the base font to 10px for easier math */
+$gs-root-font-size-xl : 70%;
+$gs-line-height-base: 1.8;
+$gs-line-height-hedline: 1.2;
+
+
+$gs-font--14xl : 	189.2rem;
+$gs-font--13xl : 	136.8rem;
+$gs-font--12xl : 	96.6rem;
+$gs-font--11xl : 	66.5rem;
+$gs-font--10xl : 	44.6rem;
+$gs-font--9xl : 	29.2rem;
+$gs-font--8xl : 	18.8rem;
+$gs-font--7xl : 	12.1rem;
+$gs-font--6xl : 	8rem;
+$gs-font--5xl : 	6.8rem;
+$gs-font--4xl : 	5.6rem;
+$gs-font--3xl : 	4.2rem;
+$gs-font--2xl : 	3.3rem;
+$gs-font--xl : 		2.6rem;
+$gs-font--lg : 		2.0rem;
+$gs-font--md : 	    1.6rem;
+$gs-font--sm : 		1.3rem;
+$gs-font--xs : 		0.8rem;
+$gs-font--xxs : 	0.4rem;
+
+$gs-font-size-base : $gs-font--lg;
+$gs-text-max-width : 105rem;
+$gs-btn-font-size : $gs-font--lg;
+$gs-btn-font-size-xl: $gs-font--2xl;

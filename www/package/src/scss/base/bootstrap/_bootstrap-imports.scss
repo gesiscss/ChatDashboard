@@ -1,0 +1,622 @@
+@import "bootstrap/scss/functions";
+
+
+
+
+// scss-docs-start zindex-stack
+$zindex-dropdown:                   1000 ;
+$zindex-sticky:                     1020 ;
+$zindex-fixed:                      1030 ;
+$zindex-offcanvas-backdrop:         1040 ;
+$zindex-offcanvas:                  1045 ;
+$zindex-modal-backdrop:             1050 ;
+$zindex-modal:                      1055 ;
+$zindex-popover:                    1070 ;
+$zindex-tooltip:                    1080 ;
+$zindex-toast:                      1090 ;
+
+
+$zindex-levels: (
+  n1: -1,
+  0: 0,
+  1: 1,
+  2: 2,
+  3: 3,
+  4: 4,
+  5: 5,
+  u1: 1000000000000,
+  u2: 2000000000000,
+  u3: 3000000000000,
+  u4: 4000000000000,
+  u5: 5000000000000,
+  u6: 6000000000000
+);
+
+// ******************
+// Spacing
+
+$spacer: $gs-font--lg;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+) !default;
+
+// Verwendung von Bootstrap's spacing scale
+html {
+  // ... deine anderen Styles
+  scroll-padding-top: 24rem; // oder dein gewünschter Bootstrap-Wert
+  
+  &:has(.microsite-header) {
+    scroll-padding-top: 7rem;
+  }
+}
+
+// END -- Spacing
+// ******************
+
+// ******************
+// Color
+@import "gesis-colors";
+
+// scss-docs-start theme-color-variables
+$primary: $gs-pink;
+$secondary: $gs-lightblue;
+
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $gs-darkblue;
+
+$breadcrumb-divider: quote("›");
+$breadcrumb-divider-color: $gs-pink;
+$breadcrumb-active-color:  $gs-lightblue;
+$breadcrumb-font-size: $gs-font--xs !important;
+
+
+// scss-docs-end theme-color-variables
+
+// END -- Color
+// ******************
+
+// ******************
+// Typography
+
+$enable-responsive-font-sizes: true;
+
+$font-size-root: $gs-root-font-size; /* sets the base font to 10px for easier math */
+$font-size-base: $gs-font-size-base;
+
+$line-height-base: $gs-line-height-base;
+$line-height-sm: 1.4;
+$line-height-lg: 1.2;
+
+$font-family-sans-serif: $default-font;
+
+$paragraph-margin-bottom:   $gs-font--md;
+
+// --------
+// Headings
+
+$h1-font-size: $gs-font--4xl;
+$h2-font-size: $gs-font--3xl;
+$h3-font-size: $gs-font--2xl;
+$h4-font-size: $gs-font--xl;
+$h5-font-size: $gs-font--lg;
+$h6-font-size: $gs-font--md;
+
+$headings-margin-bottom: $spacer * 1.618;
+$headings-font-family: $headline-font;
+$headings-font-weight: 700;
+$headings-line-height: $gs-line-height-hedline;
+$headings-color: gs-var(headline--color);
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+  1: $gs-font--4xl,
+  2: $gs-font--3xl,
+  3: $gs-font--2xl,
+  4: $gs-font--xl,
+  5: $gs-font--lg,
+  6: $gs-font--md
+) ;
+
+// scss-docs-end display-headings
+
+// scss-docs-start type-variables
+$lead-font-size:              $font-size-base * 1.35 !default;
+
+$small-font-size: $gs-font--md;
+$sub-sup-font-size: $gs-font--md;
+
+$hr-margin-y: $gs-font--2xl;
+$hr-border-color: $gs-darkblue-100; // Allows for inherited colors
+$hr-border-width: 1px;
+$hr-opacity: 1;
+
+// END -- Typography
+// ******************
+
+$enable-rounded: true;
+$enable-negative-margins: true;
+
+// diabled till var is filled $font-family-monospace: $gs_font_code;
+
+// see https://stackoverflow.com/a/68303393/923560
+// see https://stackoverflow.com/a/67958494/923560
+$min-contrast-ratio: 0;
+
+// removing xxl size
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  2xl: 1600px,
+  3xl: 1900px,
+  4xl: 2400px
+
+);
+
+// $grid-gutter-width: $gs-font--4xl;
+// $grid-gutter-height: $gs-font--4xl;
+
+/**
+* Set horizontal gutter height for Gesis cols
+*
+*/
+
+// Variable set here because otherwise there is an error as the variable normally expects an scss variable like so: $card-group-margin: $grid-gutter-width * .5)
+// $card-group-margin: calc(#{gs-space(grid-gutter-width)} * 0.5);
+
+// removing xxl size
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+);
+
+$alert-padding-x: 2rem;
+$alert-padding-y: 2.1rem;
+//$alert-margin-bottom         : 1rem;
+$alert-border-radius: 1.7rem;
+//$alert-link-font-weight      : $font-weight-bold;
+//$alert-border-width          : $border-width;
+//$alert-bg-scale              : -80%;
+//$alert-border-scale          : -70%;
+//$alert-color-scale           : 40%;
+//$alert-dismissible-padding-r : $alert-padding-x * 3; // 3x covers width of x plus default
+
+$border-width: 1px;
+
+$border-radius: $gs-font--sm; // Standardwert für bs-border-radius
+$border-radius-sm: $gs-font--xs;
+$border-radius-lg: $gs-font--md;
+$border-radius-xl: $gs-font--lg;
+$border-radius-xxl: $gs-font--xl;
+$border-radius-2xl: $gs-font--2xl; // Verweist auf $border-radius-xxl
+
+.border-dashed{
+  border-style: dashed !important;
+}
+
+.border-gs-pink{
+  border-color: $gs-pink;
+}
+
+//
+// ******************
+
+// Spinners
+// ******************
+$spinner-width: $gs-font--5xl;
+$spinner-width-sm: $gs-font--xl;
+//
+// ******************
+
+// Buttons
+// ******************
+@import "costum-buttons";
+//
+// ******************
+
+// Nav & Tabs
+// ******************
+@import "costum-nav-tabs";
+//
+// ******************
+
+// List-group
+// ******************
+@import "costum-list-group";
+//
+// ******************
+
+// List-group
+// ******************
+@import "costum-accordion";
+//
+// ******************
+
+// Dropdowns
+// ******************
+$zindex-dropdown:                   2;
+$dropdown-padding-y:                0;
+$dropdown-color:                    $gs-darkblue;
+$dropdown-border-color:             $gs-darkblue-100;
+$dropdown-border-width:             1px;
+$dropdown-link-color:               $gs-darkblue;
+$dropdown-link-hover-color:         $gs-pink;
+$dropdown-link-hover-bg:            var(--gs--color--gs-pink--14);
+$dropdown-link-disabled-color:      $gs-darkblue-300;
+$dropdown-item-padding-y:           .2rem;
+$dropdown-item-padding-x:           1.4rem;
+$dropdown-header-color:             $gs-lightblue;
+//
+// ******************
+
+// Table 
+// ******************
+$table-striped-color:   $gs-text;
+$table-color:           $gs-text;
+$table-border-width:    1px;
+$table-hover-bg-factor:       .1;
+
+// backdrop
+$offcanvas-border-color:            $gs-darkblue-400;
+
+//
+// ******************
+
+
+// --------
+// Forms 
+$input-btn-padding-x:         1.6rem !default;
+$input-btn-padding-y:         0.8rem !default;
+$input-btn-font-size:         inherit;
+
+// --------
+// Modal 
+$modal-header-padding-y:  $gs-font--md;
+$modal-content-border-width: 1px;
+$modal-header-border-width: 0;
+
+// Toasts
+// ******************
+@import "costum-toast";
+
+// Close
+// ******************
+@import "costum-close";
+
+// Offcanvas
+// ******************
+@import "costum-offcanvas";
+
+// Badge
+// ******************
+@import "costum-badge";
+
+// Card
+// ******************
+@import "costum-card";
+
+
+
+
+
+
+// 3. Include remainder of required Botstrap stylesheets
+
+@import "bootstrap/scss/variables";
+    
+// 4. Include any default map overrides here
+$theme-colors: map-merge($theme-colors, $gesis-colors);
+
+$table-variants: map-merge(
+  (
+    "pink":       shift-color($gs-pink-400, $table-bg-scale),
+    "lightblue":  shift-color($gs-lightblue-400, $table-bg-scale),
+    "darkblue":   shift-color($gs-darkblue-400, $table-bg-scale),
+    "berry":      shift-color($gs-berry-400, $table-bg-scale)
+  ),
+  $table-variants
+);
+
+
+
+
+// 5. Include remainder of required parts
+@import "bootstrap/scss/maps";
+
+@import "bootstrap/scss/mixins";
+
+@import "bootstrap/scss/utilities";
+
+// Modal Settings
+// ******************
+@import "costum-modal";
+
+// Erweitere den "width"-Eintrag in der Utilities-Map
+$utilities: map-merge(
+  $utilities,
+  (
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          responsive: true,
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), "values"),
+              (
+                (
+                  5: 5%,
+                  10: 10%,
+                  15: 15%,
+                  20: 20%,
+                  25: 25%,
+                  30: 30%,
+                  35: 35%,
+                  40: 40%,
+                  45: 45%,
+                  50: 50%,
+                  55: 55%,
+                  60: 60%,
+                  65: 65%,
+                  70: 70%,
+                  75: 75%,
+                  80: 80%,
+                  85: 85%,
+                  90: 90%,
+                  95: 95%,
+                  100: 100%,
+                  xs: $gs-font--6xl,
+                  sm: $gs-font--7xl,
+                  md: $gs-font--8xl,
+                  lg: $gs-font--9xl,
+                  xl: $gs-font--10xl,
+                  2xl: $gs-font--11xl,
+                  3xl: $gs-font--12xl,
+                  content: max-content 
+                )
+              )
+            ),
+        )
+      ),
+      "height":
+      map-merge(
+        map-get($utilities, "height"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "height"), "values"),
+              (
+                (
+                  5: 5%,
+                  10: 10%,
+                  15: 15%,
+                  20: 20%,
+                  25: 25%,
+                  30: 30%,
+                  35: 35%,
+                  40: 40%,
+                  45: 45%,
+                  50: 50%,
+                  55: 55%,
+                  60: 60%,
+                  65: 65%,
+                  70: 70%,
+                  75: 75%,
+                  80: 80%,
+                  85: 85%,
+                  90: 90%,
+                  95: 95%,
+                  100: 100%,
+                  xs: $gs-font--6xl,
+                  sm: $gs-font--7xl,
+                  md: $gs-font--8xl,
+                  lg: $gs-font--9xl,
+                  xl: $gs-font--10xl,
+                  2xl: $gs-font--11xl,
+                  3xl: $gs-font--12xl,
+                  content: max-content 
+                )
+              )
+            ),
+        )
+      ),
+      "viewport-height":
+      map-merge(
+        map-get($utilities, "viewport-height"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "viewport-height"), "values"),
+              (
+                (
+                  5: 5vh,
+                  10: 10vh,
+                  15: 15vh,
+                  20: 20vh,
+                  25: 25vh,
+                  30: 30vh,
+                  35: 35vh,
+                  40: 40vh,
+                  45: 45vh,
+                  50: 50vh,
+                  55: 55vh,
+                  60: 60vh,
+                  65: 65vh,
+                  70: 70vh,
+                  75: 75vh,
+                  80: 80vh,
+                  85: 85vh,
+                  90: 90vh,
+                  95: 95vh,
+                  100: 100vh
+                )
+              )
+            ),
+        )
+      ),
+      "min-viewport-width":
+      map-merge(
+        map-get($utilities, "min-viewport-width"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "min-viewport-width"), "values"),
+              (
+                (
+                  5: 5vw,
+                  10: 10vw,
+                  15: 15vw,
+                  20: 20vw,
+                  25: 25vw,
+                  30: 30vw,
+                  35: 35vw,
+                  40: 40vw,
+                  45: 45vw,
+                  50: 50vw,
+                  55: 55vw,
+                  60: 60vw,
+                  65: 65vw,
+                  70: 70vw,
+                  75: 75vw,
+                  80: 80vw,
+                  85: 85vw,
+                  90: 90vw,
+                  95: 95vw,
+                  100: 100vw
+                )
+              )
+            ),
+        )
+      ),
+      "min-viewport-height":
+      map-merge(
+        map-get($utilities, "min-viewport-height"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "min-viewport-height"), "values"),
+              (
+                (
+                  5: 5vh,
+                  10: 10vh,
+                  15: 15vh,
+                  20: 20vh,
+                  25: 25vh,
+                  30: 30vh,
+                  35: 35vh,
+                  40: 40vh,
+                  45: 45vh,
+                  50: 50vh,
+                  55: 55vh,
+                  60: 60vh,
+                  65: 65vh,
+                  70: 70vh,
+                  75: 75vh,
+                  80: 80vh,
+                  85: 85vh,
+                  90: 90vh,
+                  95: 95vh,
+                  100: 100vh
+                )
+              )
+            ),
+        )
+      )
+  )
+);
+
+
+
+
+
+// 6. Optionally include any other parts as needed
+@import "bootstrap/scss/root";
+@import "bootstrap/scss/reboot";
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+@import "bootstrap/scss/containers";
+@import "bootstrap/scss/grid";
+@import "costum-grid";
+
+@import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+@import "bootstrap/scss/button-group";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar";
+@import "bootstrap/scss/card";
+@import "bootstrap/scss/accordion";
+@import "bootstrap/scss/breadcrumb";
+@import "bootstrap/scss/pagination";
+@import "bootstrap/scss/badge";
+@import "bootstrap/scss/alert";
+@import "bootstrap/scss/progress";
+@import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+@import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal";
+@import "bootstrap/scss/tooltip";
+@import "bootstrap/scss/popover";
+@import "bootstrap/scss/carousel";
+@import "bootstrap/scss/spinners";
+@import "bootstrap/scss/offcanvas";
+@import "bootstrap/scss/placeholders";
+
+@import "bootstrap/scss/helpers";
+
+// ******************
+// Glassmorphism
+@import "glass-morphism";
+//
+// ******************
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+
+@import "bootstrap/scss/utilities/api";
+
+$bootstrap-icons-font-dir: $fonts-path;
+
+$bootstrap-icons-font: "bootstrap-icons" !default;
+$bootstrap-icons-font-file: "#{$bootstrap-icons-font-dir}/#{$bootstrap-icons-font}/#{$bootstrap-icons-font}" !default;
+$bootstrap-icons-font-src: url("#{$bootstrap-icons-font-file}.woff2")
+    format("woff2"),
+  url("#{$bootstrap-icons-font-file}.woff") format("woff") !default;
+
+@import "bootstrap-icons/font/bootstrap-icons.scss";
+
+// Bootstrap 5's reboot style  has a silly rule to set
+// anything with attribute [hidden]
+// to "display: none !important;"
+// this breaks search-in-invisible-content with
+// 'hidden="until-found"', e.g. "search within collapsed .accordion / details"
+// therefore overrule with with our own reset
+// see https://github.com/twbs/bootstrap/issues/9237
+// see https://developer.chrome.com/articles/hidden-until-found/
+// see https://developer.mozilla.org/en-US/docs/Web/API/Element/beforematch_event
+// see https://developer.mozilla.org/en-US/docs/Web/CSS/revert
+// see https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
+// see https://developer.mozilla.org/en-US/docs/Web/CSS/display
+//
+// taking support for "content-visibility: auto" as a proxy
+// for checking on support for 'hidden="until-found"'
+// see https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility
+// see https://developer.mozilla.org/en-US/docs/Web/CSS/@supports
+@supports (content-visibility: auto) {
+  [hidden="until-found"] {
+    display: none !important;
+  }
+}

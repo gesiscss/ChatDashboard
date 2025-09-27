@@ -1,0 +1,82 @@
+// Base Typography System für alle Content-Container
+main, article, section, .content, .typography {
+    // Standard (lg-basierte) Custom Properties
+    --gs-spacing-xxs: #{$gs-font--xxs};  // 0.4rem
+    --gs-spacing-xs:  #{$gs-font--xs};   // 0.8rem
+    --gs-spacing-sm:  #{$gs-font--sm};   // 1.3rem
+    --gs-spacing-md:  #{$gs-font--md};   // 1.6rem
+    --gs-spacing-lg:  #{$gs-font--lg};   // 2.0rem
+    --gs-spacing-xl:  #{$gs-font--xl};   // 2.6rem
+    --gs-spacing-2xl: #{$gs-font--2xl};  // 3.3rem
+    --gs-spacing-3xl: #{$gs-font--3xl};  // 4.2rem
+
+    // Spacing-Klassen für verschiedene Abstände
+    %large-spacing { margin-top: var(--gs-spacing-3xl) !important; }
+    %medium-spacing { margin-top: var(--gs-spacing-2xl) !important; }
+    %normal-spacing { margin-top: var(--gs-spacing-lg) !important; }
+    %small-spacing { margin-top: var(--gs-spacing-md) !important; }
+    %xs-spacing { margin-top: var(--gs-spacing-xs) !important; }
+    %xxs-spacing { margin-top: var(--gs-spacing-xxs) !important; }
+    %content-spacing { margin-top: var(--gs-spacing-sm) !important; }
+
+    // Block-Elemente die sich wie p verhalten
+    $block-elements:  'p', 'ul', 'ol', 'blockquote', 'figure', 'table', 'pre', 'dl', 'hr', 'address';
+
+    // Block-Elemente zu Headings (neue Abschnitte)
+    @each $element in $block-elements {
+        #{$element} + h2 { @extend %large-spacing; }
+        #{$element} + h3 { @extend %medium-spacing; }
+        #{$element} + h4 { @extend %normal-spacing; }
+        #{$element} + h5,
+        #{$element} + h6 { @extend %small-spacing; }
+    }
+
+    // Headings zu Block-Elementen
+    @each $element in $block-elements {
+        h2 + #{$element} { @extend %small-spacing; }
+        h3 + #{$element} { @extend %small-spacing; }
+        h4 + #{$element} { @extend %content-spacing; }
+        h5 + #{$element},
+        h6 + #{$element} { @extend %xs-spacing; }
+    }
+
+    // Paragraph zu Paragraph
+    p + p { @extend %small-spacing; }
+
+    // Heading zu Heading (enge Verbindung für visuellen Zusammenhang)
+    h1 + h2,
+    h2 + h3 { @extend %xs-spacing; }
+
+    h3 + h4,
+    h4 + h5,
+    h4 + h6,
+    h5 + h6 { @extend %xxs-spacing; }
+
+    // Block-Element zu Block-Element (Standard-Content-Abstände)
+    p + ul,
+    p + ol,
+    ul + p,
+    ol + p,
+    ul + ol,
+    ol + ul,
+    blockquote + p,
+    blockquote + ul,
+    blockquote + ol { @extend %content-spacing; }
+}
+
+// App View: md-basierte Custom Properties
+.app-view > main,
+.app-view > article,
+.app-view > section,
+.app-view .content,
+.app-view .typography {
+    // Direkte md-basierte Werte (eine Stufe kleiner)
+    --gs-spacing-md:  #{$gs-font--sm};   // 1.3rem (war md: 1.6rem)
+    --gs-spacing-lg:  #{$gs-font--md};   // 1.6rem (war lg: 2.0rem)
+    --gs-spacing-xl:  #{$gs-font--lg};   // 2.0rem (war xl: 2.6rem)
+    --gs-spacing-2xl: #{$gs-font--xl};   // 2.6rem (war 2xl: 3.3rem)
+    --gs-spacing-3xl: #{$gs-font--2xl};  // 3.3rem (war 3xl: 4.2rem)
+    
+    // xxs und xs bleiben gleich für heading-zu-heading
+    // sm bleibt gleich für content-spacing
+}

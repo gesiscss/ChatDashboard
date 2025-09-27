@@ -1,0 +1,76 @@
+@import "slick-carousel/slick/slick.scss";
+
+.carousel {
+  img {
+    border-radius: 1.5rem;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+
+  .slick-slide {
+    margin: 0 $gs-font--xl;
+    height: inherit;
+
+    > div,
+    article {
+      height: 100%;
+    }
+
+    .gesis-card {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+
+      .gesis-card--content {
+        
+        :first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+
+  .slick-arrow {
+    border: solid 2px gs-color(gs-accent-grey);
+    background: white;
+    aspect-ratio: 1;
+    padding: 0.5rem;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.2s ease-in-out;
+    width: $gs-font--4xl;
+    height: $gs-font--4xl;
+    display: inline-flex;
+
+    &:before {
+      // Remove default slick arrow
+      display: none;
+    }
+
+    &:hover {
+      background: gs-color(gs-default-grey);
+    }
+
+    &::after {
+      @include font-size($gs-font--3xl);
+      margin: 0;
+      color: gs-color(gs-pink) !important;
+      font-family: bootstrap-icons;
+      content: "\F285";
+    }
+
+    &.slick-prev {
+      right: unset;
+      left: 0;
+      &::after {
+        transform: rotate(180deg);
+		
+      }
+    }
+  }
+}

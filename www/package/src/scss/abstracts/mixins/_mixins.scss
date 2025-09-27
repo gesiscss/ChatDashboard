@@ -1,0 +1,240 @@
+@import "breakpoint";
+
+@mixin side-space($use-margin-for-space: false) {
+	// Hier könnte man auch zwei mixins machen und auf den Parameter verzichten
+	padding-left: gs-space(side-space);
+	padding-right: gs-space(side-space);
+
+	@if $use-margin-for-space {
+		padding-left: gs-space(side-space);
+		padding-right: gs-space(side-space);
+	}
+}
+
+@mixin max-width-content {
+	max-width: $max-content-width;
+	margin-left: auto;
+	margin-right: auto;
+	@include side-space;
+}
+
+@mixin underline-link {
+	text-decoration: none;
+	box-shadow: inset 0 -1px 0 0 gs-var(link-underline--color);
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		box-shadow: inset 0 gs-var(link-underline--hover-height) 0 0 gs-var(link-underline--hover-color);
+	}
+}
+
+@mixin arrow-right-before($arrow-font-size: inherit, $arrow-color: inherit, $space-between: $gs-font--xs, $flex-align: center) {
+	display: flex;
+	align-items: $flex-align;
+
+	&:before {
+		content: "\f135";
+		margin-right: $space-between;
+		font-size: $arrow-font-size;
+		color: $arrow-color;
+		font-family: bootstrap-icons;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		vertical-align: inherit;
+		line-height: initial;
+		align-self: center; 
+	}
+}
+
+@mixin arrow-right-after($arrow-font-size: inherit, $arrow-color: inherit, $space-between: $gs-font--xs, $flex-align: center) {
+	display: flex;
+	align-items: $flex-align;
+
+	&:after {
+		content: "\f135";
+		margin-left: $space-between;
+		font-size: $arrow-font-size;
+		color: $arrow-color;
+		font-family: bootstrap-icons;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		vertical-align: middle;
+		line-height: initial;
+	}
+}
+
+@mixin arrow-right-down-after($arrow-font-size: inherit, $arrow-color: inherit, $space-between: $gs-font--xs, $flex-align: center) {
+	display: flex;
+	align-items: $flex-align;
+
+	&:after {
+		content: "\f282";
+		margin-left: $space-between;
+		font-size: $arrow-font-size;
+		color: $arrow-color;
+		font-family: bootstrap-icons;
+		font-style: normal;
+		font-weight: bold;
+		font-variant: normal;
+		text-transform: none;
+		vertical-align: middle;
+		line-height: initial;
+	}
+}
+
+@mixin arrow-down-after($arrow-font-size: inherit, $arrow-color: inherit, $space-between: 0.5em, $flex-align: center) {
+	position: relative;
+
+	&:after {
+		content: $gesis-icon-arrow-down-short;
+		position: absolute;
+		top: 50%;
+		right: 1rem;
+		transform: translateY(-50%);
+		border: none;
+		margin-left: $space-between;
+		font-size: $arrow-font-size;
+		color: $arrow-color !important;
+		font-family: $gesis-icons-font;
+		font-style: normal;
+		font-weight: normal !important;
+		font-variant: normal;
+		text-transform: none;
+		line-height: $arrow-font-size;
+	}
+}
+
+@mixin gesis-button($button-text-size: $gs-font--md, $arrow-font-size: $gs-font--md, $space-between: $gs-font--md) {
+	@include arrow-right-after($arrow-font-size: $gs-font--2xl, $arrow-color: gs-var(button--color), $space-between: 0.4rem);
+	@include font-size($gs-btn-font-size);
+	font-weight: bold;
+	background-color: gs-var(button--background-color);
+	border-radius: $gs-font--xl;
+	border: 2px solid gs-var(button--color);
+	color: gs-var(button--color);
+	padding: 0.4rem 1rem 0.3rem $gs-font--xl;
+	white-space: normal;
+	line-height: 1;
+    margin-top: 2.6rem;
+    margin-bottom: 2.6rem;
+    display: inline-flex;
+
+
+	&:has(&:after) {
+		padding-right: 1rem;
+	}
+
+	&:hover,
+	&[aria-selected="true"] {
+		background-color: gs-var(button--hover-background-color);
+		color: gs-var(button--hover-color);
+
+		&:after {
+			// Change color of arr in button
+			color: gs-var(button--hover-color);
+		}
+	}
+
+}
+
+@mixin close-button($button-size: 3.3rem, $button-theme-color: gs-color(gs-dark-grey), $button-hover-x-color: #fff, $button-x-size: 1.3rem) {
+	border-radius: calc(2 * #{$button-size});
+	width: $button-size;
+	height: $button-size;
+	line-height: $button-size;
+	background-color: #fff;
+	border: 2px solid $button-theme-color;
+	text-indent: -999999px;
+
+	&:after {
+		content: "\e91e";
+		display: grid;
+		place-content: center;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		color: $button-theme-color;
+		font-family: $gesis-icons-font;
+		text-indent: initial;
+		font-size: $button-x-size;
+	}
+
+	&:hover {
+		background-color: $button-theme-color;
+
+		&:after {
+			color: $button-hover-x-color;
+		}
+	}
+}
+
+@mixin round-icon-before($icon-size: $gs-font--xl, $space-between: $gs-font--xs, $icon-color: gs-color(gs-darkblue), $icon: "" /* can be used to set icon without class on element*/) {
+	display: inline-flex;
+	align-items: center;
+
+	&:before {
+		font-family: $gesis-icons-font;
+		color: $icon-color;
+		margin-right: $space-between;
+		line-height: 1;
+		font-size: $icon-size;
+	}
+
+	&.icon-tel:before {
+		content: $gesis-icon-phone-circle;
+	}
+	&.icon-mail:before {
+		content: $gesis-icon-mail-circle;
+	}
+	&.icon-vcard:before {
+		content: $gesis-icon-vcard-circle;
+	}
+	&.icon-fax:before {
+		content: $gesis-icon-fax-circle;
+	}
+	&.icon-location:before {
+		content: $gesis-icon-location-circle;
+	}
+
+	@if $icon != "" {
+		&::before {
+			content: $icon;
+		}
+	}
+}
+
+@mixin pagination-dot($dot-size: $gs-font--xl) {
+	aspect-ratio: 1;
+	display: inline-block;
+	border-radius: 1000px !important;
+	width: $dot-size;
+	line-height: $dot-size;
+	font-size: $gs-font--md;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	background: gs-color(gs-dark-grey);
+	color: white;
+	border: none;
+	font-weight: bold;
+
+	// Remove default link underline
+	box-shadow: none;
+}
+
+
+@mixin mobile {
+	@media (max-width: $mobile-width) { @content; }
+}
+
+
+
+@mixin gs-bg-color($color, $alpha: 0.08) {
+	background-color: rgba($color, $alpha);
+  }

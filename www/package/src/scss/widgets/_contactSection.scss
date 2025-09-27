@@ -1,0 +1,9 @@
+#contact-section {
+	.gesis-contact-card {
+		&:not(:last-of-type) {
+			padding-bottom: $gs-font--3xl;
+			margin-bottom: $gs-font--3xl ;
+			border-bottom: 1px solid white;
+		}
+	}
+}

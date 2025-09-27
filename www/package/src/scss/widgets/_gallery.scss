@@ -1,0 +1,11 @@
+.gallery {
+	a {
+		// Remove default link undline
+		box-shadow: none !important;
+	}
+
+	img {
+		border-radius: 1.5rem;
+		box-shadow: 0 4px 8px rgba(0,0,0,0.16);
+	}
+}

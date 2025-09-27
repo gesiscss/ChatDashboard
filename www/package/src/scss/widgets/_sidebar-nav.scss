@@ -1,0 +1,59 @@
+nav.sidebar-nav {
+	.sidebar-nav--title {
+		color: gs-color(gs-darkblue);
+		@include font-size($gs-font--lg);
+		margin-top: $gs-font--lg;
+		margin-bottom: $gs-font--sm;
+		
+	}
+
+
+	ul {
+		list-style: none;
+		padding-left: 0;
+		margin-top: $gs-font--sm;
+		-webkit-hyphens: auto;
+		-ms-hyphens: auto;
+		hyphens: auto;
+
+		li {
+			a {
+				display: block;
+				border-bottom: 1px solid gs-color(gs-darkblue);
+				padding: 0.3em 0.2em;
+				line-height: $gs-font--lg;
+				@include arrow-right-before($arrow-font-size: $gs-font--xl, $arrow-color: gs-color(gs-pink));
+
+				// Remove default link undline
+				box-shadow: none !important;
+
+				&:hover {
+					background-color: gs-color(gs-lightblue--14);
+					color: gs-color(gs-pink--hover);
+				}
+
+				&:active {
+					background-color: gs-color(gs-lightblue--25);
+					color: gs-color(gs-pink--pressed);
+				  }
+			}
+
+			&.gs_active{
+				background-color: gs-color(gs-lightblue--14);
+				color: gs-color(gs-darkblue);
+
+				&:before {
+					color: gs-color(gs-darkblue);
+				}
+			}
+		}
+	}
+
+	ul.gesis-link-list{
+		li {
+			a{
+				border-bottom: 0;
+			}
+		}
+	}
+}

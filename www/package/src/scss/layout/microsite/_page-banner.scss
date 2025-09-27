@@ -1,0 +1,37 @@
+.page-banner {
+  .h1 {
+    a {
+        box-shadow: none !important;
+    }
+
+  }
+}
+
+.microsite-logo {
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 139px;
+    height: 139px;
+    margin: 1px;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 1; 
+  }
+  
+  img {
+    top: 0;
+    left: 0;
+    position: relative;
+    z-index: 2;
+    width: 140px;
+    height: auto;
+    background-color: white;
+    border-radius: 1000px;
+  }
+}
