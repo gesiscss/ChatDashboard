@@ -949,32 +949,64 @@ ui <- shinymanager::secure_app(
   app_ui,
   language = landing_page_language,
   tags_top = tagList(
-    tags$head(tags$link(rel="stylesheet", href = "package/dist/gesis-web.css")),
-    # Fixed header + banner
-    tags$div(id="gesis-micro-header", includeHTML("www/gesis-micro-header.html")),
+    tags$head(tags$link(rel = "stylesheet", href = "package/dist/gesis-web.css")),
+    # Fixed header + banner markup
+    tags$div(id = "gesis-micro-header", includeHTML("www/gesis-micro-header.html")),
     includeHTML("www/gesis-microsite-banner.html"),
-    # Login-page-only CSS (because it's injected via tags_top)
+    # Login page CSS
     tags$style(HTML("
-      /* lock to login page only (this <style> exists only on login) */
-      #gesis-micro-header{position:fixed;top:0;left:0;right:0;z-index:1030;}
-      .page-banner.microsite{position:fixed;top:64px;left:0;right:0;z-index:1020;}
-      /* give the login panel room below header+banner */
-      body{padding-top:calc(64px + 180px + 16px); padding-bottom:220px;}
-      /* center the shinymanager login panel */
-      .container .panel.panel-default{margin-top:0; margin-bottom:0;}
+      :root{
+        --header-h:64px;
+        --banner-h:180px;
+        --gap-h:24px;
+        --footer-h:220px;
+      }
+
+      /* fixed header */
+      #gesis-micro-header{
+        position:fixed; top:0; left:0; right:0; z-index:1030;
+      }
+
+      /* full width fixed banner using the SVG */
+      .page-banner.microsite{
+        position:fixed; top:var(--header-h); left:0; right:0; z-index:1020;
+        height:var(--banner-h); min-height:var(--banner-h); width:100vw;
+        background-image:url('banner-microsite-07.svg') !important;
+        background-repeat:no-repeat !important;
+        background-size:cover !important;
+        background-position:center !important;
+        margin:0 !important; padding:0 !important; border:0 !important;
+      }
+      .page-banner.microsite .page-banner--inner{ background:transparent !important; }
+
+      /* reserve space below header and banner and add gap above login box */
+      html, body { height:100%; }
+      body{
+        padding-top:calc(var(--header-h) + var(--banner-h) + var(--gap-h));
+        padding-bottom:var(--footer-h);
+        overflow-x:hidden;
+      }
+
+      /* keep login panel tidy */
+      .container .panel.panel-default{ margin-top:0; margin-bottom:0; }
+
+      /* overlays above fixed pieces */
+      .selectize-dropdown, .dropdown-menu, .modal, .modal-backdrop{ z-index:2000; }
+
+      /* responsive tweak */
+      @media (max-width: 768px){
+        :root{ --banner-h:140px; --gap-h:16px; }
+      }
     "))
   ),
   tags_bottom = tagList(
     # Fixed footer
     tags$footer(class = "page-footer", includeHTML("www/gesis-footer.html")),
     tags$style(HTML("
-      .page-footer{position:fixed;left:0;right:0;bottom:0;z-index:1030;}
-      /* remove extra gap under footer on login */
-      html,body{height:100%;}
+      .page-footer{ position:fixed; left:0; right:0; bottom:0; z-index:1030; }
     "))
   )
 )
-
 
 
 
