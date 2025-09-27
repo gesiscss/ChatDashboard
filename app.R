@@ -945,8 +945,6 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
 ###################################################################################### SECURING APP WITH SHINYMANAGER #####
 
 # Wrapping UI with secure_app for password protection
-# Wrapping UI with secure_app for password protection
-# Wrapping UI with secure_app for password protection
 ui <- shinymanager::secure_app(
   app_ui,
   language = landing_page_language,
