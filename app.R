@@ -159,18 +159,18 @@ waiting_screen2 <- tagList(
 
 # Define UI for ChatDashboard application
 app_ui <- fluidPage(theme = shinytheme("flatly"),
-                
-                ##################################### UI SETUP ####
-                
-                # Shiny helpers
-                useShinyjs(),
-                setBackgroundColor("#ffffff"),
-                useWaiter(),
-                
-                # GESIS framework + fixes (fileInput, footer spacing, banner/nav styling)
-                tags$head(
-                  tags$link(rel = "stylesheet", href = "package/dist/gesis-web.css"),
-                  tags$style(HTML("
+                    
+                    ##################################### UI SETUP ####
+                    
+                    # Shiny helpers
+                    useShinyjs(),
+                    setBackgroundColor("#ffffff"),
+                    useWaiter(),
+                    
+                    # GESIS framework + fixes (fileInput, footer spacing, banner/nav styling)
+                    tags$head(
+                      tags$link(rel = "stylesheet", href = "package/dist/gesis-web.css"),
+                      tags$style(HTML("
                     /* ---------- FILE INPUT (Bootstrap 3) ---------- */
                     .bs3-fileinput .input-group { display: table !important; width: 100% !important; border-collapse: separate; }
                     .bs3-fileinput .input-group .form-control { display: table-cell !important; width: 100% !important; float: none; }
@@ -242,26 +242,26 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                           /* Hide Bootstrap navbar strip; we use microsite nav for tabs */
                           .navbar, .navbar .navbar-header, .navbar .navbar-nav{display:none!important; height:0; min-height:0; margin:0; padding:0; border:0;}
                         "))
-                ),
-                
-                # GESIS micro header and banner
-                tags$div(id = "gesis-micro-header", includeHTML("www/gesis-micro-header.html")),
-                includeHTML("www/gesis-microsite-banner.html"),
-                
-                # GESIS microsite navigation controlling Shiny tabs (full width, dark)
-                tags$nav(class = "gs-micro-nav container-fluid has-bg-color gs-darkblue--65",
-                         tags$ul(class = "list-inline",
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[3],  display_text[3]  )), # Überblick
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[15], display_text[15] )), # Daten hochladen
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[87], display_text[87] )), # Spender Auswahl
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[28], display_text[28] )), # Daten auswählen
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[46], display_text[46] )), # Ergebnisse
-                                 tags$li(tags$a(href = "#", `data-tab` = display_text[76], display_text[76] ))  # Impressum
-                         )
-                ),
-                
-                # Click handler + active state
-                tags$script(HTML("
+                    ),
+                    
+                    # GESIS micro header and banner
+                    tags$div(id = "gesis-micro-header", includeHTML("www/gesis-micro-header.html")),
+                    includeHTML("www/gesis-microsite-banner.html"),
+                    
+                    # GESIS microsite navigation controlling Shiny tabs (full width, dark)
+                    tags$nav(class = "gs-micro-nav container-fluid has-bg-color gs-darkblue--65",
+                             tags$ul(class = "list-inline",
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[3],  display_text[3]  )), # Überblick
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[15], display_text[15] )), # Daten hochladen
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[87], display_text[87] )), # Spender Auswahl
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[28], display_text[28] )), # Daten auswählen
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[46], display_text[46] )), # Ergebnisse
+                                     tags$li(tags$a(href = "#", `data-tab` = display_text[76], display_text[76] ))  # Impressum
+                             )
+                    ),
+                    
+                    # Click handler + active state
+                    tags$script(HTML("
                     $(document).on('click','.gs-micro-nav a',function(e){
                       e.preventDefault();
                       $('.gs-micro-nav a').removeClass('is-active');
@@ -269,8 +269,8 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                       Shiny.setInputValue('go_tab', $(this).data('tab'), {priority:'event'});
                     });
                   ")),
-                
-                tags$script(HTML("
+                    
+                    tags$script(HTML("
                       Shiny.addCustomMessageHandler('microNavVisible', function(msg){
                         var show = msg.show || [];
                         var active = msg.active || null;
@@ -282,9 +282,9 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                         });
                       });
                     ")),
-                
-                # fix sweet alerts for GESIS CSS
-                tags$head(tags$script(HTML("
+                    
+                    # fix sweet alerts for GESIS CSS
+                    tags$head(tags$script(HTML("
                   new MutationObserver(function(){
                     var p=document.querySelector('.swal2-popup');
                     if(!p) return;
@@ -292,658 +292,660 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                      .forEach(function(e){ e.style.display='none'; e.style.height='0'; e.style.padding='0'; e.style.border='0'; });
                   }).observe(document.body,{childList:true,subtree:true});
                 "))),
-                
-                
-                
-                
-                ##################################### MAIN UI ####
-                
-                # Logo and App name in navbar page
-                navbarPage(title = tags$img(height = 35,
-                                            width = 35,
-                                            src = "WhatsR_logo.png"),
-                           id = "ChatDashboard",
-                           windowTitle = "ChatDashboard",
-                           
-                           ##################################### Overview Page ####
-                           tabPanel(display_text[3],
-                                    
-                                    # whole page
-                                    fluidRow(
-                                      
-                                      # Heading 1
-                                      column(tags$p(style = "text-align: justify;",
-                                                    HTML(display_text[4])),
-                                             HTML("<br>"),
-                                             HTML(display_text[5]),
-                                             HTML("<br><br>"),
-                                             HTML(display_text[6]),
-                                             HTML("<br><br>"),
-                                             HTML(display_text[7]),
-                                             HTML("<br><br><br>"),
-                                             width = 6, offset = 3),
-                                      
-                                      # Images
-                                      column(slickROutput("slickr",
-                                                          width = "100%",
-                                                          height = "100%"),
-                                             HTML("<br><br>"),
-                                             width = 6, offset = 3),
-                                      
-                                      # Heading 2
-                                      column(tags$p(style = "text-align: justify;",
-                                                    HTML(display_text[8]),
-                                                    HTML(display_text[9]),
-                                                    HTML("<br><br>")
-                                      ),
-                                      width = 6, offset = 3),
-                                      
-                                      # Heading 3
-                                      column(tags$p(style = "text-align: justify;",
-                                                    HTML(display_text[10]),
-                                                    HTML(display_text[11]),
-                                                    HTML("<br><br>")
-                                      ),
-                                      width = 6, offset = 3),
-                                      
-                                      # Heading 4
-                                      column(tags$p(style = "text-align: justify;",
-                                                    HTML(display_text[12]),
-                                                    HTML(display_text[13]),
-                                                    HTML("<br><br>")
-                                      ),
-                                      width = 6, offset = 3),
-                                      
-                                      # Consent button
-                                      column(12, align = "center",
-                                             actionButton("IntroCheck",
-                                                          label = display_text[14],
-                                                          class = "btn-warning",
-                                                          style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A"),
-                                             HTML("<br><br><br><br><br><br>")
-                                      )
-                                      
-                                      # End of fluidRow
-                                    )
-                                    
-                                    # End of tabPanel
-                           ),
-                           
-                           ##################################### DATA UPLOAD PAGE ####
-                           tabPanel(display_text[15],
-                                    
-                                    # Sidebar
-                                    sidebarLayout(
-                                      sidebarPanel(h2(display_text[16],
-                                                      align = "center"),
-                                                   
-                                                   # Text for sidebar panel
-                                                   helpText(display_text[18]),
-                                                   helpText(display_text[19]),
-                                                   
-                                                   # File selection field
-                                                   div(class = "bs3-fileinput",
-                                                       fileInput("file", label = "",
-                                                                 accept = c(".txt", ".zip"),
-                                                                 buttonLabel = display_text[20])
-                                                   ),
-                                                   
-                                                   # Upload button
-                                                   actionButton(inputId = "submit",
-                                                                label = display_text[21],
-                                                                class = "btn-warning",
-                                                                style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A")
-                                      ),
-                                      
-                                      # Main panel
-                                      mainPanel(
-                                        column(
-                                          tags$p(
-                                            
-                                            # Headline
-                                            HTML(display_text[22]),
-                                            
-                                            # Text column
-                                            tags$p(style = "text-align: justify;",
-                                                   HTML(display_text[23]),
-                                                   HTML("<br><br>"),
-                                                   HTML(display_text[24]),
-                                                   HTML("<br><br>"),
-                                                   HTML(display_text[25]),
-                                                   HTML("<br><br>")
-                                            ),
-                                            
-                                            # Images and Headlines
-                                            HTML(display_text[26]),
-                                            tags$img(height = "auto",
-                                                     width = "100%",
-                                                     src = "DataExport_Guide_Android.png"),
-                                            HTML("<br><br>"),
-                                            HTML(display_text[27]),
-                                            tags$img(height = "auto",
-                                                     width = "100%",
-                                                     src = "WhatsApp_DataExport_iOS.png"),
-                                            HTML("<br><br>"),
-                                            
-                                            # End paragraph
+                    
+                    
+                    
+                    
+                    ##################################### MAIN UI ####
+                    
+                    # Logo and App name in navbar page
+                    navbarPage(title = tags$img(height = 35,
+                                                width = 35,
+                                                src = "WhatsR_logo.png"),
+                               id = "ChatDashboard",
+                               windowTitle = "ChatDashboard",
+                               
+                               ##################################### Overview Page ####
+                               tabPanel(display_text[3],
+                                        
+                                        # whole page
+                                        fluidRow(
+                                          
+                                          # Heading 1
+                                          column(tags$p(style = "text-align: justify;",
+                                                        HTML(display_text[4])),
+                                                 HTML("<br>"),
+                                                 HTML(display_text[5]),
+                                                 HTML("<br><br>"),
+                                                 HTML(display_text[6]),
+                                                 HTML("<br><br>"),
+                                                 HTML(display_text[7]),
+                                                 HTML("<br><br><br>"),
+                                                 width = 6, offset = 3),
+                                          
+                                          # Images
+                                          column(slickROutput("slickr",
+                                                              width = "100%",
+                                                              height = "100%"),
+                                                 HTML("<br><br>"),
+                                                 width = 6, offset = 3),
+                                          
+                                          # Heading 2
+                                          column(tags$p(style = "text-align: justify;",
+                                                        HTML(display_text[8]),
+                                                        HTML(display_text[9]),
+                                                        HTML("<br><br>")
+                                          ),
+                                          width = 6, offset = 3),
+                                          
+                                          # Heading 3
+                                          column(tags$p(style = "text-align: justify;",
+                                                        HTML(display_text[10]),
+                                                        HTML(display_text[11]),
+                                                        HTML("<br><br>")
+                                          ),
+                                          width = 6, offset = 3),
+                                          
+                                          # Heading 4
+                                          column(tags$p(style = "text-align: justify;",
+                                                        HTML(display_text[12]),
+                                                        HTML(display_text[13]),
+                                                        HTML("<br><br>")
+                                          ),
+                                          width = 6, offset = 3),
+                                          
+                                          # Consent button
+                                          column(12, align = "center",
+                                                 actionButton("IntroCheck",
+                                                              label = display_text[14],
+                                                              class = "btn-warning",
+                                                              style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A"),
+                                                 HTML("<br><br><br><br><br><br>")
+                                          )
+                                          
+                                          # End of fluidRow
+                                        )
+                                        
+                                        # End of tabPanel
+                               ),
+                               
+                               ##################################### DATA UPLOAD PAGE ####
+                               tabPanel(display_text[15],
+                                        
+                                        # Sidebar
+                                        sidebarLayout(
+                                          sidebarPanel(h2(display_text[16],
+                                                          align = "center"),
+                                                       
+                                                       # Text for sidebar panel
+                                                       helpText(display_text[18]),
+                                                       helpText(display_text[19]),
+                                                       
+                                                       # File selection field
+                                                       div(class = "bs3-fileinput",
+                                                           fileInput("file", label = "",
+                                                                     accept = c(".txt", ".zip"),
+                                                                     buttonLabel = display_text[20])
+                                                       ),
+                                                       
+                                                       # Upload button
+                                                       actionButton(inputId = "submit",
+                                                                    label = display_text[21],
+                                                                    class = "btn-warning",
+                                                                    style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A")
                                           ),
                                           
-                                          # end column
-                                          width = 10, offset = 1)
+                                          # Main panel
+                                          mainPanel(
+                                            column(
+                                              tags$p(
+                                                
+                                                # Headline
+                                                HTML(display_text[22]),
+                                                
+                                                # Text column
+                                                tags$p(style = "text-align: justify;",
+                                                       HTML(display_text[23]),
+                                                       HTML("<br><br>"),
+                                                       HTML(display_text[24]),
+                                                       HTML("<br><br>"),
+                                                       HTML(display_text[25]),
+                                                       HTML("<br><br>")
+                                                ),
+                                                
+                                                # Images and Headlines
+                                                HTML(display_text[26]),
+                                                tags$img(height = "auto",
+                                                         width = "100%",
+                                                         src = "DataExport_Guide_Android.png"),
+                                                HTML("<br><br>"),
+                                                HTML(display_text[27]),
+                                                tags$img(height = "auto",
+                                                         width = "100%",
+                                                         src = "WhatsApp_DataExport_iOS.png"),
+                                                HTML("<br><br>"),
+                                                
+                                                # End paragraph
+                                              ),
+                                              
+                                              # end column
+                                              width = 10, offset = 1)
+                                            
+                                            # end main panel
+                                          ),
+                                          
+                                          # End sidebar layout
+                                        )
                                         
-                                        # end main panel
-                                      ),
-                                      
-                                      # End sidebar layout
-                                    )
-                                    
-                                    # End tab panel
-                           ),
-                           
-                           ##################################### PARTICIPANT - USER SELECTION PAGE ####
-                           tabPanel(display_text[87],
-                                    
-                                    # Sidebar
-                                    sidebarPanel(
-                                      
-                                      # Info text
-                                      h2(display_text[87], align = "center"),
-                                      HTML(display_text[90]),
-                                      
-                                      # spacer
-                                      HTML("<br><br>"),
-                                      
-                                      # input selector
-                                      selectInput("person_select",
-                                                  label = display_text[91],
-                                                  choices = c(""),
-                                                  selected = "",
-                                                  multiple = FALSE),
-                                      
-                                      
-                                      # action button
-                                      actionButton("person_submit",
-                                                   display_text[89],
-                                                   style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A"),
-                                    ),
-                                    
-                                    # Main panel
-                                    mainPanel(
-                                      
-                                      # headline
-                                      h2(display_text[87], align = "center"),
-                                      
-                                      # information
-                                      HTML(display_text[58]),
-                                      
-                                      # table display here
-                                      DTOutput("selection_frame"),
-                                      
-                                      # Display the selected choice
-                                      textOutput("selected_choice"),
-                                      
-                                      # spacer
-                                      HTML("<br><br><br><br>"),
-                                      
-                                    )
-                                    
-                                    
-                           ),
-                           
-                           
-                           ##################################### DATA EXPLORATION PAGE ####
-                           tabPanel(display_text[28],
-                                    
-                                    # Sidebar Panel
-                                    sidebarPanel(
-                                      
-                                      # Info text
-                                      h2(display_text[29], align = "center"),
-                                      HTML(display_text[30]),
-                                      HTML("<br><br>"),
-                                      HTML(display_text[31]),
-                                      
-                                      # column selection
-                                      h3(display_text[32]),
-                                      helpText(display_text[33]),
-                                      pickerInput("show_vars",
-                                                  display_text[34],
-                                                  choices = c(""),
-                                                  selected = c(""),
-                                                  label = display_text[35],
-                                                  multiple = TRUE,
-                                                  choicesOpt = list(style = c("color:black;font-weight: bold;",
-                                                                              "background:lightgrey;color:black",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "background:lightgrey;color:black",
-                                                                              "background:lightgrey;color:black",
-                                                                              "background:lightgrey;color:black",
-                                                                              "background:lightgrey;color:black",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "background:lightgrey;color:black",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "background:lightgrey;color:black",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "background:lightgrey;color:black",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "color:black;font-weight: bold;",
-                                                                              "color:black;font-weight: bold;"))),
-                                      
-                                      # Row selection
-                                      h3(display_text[36]),
-                                      helpText(display_text[37]),
-                                      actionButton("excludeRows",display_text[38]),
-                                      actionButton("RestoreRows",display_text[39]),
-                                      
-                                      # Data donation
-                                      h3(display_text[40]),
-                                      helpText(display_text[41]),
-                                      actionButton(inputId = "donation",
-                                                   label = display_text[42],
-                                                   class = "btn-warning",
-                                                   style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A")
-                                      
-                                      # End sidebar panel
-                                    ),
-                                    
-                                    # Main panel
-                                    mainPanel(
-                                      
-                                      # Headline
-                                      h1(display_text[43],align = "center"),
-                                      HTML("<br>"),
-                                      
-                                      # Dataframe
-                                      DTOutput("frame"),
-                                      
-                                      # Download buttons
-                                      fluidRow(column(1,
-                                                      align = "topright",
-                                                      downloadButton("downloadSelection",
-                                                                     display_text[44])),
-                                               column(1,
-                                                      align = "topleft",
-                                                      downloadButton("downloadData",
-                                                                     display_text[45]),
-                                                      offset = 9),),
-                                      
-                                      # End main panel
-                                    )
-                                    
-                                    # End tab panel
-                           ),
-                           
-                           ##################################### OVERALL RESULTS PAGE ####
-                           tabPanel(display_text[46],
-                                    
-                                    tabsetPanel(type = "tabs",
-                                                
-                                                ##################################### RESULTS: MESSAGES SUBPAGE ####
-                                                tabPanel(display_text[47],
-                                                         
-                                                         # sidebar panel
-                                                         sidebarPanel(h3(display_text[48], align = "center"),
-                                                                      tags$p(display_text[49]),
-                                                                      
-                                                                      # Sender selection
-                                                                      h3(display_text[50]),
-                                                                      helpText(display_text[51]),
-                                                                      checkboxGroupButtons("Sender_input_msg",
-                                                                                           "",
-                                                                                           display_text[52]),
-                                                                      
-                                                                      # Time selection
-                                                                      h3(display_text[53]),
-                                                                      helpText(display_text[54]),
-                                                                      dateRangeInput("date_range_messages",
-                                                                                     label = display_text[55],
-                                                                                     start = "2016-01-01",
-                                                                                     end = NULL,
-                                                                                     format = "dd-mm-yyyy",
-                                                                                     startview = "year",
-                                                                                     weekstart = 1,
-                                                                                     language = landing_page_language,
-                                                                                     autoclose = TRUE,
-                                                                                     separator = display_text[56])
-                                                                      
-                                                                      # End sidebar panel
-                                                         ),
-                                                         
-                                                         # Main Panel
-                                                         mainPanel(
-                                                           
-                                                           # Plot 1
-                                                           h1(display_text[57],align = "center"),
-                                                           HTML(display_text[58]),
-                                                           HTML("<br><br>"),
-                                                           addSpinner(plotOutput("message1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 2
-                                                           h1(display_text[59],align = "center"),
-                                                           HTML("<br><br>"),
-                                                           addSpinner(plotOutput("tokensbwah1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # plot 3
-                                                           addSpinner(plotOutput("tokensbwah2",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8")
-                                                           
-                                                           # End main panel
-                                                         ),
-                                                         
-                                                         # end tab panel
-                                                         width = 6, offset = 5),
-                                                
-                                                ##################################### RESULTS: LINKS SUBPAGE ####
-                                                tabPanel(display_text[60],
-                                                         
-                                                         # sidebar panel
-                                                         sidebarPanel(h3(display_text[48], align = "center"),
-                                                                      tags$p(display_text[61]),
-                                                                      
-                                                                      # sender selection
-                                                                      h3(display_text[50]),
-                                                                      helpText(display_text[51]),
-                                                                      checkboxGroupButtons("Sender_input_links",
-                                                                                           "",
-                                                                                           display_text[62]),
-                                                                      
-                                                                      # timespan selection
-                                                                      h3(display_text[55]),
-                                                                      helpText(display_text[54]),
-                                                                      dateRangeInput("date_range_links",
-                                                                                     label = display_text[55],
-                                                                                     start = "2016-01-01",
-                                                                                     end = NULL,
-                                                                                     format = "dd-mm-yyyy",
-                                                                                     startview = "year",
-                                                                                     weekstart = 1,
-                                                                                     language = landing_page_language,
-                                                                                     autoclose = TRUE,
-                                                                                     separator = display_text[56]),
-                                                                      
-                                                                      # Link Minimum selection
-                                                                      h3(display_text[63]),
-                                                                      helpText(display_text[64]),
-                                                                      sliderInput("LinkMinimum",
-                                                                                  "",
-                                                                                  min = 1,
-                                                                                  max = 100,
-                                                                                  value = 5)
-                                                                      
-                                                                      # End sidebar panel
-                                                         ),
-                                                         
-                                                         # Main Panel
-                                                         mainPanel(
-                                                           
-                                                           # Plot 1
-                                                           h3(display_text[65], align = "center"),
-                                                           HTML(display_text[58]),
-                                                           addSpinner(plotOutput("links4",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # plot 2
-                                                           addSpinner(plotOutput("links2",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # plot 3
-                                                           addSpinner(plotOutput("links1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                         ),
-                                                         
-                                                         width = 6, offset = 5),
-                                                
-                                                ##################################### RESULTS: SMILIES SUBPAGE ####
-                                                tabPanel(display_text[66],
-                                                         
-                                                         # sidebar panel
-                                                         sidebarPanel(h3(display_text[48], align = "center"),
-                                                                      tags$p(display_text[67]),
-                                                                      
-                                                                      # sender selection
-                                                                      h3(display_text[50]),
-                                                                      helpText(display_text[51]),
-                                                                      checkboxGroupButtons("Sender_input_smilies",
-                                                                                           "",
-                                                                                           display_text[52]),
-                                                                      
-                                                                      # time range selection
-                                                                      h3(display_text[53]),
-                                                                      helpText(display_text[54]),
-                                                                      dateRangeInput("date_range_smilies",
-                                                                                     label = display_text[55],
-                                                                                     start = "2016-01-01",
-                                                                                     end = NULL,
-                                                                                     format = "dd-mm-yyyy",
-                                                                                     startview = "year",
-                                                                                     weekstart = 1,
-                                                                                     language = landing_page_language,
-                                                                                     autoclose = TRUE,
-                                                                                     separator = display_text[56]),
-                                                                      
-                                                                      # smilie minimum selection
-                                                                      h3(display_text[63]),
-                                                                      helpText(display_text[68]),
-                                                                      sliderInput("SmilieMinimum",
-                                                                                  "", min = 1,
-                                                                                  max = 100,
-                                                                                  value = 5)
-                                                                      
-                                                         ),
-                                                         
-                                                         # Main Panel
-                                                         mainPanel(
-                                                           
-                                                           # Plot 1
-                                                           h3(display_text[69], align = "center"),
-                                                           HTML(display_text[58]),
-                                                           addSpinner(plotOutput("smilies4",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 2
-                                                           addSpinner(plotOutput("smilies2",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 3
-                                                           addSpinner(plotOutput("smilies1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # end main panel
-                                                         ),
-                                                         
-                                                         # end tabpanel
-                                                         width = 6, offset = 5),
-                                                
-                                                ##################################### RESULTS: EMOJI SUBPAGE ####
-                                                tabPanel(display_text[70],
-                                                         
-                                                         # sidebar panel
-                                                         sidebarPanel(h3(display_text[48], align = "center"),
-                                                                      tags$p(display_text[71]),
-                                                                      
-                                                                      # sender selection
-                                                                      h3(display_text[50]),
-                                                                      helpText(display_text[51]),
-                                                                      checkboxGroupButtons("Sender_input_emoji",
-                                                                                           "",
-                                                                                           display_text[62]),
-                                                                      
-                                                                      # timeframe selection
-                                                                      h3(display_text[53]),
-                                                                      helpText(display_text[54]),
-                                                                      dateRangeInput("date_range_emoji",
-                                                                                     label = display_text[55],
-                                                                                     start = "2016-01-01",
-                                                                                     end = NULL,
-                                                                                     format = "dd-mm-yyyy",
-                                                                                     startview = "year",
-                                                                                     weekstart = 1,
-                                                                                     language = landing_page_language,
-                                                                                     autoclose = TRUE,
-                                                                                     separator = display_text[56]),
-                                                                      
-                                                                      # minimum emoji selection
-                                                                      h3(display_text[63]),
-                                                                      helpText(display_text[72]),
-                                                                      sliderInput("EmojiMinimum",
-                                                                                  "",
-                                                                                  min = 1,
-                                                                                  max = 100,
-                                                                                  value = 50)
-                                                                      
-                                                                      
-                                                                      # end sidebar panel
-                                                         ),
-                                                         
-                                                         # Main Panel
-                                                         mainPanel(
-                                                           
-                                                           # Plot 1
-                                                           h3(display_text[73],
-                                                              align = "center"),
-                                                           HTML(display_text[58]),
-                                                           addSpinner(plotOutput("emoji4",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 2
-                                                           addSpinner(plotOutput("emoji2",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 3
-                                                           addSpinner(plotOutput("emoji1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # end main panel
-                                                         ),
-                                                         
-                                                         # end tabpanel
-                                                         width = 6, offset = 5),
-                                                
-                                                
-                                                ##################################### RESULTS: REPLYTIMES SUBPAGE ####
-                                                tabPanel(display_text[74],
-                                                         
-                                                         # sidebar panel
-                                                         sidebarPanel(h3(display_text[48], align = "center"),
-                                                                      
-                                                                      tags$p(display_text[75]),
-                                                                      
-                                                                      # sender selection
-                                                                      h3(display_text[50]),
-                                                                      helpText(display_text[51]),
-                                                                      checkboxGroupButtons("Sender_input_replies",
-                                                                                           "",
-                                                                                           display_text[52]),
-                                                                      
-                                                                      # timeframe selection
-                                                                      h3(display_text[53]),
-                                                                      helpText(display_text[54]),
-                                                                      dateRangeInput("date_range_replies",
-                                                                                     label = display_text[55],
-                                                                                     start = "2016-01-01",
-                                                                                     end = NULL,
-                                                                                     format = "dd-mm-yyyy",
-                                                                                     startview = "year",
-                                                                                     weekstart = 1,
-                                                                                     language = landing_page_language,
-                                                                                     autoclose = TRUE,
-                                                                                     separator = display_text[56])
-                                                                      
-                                                                      
-                                                         ),
-                                                         
-                                                         # Main Panel
-                                                         mainPanel(
-                                                           
-                                                           # Plot 1
-                                                           h3(display_text[74], align = "center"),
-                                                           HTML(display_text[58]),
-                                                           addSpinner(plotOutput("replytime1",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8"),
-                                                           HTML("<br><br>"),
-                                                           
-                                                           # Plot 2
-                                                           addSpinner(plotOutput("replytime2",
-                                                                                 height = "600px"),
-                                                                      spin = "circle",
-                                                                      color = "#1E8CC8")
-                                                           
-                                                           # End main panel
-                                                         ),
-                                                         
-                                                         # end tab panel
-                                                         width = 6, offset = 5)
-                                                
-                                                
-                                                # End tabset panel
-                                    )
-                                    
-                                    
-                                    
-                                    # End tab Panel
-                           ),
-                           
-                           ##################################### RESULTS: IMPRESSUM PAGE ####
-                           tabPanel(display_text[76],
-                                    column(tags$p(
-                                      HTML(display_text[77])),
-                                      width = 6, offset = 5))
-                           
-                           # End navbarpage
-                ),
-                
-                # Add GESIs footer
-                tags$footer(includeHTML("www/gesis-footer.html"))
-                
-                
-                # End ui
+                                        # End tab panel
+                               ),
+                               
+                               ##################################### PARTICIPANT - USER SELECTION PAGE ####
+                               tabPanel(display_text[87],
+                                        
+                                        # Sidebar
+                                        sidebarPanel(
+                                          
+                                          # Info text
+                                          h2(display_text[87], align = "center"),
+                                          HTML(display_text[90]),
+                                          
+                                          # spacer
+                                          HTML("<br><br>"),
+                                          
+                                          # input selector
+                                          selectInput("person_select",
+                                                      label = display_text[91],
+                                                      choices = c(""),
+                                                      selected = "",
+                                                      multiple = FALSE),
+                                          
+                                          
+                                          # action button
+                                          actionButton("person_submit",
+                                                       display_text[89],
+                                                       style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A"),
+                                        ),
+                                        
+                                        # Main panel
+                                        mainPanel(
+                                          
+                                          # headline
+                                          h2(display_text[87], align = "center"),
+                                          
+                                          # information
+                                          HTML(display_text[58]),
+                                          
+                                          # table display here
+                                          DTOutput("selection_frame"),
+                                          
+                                          # Display the selected choice
+                                          textOutput("selected_choice"),
+                                          
+                                          # spacer
+                                          HTML("<br><br><br><br>"),
+                                          
+                                        )
+                                        
+                                        
+                               ),
+                               
+                               
+                               ##################################### DATA EXPLORATION PAGE ####
+                               tabPanel(display_text[28],
+                                        
+                                        # Sidebar Panel
+                                        sidebarPanel(
+                                          
+                                          # Info text
+                                          h2(display_text[29], align = "center"),
+                                          HTML(display_text[30]),
+                                          HTML("<br><br>"),
+                                          HTML(display_text[31]),
+                                          
+                                          # column selection
+                                          h3(display_text[32]),
+                                          helpText(display_text[33]),
+                                          pickerInput("show_vars",
+                                                      display_text[34],
+                                                      choices = c(""),
+                                                      selected = c(""),
+                                                      label = display_text[35],
+                                                      multiple = TRUE,
+                                                      choicesOpt = list(style = c("color:black;font-weight: bold;",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "background:lightgrey;color:black",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "color:black;font-weight: bold;",
+                                                                                  "color:black;font-weight: bold;"))),
+                                          
+                                          # Row selection
+                                          h3(display_text[36]),
+                                          helpText(display_text[37]),
+                                          actionButton("excludeRows",display_text[38]),
+                                          actionButton("RestoreRows",display_text[39]),
+                                          
+                                          # Data donation
+                                          h3(display_text[40]),
+                                          helpText(display_text[41]),
+                                          actionButton(inputId = "donation",
+                                                       label = display_text[42],
+                                                       class = "btn-warning",
+                                                       style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A")
+                                          
+                                          # End sidebar panel
+                                        ),
+                                        
+                                        # Main panel
+                                        mainPanel(
+                                          
+                                          # Headline
+                                          h1(display_text[43],align = "center"),
+                                          HTML("<br>"),
+                                          
+                                          # Dataframe
+                                          DTOutput("frame"),
+                                          
+                                          # Download buttons
+                                          fluidRow(column(1,
+                                                          align = "topright",
+                                                          downloadButton("downloadSelection",
+                                                                         display_text[44])),
+                                                   column(1,
+                                                          align = "topleft",
+                                                          downloadButton("downloadData",
+                                                                         display_text[45]),
+                                                          offset = 9),),
+                                          
+                                          # End main panel
+                                        )
+                                        
+                                        # End tab panel
+                               ),
+                               
+                               ##################################### OVERALL RESULTS PAGE ####
+                               tabPanel(display_text[46],
+                                        
+                                        tabsetPanel(type = "tabs",
+                                                    
+                                                    ##################################### RESULTS: MESSAGES SUBPAGE ####
+                                                    tabPanel(display_text[47],
+                                                             
+                                                             # sidebar panel
+                                                             sidebarPanel(h3(display_text[48], align = "center"),
+                                                                          tags$p(display_text[49]),
+                                                                          
+                                                                          # Sender selection
+                                                                          h3(display_text[50]),
+                                                                          helpText(display_text[51]),
+                                                                          checkboxGroupButtons("Sender_input_msg",
+                                                                                               "",
+                                                                                               display_text[52]),
+                                                                          
+                                                                          # Time selection
+                                                                          h3(display_text[53]),
+                                                                          helpText(display_text[54]),
+                                                                          dateRangeInput("date_range_messages",
+                                                                                         label = display_text[55],
+                                                                                         start = "2016-01-01",
+                                                                                         end = NULL,
+                                                                                         format = "dd-mm-yyyy",
+                                                                                         startview = "year",
+                                                                                         weekstart = 1,
+                                                                                         language = landing_page_language,
+                                                                                         autoclose = TRUE,
+                                                                                         separator = display_text[56])
+                                                                          
+                                                                          # End sidebar panel
+                                                             ),
+                                                             
+                                                             # Main Panel
+                                                             mainPanel(
+                                                               
+                                                               # Plot 1
+                                                               h1(display_text[57],align = "center"),
+                                                               HTML(display_text[58]),
+                                                               HTML("<br><br>"),
+                                                               addSpinner(plotOutput("message1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 2
+                                                               h1(display_text[59],align = "center"),
+                                                               HTML("<br><br>"),
+                                                               addSpinner(plotOutput("tokensbwah1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # plot 3
+                                                               addSpinner(plotOutput("tokensbwah2",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8")
+                                                               
+                                                               # End main panel
+                                                             ),
+                                                             
+                                                             # end tab panel
+                                                             width = 6, offset = 5),
+                                                    
+                                                    ##################################### RESULTS: LINKS SUBPAGE ####
+                                                    tabPanel(display_text[60],
+                                                             
+                                                             # sidebar panel
+                                                             sidebarPanel(h3(display_text[48], align = "center"),
+                                                                          tags$p(display_text[61]),
+                                                                          
+                                                                          # sender selection
+                                                                          h3(display_text[50]),
+                                                                          helpText(display_text[51]),
+                                                                          checkboxGroupButtons("Sender_input_links",
+                                                                                               "",
+                                                                                               display_text[62]),
+                                                                          
+                                                                          # timespan selection
+                                                                          h3(display_text[55]),
+                                                                          helpText(display_text[54]),
+                                                                          dateRangeInput("date_range_links",
+                                                                                         label = display_text[55],
+                                                                                         start = "2016-01-01",
+                                                                                         end = NULL,
+                                                                                         format = "dd-mm-yyyy",
+                                                                                         startview = "year",
+                                                                                         weekstart = 1,
+                                                                                         language = landing_page_language,
+                                                                                         autoclose = TRUE,
+                                                                                         separator = display_text[56]),
+                                                                          
+                                                                          # Link Minimum selection
+                                                                          h3(display_text[63]),
+                                                                          helpText(display_text[64]),
+                                                                          sliderInput("LinkMinimum",
+                                                                                      "",
+                                                                                      min = 1,
+                                                                                      max = 100,
+                                                                                      value = 5)
+                                                                          
+                                                                          # End sidebar panel
+                                                             ),
+                                                             
+                                                             # Main Panel
+                                                             mainPanel(
+                                                               
+                                                               # Plot 1
+                                                               h3(display_text[65], align = "center"),
+                                                               HTML(display_text[58]),
+                                                               addSpinner(plotOutput("links4",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # plot 2
+                                                               addSpinner(plotOutput("links2",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # plot 3
+                                                               addSpinner(plotOutput("links1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                             ),
+                                                             
+                                                             width = 6, offset = 5),
+                                                    
+                                                    ##################################### RESULTS: SMILIES SUBPAGE ####
+                                                    tabPanel(display_text[66],
+                                                             
+                                                             # sidebar panel
+                                                             sidebarPanel(h3(display_text[48], align = "center"),
+                                                                          tags$p(display_text[67]),
+                                                                          
+                                                                          # sender selection
+                                                                          h3(display_text[50]),
+                                                                          helpText(display_text[51]),
+                                                                          checkboxGroupButtons("Sender_input_smilies",
+                                                                                               "",
+                                                                                               display_text[52]),
+                                                                          
+                                                                          # time range selection
+                                                                          h3(display_text[53]),
+                                                                          helpText(display_text[54]),
+                                                                          dateRangeInput("date_range_smilies",
+                                                                                         label = display_text[55],
+                                                                                         start = "2016-01-01",
+                                                                                         end = NULL,
+                                                                                         format = "dd-mm-yyyy",
+                                                                                         startview = "year",
+                                                                                         weekstart = 1,
+                                                                                         language = landing_page_language,
+                                                                                         autoclose = TRUE,
+                                                                                         separator = display_text[56]),
+                                                                          
+                                                                          # smilie minimum selection
+                                                                          h3(display_text[63]),
+                                                                          helpText(display_text[68]),
+                                                                          sliderInput("SmilieMinimum",
+                                                                                      "", min = 1,
+                                                                                      max = 100,
+                                                                                      value = 5)
+                                                                          
+                                                             ),
+                                                             
+                                                             # Main Panel
+                                                             mainPanel(
+                                                               
+                                                               # Plot 1
+                                                               h3(display_text[69], align = "center"),
+                                                               HTML(display_text[58]),
+                                                               addSpinner(plotOutput("smilies4",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 2
+                                                               addSpinner(plotOutput("smilies2",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 3
+                                                               addSpinner(plotOutput("smilies1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # end main panel
+                                                             ),
+                                                             
+                                                             # end tabpanel
+                                                             width = 6, offset = 5),
+                                                    
+                                                    ##################################### RESULTS: EMOJI SUBPAGE ####
+                                                    tabPanel(display_text[70],
+                                                             
+                                                             # sidebar panel
+                                                             sidebarPanel(h3(display_text[48], align = "center"),
+                                                                          tags$p(display_text[71]),
+                                                                          
+                                                                          # sender selection
+                                                                          h3(display_text[50]),
+                                                                          helpText(display_text[51]),
+                                                                          checkboxGroupButtons("Sender_input_emoji",
+                                                                                               "",
+                                                                                               display_text[62]),
+                                                                          
+                                                                          # timeframe selection
+                                                                          h3(display_text[53]),
+                                                                          helpText(display_text[54]),
+                                                                          dateRangeInput("date_range_emoji",
+                                                                                         label = display_text[55],
+                                                                                         start = "2016-01-01",
+                                                                                         end = NULL,
+                                                                                         format = "dd-mm-yyyy",
+                                                                                         startview = "year",
+                                                                                         weekstart = 1,
+                                                                                         language = landing_page_language,
+                                                                                         autoclose = TRUE,
+                                                                                         separator = display_text[56]),
+                                                                          
+                                                                          # minimum emoji selection
+                                                                          h3(display_text[63]),
+                                                                          helpText(display_text[72]),
+                                                                          sliderInput("EmojiMinimum",
+                                                                                      "",
+                                                                                      min = 1,
+                                                                                      max = 100,
+                                                                                      value = 50)
+                                                                          
+                                                                          
+                                                                          # end sidebar panel
+                                                             ),
+                                                             
+                                                             # Main Panel
+                                                             mainPanel(
+                                                               
+                                                               # Plot 1
+                                                               h3(display_text[73],
+                                                                  align = "center"),
+                                                               HTML(display_text[58]),
+                                                               addSpinner(plotOutput("emoji4",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 2
+                                                               addSpinner(plotOutput("emoji2",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 3
+                                                               addSpinner(plotOutput("emoji1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # end main panel
+                                                             ),
+                                                             
+                                                             # end tabpanel
+                                                             width = 6, offset = 5),
+                                                    
+                                                    
+                                                    ##################################### RESULTS: REPLYTIMES SUBPAGE ####
+                                                    tabPanel(display_text[74],
+                                                             
+                                                             # sidebar panel
+                                                             sidebarPanel(h3(display_text[48], align = "center"),
+                                                                          
+                                                                          tags$p(display_text[75]),
+                                                                          
+                                                                          # sender selection
+                                                                          h3(display_text[50]),
+                                                                          helpText(display_text[51]),
+                                                                          checkboxGroupButtons("Sender_input_replies",
+                                                                                               "",
+                                                                                               display_text[52]),
+                                                                          
+                                                                          # timeframe selection
+                                                                          h3(display_text[53]),
+                                                                          helpText(display_text[54]),
+                                                                          dateRangeInput("date_range_replies",
+                                                                                         label = display_text[55],
+                                                                                         start = "2016-01-01",
+                                                                                         end = NULL,
+                                                                                         format = "dd-mm-yyyy",
+                                                                                         startview = "year",
+                                                                                         weekstart = 1,
+                                                                                         language = landing_page_language,
+                                                                                         autoclose = TRUE,
+                                                                                         separator = display_text[56])
+                                                                          
+                                                                          
+                                                             ),
+                                                             
+                                                             # Main Panel
+                                                             mainPanel(
+                                                               
+                                                               # Plot 1
+                                                               h3(display_text[74], align = "center"),
+                                                               HTML(display_text[58]),
+                                                               addSpinner(plotOutput("replytime1",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8"),
+                                                               HTML("<br><br>"),
+                                                               
+                                                               # Plot 2
+                                                               addSpinner(plotOutput("replytime2",
+                                                                                     height = "600px"),
+                                                                          spin = "circle",
+                                                                          color = "#1E8CC8")
+                                                               
+                                                               # End main panel
+                                                             ),
+                                                             
+                                                             # end tab panel
+                                                             width = 6, offset = 5)
+                                                    
+                                                    
+                                                    # End tabset panel
+                                        )
+                                        
+                                        
+                                        
+                                        # End tab Panel
+                               ),
+                               
+                               ##################################### RESULTS: IMPRESSUM PAGE ####
+                               tabPanel(display_text[76],
+                                        column(tags$p(
+                                          HTML(display_text[77])),
+                                          width = 6, offset = 5))
+                               
+                               # End navbarpage
+                    ),
+                    
+                    # Add GESIs footer
+                    tags$footer(includeHTML("www/gesis-footer.html"))
+                    
+                    
+                    # End ui
 )
 
 ###################################################################################### SECURING APP WITH SHINYMANAGER #####
 
+# Wrapping UI with secure_app for password protection
+# Wrapping UI with secure_app for password protection
 # Wrapping UI with secure_app for password protection
 ui <- shinymanager::secure_app(
   app_ui,
@@ -955,8 +957,9 @@ ui <- shinymanager::secure_app(
       :root{
         --header-h:64px;
         --banner-h:180px;
-        --gap-top:56px;      /* space between banner and login */
-        --footer-gap:120px;  /* whitespace before footer */
+        --gap-top:0px;      /* space between banner and login */
+        --footer-gap:0px;    /* whitespace before footer (less relevant for fixed) */
+        --footer-h:100px;    /* ESTIMATED HEIGHT OF THE FOOTER */
       }
 
       /* fixed micro header */
@@ -968,9 +971,11 @@ ui <- shinymanager::secure_app(
         background:url('banner-microsite-07.svg') center/cover no-repeat; z-index:1020;
       }
 
-      /* space for header + banner */
+      /* space for header + banner + fixed footer clearance for the login panel */
       .panel-auth{
         padding-top:calc(var(--header-h) + var(--banner-h) + var(--gap-top)) !important;
+        /* UPDATED: Add padding to ensure content clears the fixed footer */
+        padding-bottom:calc(var(--footer-h) + 20px) !important; 
         box-sizing:border-box;
       }
 
@@ -979,23 +984,24 @@ ui <- shinymanager::secure_app(
       #banner-overlay .page-banner.microsite,
       #banner-overlay .page-banner--inner{ background:transparent !important; margin:0 !important; }
 
-      /* footer in normal flow, full-bleed, with scroll gap */
+      /* UPDATED: Footer is now fixed to the bottom of the viewport, full-bleed */
       html,body{ height:100%; overflow-x:hidden; }
       .page-footer{
-        position:relative !important;
-        width:100vw;
-        margin-left:calc(50% - 50vw);
-        margin-right:calc(50% - 50vw);
-        margin-top:var(--footer-gap);
+        position:fixed !important;
+        bottom:-150px; /* NEW: Fix to the bottom */
+        left:0; right:0; /* NEW: Full-bleed width */
+        width:100vw; 
+        /* The margins below are unnecessary for full-bleed with left/right:0 and should be removed,
+           but I've kept a simplified width fix just in case it's needed elsewhere. */
+        margin-left:auto; 
+        margin-right:auto;
+        z-index:1030; /* Ensure it is above main content */
+        margin-top:var(--footer-gap); /* This margin is less relevant for a fixed element */
       }
-      /* safety: if two exist, hide the second */
-      .page-footer + .page-footer{ display:none !important; }
-
-      /* tidy login panel */
-      .container .panel.panel-default{ margin:0; }
 
       @media (max-width:768px){
-        :root{ --banner-h:140px; --gap-top:40px; --footer-gap:96px; }
+        /* Adjust variables for mobile */
+        :root{ --banner-h:140px; --gap-top:40px; --footer-gap:96px; --footer-h:140px; }
       }
     "))
   ),
@@ -1006,6 +1012,7 @@ ui <- shinymanager::secure_app(
   ),
   
   tags_bottom = tagList(
+    #includeHTML("<br><br><br><br>"),
     includeHTML("www/gesis-footer.html")  # no wrapper; the file already has <footer class="page-footer">
   )
 )
