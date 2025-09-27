@@ -141,18 +141,17 @@ if (file.exists("~/.fonts/NotoColorEmoji.ttf")) {
 
 
 ################################### DEFINING WAITING SCREENS ####
-waiting_screen1 <- tagList(spin_flower(),
-                           h4(style = "color:#fff;margin-top:12px;",
-                              display_text[1]))
+waiting_screen1 <- tagList(
+  spin_flower(),
+  h4(style = "color:#fff;margin-top:12px;",
+     HTML(gsub("\\\\n", "<br/>", display_text[1])))
+)
 
-waiting_screen2 <- tagList(spin_flower(),
-                           h4(style = "color:#fff;margin-top:12px;",
-                              display_text[2]))
-
-
-
-
-
+waiting_screen2 <- tagList(
+  spin_flower(),
+  h4(style = "color:#fff;margin-top:12px;",
+     HTML(gsub("\\\\n", "<br/>", display_text[2])))
+)
 
 
 
@@ -168,95 +167,81 @@ ui <- fluidPage(theme = shinytheme("flatly"),
                 setBackgroundColor("#ffffff"),
                 useWaiter(),
                 
-                # Exit-intent script
-                tags$head(tags$script(HTML("
-    window.modalOpen=false; let cooldown=false; window.stopExitIntent=false;
-    document.addEventListener('mouseout', function(e){
-      if (window.modalOpen || cooldown || window.stopExitIntent) return;
-      if (!e.relatedTarget && e.clientY <= 0) {
-        if (typeof Shiny !== 'undefined') {
-          Shiny.setInputValue('exit_intent', Date.now(), {priority:'event'});
-          window.modalOpen=true; cooldown=true; setTimeout(()=>cooldown=false, 3000);
-        }
-      }
-    }, {passive:true});
-  "))),
-                
                 # GESIS framework + fixes (fileInput, footer spacing, banner/nav styling)
                 tags$head(
                   tags$link(rel = "stylesheet", href = "package/dist/gesis-web.css"),
                   tags$style(HTML("
-      /* ---------- FILE INPUT (Bootstrap 3) ---------- */
-      .bs3-fileinput .input-group { display: table !important; width: 100% !important; border-collapse: separate; }
-      .bs3-fileinput .input-group .form-control { display: table-cell !important; width: 100% !important; float: none; }
-      .bs3-fileinput .input-group-btn,
-      .bs3-fileinput .input-group-prepend,
-      .bs3-fileinput .input-group-append,
-      .bs3-fileinput label.input-group-btn { display: table-cell !important; width: 1%; white-space: nowrap; vertical-align: middle; }
-
-      .btn-file { position: relative; overflow: hidden; }
-      .btn-file > input[type=file]{
-        position:absolute !important; top:0; right:0; min-width:100%; min-height:100%;
-        font-size:100px; text-align:right; opacity:0; cursor:inherit; display:block;
-      }
-
-      /* Make the 'Datei auswählen' clearly a button */
-      .bs3-fileinput .btn-file{
-        display:inline-block; background-color:#1E8CC8 !important; color:#fff !important;
-        border:none !important; padding:6px 16px !important; font-weight:600 !important;
-        border-radius:0 6px 6px 0 !important;
-      }
-      .bs3-fileinput .btn-file:hover{ background-color:#166b97 !important; }
-      .bs3-fileinput .input-group .form-control{
-        background:#fff; border:1px solid #cbd5e1; box-shadow:none; height:36px; line-height:1.4;
-        border-radius:6px 0 0 6px !important;
-      }
-      .bs3-fileinput input[type=file]{ all: unset; }
-      .bs3-fileinput input[type=file]::file-selector-button{ display:none !important; }
-
-      /* ShinyAlerts: prevent stray text input */
-      .swal2-popup .swal2-input{display:none!important;}
-
-      /* ---------- LAYOUT / FOOTER SPACING ---------- */
-      html, body { height: 100%; }
-      body { display:flex; flex-direction:column; }
-      .navbar { flex:0 0 auto; }
-      .container-fluid { flex:1 0 auto; }
-      footer { flex:0 0 auto; }
-      .tab-content { padding-bottom:3rem; } /* breathing room above footer */
-
-      /* DataTables length <select> visible */
-      .dataTables_length select { display:inline-block; }
-
-      /* ---------- MICROSITE BANNER ---------- */
-      .page-banner.microsite{
-        background-image:url('banner-microsite-07.svg') !important;
-        background-repeat:no-repeat !important; background-size:cover !important; background-position:center !important;
-        min-height:180px; margin-bottom:0 !important; /* no white gap under banner */
-      }
-      .page-banner.microsite .page-banner--inner{ background:transparent !important; }
-
-      /* ---------- MICROSITE NAV (full width, dark, GESIS colors) ---------- */
-      .gs-micro-nav.has-bg-color{
-        background-color: var(--gs-darkblue-100,#072f57) !important;
-        color:#fff; margin:0; padding:.5rem 1rem; border-radius:0 0 12px 12px;
-      }
-.gs-micro-nav a{
-  color:#fff; display:inline-block; padding:.4rem .8rem; border-radius:999px; text-decoration:none;
-  border:1px solid transparent;
-}
-.gs-micro-nav a:hover, .gs-micro-nav a:focus{
-  background:rgba(22,107,151,.15); color:#fff;
-}
-.gs-micro-nav a.is-active,
-.gs-micro-nav a[aria-current='page'],
-.gs-micro-nav a.active{
-  background: var(--gs-darkblue-80,#166b97); color:#fff; border-color: var(--gs-darkblue-80,#166b97);
-}
-
-      /* Hide Bootstrap navbar strip; we use microsite nav for tabs */
-      .navbar, .navbar .navbar-header, .navbar .navbar-nav{display:none!important; height:0; min-height:0; margin:0; padding:0; border:0;}
-    "))
+                    /* ---------- FILE INPUT (Bootstrap 3) ---------- */
+                    .bs3-fileinput .input-group { display: table !important; width: 100% !important; border-collapse: separate; }
+                    .bs3-fileinput .input-group .form-control { display: table-cell !important; width: 100% !important; float: none; }
+                    .bs3-fileinput .input-group-btn,
+                    .bs3-fileinput .input-group-prepend,
+                    .bs3-fileinput .input-group-append,
+                    .bs3-fileinput label.input-group-btn { display: table-cell !important; width: 1%; white-space: nowrap; vertical-align: middle; }
+              
+                    .btn-file { position: relative; overflow: hidden; }
+                    .btn-file > input[type=file]{
+                      position:absolute !important; top:0; right:0; min-width:100%; min-height:100%;
+                      font-size:100px; text-align:right; opacity:0; cursor:inherit; display:block;
+                    }
+              
+                    /* Make the 'Datei auswählen' clearly a button */
+                    .bs3-fileinput .btn-file{
+                      display:inline-block; background-color:#1E8CC8 !important; color:#fff !important;
+                      border:none !important; padding:6px 16px !important; font-weight:600 !important;
+                      border-radius:0 6px 6px 0 !important;
+                    }
+                    .bs3-fileinput .btn-file:hover{ background-color:#166b97 !important; }
+                    .bs3-fileinput .input-group .form-control{
+                      background:#fff; border:1px solid #cbd5e1; box-shadow:none; height:36px; line-height:1.4;
+                      border-radius:6px 0 0 6px !important;
+                    }
+                    .bs3-fileinput input[type=file]{ all: unset; }
+                    .bs3-fileinput input[type=file]::file-selector-button{ display:none !important; }
+              
+                    /* ShinyAlerts: prevent stray text input */
+                    .swal2-popup .swal2-input{display:none!important;}
+              
+                    /* ---------- LAYOUT / FOOTER SPACING ---------- */
+                    html, body { height: 100%; }
+                    body { display:flex; flex-direction:column; }
+                    .navbar { flex:0 0 auto; }
+                    .container-fluid { flex:1 0 auto; }
+                    footer { flex:0 0 auto; }
+                    .tab-content { padding-bottom:3rem; } /* breathing room above footer */
+              
+                    /* DataTables length <select> visible */
+                    .dataTables_length select { display:inline-block; }
+              
+                    /* ---------- MICROSITE BANNER ---------- */
+                    .page-banner.microsite{
+                      background-image:url('banner-microsite-07.svg') !important;
+                      background-repeat:no-repeat !important; background-size:cover !important; background-position:center !important;
+                      min-height:180px; margin-bottom:0 !important; /* no white gap under banner */
+                    }
+                    .page-banner.microsite .page-banner--inner{ background:transparent !important; }
+              
+                    /* ---------- MICROSITE NAV (full width, dark, GESIS colors) ---------- */
+                    .gs-micro-nav.has-bg-color{
+                      background-color: var(--gs-darkblue-100,#072f57) !important;
+                      color:#fff; margin:0; padding:.5rem 1rem; border-radius:0 0 12px 12px;
+                    }
+                    .gs-micro-nav a{
+                      color:#fff; display:inline-block; padding:.4rem .8rem; border-radius:999px; text-decoration:none;
+                      border:1px solid transparent;
+                    }
+                    .gs-micro-nav a:hover, .gs-micro-nav a:focus{
+                      background:rgba(22,107,151,.15); color:#fff;
+                    }
+                    .gs-micro-nav a.is-active,
+                    .gs-micro-nav a[aria-current='page'],
+                    .gs-micro-nav a.active{
+                      background: var(--gs-darkblue-80,#166b97); color:#fff; border-color: var(--gs-darkblue-80,#166b97);
+                    }
+                    
+                          /* Hide Bootstrap navbar strip; we use microsite nav for tabs */
+                          .navbar, .navbar .navbar-header, .navbar .navbar-nav{display:none!important; height:0; min-height:0; margin:0; padding:0; border:0;}
+                        "))
                 ),
                 
                 # GESIS micro header and banner
@@ -497,8 +482,9 @@ ui <- fluidPage(theme = shinytheme("flatly"),
                                       # Display the selected choice
                                       textOutput("selected_choice"),
                                       
-                                      
-                                      
+                                      # spacer
+                                      HTML("<br><br><br><br>"),
+     
                                     )
                                     
                                     
@@ -978,71 +964,6 @@ server <- function(input, output, session) {
   # creating empty reactive value for storing uploaded data
   rv <- reactiveValues(data = NULL)
   
-  # Ask "reason to leave question"
-  # Exit-intent questionnaire (multi-select, random order; CSV named with ID+timestamp)
-  base_reasons <- c(display_text[92],display_text[93],display_text[94],display_text[95])
-  other_label  <- display_text[96]
-  
-  observeEvent(input$exit_intent, {
-    choices <- c(sample(base_reasons), other_label)
-    showModal(modalDialog(
-      title = display_text[97],
-      tags$p(display_text[98]),
-      tags$p(display_text[99]),
-      checkboxGroupInput("reasons", NULL, choices = choices, selected = character(0)),
-      conditionalPanel(
-        paste0("input.reasons && input.reasons.includes('", other_label, "')"),
-        textAreaInput("reason_free", NULL, placeholder = "Freitext", width = "100%", height = "120px")
-      ),
-      footer = tagList(
-        actionButton("reason_cancel", display_text[100]),
-        actionButton("reason_submit",display_text[101], class = "btn-primary")
-      ),
-      easyClose = FALSE
-    ))
-    shinyjs::disable("reason_submit")
-  })
-  
-  # enable submit only when valid
-  observe({
-    sel <- if (is.null(input$reasons)) character(0) else input$reasons
-    need_free <- other_label %in% sel
-    ok <- length(sel) > 0 && (!need_free || nzchar(if (is.null(input$reason_free)) "" else input$reason_free))
-    if (ok) shinyjs::enable("reason_submit") else shinyjs::disable("reason_submit")
-  })
-  
-  observeEvent(input$reason_cancel, {
-    removeModal()
-    shinyjs::runjs("window.modalOpen=false;") # allow re-fire later
-  })
-  
-  observeEvent(input$reason_submit, {
-    sel <- req(input$reasons)
-    
-    # Always use shinymanager username; make it OS-safe
-    id_raw <- tryCatch(reactiveValuesToList(res_auth)$user, error = function(e) "")
-    pid    <- if (nzchar(id_raw)) gsub("[^A-Za-z0-9_-]", "_", id_raw) else "UNKNOWN"
-    
-    ts     <- format(Sys.time(), "%Y-%m-%d_%H-%M-%S")
-    outdir <- "./UserData/ClosingReasons"
-    dir.create(outdir, recursive = TRUE, showWarnings = FALSE)
-    csv_fn <- file.path(outdir, sprintf("CLOSING_REASONS_%s_%s.csv", pid, ts))
-    
-    other_txt <- if (other_label %in% sel) gsub("[\r\n]+"," ", input$reason_free %||% "") else ""
-    
-    row <- data.frame(ID = pid, timestamp = ts, other_reason = other_txt, check.names = FALSE)
-    for (r in base_reasons) row[[r]] <- as.integer(r %in% sel)
-    row[[other_label]] <- as.integer(other_label %in% sel)
-    
-    write.csv(row, file = csv_fn, row.names = FALSE, fileEncoding = "UTF-8")
-    
-    removeModal()
-    shinyjs::runjs("window.stopExitIntent=true; window.modalOpen=false; window.armExit=false;") # never refire after one answer
-  })
-  
-  
-  
-  
   ################################### STYLING, BUTTONS, HIDE/UNHIDE ELEMENTS ####
   
   # mapping shiny tabs to GESIS microsite tabs
@@ -1487,8 +1408,6 @@ server <- function(input, output, session) {
       rv$copy2 <- NULL
       rv$copy2_encrypted <- NULL
       
-      # disable leave question after successfull donation
-      shinyjs::runjs("window.stopExitIntent = true; window.modalOpen=false;")
       
       # routing to results tab and hiding explore data tab
       showTab("ChatDashboard",display_text[46],session = session)
@@ -1649,197 +1568,188 @@ server <- function(input, output, session) {
   
   ################################### GENERATING PLOTS ####
   
-  # updating the plots when submission button is pressed or a new dataset is uploaded
-  
-  # updating for message plots
-  observeEvent(c(input$submit,input$MsgUpdate),{
+  # Messages
+  observeEvent(c(input$submit, input$MsgUpdate), {
     
-    # Rendering messages plot 1
     output$message1 <- renderPlot({
-      
-      req(rv$data);
-      plot_messages(rv$data,
-                    names = input$Sender_input_msg,
-                    starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00", sep = ""),
-                    endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59", sep = ""))},
-      res = 100, height = 600)
-    
-    
-    # Rendering messages plot 2
-    output$tokensbwah1 <- renderPlot({
-      
-      req(rv$data);
-      plot_tokens(rv$data,
-                  names = input$Sender_input_msg,
-                  starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00"),
-                  endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59"),
-                  plot = "cumsum")},
-      res = 100, height = 600)
-    
-    
-    # Rendering messages plot 3
-    output$tokensbwah2 <- renderPlot({
-      
-      req(rv$data);
-      plot_tokens_over_time(rv$data,
-                            names = input$Sender_input_msg,
-                            starttime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[1]," 00:00"),
-                            endtime = paste(unlist(strsplit(format.Date(input$date_range_messages,"%Y-%m-%d")," "))[2]," 23:59"),
-                            plot = "heatmap")},
-      res = 100, height = 600)
-    
-  })
-  
-  # updating for links plots
-  observeEvent(c(input$submit,input$LinksUpdate),{
-    
-    # Rendering links plot 1
-    output$links1 <- renderPlot({
-      
-      req(rv$data);
-      plot_links(rv$data,
-                 plot = "cumsum",
-                 names = input$Sender_input_links,
-                 starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
-                 min_occur = input$LinkMinimum)},
-      res = 100, height = 600)
-    
-    # Rendering links plot 2
-    output$links2 <- renderPlot({
-      
-      req(rv$data);
-      plot_links(rv$data,
-                 plot = "heatmap",
-                 names = input$Sender_input_links,
-                 starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
-                 min_occur = input$LinkMinimum)},
-      res = 100, height = 600)
-    
-    # Rendering links plot 3
-    output$links4 <- renderPlot({
-      
-      req(rv$data);
-      plot_links(rv$data,
-                 plot = "splitbar",
-                 names = input$Sender_input_links,
-                 starttime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_links,"%Y-%m-%d")," "))[2]," 23:59"),
-                 min_occur = input$LinkMinimum)},
-      res = 100, height = 600)
-    
-  })
-  
-  # updating for smilie plots
-  observeEvent(c(input$submit,input$SmilieUpdate),{
-    
-    # Rendering smilies plot 1
-    output$smilies1 <- renderPlot({
-      
-      req(rv$data);
-      plot_smilies(rv$data,
-                   plot = "cumsum",
-                   names = input$Sender_input_smilies,
-                   starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
-                   min_occur = input$SmilieMinimum)},
-      res = 100, height = 600)
-    
-    # Rendering smilies plot 2
-    output$smilies2 <- renderPlot({
-      
-      req(rv$data);
-      plot_smilies(rv$data,
-                   plot = "heatmap",
-                   names = input$Sender_input_smilies,
-                   starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
-                   min_occur = input$SmilieMinimum)},
-      res = 100, height = 600)
-    
-    
-    # Rendering smilies plot 3
-    output$smilies4 <- renderPlot({
-      
-      req(rv$data);
-      plot_smilies(rv$data,
-                   plot = "splitbar",
-                   names = input$Sender_input_smilies,
-                   starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[1]," 00:00"),
-                   endtime = paste(unlist(strsplit(format.Date(input$date_range_smilies,"%Y-%m-%d")," "))[2]," 23:59"),
-                   min_occur = input$SmilieMinimum)},
-      res = 100, height = 600)
-    
-  })
-  
-  # updating for emoji plots
-  observeEvent(c(input$submit,input$EmojiUpdate), {
-    
-    # Rendering emojies plot 1
-    output$emoji1 <- renderPlot({
-      
-      req(rv$data);
-      plot_emoji(rv$data,
-                 plot = "cumsum",
-                 names = input$Sender_input_emoji,
-                 starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
-                 min_occur = input$EmojiMinimum)},
-      res = 100, height = 600)
-    
-    # Rendering emojies plot 2
-    output$emoji2 <- renderPlot({
-      
       req(rv$data)
-      ;plot_emoji(rv$data,
-                  plot = "heatmap",
-                  names = input$Sender_input_emoji,
-                  starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                  endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
-                  min_occur = input$EmojiMinimum)},
-      res = 100, height = 600)
+      plot_messages(
+        rv$data,
+        names     = input$Sender_input_msg,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[2], " 23:59", sep = "")
+      ) + labs(title = "Nachrichten im Zeitverlauf", x = "Datum", y = "Nachrichten")
+    }, res = 100, height = 600)
     
-    # Rendering emojies plot 3
-    output$emoji4 <- renderPlot({
-      
-      req(rv$data);
-      plot_emoji(rv$data,
-                 plot = "splitbar",
-                 names = input$Sender_input_emoji,
-                 starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[1]," 00:00"),
-                 endtime = paste(unlist(strsplit(format.Date(input$date_range_emoji,"%Y-%m-%d")," "))[2]," 23:59"),
-                 min_occur = input$EmojiMinimum)},
-      res = 100, height = 600)
+    output$tokensbwah1 <- renderPlot({
+      req(rv$data)
+      plot_tokens(
+        rv$data,
+        names     = input$Sender_input_msg,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        plot      = "cumsum"
+      ) + labs(title = "Wortanzahl (kumuliert)", x = "Datum", y = "Wörter (kumuliert)")
+    }, res = 100, height = 600)
     
-    
+    output$tokensbwah2 <- renderPlot({
+      req(rv$data)
+      plot_tokens_over_time(
+        rv$data,
+        names     = input$Sender_input_msg,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        plot      = "heatmap"
+      ) + labs(title = "Wörter – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Wörter")
+    }, res = 100, height = 600)
   })
   
-  # updating for reply plots
-  observeEvent(c(input$submit,input$ReplyUpdate),{
+  # Links
+  observeEvent(c(input$submit, input$LinksUpdate), {
     
-    # Rendering replies plot 1
-    output$replytime1 <- renderPlot({
-      
-      req(rv$data);
-      plot_replytimes(rv$data,
-                      type = "replytime",
-                      names = input$Sender_input_replies,
-                      starttime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[1]," 00:00"),
-                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 23:59"))},
-      res = 100, height = 600)
+    output$links1 <- renderPlot({
+      req(rv$data)
+      plot_links(
+        rv$data,
+        plot      = "cumsum",
+        names     = input$Sender_input_links,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$LinkMinimum
+      ) + labs(title = "Geteilte Links (kumuliert)", x = "Datum", y = "Links (kumuliert)")
+    }, res = 100, height = 600)
     
-    # Rendering replies plot 2
-    output$replytime2 <- renderPlot({
-      req(rv$data);
-      plot_replytimes(rv$data,
-                      type = "reactiontime",
-                      names = input$Sender_input_replies,
-                      starttime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[1]," 00:00"),
-                      endtime = paste(unlist(strsplit(format.Date(input$date_range_replies,"%Y-%m-%d")," "))[2]," 23:59"))},
-      res = 100, height = 600)
+    output$links2 <- renderPlot({
+      req(rv$data)
+      plot_links(
+        rv$data,
+        plot      = "heatmap",
+        names     = input$Sender_input_links,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$LinkMinimum
+      ) + labs(title = "Links – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Links")
+    }, res = 100, height = 600)
     
+    output$links4 <- renderPlot({
+      req(rv$data)
+      plot_links(
+        rv$data,
+        plot      = "splitbar",
+        names     = input$Sender_input_links,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$LinkMinimum
+      ) + labs(title = "Häufigste Domains", x = "Domäne", y = "Anzahl")
+    }, res = 100, height = 600)
   })
+  
+  # Smilies
+  observeEvent(c(input$submit, input$SmilieUpdate), {
+    
+    output$smilies1 <- renderPlot({
+      req(rv$data)
+      plot_smilies(
+        rv$data,
+        plot      = "cumsum",
+        names     = input$Sender_input_smilies,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$SmilieMinimum
+      ) + labs(title = "Smilies (kumuliert)", x = "Datum", y = "Smilies (kumuliert)")
+    }, res = 100, height = 600)
+    
+    output$smilies2 <- renderPlot({
+      req(rv$data)
+      plot_smilies(
+        rv$data,
+        plot      = "heatmap",
+        names     = input$Sender_input_smilies,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$SmilieMinimum
+      ) + labs(title = "Smilies – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Smilies")
+    }, res = 100, height = 600)
+    
+    output$smilies4 <- renderPlot({
+      req(rv$data)
+      plot_smilies(
+        rv$data,
+        plot      = "splitbar",
+        names     = input$Sender_input_smilies,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$SmilieMinimum
+      ) + labs(title = "Smilies nach Sender", x = "Sender", y = "Anzahl")
+    }, res = 100, height = 600)
+  })
+  
+  # Emoji
+  observeEvent(c(input$submit, input$EmojiUpdate), {
+    
+    output$emoji1 <- renderPlot({
+      req(rv$data)
+      plot_emoji(
+        rv$data,
+        plot      = "cumsum",
+        names     = input$Sender_input_emoji,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$EmojiMinimum
+      ) + labs(title = "Emoji (kumuliert)", x = "Datum", y = "Emoji (kumuliert)")
+    }, res = 100, height = 600)
+    
+    output$emoji2 <- renderPlot({
+      req(rv$data)
+      plot_emoji(
+        rv$data,
+        plot      = "heatmap",
+        names     = input$Sender_input_emoji,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$EmojiMinimum
+      ) + labs(title = "Emoji – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Emoji")
+    }, res = 100, height = 600)
+    
+    output$emoji4 <- renderPlot({
+      req(rv$data)
+      plot_emoji(
+        rv$data,
+        plot      = "splitbar",
+        names     = input$Sender_input_emoji,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
+        min_occur = input$EmojiMinimum
+      ) + labs(title = "Emoji nach Sender", x = "Sender", y = "Anzahl")
+    }, res = 100, height = 600)
+  })
+  
+  # Reply / Reaction times
+  observeEvent(c(input$submit, input$ReplyUpdate), {
+    
+    output$replytime1 <- renderPlot({
+      req(rv$data)
+      plot_replytimes(
+        rv$data,
+        type      = "replytime",
+        names     = input$Sender_input_replies,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_replies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_replies, "%Y-%m-%d"), " "))[2], " 23:59", sep = "")
+      ) + labs(title = "Antwortzeiten", x = "Minuten", y = "Häufigkeit")
+    }, res = 100, height = 600)
+    
+    output$replytime2 <- renderPlot({
+      req(rv$data)
+      plot_replytimes(
+        rv$data,
+        type      = "reactiontime",
+        names     = input$Sender_input_replies,
+        starttime = paste(unlist(strsplit(format.Date(input$date_range_replies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
+        endtime   = paste(unlist(strsplit(format.Date(input$date_range_replies, "%Y-%m-%d"), " "))[2], " 23:59", sep = "")
+      ) + labs(title = "Reaktionszeiten", x = "Minuten", y = "Häufigkeit")
+    }, res = 100, height = 600)
+  })
+  
   
 }
 
