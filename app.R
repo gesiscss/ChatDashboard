@@ -158,7 +158,7 @@ waiting_screen2 <- tagList(
 ###################################################################################### SHINY SERVER UI #####
 
 # Define UI for ChatDashboard application
-ui <- fluidPage(theme = shinytheme("flatly"),
+app_ui <- fluidPage(theme = shinytheme("flatly"),
                 
                 ##################################### UI SETUP ####
                 
@@ -269,7 +269,7 @@ ui <- fluidPage(theme = shinytheme("flatly"),
                       Shiny.setInputValue('go_tab', $(this).data('tab'), {priority:'event'});
                     });
                   ")),
-  
+                
                 tags$script(HTML("
                       Shiny.addCustomMessageHandler('microNavVisible', function(msg){
                         var show = msg.show || [];
@@ -292,7 +292,7 @@ ui <- fluidPage(theme = shinytheme("flatly"),
                      .forEach(function(e){ e.style.display='none'; e.style.height='0'; e.style.padding='0'; e.style.border='0'; });
                   }).observe(document.body,{childList:true,subtree:true});
                 "))),
-              
+                
                 
                 
                 
@@ -484,7 +484,7 @@ ui <- fluidPage(theme = shinytheme("flatly"),
                                       
                                       # spacer
                                       HTML("<br><br><br><br>"),
-     
+                                      
                                     )
                                     
                                     
@@ -945,7 +945,37 @@ ui <- fluidPage(theme = shinytheme("flatly"),
 ###################################################################################### SECURING APP WITH SHINYMANAGER #####
 
 # Wrapping UI with secure_app for password protection
-ui <- secure_app(ui,language = landing_page_language)
+ui <- shinymanager::secure_app(
+  app_ui,
+  language = landing_page_language,
+  tags_top = tagList(
+    tags$head(tags$link(rel="stylesheet", href = "package/dist/gesis-web.css")),
+    # Fixed header + banner
+    tags$div(id="gesis-micro-header", includeHTML("www/gesis-micro-header.html")),
+    includeHTML("www/gesis-microsite-banner.html"),
+    # Login-page-only CSS (because it's injected via tags_top)
+    tags$style(HTML("
+      /* lock to login page only (this <style> exists only on login) */
+      #gesis-micro-header{position:fixed;top:0;left:0;right:0;z-index:1030;}
+      .page-banner.microsite{position:fixed;top:64px;left:0;right:0;z-index:1020;}
+      /* give the login panel room below header+banner */
+      body{padding-top:calc(64px + 180px + 16px); padding-bottom:220px;}
+      /* center the shinymanager login panel */
+      .container .panel.panel-default{margin-top:0; margin-bottom:0;}
+    "))
+  ),
+  tags_bottom = tagList(
+    # Fixed footer
+    tags$footer(class = "page-footer", includeHTML("www/gesis-footer.html")),
+    tags$style(HTML("
+      .page-footer{position:fixed;left:0;right:0;bottom:0;z-index:1030;}
+      /* remove extra gap under footer on login */
+      html,body{height:100%;}
+    "))
+  )
+)
+
+
 
 
 ###################################################################################### SHINY SERVER LOGIC #####
@@ -1755,4 +1785,3 @@ server <- function(input, output, session) {
 
 ##################################### RUNNING APPLICATION ####
 shinyApp(ui = ui, server = server)
-
