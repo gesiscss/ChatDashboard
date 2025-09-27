@@ -988,7 +988,7 @@ ui <- shinymanager::secure_app(
       html,body{ height:100%; overflow-x:hidden; }
       .page-footer{
         position:fixed !important;
-        bottom:-150px; /* NEW: Fix to the bottom */
+        bottom:-105px; /* NEW: Fix to the bottom */
         left:0; right:0; /* NEW: Full-bleed width */
         width:100vw; 
         /* The margins below are unnecessary for full-bleed with left/right:0 and should be removed,
