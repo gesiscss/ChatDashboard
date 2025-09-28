@@ -1267,8 +1267,7 @@ server <- function(input, output, session) {
     if (length(input$show_vars) >= 2) {
       
       # coloring non-donateable columns grey after checking if they're present
-      color_identifier <- colnames(rv$copy[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$copy)), drop = FALSE])[colnames(rv$copy[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$copy)), drop = FALSE])
- %in% Colnames_exclude_pii]
+      color_identifier <- colnames(rv$copy[as.numeric(rownames(rv$copy)),c(input$show_vars)])[colnames(rv$copy[as.numeric(rownames(rv$copy)),c(input$show_vars)]) %in% Colnames_exclude_pii]
       
       # inner if
       if (length(color_identifier) > 0) {datatable(rv$copy[,c(input$show_vars)],
@@ -1411,18 +1410,18 @@ server <- function(input, output, session) {
   })
   
   # only do this on confirmation
-  observeEvent(c(input$shinyalert), {
+  observeEvent(c(input$shinyalert,rv$copy,input$show_vars), {
     
     # only execute if users confirm
     if (req(input$shinyalert) == TRUE) {
       
       # removing non-donateable columns if present
-      if (sum(colnames(rv$data[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$data)), drop = FALSE]
-) %in% Colnames_exclude_pii) > 0) {
+      # TODO: THis is where it breaks -> WHY?
+      if (sum(colnames(rv$data[as.numeric(rownames(rv$copy)),c(input$show_vars)]) %in% Colnames_exclude_pii) > 0) {
         
         # removing columns that are not selected
-        rv$copy2 <- rv$data[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$data)), drop = FALSE]
-
+        rv$copy2 <- rv$data[as.numeric(rownames(rv$copy)),c(input$show_vars)]
+        
         # removing columns containing private information
         rv$copy2 <- rv$copy2[,!(colnames(rv$copy2) %in% Colnames_exclude_pii)]
         
@@ -1439,8 +1438,7 @@ server <- function(input, output, session) {
       } else {
         
         # making a copy for data donation with only the selected columns (Rows are already updated at this point)
-        rv$copy2 <- rv$data[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$data)), drop = FALSE]
-
+        rv$copy2 <- rv$data[as.numeric(rownames(rv$copy)),c(input$show_vars)]
         
       }
       
@@ -1500,7 +1498,9 @@ server <- function(input, output, session) {
       
     }
     
-  } , ignoreInit = TRUE, once = TRUE)
+  } 
+  
+  )
   
   
   
@@ -1525,8 +1525,7 @@ server <- function(input, output, session) {
       paste(input$file$name, "_parsed_selection.rds", sep = "\t")
     },
     content = function(file) {
-      saveRDS(rv$data[as.numeric(rownames(rv$copy)), intersect(as.character(input$show_vars), colnames(rv$data)), drop = FALSE]
-, file, version = 2)
+      saveRDS(rv$data[as.numeric(rownames(rv$copy)),c(input$show_vars)], file, version = 2)
     }
   )
   
