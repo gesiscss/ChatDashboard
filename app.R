@@ -1427,13 +1427,14 @@ server <- function(input, output, session) {
         rv$copy2 <- rv$copy2[,!(colnames(rv$copy2) %in% Colnames_exclude_pii)]
         
         # popup for auto-removal of columns
-        shinyalert(display_text[85],
-                   type = "error",
-                   text = paste(paste(Colnames_exclude_pii, collapse = ", "), display_text[86]),
-                   showConfirmButton = TRUE,
-                   confirmButtonText = "OK",
-                   closeOnEsc = FALSE,
-                   closeOnClickOutside = FALSE)
+        # # removed for GESIS-study as this is covered in other texts
+        #shinyalert(display_text[85],
+        #           type = "error",
+        #           text = paste(paste(Colnames_exclude_pii, collapse = ", "), display_text[86]),
+        #           showConfirmButton = TRUE,
+        #           confirmButtonText = "OK",
+        #           closeOnEsc = FALSE,
+        #           closeOnClickOutside = FALSE)
         
         
       } else {
@@ -1485,18 +1486,41 @@ server <- function(input, output, session) {
       rv$copy2 <- NULL
       rv$copy2_encrypted <- NULL
       
+      # waiter
+      waiter_hide()
       
       # routing to results tab and hiding explore data tab
-      showTab("ChatDashboard",display_text[46],session = session)
-      hideTab("ChatDashboard",display_text[28],session = session)
-      updateNavbarPage(session, "ChatDashboard",display_text[46])
-      session$sendCustomMessage(
-        "microNavVisible",
-        list(show = c(display_text[46], display_text[76]), active = display_text[46])
+      #showTab("ChatDashboard",display_text[46],session = session)
+      #hideTab("ChatDashboard",display_text[28],session = session)
+      #updateNavbarPage(session, "ChatDashboard",display_text[46])
+      #session$sendCustomMessage(
+      #  "microNavVisible",
+      #  list(show = c(display_text[46], display_text[76]), active = display_text[46])
+      #)
+      
+      # NEW: Success popup
+      shinyalert(
+        title = "Spende erfolgreich!", # Or use a display_text variable
+        text = "Vielen Dank. Ihre anonymisierte Datenspende wurde sicher übermittelt. Auf der nächsten Seite sehen Sie einige Statistiken zu Ihrem Chatverhalten als zusätzliches Dankeschön für Ihre Teilnahme. Diese sind nur für Sie einsehbar und werden mit Verlassen der Seite restlos gelöscht. Ihre übermittelte Datenspende beinhaltet in jedem Fall ausschließlich anonymisierte Daten.",
+        type = "success",
+        showConfirmButton = TRUE,
+        confirmButtonText = "Weiter",
+        callbackR = function(x) {
+          if (x) {
+            # This code runs AFTER the user clicks "Weiter"
+            showTab("ChatDashboard",display_text[46],session = session)
+            hideTab("ChatDashboard",display_text[28],session = session)
+            updateNavbarPage(session, "ChatDashboard",display_text[46])
+            session$sendCustomMessage(
+              "microNavVisible",
+              list(show = c(display_text[46], display_text[76]), active = display_text[46])
+            )
+          }
+        }
       )
       
       # waiter
-      waiter_hide()
+      #waiter_hide()
       
     }
     

@@ -116,12 +116,19 @@ You can set the senders, the minimum frequency of a smilie, and the timeframe fo
 74,NA,Antwortzeiten,Reply times
 75,NA,"Auf der rechten Seite sehen Sie, wie lange es dauert, bis jeder Person in Ihrem Chat geantwortet wird oder wie lange es dauert, bis diese auf eine Nachricht antwortet. In diesem
                                                                              Panel können Sie die Einstellungen für die Grafik auf der rechten Seite anpassen.Sie können die Absender, die Mindestanzahl und den Zeitrahmen, der in die Analyse einbezogen werden soll, festlegen.","On the right-hand side, you can see how long it takes for each person in your chat to respond or how long it takes for them to reply to a message. You can set the senders and the timeframe for the analysis."
-76,NA,Impressum,Impressum
-77,NA,"Julian Kohne, <br>
+76,NA,Kontakt,Impressum
+77,NA,"<strong>Studienverantwortliche:</strong> <br>
+Julian Kohne, <br>
+Jessica Daikeler, <br>
+Joachim Piepenburg <br>
+<br>
+<strong>Institut:</strong>  <br>
 GESIS - Leibniz Institut für Sozialwissenschaften, <br>
 Unter Sachsenhausen 6-8, <br>
 50667 Köln, <br>
-julian.kohne@gesis.org","Firstname Lastname, <br>
+<br>
+<strong>Kontakt:</strong> <br>
+Email: puls@gesis.org","Firstname Lastname, <br>
                                                             Institution, <br>
                                                             Adressline 1, <br>
                                                             Adressline 2, <br>
