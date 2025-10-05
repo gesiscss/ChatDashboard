@@ -325,35 +325,35 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                  width = 6, offset = 3),
                                           
                                           # Images
-                                          column(slickROutput("slickr",
-                                                              width = "100%",
-                                                              height = "100%"),
-                                                 HTML("<br><br>"),
-                                                 width = 6, offset = 3),
+                                          #column(slickROutput("slickr",
+                                          #                    width = "100%",
+                                          #                    height = "100%"),
+                                          #       HTML("<br><br>"),
+                                          #       width = 6, offset = 3),
                                           
                                           # Heading 2
-                                          column(tags$p(style = "text-align: justify;",
-                                                        HTML(display_text[8]),
-                                                        HTML(display_text[9]),
-                                                        HTML("<br><br>")
-                                          ),
-                                          width = 6, offset = 3),
+                                          #column(tags$p(style = "text-align: justify;",
+                                          #              HTML(display_text[8]),
+                                          #              HTML(display_text[9]),
+                                          #              HTML("<br><br>")
+                                          #),
+                                          #width = 6, offset = 3),
                                           
                                           # Heading 3
-                                          column(tags$p(style = "text-align: justify;",
-                                                        HTML(display_text[10]),
-                                                        HTML(display_text[11]),
-                                                        HTML("<br><br>")
-                                          ),
-                                          width = 6, offset = 3),
+                                          #column(tags$p(style = "text-align: justify;",
+                                          #              HTML(display_text[10]),
+                                          #              HTML(display_text[11]),
+                                          #              HTML("<br><br>")
+                                          #),
+                                          #width = 6, offset = 3),
                                           
                                           # Heading 4
-                                          column(tags$p(style = "text-align: justify;",
-                                                        HTML(display_text[12]),
-                                                        HTML(display_text[13]),
-                                                        HTML("<br><br>")
-                                          ),
-                                          width = 6, offset = 3),
+                                          #column(tags$p(style = "text-align: justify;",
+                                          #              HTML(display_text[12]),
+                                          #              HTML(display_text[13]),
+                                          #              HTML("<br><br>")
+                                          #),
+                                          #width = 6, offset = 3),
                                           
                                           # Consent button
                                           column(12, align = "center",
@@ -402,17 +402,17 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                               tags$p(
                                                 
                                                 # Headline
-                                                HTML(display_text[22]),
+                                                #HTML(display_text[22]),
                                                 
                                                 # Text column
-                                                tags$p(style = "text-align: justify;",
-                                                       HTML(display_text[23]),
-                                                       HTML("<br><br>"),
-                                                       HTML(display_text[24]),
-                                                       HTML("<br><br>"),
-                                                       HTML(display_text[25]),
-                                                       HTML("<br><br>")
-                                                ),
+                                                #tags$p(style = "text-align: justify;",
+                                                #       HTML(display_text[23]),
+                                                #       HTML("<br><br>"),
+                                                #       HTML(display_text[24]),
+                                                #       HTML("<br><br>"),
+                                                #       HTML(display_text[25]),
+                                                #       HTML("<br><br>")
+                                                #),
                                                 
                                                 # Images and Headlines
                                                 HTML(display_text[26]),
@@ -499,10 +499,10 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                         sidebarPanel(
                                           
                                           # Info text
-                                          h2(display_text[29], align = "center"),
-                                          HTML(display_text[30]),
-                                          HTML("<br><br>"),
-                                          HTML(display_text[31]),
+                                          #h2(display_text[29], align = "center"),
+                                          #HTML(display_text[30]),
+                                          #HTML("<br><br>"),
+                                          #HTML(display_text[31]),
                                           
                                           # column selection
                                           h3(display_text[32]),
@@ -511,8 +511,12 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                       display_text[34],
                                                       choices = c(""),
                                                       selected = c(""),
-                                                      label = display_text[35],
+                                                      #label = display_text[35],
                                                       multiple = TRUE,
+                                                      options  = pickerOptions(
+                                                        selectedTextFormat = "count",
+                                                        countSelectedText  = "{0} Spalten ausgewählt"
+                                                      ),
                                                       choicesOpt = list(style = c("color:black;font-weight: bold;",
                                                                                   "background:lightgrey;color:black",
                                                                                   "color:black;font-weight: bold;",
