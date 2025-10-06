@@ -73,35 +73,35 @@ options(shiny.maxRequestSize = 50*1024^2)
 # Set column names to be displayed to participants. This needs to be exactly 19 strings
 # and does not determine whether these variables are displayed or not, but just how they are named
 # in the display to participants
-Colnames_ppt_display <- c("Timestamp",
-                          "Sender",
-                          "Sender_anonymized",
-                          "Message",
-                          "Message_simplified",
-                          "Message_words",
+Colnames_ppt_display <- c("Zeit",
+                          "Absender",
+                          "Absender_anonym",
+                          "Nachricht",
+                          "Nachricht_vereinfacht",
+                          "Worte",
                           "Links",
-                          "Links_anonymized",
-                          "Media",
-                          "Media_anonymized",
-                          "Locations",
-                          "Locations_anonymized",
+                          "Links_anonym",
+                          "Medien",
+                          "Medien_anonym",
+                          "Standorte",
+                          "Standorte_anonym",
                           "Emoji",
-                          "Emoji_description",
+                          "Emoji_beschreibung",
                           "Smilies",
-                          "System_messages",
-                          "Word_count",
-                          "Time_order",
-                          "Display_order")
+                          "System_info",
+                          "Wortanzahl",
+                          "Nummerierung_zeit",
+                          "Nummerierung_anzeige")
 
 # Set column names to be automatically excluded because they can contain PII (must occur in Colnames_ppt_display)
-Colnames_exclude_pii <- c("Sender",
-                          "Message",
-                          "Message_simplified",
-                          "Message_words",
+Colnames_exclude_pii <- c("Absender",
+                          "Nachricht",
+                          "Nachricht_vereinfacht",
+                          "Worte",
                           "Links",
-                          "Media",
-                          "Locations",
-                          "System_messages")
+                          "Medien",
+                          "Standorte",
+                          "System_info")
 
 
 
