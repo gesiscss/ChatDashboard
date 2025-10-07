@@ -161,6 +161,29 @@ waiting_screen2 <- tagList(
 # Define UI for ChatDashboard application
 app_ui <- fluidPage(theme = shinytheme("flatly"),
                     
+                    # website zoom
+                    tags$head(tags$style(HTML("
+                    /* Shinywaiter immer bildschirmfüllend, in allen Browsern */
+                    .waiter-overlay, #waiter-overlay, .waiter {
+                      position: fixed !important;
+                      top: 0 !important; right: 0 !important; bottom: 0 !important; left: 0 !important;
+                      width: 100vw !important;
+                      height: 100vh !important;
+                      max-width: 100vw !important;
+                      max-height: 100vh !important;
+                      transform: none !important;
+                      -webkit-transform: none !important;
+                      -ms-transform: none !important;
+                      -moz-transform: none !important;
+                      z-index: 2147483647 !important;
+                    }
+                  
+                    /* Moderne Browser: exakte Viewport-Höhe */
+                    @supports (height: 100dvh) {
+                      .waiter-overlay, #waiter-overlay, .waiter { height: 100dvh !important; }
+                    }
+                  "))),
+                                        
                     ##################################### UI SETUP ####
                     
                     # Shiny helpers
@@ -1402,7 +1425,7 @@ server <- function(input, output, session) {
     
     # popup asking for consent to data donation
     shinyalert(display_text[81],
-               display_text[81],
+               "Ausgegraute Spalten werden automatisch von der Spende entfernt.",
                type = "success",
                showConfirmButton = TRUE,
                showCancelButton = TRUE,
@@ -1505,7 +1528,7 @@ server <- function(input, output, session) {
       # NEW: Success popup
       shinyalert(
         title = "Spende erfolgreich!", # Or use a display_text variable
-        text = "Vielen Dank. Ihre anonymisierte Datenspende wurde sicher übermittelt. Auf der nächsten Seite sehen Sie einige Statistiken zu Ihrem Chatverhalten als zusätzliches Dankeschön für Ihre Teilnahme. Diese sind nur für Sie einsehbar und werden mit Verlassen der Seite restlos gelöscht. Ihre übermittelte Datenspende beinhaltet in jedem Fall ausschließlich anonymisierte Daten.",
+        text = "Vielen Dank! Ihre anonymisierte Datenspende wurde sicher übermittelt. \n\n Auf der nächsten Seite sehen Sie einige Statistiken zu Ihrem Chatverhalten als zusätzliches Dankeschön für Ihre Teilnahme. Diese sind nur für Sie einsehbar und werden mit Verlassen der Seite restlos gelöscht. \n\n Sie können diese Website nun jederzeit schließen.",
         type = "success",
         showConfirmButton = TRUE,
         confirmButtonText = "Weiter",
@@ -1683,7 +1706,7 @@ server <- function(input, output, session) {
         names     = input$Sender_input_msg,
         starttime = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[2], " 23:59", sep = "")
-      ) + labs(title = "Nachrichten im Zeitverlauf", x = "Datum", y = "Nachrichten")
+      ) + labs(title = "Nachrichtenanzahl", x = "Absender", y = "Nachrichten")
     }, res = 100, height = 600)
     
     output$tokensbwah1 <- renderPlot({
@@ -1705,7 +1728,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_messages, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         plot      = "heatmap"
-      ) + labs(title = "Wörter – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Wörter")
+      ) + labs(title = "Wörter – Aktivität nach Tageszeit", x = "Uhrzeit", y = "Wochentag", fill = "Wörter")
     }, res = 100, height = 600)
   })
   
@@ -1733,7 +1756,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$LinkMinimum
-      ) + labs(title = "Links – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Links")
+      ) + labs(title = "Links – Aktivität nach Tageszeit", x = "Uhrzeit", y = "Wochentag", fill = "Links")
     }, res = 100, height = 600)
     
     output$links4 <- renderPlot({
@@ -1745,7 +1768,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_links, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$LinkMinimum
-      ) + labs(title = "Häufigste Domains", x = "Domäne", y = "Anzahl")
+      ) + labs(title = "Häufigste Domains", x = "Absender", y = "Häufigkeit")
     }, res = 100, height = 600)
   })
   
@@ -1773,7 +1796,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$SmilieMinimum
-      ) + labs(title = "Smilies – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Smilies")
+      ) + labs(title = "Smilies – Aktivität nach Tageszeit", x = "Uhrzeit", y = "Wochentag", fill = "Smilies")
     }, res = 100, height = 600)
     
     output$smilies4 <- renderPlot({
@@ -1785,7 +1808,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_smilies, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$SmilieMinimum
-      ) + labs(title = "Smilies nach Sender", x = "Sender", y = "Anzahl")
+      ) + labs(title = "Smilies nach Sender", x = "Absender", y = "Anzahl")
     }, res = 100, height = 600)
   })
   
@@ -1813,7 +1836,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$EmojiMinimum
-      ) + labs(title = "Emoji – Aktivität nach Tageszeit", x = "Datum", y = "Stunde", fill = "Emoji")
+      ) + labs(title = "Emoji – Aktivität nach Tageszeit", x = "Uhrzeit", y = "Wochentag", fill = "Emoji")
     }, res = 100, height = 600)
     
     output$emoji4 <- renderPlot({
@@ -1825,7 +1848,7 @@ server <- function(input, output, session) {
         starttime = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[1], " 00:00", sep = ""),
         endtime   = paste(unlist(strsplit(format.Date(input$date_range_emoji, "%Y-%m-%d"), " "))[2], " 23:59", sep = ""),
         min_occur = input$EmojiMinimum
-      ) + labs(title = "Emoji nach Sender", x = "Sender", y = "Anzahl")
+      ) + labs(title = "Emoji nach Sender", x = "Absender", y = "Häufigkeit")
     }, res = 100, height = 600)
   })
   

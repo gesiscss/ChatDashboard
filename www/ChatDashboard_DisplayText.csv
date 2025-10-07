@@ -130,7 +130,7 @@ Email: puls@gesis.org","Firstname Lastname, <br>
 79,NA,Für die tabellarische Ansicht müssen mindestens 2 Spalten ausgewählt sein. Ihre Spaltenauswahl wurde zurückgesetzt,"For the tabular view, at least 2 columns must be selected. Your column selection has been reset"
 80,NA,Zustimmen,Confirm
 81,NA,Möchten Sie die ausgewählten Daten spenden?,Do you want to donate the selected data?
-82,NA,Daten spenden und Analyse anzeigen,Donate data and show analysis
+82,NA,Daten spenden,Donate data and show analysis
 83,NA,Zurück zur Datenauswahl,Back to data selection
 84,NA,Spalten automatisch entfernt,Columns removed automatically
 85,NA,Die ausgegrauten Spalten:,The greyed out columns:
