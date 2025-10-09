@@ -419,43 +419,69 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                                     style = "color: #FFFFFF; background-color: #E2007A; border-color: #E2007A")
                                           ),
                                           
-                                          # Main panel
+                                         
+                                          #### MAIN PANEL 
                                           mainPanel(
                                             column(
-                                              tags$p(
-                                                
-                                                # Headline
-                                                #HTML(display_text[22]),
-                                                
-                                                # Text column
-                                                #tags$p(style = "text-align: justify;",
-                                                #       HTML(display_text[23]),
-                                                #       HTML("<br><br>"),
-                                                #       HTML(display_text[24]),
-                                                #       HTML("<br><br>"),
-                                                #       HTML(display_text[25]),
-                                                #       HTML("<br><br>")
-                                                #),
-                                                
-                                                # Images and Headlines
-                                                HTML(display_text[26]),
-                                                tags$img(height = "auto",
-                                                         width = "100%",
-                                                         src = "DataExport_Guide_Android.png"),
-                                                HTML("<br><br>"),
-                                                HTML(display_text[27]),
-                                                tags$img(height = "auto",
-                                                         width = "100%",
-                                                         src = "WhatsApp_DataExport_iOS.png"),
-                                                HTML("<br><br>"),
-                                                
-                                                # End paragraph
+                                              width = 10, offset = 1,
+                                              
+                                              # Heading + body text
+                                              tags$h2("WhatsApp Chatverläufe exportieren"),
+                                              tags$p("Klicken sie auf den entsprechenden Reiter unten um die richtige Anleitung zum Export von WhatsApp Chatverläufen für Ihr Telefon auszuwählen"),
+                                              
+                                              # minimal spacing
+                                              tags$head(
+                                                tags$style(HTML("
+                                                  details { margin-bottom: 16px; }
+                                                  summary { cursor: pointer; font-weight: 600; padding: 8px 0; }
+                                                  details > *:not(summary) { margin-top: 8px; }
+                                                  img { display:block; }
+                                                "))
                                               ),
                                               
-                                              # end column
-                                              width = 10, offset = 1)
-                                            
-                                            # end main panel
+                                              # ANDROID
+                                              tags$details(
+                                                tags$summary("Android"),
+                                                tags$ul(
+                                                  tags$li("Öffnen Sie WhatsApp auf Ihrem Smartphone und klicken Sie auf den Chat dessen Verlauf Sie bereitstellen möchten."),
+                                                  tags$li("Klicken Sie oben rechts im Chat auf die drei vertikalen Punkte."),
+                                                  tags$li("Wählen Sie die Option `Mehr` im folgenden Menü aus."),
+                                                  tags$li("Klicken Sie auf die Option `Chat exportieren`."),
+                                                  tags$li("Im folgenden Fenster, wählen Sie die Option `Ohne Medien` aus."),
+                                                  tags$li("Wählen Sie nun ein Emailprogramm aus der Liste aus. Es öffnet sich eine Email an welche der Chatverlauf automatisch angehängt ist."),
+                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene Emailadresse ein und senden Sie die Email an sich selbst ab.")
+                                                ),
+                                                tags$img(src = "DataExport_Guide_Android.png",
+                                                         style = "width:100%;height:auto;", alt = "Android export guide"),
+                                                tags$ul(
+                                                  tags$li("Öffnen Sie das Emailpostfach an welches Sie den Chatverlauf gerade geschickt haben."),
+                                                  tags$li("Laden Sie den Anhang der Email herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
+                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
+                                                  tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
+                                                )
+                                              ),
+                                              
+                                              # iPHONE
+                                              tags$details(
+                                                tags$summary("iPhone"),
+                                                tags$ul(
+                                                  tags$li("Öffnen Sie WhatsApp auf Ihrem Smartphone und klicken Sie auf den Chat dessen Verlauf Sie bereitstellen möchten."),
+                                                  tags$li("Klicken Sie oben in der Mitte des Chatfensters auf den Namen Ihres Chatpartners."),
+                                                  tags$li("Scrollen Sie im Menü nach unten und wählen Sie die Option `Chat exportieren` aus"),
+                                                  tags$li("Im folgenden Fenster, wählen Sie die Option `Ohne Medien` aus."),
+                                                  tags$li("Wählen Sie nun ein Emailprogramm aus er Liste aus. Es öffnet sich eine Email an welche der Chatverlauf automatisch angehängt ist."),
+                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene Emailadresse ein und senden Sie die Email an sich selbst ab.")
+                                                ),
+                                                tags$img(src = "WhatsApp_DataExport_iOS.png",
+                                                         style = "width:100%;height:auto;", alt = "iOS export guide"),
+                                                tags$ul(
+                                                  tags$li("Öffnen Sie das Emailpostfach an welches Sie den Chatverlauf gerade geschickt haben."),
+                                                  tags$li("Laden Sie den Anhang der Email herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
+                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
+                                                  tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
+                                                )
+                                              )
+                                            )
                                           ),
                                           
                                           # End sidebar layout

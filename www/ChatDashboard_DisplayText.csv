@@ -3,10 +3,10 @@
 2,NA,Ihre persönliche Datenauswertung wird vorbereitet.  \n Dies kann einige Minuten in Anspruch nehmen.  \n Bitte schließen Sie dieses Browserfenster nicht.,Your personal data analysis is being prepared.  \n This process may take several minutes.  \n Please do not close this browser window.
 3,NA,Überblick,Overview
 4,NA,<h1 align='center'> WhatsApp Datenspenden</h1>,<h1 align='center'> Analyze Your Own WhatsApp Chat Logs! </h1>
-5,NA,"Liebe/r Teilnehmer/in, in diesem Teil der Studie haben Sie die Möglichkeit, Ihre eigenen WhatsApp-Chatlogs sicher zu spenden. In den folgenden Schritten
+5,NA,"Vielen Dank für Ihre Teilname an unserer Studie! In diesem Teil der Studie haben Sie die Möglichkeit, einen eigenen WhatsApp-Chatverlauf sicher bereitzustellen. In den folgenden Schritten
                                                   werden wir Sie durch den Prozess des Exports und des sicheren Hochladens eines WhatsApp Chatlogs auf diese Website führen.
-                                                  Sie werden die Möglichkeit haben, Ihre Nachrichten vor der Spende einzusehen, um zu sehen, welche Art von Informationen
-                                                  aus einem Chatlog extrahiert werden können. Dabei können Sie auch Teile des Chats selbst von der Spende ausschließen.","Dear participant, in this part of the study, you have the opportunity to securely analyze your own WhatsApp chatlogs and provide us with some anonymized communication data from your chat in return. In the following steps, we will guide you through the process of exporting and securely uploading a WhatsApp chatlog to this website. You will have the opportunity to interactively examine your messages to see what type of information can be extracted from a chatlog.
+                                                  Sie werden die Möglichkeit haben, Ihren Chatverlauf vor derm Abschicken einzusehen, um zu sehen, welche Art von Informationen
+                                                  in Ihrem anonymisierten Chatverlauf enthalten sind. Dabei können Sie auch Teile des Chats selbst löschen bevor Sie ihn abschicken.","Dear participant, in this part of the study, you have the opportunity to securely analyze your own WhatsApp chatlogs and provide us with some anonymized communication data from your chat in return. In the following steps, we will guide you through the process of exporting and securely uploading a WhatsApp chatlog to this website. You will have the opportunity to interactively examine your messages to see what type of information can be extracted from a chatlog.
 
 
 
@@ -20,7 +20,7 @@
 
 
 "
-7,NA,Vielen Dank für Ihre Teilname an unserer Studie!,"If you decide to donate anonymized communication data from your chat, you will gain access to an interactive analysis page for your own data and can see who sends the most words, who uses which emojis and smileys, or how long on average it takes to respond to messages. Again, these information are only visible to you, and we only store the anonymized communication data that you have explicitly reviewed and released through a specific button."
+7,NA, ,"If you decide to donate anonymized communication data from your chat, you will gain access to an interactive analysis page for your own data and can see who sends the most words, who uses which emojis and smileys, or how long on average it takes to respond to messages. Again, these information are only visible to you, and we only store the anonymized communication data that you have explicitly reviewed and released through a specific button."
 8,NA,<h1 align='center'> Wie werden meine Daten gesichert? </h1>,<h1 align='center'> How are my data secured? </h1>
 9,NA,"Der gesamte Datenverkehr auf dieser Website ist durch das <a href='https://en.wikipedia.org/wiki/Transport_Layer_Security' target='_blank'>TLS-Protokoll</a> gesichert und es werden keine Informationen dauerhaft gespeichert, es sei denn, sie werden von Ihnen ausdrücklich gespendet. Sie sehen Ihre Nachrichten, nachdem sie auf die Website hochgeladen wurden, aber nur Sie können diese für die Dauer Ihres Besuchs auf dieser Website einsehen. Nach dem Schließen des Browsers werden alle Informationen, die Sie nicht ausdrücklich gespendet haben, gelöscht. Alle Daten werden gemäß der Europäischen Datenschutzgrundverordnung (DSGVO) auf einem gesicherten Server der Eisenschmidt Consulting Crew (ECC) in Deutschland, gesammelt und verarbeitet. Die gespendeten Daten werden mit dem <a href='https://en.wikipedia.org/wiki/RSA_(cryptosystem)' target='_blank'>RSA</a>-Verschlüsselungsverfahren verschlüsselt, sodass nur die Studienverantwortliche ForscherInnen darauf Zugriff erhalten. Diese Studie wurde von der Ethikkommission von GESIS geprüft und genehmigt.","All traffic on this website is secured using the <a href=""https://en.wikipedia.org/wiki/Transport_Layer_Security"" target=""_blank"">TLS protocol</a>, and no information is stored permanently unless explicitly donated by you. You can view your messages after they are uploaded to the website, but only you can see them during your visit to this website. After closing the browser, all information that you have not explicitly donated will be deleted. It is important to note that you can only donate anonymized communication data. This means that even if you wanted to, it is not possible to donate personal data such as message contents, names, phone numbers, sent files, images, or videos. All data is collected and processed according to the European General Data Protection Regulation (GDPR) on a secure server at the University of Ulm, Germany. All donated data is encrypted using the <a href=""https://en.wikipedia.org/wiki/RSA_(cryptosystem)"" target=""_blank"">RSA</a> encryption method. This study has been reviewed and approved by the Ethics Committee of the University of Ulm.
 "
@@ -110,10 +110,7 @@ You can set the senders, the minimum frequency of a smilie, and the timeframe fo
 75,NA,"Auf der rechten Seite sehen Sie, wie lange es dauert, bis jeder Person in Ihrem Chat geantwortet wird oder wie lange es dauert, bis diese auf eine Nachricht antwortet. In diesem
                                                                              Panel können Sie die Einstellungen für die Grafik auf der rechten Seite anpassen.Sie können die Absender, die Mindestanzahl und den Zeitrahmen, der in die Analyse einbezogen werden soll, festlegen.","On the right-hand side, you can see how long it takes for each person in your chat to respond or how long it takes for them to reply to a message. You can set the senders and the timeframe for the analysis."
 76,NA,Kontakt,Impressum
-77,NA,"<strong>Studienverantwortliche:</strong> <br>
-Julian Kohne, <br>
-Jessica Daikeler, <br>
-Joachim Piepenburg <br>
+77,NA,"<strong>Eine Studie von GESIS Puls</strong> <br>
 <br>
 <strong>Institut:</strong>  <br>
 GESIS - Leibniz Institut für Sozialwissenschaften, <br>
