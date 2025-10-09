@@ -992,7 +992,6 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                     # Add GESIs footer
                     tags$footer(includeHTML("www/gesis-footer.html"))
                     
-                    
                     # End ui
 )
 
@@ -1006,56 +1005,55 @@ ui <- shinymanager::secure_app(
   head_auth = tagList(
     tags$link(rel = "stylesheet", href = "package/dist/gesis-web.css"),
     tags$style(HTML("
-      :root{
-        --header-h:64px;
-        --banner-h:180px;
-        --gap-top:0px;      /* space between banner and login */
-        --footer-gap:0px;    /* whitespace before footer (less relevant for fixed) */
-        --footer-h:100px;    /* ESTIMATED HEIGHT OF THE FOOTER */
-      }
+  :root{
+    --header-h:64px;
+    --banner-h:180px;
+    --gap-top:0px;
+  }
 
-      /* fixed micro header */
-      #gesis-micro-header{ position:fixed; top:0; left:0; right:0; z-index:1030; }
+  /* Fixed micro header */
+  #gesis-micro-header{ position:fixed; top:0; left:0; right:0; z-index:1030; }
 
-      /* full-width banner background */
-      .panel-auth::before{
-        content:''; position:fixed; top:var(--header-h); left:0; right:0; height:var(--banner-h);
-        background:url('banner-microsite-07.svg') center/cover no-repeat; z-index:1020;
-      }
+  /* Full-width banner behind login */
+  .panel-auth::before{
+    content:''; position:fixed; top:var(--header-h); left:0; right:0; height:var(--banner-h);
+    background:url('banner-microsite-07.svg') center/cover no-repeat; z-index:1020;
+  }
 
-      /* space for header + banner + fixed footer clearance for the login panel */
-      .panel-auth{
-        padding-top:calc(var(--header-h) + var(--banner-h) + var(--gap-top)) !important;
-        /* UPDATED: Add padding to ensure content clears the fixed footer */
-        padding-bottom:calc(var(--footer-h) + 20px) !important; 
-        box-sizing:border-box;
-      }
+  /* Auth wrapper spacing */
+  .panel-auth{
+    padding-top:calc(var(--header-h) + var(--banner-h) + var(--gap-top)) !important;
+    box-sizing:border-box;
+    min-height:100dvh;
+  }
 
-      /* banner title/logo overlay from HTML */
-      #banner-overlay{ position:fixed; top:var(--header-h); left:0; right:0; height:var(--banner-h); z-index:1025; pointer-events:none; }
-      #banner-overlay .page-banner.microsite,
-      #banner-overlay .page-banner--inner{ background:transparent !important; margin:0 !important; }
+  /* Keep login card constrained and centered */
+  .panel-auth > .panel,
+  .panel-auth .panel.panel-default,
+  .panel-auth .auth-panel{
+    width:min(560px, 100%);
+    margin:0 auto;
+  }
 
-      /* UPDATED: Footer is now fixed to the bottom of the viewport, full-bleed */
-      html,body{ height:100%; overflow-x:hidden; }
-      .page-footer{
-        position:fixed !important;
-        bottom:-105px; /* NEW: Fix to the bottom */
-        left:0; right:0; /* NEW: Full-bleed width */
-        width:100vw; 
-        /* The margins below are unnecessary for full-bleed with left/right:0 and should be removed,
-           but I've kept a simplified width fix just in case it's needed elsewhere. */
-        margin-left:auto; 
-        margin-right:auto;
-        z-index:1030; /* Ensure it is above main content */
-        margin-top:var(--footer-gap); /* This margin is less relevant for a fixed element */
-      }
+  /* Banner title/logo overlay */
+  #banner-overlay{ position:fixed; top:var(--header-h); left:0; right:0; height:var(--banner-h); z-index:1025; pointer-events:none; }
+  #banner-overlay .page-banner.microsite,
+  #banner-overlay .page-banner--inner{ background:transparent !important; margin:0 !important; }
 
-      @media (max-width:768px){
-        /* Adjust variables for mobile */
-        :root{ --banner-h:140px; --gap-top:40px; --footer-gap:96px; --footer-h:140px; }
-      }
-    "))
+  html,body{ height:100%; overflow-x:hidden; }
+
+  /* Disable footer on shinymanager login page */
+  .page-footer{ display:none !important; }
+
+  @media (max-width:768px){
+    :root{ --banner-h:140px; --gap-top:40px; }
+  }
+"))
+    
+    
+
+    
+    
   ),
   
   tags_top = tagList(
