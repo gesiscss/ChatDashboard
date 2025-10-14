@@ -22,6 +22,7 @@ library(slickR)
 library(utils)
 library(waiter)
 library(WhatsR)
+library(shinybrowser)
 
 
 
@@ -107,6 +108,7 @@ Colnames_exclude_pii <- c("Absender",
 
 
 # Shiny Debugging Options (uncomment these to debug the app)
+options(shiny.session.inactivityTimeout = 2*60*60*1000) # Session Inactivity Timeout =
 # options(shiny.error = browser)
 # options(shiny.trace = TRUE)
 
@@ -160,6 +162,34 @@ waiting_screen2 <- tagList(
 
 # Define UI for ChatDashboard application
 app_ui <- fluidPage(theme = shinytheme("flatly"),
+                    
+                    # Detecting browser for mobile optimization
+                    shinybrowser::detect(),
+                    
+                    # keep session alive for locked phones
+                    tags$head(tags$script(HTML("
+                        setInterval(function(){
+                          Shiny.setInputValue('keepalive', Date.now(), {priority:'event'});
+                        }, 15000);
+                      "))),
+                    
+                    # ensure users start at the top of a new page when changing tabs on mobile
+                    tags$head(tags$script(HTML("
+                      (function(){
+                        function scrollTopNow(){
+                          window.scrollTo(0,0);
+                          document.body.scrollTop = 0;
+                          document.documentElement.scrollTop = 0;
+                          setTimeout(function(){ window.scrollTo(0,0); }, 0); // iOS
+                        }
+                        // Bootstrap tab change (navbarPage)
+                        $(document).on('shown.bs.tab', 'a[data-toggle=\"tab\"]', scrollTopNow);
+                        // Your custom microsite nav
+                        $(document).on('click', '.gs-micro-nav a', function(){ setTimeout(scrollTopNow, 0); });
+                        // After you rewire visible/active tabs
+                        Shiny.addCustomMessageHandler('microNavVisible', function(){ setTimeout(scrollTopNow, 0); });
+                      })();
+                    "))),
                     
                     # website zoom
                     tags$head(tags$style(HTML("
@@ -564,7 +594,8 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                       multiple = TRUE,
                                                       options  = pickerOptions(
                                                         selectedTextFormat = "count",
-                                                        countSelectedText  = "{0} Spalten ausgewählt"
+                                                        countSelectedText  = "{0} Spalten ausgewählt"#,
+                                                        #mobile = TRUE
                                                       ),
                                                       choicesOpt = list(style = c("color:black;font-weight: bold;",
                                                                                   "background:lightgrey;color:black",
@@ -1078,6 +1109,10 @@ ui <- shinymanager::secure_app(
 # Defining server logic
 server <- function(input, output, session) {
   
+  # allow reconnection (improves mobile phone UX)
+  session$allowReconnect(TRUE)
+  observeEvent(input$keepalive, function(...) {}, ignoreInit = TRUE)
+  
   ################################### BASIC SETUP ####
   
   #### Creating Slideshow with SlickR
@@ -1088,6 +1123,11 @@ server <- function(input, output, session) {
   
   # creating empty reactive value for storing uploaded data
   rv <- reactiveValues(data = NULL)
+  
+  # Detecting mobile browser
+  device <- reactive({shinybrowser::get_device()})
+  is_mobile  <- reactive({ device() %in% c("Mobile","Tablet") })
+  
   
   ################################### STYLING, BUTTONS, HIDE/UNHIDE ELEMENTS ####
   
@@ -1294,7 +1334,7 @@ server <- function(input, output, session) {
     req(input$show_vars,rv$copy)
     
     # df
-    name_frame <- cbind.data.frame("Real Name" = unique(rv$copy[,2][rv$copy[,2] != "WhatsApp System Message"]),"Anonymized Name" = unique(rv$copy[,3][rv$copy[,3] != "WhatsApp System Message"]))
+    name_frame <- cbind.data.frame("Echter Name" = unique(rv$copy[,2][rv$copy[,2] != "WhatsApp System Message"]),"Anonymisierter Name" = unique(rv$copy[,3][rv$copy[,3] != "WhatsApp System Message"]))
     
     # table
     datatable(name_frame)
@@ -1373,7 +1413,13 @@ server <- function(input, output, session) {
       updatePickerInput(session,
                         "show_vars",
                         choices = colnames(rv$data),
-                        selected = colnames(rv$data)[c(1,3,8,10,12,13,14,15,17:19)],
+                        selected = colnames(rv$data)[c(1,3,8,10,12,13,14,15,17:19)],,
+                        options  = pickerOptions(
+                          mobile = is_mobile(),
+                          selectedTextFormat = "count",
+                          countSelectedText  = "{0} Spalten ausgewählt",
+                          container = if (is_mobile()) "body" else NULL
+                        ),
                         choicesOpt = list(style = c("color:black;font-weight: bold;",
                                                     "background:lightgrey;color:black",
                                                     "color:black;font-weight: bold;",
@@ -1508,6 +1554,10 @@ server <- function(input, output, session) {
       attr(rv$copy2, "language")  <- attributes(rv$copy)["language"]
       attr(rv$copy2, "detectedOS")  <- attributes(rv$copy)["detectedOS"]
       
+      # getting additional info about client browser and device
+      attr(rv$copy2, "clientOS")     <- shinybrowser::get_os()
+      attr(rv$copy2, "clientDevice") <- shinybrowser::get_device()
+      
       # hashing to get a unique filename to not overwrite a file if the same person decides to upload multiple chats
       LocalFilename <- sprintf("%s_%s_%s.rds",
                                reactiveValuesToList(res_auth)$user,
@@ -1614,6 +1664,12 @@ server <- function(input, output, session) {
                       "show_vars",
                       choices = colnames(rv$data),
                       selected = colnames(rv$data)[c(1,3,8,10,12,13,14,15,17:19)],
+                      options  = pickerOptions(
+                        mobile = is_mobile(),
+                        selectedTextFormat = "count",
+                        countSelectedText  = "{0} Spalten ausgewählt",
+                        container = if (is_mobile()) "body" else NULL
+                      ),
                       choicesOpt = list(style = c("color:black;font-weight: bold;",
                                                   "background:lightgrey;color:black",
                                                   "color:black;font-weight: bold;",
@@ -1906,4 +1962,5 @@ server <- function(input, output, session) {
 }
 
 ##################################### RUNNING APPLICATION ####
+options(shiny.host = "0.0.0.0", shiny.port = 3838)
 shinyApp(ui = ui, server = server)
