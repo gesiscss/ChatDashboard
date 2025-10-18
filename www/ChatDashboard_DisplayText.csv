@@ -33,7 +33,7 @@
 15,NA,Daten hochladen,Upload data
 16,NA,Datei auswählen,Select file
 17,NA,Hochladen des Chatverlaufs,Upload chat log
-18,NA,"Rechts sehen Sie, wie Sie einen WhatsApp Chatverlauf exportieren und an Ihre eigene Email-adresse senden können. Danach können Sie den exportierten Chatverlauf aus Ihrem Emailpostfach auf Ihren PC herunterladen. Sie können Ihren exportierten WhatsApp-Chatverlauf durch eine verschlüsselte Verbindung auf diese Seite hochladen, indem Sie unten auf die Schaltfläche 'Datei auswählen' klicken. Sobald Sie eine Datei ausgewählt haben, wird eine Schaltfläche zur Verarbeitung der Datei angezeigt. Durch klicken auf die Schaltfläche werden noch keine Daten gespendet .","You can select your exported WhatsApp chat history by clicking on the 'Select file' button below. Once you have selected a file, a button to process the file will appear. By clicking on the button, you are not yet donating any data."
+18,NA,"Rechts (PC) oder unten (Smartphone) sehen Sie, wie Sie einen WhatsApp Chatverlauf exportieren und an Ihre eigene Email-adresse senden können. Danach können Sie den exportierten Chatverlauf aus Ihrem Emailpostfach auf Ihr Gerät herunterladen. Sie können Ihren exportierten WhatsApp-Chatverlauf durch eine verschlüsselte Verbindung auf diese Seite hochladen, indem Sie unten auf die Schaltfläche 'Datei auswählen' klicken. Sobald Sie eine Datei ausgewählt haben, wird eine Schaltfläche zur Verarbeitung der Datei angezeigt. Durch klicken auf die Schaltfläche werden noch keine Daten gespendet .","You can select your exported WhatsApp chat history by clicking on the 'Select file' button below. Once you have selected a file, a button to process the file will appear. By clicking on the button, you are not yet donating any data."
 19,NA,"Sie werden im nächsten Schritt die Möglichkeit haben, Ihre Daten einzusehen und auszuwählen welche Informationen Sie zu spenden bereit sind.","In the next step, you will have the opportunity to review and select which information you are willing to donate. To delete all data that you have not explicitly donated, you can close this website at any time."
 20,NA,Datei auswählen,Select file
 21,NA,Datei verarbeiten,Process file
@@ -55,7 +55,7 @@
 31,NA,"<b>Wichtig ist, dass die ausgegrauten Spalten 'Absender (Klarname)', 'Nachricht', 'Nachricht (bereinigt)', 'Wortliste' und 'Standort' nur für Sie sichtbar sind und nicht gespendet werden können. Diese werden automatisch von der Spende ausgeschlossen,
                                              falls Sie dies nicht manuell tun.</b>","<b>Please note that the grayed-out columns 'Sender (Real Name)', 'Message', 'Message (cleaned)', 'Word List', and 'Location' are only visible to you and cannot be donated. These columns are automatically excluded from donation, unless you do so manually.</b>"
 32,NA,Spalten ausschließen,Exclude columns
-33,NA,"Sie können einfach ganze Spalten von der Spendenauswahl in der Tabelle rechts ausschließen, indem Sie auf das Menü unten
+33,NA,"Sie können einfach ganze Spalten von der Spendenauswahl in der Tabelle rechts (PC) oder unten (Smartphone) ausschließen, indem Sie auf das Menü unten
                                                klicken und die entsprechenden Spaltennamen auswählen oder abwählen.",You can simply exclude entire columns from the donation selection in the table on the right by clicking on the menu below and selecting or deselecting the corresponding column names.
 34,NA,Spalten auswählen:,Select columns:
 35,NA,"Klicken, um Spalten auszuwählen:",Click to select columns:
@@ -135,7 +135,7 @@ Email: puls@gesis.org","Firstname Lastname, <br>
 87,NA,Spender Auswahl,Donor Selection
 88,NA,spender_button,donor_button
 89,NA,Weiter,Next
-90,NA,"Um Ihre Umfrageantworten mit Ihrem anonymen Chatverhalten zu verknüpfen, geben Sie bitte an, welche Person aus dem Chat die Umfrage ausgefüllt hat. Wir zeigen hier die echten Absendernamen an, damit Sie den richtigen anonymen Indikator auswählen können, aber die echten Namen werden nicht gespeichert.","To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."
+90,NA,"Um Ihre Umfrageantworten mit Ihrem anonymen Chatverhalten zu verknüpfen, geben Sie bitte an, welche Person aus dem Chat die Umfrage ausgefüllt hat. Wir zeigen rechts (PC) oder unten (Smartphone) die echten Absendernamen an, damit Sie den richtigen anonymen Indikator auswählen können, aber die echten Namen werden nicht gespeichert.","To link your survey responses to your anonymous chatting behavior, please indicate which person from the chat filled in the survey. We show the real sender names here so you can select the correct anoynmous indicator but real names will not be saved."
 91,NA,Welche anonyme Person aus dem Chat hat die Umfrage beantwortet?,Which anonymous person from the chat answered the survey?
 92,NA,Technische Probleme,Technical issues
 93,NA,Dauert zu lange,Takes too long

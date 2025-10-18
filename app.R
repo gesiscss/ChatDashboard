@@ -457,7 +457,7 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                               
                                               # Heading + body text
                                               tags$h2("WhatsApp Chatverläufe exportieren"),
-                                              tags$p("Klicken sie auf den entsprechenden Reiter unten um die richtige Anleitung zum Export von WhatsApp Chatverläufen für Ihr Telefon auszuwählen"),
+                                              tags$p("Wenn Sie den Chatverlauf bereits auf ihr Telefon oder Ihren PC exportiert haben können Sie diesen direkt links (PC) oder oben (Smartphone) hochladen. Falls nicht, klicken Sie hier auf den entsprechenden Reiter unten um die richtige Anleitung zum Export von WhatsApp Chatverläufen für Ihr Telefon auszuwählen."),
                                               
                                               # minimal spacing
                                               tags$head(
