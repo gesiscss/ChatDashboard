@@ -374,8 +374,8 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                  HTML(display_text[6]),
                                                  HTML("<br><br>"),
                                                  HTML(display_text[7]),
-                                                 HTML("<br><br><br>"),
-                                                 width = 6, offset = 3),
+                                                 HTML("<br>"),
+                                              
                                           
                                           # Images
                                           #column(slickROutput("slickr",
@@ -407,6 +407,19 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                           #              HTML("<br><br>")
                                           #),
                                           #width = 6, offset = 3),
+                                          
+                                          tags$head(
+                                            tags$style(HTML("
+                                                      .callout{padding:1rem;border-left:4px solid #0d6efd;background:#f8f9fa;border-radius:.25rem}
+                                                      .callout h4{margin-top:0;margin-bottom:.5rem}
+                                                    "))
+                                          ),
+                                          tags$div(class = "callout",
+                                                   tags$h4("Wichtig:"),
+                                                   "Diese Website ist für den PC optimiert. Sie können mit dem Smartphone fortfahren, sollten aber vermeiden den Tab zu schließen, zu minimieren oder das Display zu sperren bevor die Datenspende abgeschlossen ist um Verbindungsprobleme zu vermeiden."
+                                          ),
+                                          
+                                          HTML("<br><br>"), width = 6, offset = 3),
                                           
                                           # Consent button
                                           column(12, align = "center",
@@ -1963,5 +1976,4 @@ server <- function(input, output, session) {
 }
 
 ##################################### RUNNING APPLICATION ####
-options(shiny.host = "0.0.0.0", shiny.port = 3838)
 shinyApp(ui = ui, server = server)
