@@ -108,7 +108,7 @@ Colnames_exclude_pii <- c("Absender",
 
 
 # Shiny Debugging Options (uncomment these to debug the app)
-options(shiny.session.inactivityTimeout = 2*60*60*1000) # Session Inactivity Timeout =
+options(shiny.session.inactivityTimeout = 2*60*60*1000) # Session Inactivity Timeout
 # options(shiny.error = browser)
 # options(shiny.trace = TRUE)
 
