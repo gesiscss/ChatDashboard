@@ -112,14 +112,32 @@ options(shiny.session.inactivityTimeout = 2*60*60*1000) # Session Inactivity Tim
 # options(shiny.error = browser)
 # options(shiny.trace = TRUE)
 
-
-
+# --- per-user CSV logger (append-only, no IP/path) ---
+log_event <- function(event, session) {
+  user <- parseQueryString(session$clientData$url_search)[["id"]]
+  if (is.null(user) || user == "") user <- "unknown_user"
+  log_path <- file.path("ClosingReasons", paste0("usage_log_", user, ".csv"))
+  dir.create(dirname(log_path), showWarnings = FALSE, recursive = TRUE)
+  
+  row <- data.frame(
+    timestamp_utc = format(Sys.time(), tz = "UTC", usetz = TRUE),
+    event   = event,
+    username = user,
+    device  = shinybrowser::get_device(),
+    browser = shinybrowser::get_browser(),
+    stringsAsFactors = FALSE
+  )
+  
+  write.table(row, file = log_path, sep = ",", row.names = FALSE,
+              col.names = !file.exists(log_path), append = TRUE)
+}
 
 
 ################################### HANDLING SHINY MANAGER CREDENTILAS ####
 
 # Switch for running local (FALSE) vs online (TRUE)
 running_online = FALSE
+
 if (running_online == TRUE) {.libPaths("YOUR-LIB-PATH-HERE")}
 # TODO: Add library path of server here if running online
 
@@ -1283,6 +1301,14 @@ server <- function(input, output, session) {
     res_auth <- secure_server(check_credentials = check_credentials(credentials))
     
   }
+  
+  
+  # Logging Click timestamps
+  observeEvent(res_auth$user, { log_event("login", session) })
+  observeEvent(input$IntroCheck,    { log_event("IntroCheck_click", session) })
+  observeEvent(input$submit,        { log_event("upload_submit_click", session) })
+  observeEvent(input$person_submit, { log_event("person_submit_click", session) })
+  observeEvent(input$donation,      { log_event("donation_click", session) })
   
   
   
