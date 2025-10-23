@@ -2072,5 +2072,5 @@ server <- function(input, output, session) {
 }
 
 ##################################### RUNNING APPLICATION ####
-options(shiny.host = "0.0.0.0", shiny.port = 3838) # Hosting for mobile testing via same network
+#options(shiny.host = "0.0.0.0", shiny.port = 3838) # Hosting for mobile testing via same network
 shinyApp(ui = ui, server = server)
