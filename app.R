@@ -517,7 +517,7 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                 tags$ul(
                                                   tags$li("Öffnen Sie das E-mail Postfach an welches Sie den Chatverlauf gerade geschickt haben."),
                                                   tags$li("Laden Sie den Anhang der E-mail herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
-                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
+                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links (PC), bzw. oben (Smartphone,) auf diese Website hoch."),
                                                   tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
                                                 )
                                               ),
@@ -538,7 +538,7 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                 tags$ul(
                                                   tags$li("Öffnen Sie das E-mail Postfach an welches Sie den Chatverlauf gerade geschickt haben."),
                                                   tags$li("Laden Sie den Anhang der E-mail herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
-                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
+                                                  tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links (PC), bzw. oben (Smartphone,) auf diese Website hoch."),
                                                   tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
                                                 )
                                               )
@@ -2072,5 +2072,5 @@ server <- function(input, output, session) {
 }
 
 ##################################### RUNNING APPLICATION ####
-#options(shiny.host = "0.0.0.0", shiny.port = 3838) # Hosting for mobile testing via same network
+options(shiny.host = "0.0.0.0", shiny.port = 8080) # Hosting for mobile testing via same network
 shinyApp(ui = ui, server = server)
