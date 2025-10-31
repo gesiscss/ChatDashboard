@@ -504,19 +504,19 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                               tags$details(
                                                 tags$summary("Android"),
                                                 tags$ul(
-                                                  tags$li("Öffnen Sie WhatsApp auf Ihrem Smartphone und klicken Sie auf den Chat dessen Verlauf Sie bereitstellen möchten."),
+                                                  tags$li("Öffnen Sie WhatsApp auf Ihrem Smartphone und klicken Sie auf den Chat, dessen Verlauf Sie bereitstellen möchten."),
                                                   tags$li("Klicken Sie oben rechts im Chat auf die drei vertikalen Punkte."),
                                                   tags$li("Wählen Sie die Option `Mehr` im folgenden Menü aus."),
                                                   tags$li("Klicken Sie auf die Option `Chat exportieren`."),
-                                                  tags$li("Im folgenden Fenster, wählen Sie die Option `Ohne Medien` aus."),
-                                                  tags$li("Wählen Sie nun ein Emailprogramm aus der Liste aus. Es öffnet sich eine Email an welche der Chatverlauf automatisch angehängt ist."),
-                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene Emailadresse ein und senden Sie die Email an sich selbst ab.")
+                                                  tags$li("Im folgenden Fenster wählen Sie die Option `Ohne Medien` aus, falls eine Auswahl angezeigt wird."),
+                                                  tags$li("Wählen Sie nun ein E-mail Programm aus der Liste aus. Es öffnet sich eine E-mail an welche der Chatverlauf automatisch angehängt ist."),
+                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene E-mail Adresse ein und senden Sie die E-mail an sich selbst ab.")
                                                 ),
                                                 tags$img(src = "DataExport_Guide_Android.png",
                                                          style = "width:100%;height:auto;", alt = "Android export guide"),
                                                 tags$ul(
-                                                  tags$li("Öffnen Sie das Emailpostfach an welches Sie den Chatverlauf gerade geschickt haben."),
-                                                  tags$li("Laden Sie den Anhang der Email herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
+                                                  tags$li("Öffnen Sie das E-mail Postfach an welches Sie den Chatverlauf gerade geschickt haben."),
+                                                  tags$li("Laden Sie den Anhang der E-mail herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
                                                   tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
                                                   tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
                                                 )
@@ -529,15 +529,15 @@ app_ui <- fluidPage(theme = shinytheme("flatly"),
                                                   tags$li("Öffnen Sie WhatsApp auf Ihrem Smartphone und klicken Sie auf den Chat dessen Verlauf Sie bereitstellen möchten."),
                                                   tags$li("Klicken Sie oben in der Mitte des Chatfensters auf den Namen Ihres Chatpartners."),
                                                   tags$li("Scrollen Sie im Menü nach unten und wählen Sie die Option `Chat exportieren` aus"),
-                                                  tags$li("Im folgenden Fenster, wählen Sie die Option `Ohne Medien` aus."),
-                                                  tags$li("Wählen Sie nun ein Emailprogramm aus er Liste aus. Es öffnet sich eine Email an welche der Chatverlauf automatisch angehängt ist."),
-                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene Emailadresse ein und senden Sie die Email an sich selbst ab.")
+                                                  tags$li("Im folgenden Fenster wählen Sie die Option `Ohne Medien` aus, falls eine Auswahl angezeigt wird."),
+                                                  tags$li("Wählen Sie nun ein E-mail Programm aus er Liste aus. Es öffnet sich eine E-mail an welche der Chatverlauf automatisch angehängt ist."),
+                                                  tags$li("Geben Sie in das Feld 'An' Ihre eigene E-mail Adresse ein und senden Sie die E-mail an sich selbst ab.")
                                                 ),
                                                 tags$img(src = "WhatsApp_DataExport_iOS.png",
                                                          style = "width:100%;height:auto;", alt = "iOS export guide"),
                                                 tags$ul(
-                                                  tags$li("Öffnen Sie das Emailpostfach an welches Sie den Chatverlauf gerade geschickt haben."),
-                                                  tags$li("Laden Sie den Anhang der Email herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
+                                                  tags$li("Öffnen Sie das E-mail Postfach an welches Sie den Chatverlauf gerade geschickt haben."),
+                                                  tags$li("Laden Sie den Anhang der E-mail herunter. Dies kann entweder eine .zip Datei oder eine .txt Datei sein."),
                                                   tags$li("Laden Sie den heruntergeladenen Chatverlauf im Fenster links auf diese Website hoch."),
                                                   tags$li("Auf der nächsten Seite erhalten Sie die Möglichkeit Ihren anonymisierten Chatverlauf nochmal einzusehen und anschließend abzuschicken.")
                                                 )
@@ -1831,7 +1831,7 @@ server <- function(input, output, session) {
         guides(
           color   = guide_legend(ncol = 2, byrow = TRUE),
           fill    = guide_legend(ncol = 2, byrow = TRUE),
-          linetype= guide_legend(ncol = 2, byrow = TRUE),
+          linetype = guide_legend(ncol = 2, byrow = TRUE),
           shape   = guide_legend(ncol = 2, byrow = TRUE)
         )
     }, res = 100, height = 600)
@@ -1849,7 +1849,7 @@ server <- function(input, output, session) {
         guides(
           color   = guide_legend(ncol = 2, byrow = TRUE),
           fill    = guide_legend(ncol = 2, byrow = TRUE),
-          linetype= guide_legend(ncol = 2, byrow = TRUE),
+          linetype = guide_legend(ncol = 2, byrow = TRUE),
           shape   = guide_legend(ncol = 2, byrow = TRUE)
         )
     }, res = 100, height = 600)
